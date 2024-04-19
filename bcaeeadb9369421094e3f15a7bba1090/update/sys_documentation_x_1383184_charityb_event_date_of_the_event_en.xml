@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="date_of_the_event" label="Date of the event" language="en" table="x_1383184_charityb_event">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>date_of_the_event</element>
+            <help/>
+            <hint/>
+            <label>Date of the event</label>
+            <language>en</language>
+            <name>x_1383184_charityb_event</name>
+            <plural>Date of the events</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-04-19 10:07:56</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Date of the event</sys_name>
+            <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+            <sys_update_name>sys_documentation_x_1383184_charityb_event_date_of_the_event_en</sys_update_name>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-04-19 10:07:56</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
