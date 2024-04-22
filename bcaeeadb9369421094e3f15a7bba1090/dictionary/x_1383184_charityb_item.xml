@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="6d85325b93a9421094e3f15a7bba10ea" label="Item" max_length="40" name="x_1383184_charityb_item" type="collection">
-        <element attributes="omit_sys_original=true" label="Current bid amount" mandatory="true" max_length="20" name="current_bid_amount" type="currency"/>
+        <element label="Contact number" max_length="40" name="contact_number" type="phone_number_e164"/>
+        <element attributes="omit_sys_original=true" label="Current bid amount" max_length="20" name="current_bid_amount" type="currency"/>
         <element attributes="edge_encryption_enabled=true" label="Description" max_length="200" name="description" type="string"/>
         <element attributes="encode_utf8=false" label="Donator" mandatory="true" max_length="32" name="donator" reference="sys_user" type="reference"/>
-        <element attributes="edge_encryption_enabled=true" label="End date" mandatory="true" max_length="40" name="end_date" type="glide_date_time"/>
-        <element attributes="edge_encryption_enabled=true" label="Item name" mandatory="true" max_length="40" name="item_name" type="string"/>
-        <element attributes="encode_utf8=false" label="Location" mandatory="true" max_length="32" name="location" reference="cmn_location" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="End date" max_length="40" name="end_date" type="glide_date_time"/>
+        <element label="Image" max_length="40" name="image" type="file_attachment"/>
+        <element attributes="edge_encryption_enabled=true" label="Item name" max_length="40" name="item_name" type="string"/>
+        <element attributes="encode_utf8=false" label="Location" max_length="32" name="location" reference="cmn_location" type="reference"/>
+        <element label="Short description" max_length="150" name="short_description" type="string"/>
         <element attributes="omit_sys_original=true" label="Start bid amount" mandatory="true" max_length="20" name="start_bid_amount" type="currency"/>
-        <element attributes="edge_encryption_enabled=true" label="Start date" mandatory="true" max_length="40" name="start_date" type="glide_date_time"/>
-        <element attributes="edge_encryption_enabled=true" choice="3" default="upcoming" label="Status" mandatory="true" max_length="40" name="status" type="choice">
+        <element attributes="edge_encryption_enabled=true" label="Start date" max_length="40" name="start_date" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="upcoming" label="Status" max_length="40" name="status" type="choice">
             <choice>
-                <element inactive_on_update="false" label="Open" value="open"/>
-                <element inactive_on_update="false" label="Sold" value="sold"/>
-                <element inactive_on_update="false" label="Upcoming" value="upcoming"/>
+                <element inactive_on_update="false" label="Closed" value="closed"/>
+                <element inactive_on_update="false" label="In progress" value="in_progress"/>
+                <element inactive_on_update="false" label="new" value="new"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="other" label="Category" max_length="40" name="u_choice_1" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Electronics" sequence="0" value="electronics"/>
+                <element inactive_on_update="false" label="Clothing &amp; Accessories" sequence="1" value="clothing &amp; accessories"/>
+                <element inactive_on_update="false" label="Home &amp; Garden" sequence="2" value="home &amp; garden"/>
+                <element inactive_on_update="false" label="Books &amp; Media" sequence="3" value="books &amp; media"/>
+                <element inactive_on_update="false" label="Sports &amp; Outdoors" sequence="4" value="sports &amp; outdoors"/>
+                <element inactive_on_update="false" label="Other" sequence="5" value="other"/>
             </choice>
         </element>
         <index name="index">

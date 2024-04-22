@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element db_object_id="e638b61f93a9421094e3f15a7bba1032" label="Event" max_length="40" name="x_1383184_charityb_event" type="collection">
+    <element db_object_id="f9ea49909379461094e3f15a7bba1075" label="Event" max_length="40" name="x_1383184_charityb_event" type="collection">
         <element label="Amount recieved" max_length="20" name="amount_recieved" type="currency"/>
-        <element label="Charity conductor" mandatory="true" max_length="32" name="charity_conductor" reference="core_company" type="reference"/>
-        <element label="Date of the event" mandatory="true" max_length="40" name="date_of_the_event" type="glide_date_time"/>
-        <element label="Description" mandatory="true" max_length="500" name="description" type="string"/>
-        <element label="End date" mandatory="true" max_length="40" name="end_date" type="glide_date_time"/>
-        <element label="Event manager" mandatory="true" max_length="50" name="event_manager" reference="sys_user" type="reference"/>
-        <element label="Event name" mandatory="true" max_length="100" name="event_name" type="string"/>
-        <element choice="3" default="-- New choice --" label="Event status" mandatory="true" max_length="40" name="event_status" type="choice">
+        <element label="Charity conductor" max_length="32" name="charity_conductor" reference="core_company" type="reference"/>
+        <element label="Date of event" max_length="40" name="date_of_event" type="glide_date_time"/>
+        <element label="Description" max_length="500" name="description" type="string"/>
+        <element label="End date" max_length="40" name="end_date" type="glide_date_time"/>
+        <element label="Event manager" max_length="32" name="event_manager" reference="sys_user" type="reference"/>
+        <element label="Event name" mandatory="true" max_length="200" name="event_name" type="string"/>
+        <element choice="3" default="new" label="Event status" max_length="40" name="event_status" type="choice">
             <choice>
-                <element inactive_on_update="false" label="Upcoming" sequence="0" value="-- New choice --"/>
-                <element inactive_on_update="false" label="Completed" sequence="1" value="completed"/>
-                <element inactive_on_update="false" label="Ongoing" sequence="2" value="ongoing"/>
+                <element inactive="true" inactive_on_update="true" label="Completed" sequence="0" value="completed"/>
+                <element inactive_on_update="false" label="New" sequence="0" value="new"/>
+                <element inactive_on_update="false" label="In Progress" sequence="1" value="in progress"/>
+                <element inactive="true" inactive_on_update="true" label="Ongoing" sequence="1" value="ongoing"/>
+                <element inactive_on_update="false" label="Closed" sequence="2" value="closed"/>
+                <element inactive="true" inactive_on_update="true" label="Scheduled" sequence="2" value="scheduled"/>
             </choice>
         </element>
-        <element label="Just giving url" mandatory="true" max_length="1024" name="just_giving_url" type="url"/>
-        <element label="Location" max_length="32" name="location" reference="cmn_location" type="reference"/>
-        <element label="Start date" mandatory="true" max_length="40" name="start_date" type="glide_date_time"/>
+        <element label="Image" max_length="40" name="image" type="file_attachment"/>
+        <element label="Justgiving url" max_length="1024" name="justgiving_url" type="url"/>
+        <element label="Short discription" max_length="100" name="short_discription" type="string"/>
+        <element label="Start date" max_length="40" name="start_date" type="glide_date_time"/>
         <index name="index">
             <element name="charity_conductor"/>
         </index>
         <index name="index2">
-            <element name="location"/>
+            <element name="event_manager"/>
         </index>
     </element>
 </database>
