@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="Charity Bids">b34a595493b9461094e3f15a7bba1007</application>
+        <assessment/>
+        <device_type/>
+        <filter/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>Event Views</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_1383184_charityb_event</name>
+        <order>500</order>
+        <override_menu_roles>false</override_menu_roles>
+        <query/>
+        <report/>
+        <roles>x_1383184_charityb.event_manager</roles>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-04-23 11:25:53</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b5f4772c93f5c61094e3f15a7bba108c</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Event Views</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_app_module_b5f4772c93f5c61094e3f15a7bba108c</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-04-23 11:26:38</sys_updated_on>
+        <timeline_page/>
+        <title>Event Views</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+</record_update>

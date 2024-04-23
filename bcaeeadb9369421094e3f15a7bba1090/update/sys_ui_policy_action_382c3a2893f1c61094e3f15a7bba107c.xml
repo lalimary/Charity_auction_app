@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field>amount_recieved</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-04-23 07:17:10</sys_created_on>
+        <sys_id>382c3a2893f1c61094e3f15a7bba107c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>amount_recieved</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_ui_policy_action_382c3a2893f1c61094e3f15a7bba107c</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-04-23 07:17:10</sys_updated_on>
+        <table>x_1383184_charityb_event</table>
+        <ui_policy display_value="Hide amount recieved for new status">793a72a493f1c61094e3f15a7bba10db</ui_policy>
+        <visible>false</visible>
+    </sys_ui_policy_action>
+</record_update>

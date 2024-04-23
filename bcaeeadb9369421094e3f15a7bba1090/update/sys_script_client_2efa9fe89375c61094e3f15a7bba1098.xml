@@ -3,35 +3,33 @@
         <active>true</active>
         <applies_extended>false</applies_extended>
         <condition/>
-        <description>The script hides the current bidding amount if the auction status is new.</description>
+        <description>The donator name should be set to logged in user.</description>
         <field/>
         <global>true</global>
         <isolate_script>true</isolate_script>
         <messages/>
-        <name>Hide Current Bid Amount</name>
+        <name>Logged in Donator</name>
         <order/>
         <script><![CDATA[function onLoad() {
-    var auctionStatus = g_form.getValue('auction_status');
-    if (auctionStatus === 'new') {
-        g_form.setDisplay('current_bid_amount', false);
-    }
-}
-]]></script>
+  var loggedInUserName = g_user.firstName + ' ' + g_user.lastName;
+    g_form.setValue('donator', loggedInUserName);
+   
+}]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>lalitha</sys_created_by>
-        <sys_created_on>2024-04-22 17:35:38</sys_created_on>
+        <sys_created_on>2024-04-23 09:36:20</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>19dfb39493b5861094e3f15a7bba101e</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>Hide Current Bid Amount</sys_name>
+        <sys_id>2efa9fe89375c61094e3f15a7bba1098</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Logged in Donator</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
-        <sys_update_name>sys_script_client_19dfb39493b5861094e3f15a7bba101e</sys_update_name>
+        <sys_update_name>sys_script_client_2efa9fe89375c61094e3f15a7bba1098</sys_update_name>
         <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-04-22 17:45:30</sys_updated_on>
+        <sys_updated_on>2024-04-23 10:05:02</sys_updated_on>
         <table>x_1383184_charityb_item</table>
         <type>onLoad</type>
         <ui_type>0</ui_type>

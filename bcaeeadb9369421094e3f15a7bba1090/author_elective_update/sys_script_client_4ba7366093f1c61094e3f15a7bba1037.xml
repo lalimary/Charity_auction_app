@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Amount recieved should not be visible if the status is new. </description>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Hide Amount Recieved. </name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+    var eventStatus = g_form.getValue('event_status');
+    if (eventStatus === 'new') {
+        g_form.setDisplay('amount_recieved', false);
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-04-23 06:59:28</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4ba7366093f1c61094e3f15a7bba1037</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Hide Amount Recieved. </sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_4ba7366093f1c61094e3f15a7bba1037</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-04-23 07:03:22</sys_updated_on>
+        <table>x_1383184_charityb_event</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_client_4ba7366093f1c61094e3f15a7bba1037</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;Amount recieved should not be visible if the status is new. &lt;/description&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Hide Amount Recieved. &lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onLoad() {
+    var eventStatus = g_form.getValue('event_status');
+    if (eventStatus === 'new') {
+        g_form.setDisplay('amount_recieved', false);
+    }
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;christy&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-04-23 06:59:28&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;4ba7366093f1c61094e3f15a7bba1037&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Hide Amount Recieved. &lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_4ba7366093f1c61094e3f15a7bba1037&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;christy&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-04-23 07:03:22&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_event&lt;/table&gt;&lt;type&gt;onLoad&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>676363182</payload_hash>
+        <record_name>Hide Amount Recieved. </record_name>
+        <reverted_from/>
+        <source>f25da6989331861094e3f15a7bba10d7</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-04-23 07:03:22</sys_created_on>
+        <sys_id>5029be2493f1c61094e3f15a7bba1008</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f09c42ae60000001</sys_recorded_at>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-04-23 07:03:22</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>d429be2488f1c610dd94f24a81f92b07</update_guid>
+        <update_guid_history>d429be2488f1c610dd94f24a81f92b07:676363182,533872a0eef1c610070922843d00c187:307351706</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-04-23 07:06:49</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>367865dda31c44bbaa48601aa7bc7a49</sys_id>
+        <sys_metadata>4ba7366093f1c61094e3f15a7bba1037</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Hide Amount Recieved. </sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Event">f9ea49909379461094e3f15a7bba1075</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_client_4ba7366093f1c61094e3f15a7bba1037</sys_update_name>
+        <sys_update_version display_value="sys_script_client_4ba7366093f1c61094e3f15a7bba1037">5029be2493f1c61094e3f15a7bba1008</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-04-23 07:06:49</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

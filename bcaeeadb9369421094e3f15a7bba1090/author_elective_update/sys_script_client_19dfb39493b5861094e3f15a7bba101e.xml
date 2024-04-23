@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>The script hides the current bidding amount if the auction status is new.</description>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Hide Current Bid Amount</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+    var auctionStatus = g_form.getValue('auction_status');
+    var currentBidAmountField = g_form.getControl('current_bid_amount');
+
+    if (auctionStatus == 'item_submitted' || auctionStatus == 'auction_scheduled') {
+        // Hide the Current Bidding Amount field
+        currentBidAmountField.style.display = 'none';
+    } else {
+        // Show the Current Bidding Amount field
+        currentBidAmountField.style.display = 'block';
+    }
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-04-22 17:35:38</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>19dfb39493b5861094e3f15a7bba101e</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Hide Current Bid Amount</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_19dfb39493b5861094e3f15a7bba101e</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-04-23 07:15:04</sys_updated_on>
+        <table>x_1383184_charityb_item</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_client_19dfb39493b5861094e3f15a7bba101e</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;The script hides the current bidding amount if the auction status is new.&lt;/description&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Hide Current Bid Amount&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onLoad() {
+    var auctionStatus = g_form.getValue('auction_status');
+    var currentBidAmountField = g_form.getControl('current_bid_amount');
+
+    if (auctionStatus == 'item_submitted' || auctionStatus == 'auction_scheduled') {
+        // Hide the Current Bidding Amount field
+        currentBidAmountField.style.display = 'none';
+    } else {
+        // Show the Current Bidding Amount field
+        currentBidAmountField.style.display = 'block';
+    }
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-04-22 17:35:38&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;19dfb39493b5861094e3f15a7bba101e&lt;/sys_id&gt;&lt;sys_mod_count&gt;9&lt;/sys_mod_count&gt;&lt;sys_name&gt;Hide Current Bid Amount&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_19dfb39493b5861094e3f15a7bba101e&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-04-23 07:15:04&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_item&lt;/table&gt;&lt;type&gt;onLoad&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1849234582</payload_hash>
+        <record_name>Hide Current Bid Amount</record_name>
+        <reverted_from/>
+        <source>a9d0d3d7932d421094e3f15a7bba10fd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-04-23 07:15:04</sys_created_on>
+        <sys_id>b7cb322893f1c61094e3f15a7bba1083</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f09cee1ef0000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-04-23 07:15:04</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>7fcb32288ff1c6108842b3e4b2831682</update_guid>
+        <update_guid_history>7fcb32288ff1c6108842b3e4b2831682:-1849234582,a20b7aa4edf1c6101035eae338b9a7ca:-741387417,8c37ba2089f1c61064f14284e8cee77e:1286697039,4746f2ec9fb1c6103ef689b9b1f2cf1d:-1525014132,4d5fa2a458b1c610b80c6dc81d90749c:-1513945332,07eee6a441b1c61012b961dd379997fe:508590540,0d824c2811b58610128e1b56bcd0f702:400511633,0862c42899b58610cf465d72ca3564a9:1977205361,2de1c0e46fb58610c206791c24febbc1:2089188779,ac40806007b58610b71092e9925965cb:-1987045405</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-04-23 07:19:41</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>c836dc7f034c4398a1eee0b68d1802a4</sys_id>
+        <sys_metadata>19dfb39493b5861094e3f15a7bba101e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Hide Current Bid Amount</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Item">6d85325b93a9421094e3f15a7bba10ea</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_client_19dfb39493b5861094e3f15a7bba101e</sys_update_name>
+        <sys_update_version display_value="sys_script_client_19dfb39493b5861094e3f15a7bba101e">b7cb322893f1c61094e3f15a7bba1083</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-04-23 07:19:41</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
