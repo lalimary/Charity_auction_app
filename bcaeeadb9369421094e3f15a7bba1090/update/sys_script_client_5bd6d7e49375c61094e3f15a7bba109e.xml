@@ -21,22 +21,25 @@
     var startDateObj = new Date(startDate);
  
     // Validate start date is not before today
-    if (startDateObj < currentDate) {
+    if (startDateObj <= currentDate) { // Change to <= to include today
+		g_form.clearValue('start_date');
         g_form.showFieldMsg('start_date', 'Start date cannot be today or before today', 'error');
-       return;
-	}
-	    // Clear any existing error message
-    g_form.clearMessages('start_date');
+        return;
     }
- 
-    ]]></script>
+
+    // Clear the start date field value only if there's an error message
+   
+
+    // Clear any existing error message if the start date is valid
+    g_form.clearMessages('start_date');
+}]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>christy</sys_created_by>
         <sys_created_on>2024-04-23 09:18:17</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>5bd6d7e49375c61094e3f15a7bba109e</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_name>Event start date from today</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
@@ -44,7 +47,7 @@
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_script_client_5bd6d7e49375c61094e3f15a7bba109e</sys_update_name>
         <sys_updated_by>christy</sys_updated_by>
-        <sys_updated_on>2024-04-23 10:20:55</sys_updated_on>
+        <sys_updated_on>2024-04-24 07:41:02</sys_updated_on>
         <table>x_1383184_charityb_event</table>
         <type>onChange</type>
         <ui_type>0</ui_type>
