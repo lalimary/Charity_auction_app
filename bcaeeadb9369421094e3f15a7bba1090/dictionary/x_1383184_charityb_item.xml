@@ -15,7 +15,7 @@
         <element attributes="edge_encryption_enabled=true" label="End date" max_length="40" name="end_date" type="glide_date_time"/>
         <element label="Image" max_length="40" name="image" type="user_image"/>
         <element attributes="edge_encryption_enabled=true" display="true" label="Item name" mandatory="true" max_length="40" name="item_name" type="string"/>
-        <element attributes="encode_utf8=false" label="Location" max_length="32" name="location" reference="sys_user" type="reference"/>
+        <element label="Location" max_length="32" name="location" reference="cmn_location" type="reference"/>
         <element attributes="omit_sys_original=true" label="Start bid amount" max_length="20" name="start_bid_amount" type="currency"/>
         <element attributes="edge_encryption_enabled=true" label="Start date" max_length="40" name="start_date" type="glide_date_time"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="other" label="Category" max_length="40" name="u_choice_1" type="string">
