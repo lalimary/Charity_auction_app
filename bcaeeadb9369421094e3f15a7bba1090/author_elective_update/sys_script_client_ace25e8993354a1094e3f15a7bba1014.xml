@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Set the present date to the current date</description>
+        <field>current_date</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Set current date</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+    var currentDateTime = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    g_form.setValue('current_date', currentDateTime);
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-04-24 17:34:25</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ace25e8993354a1094e3f15a7bba1014</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Set current date</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_ace25e8993354a1094e3f15a7bba1014</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-04-24 17:48:01</sys_updated_on>
+        <table>x_1383184_charityb_item</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_client_ace25e8993354a1094e3f15a7bba1014</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;Set the present date to the current date&lt;/description&gt;&lt;field&gt;current_date&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Set current date&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onLoad() {
+    var currentDateTime = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    g_form.setValue('current_date', currentDateTime);
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-04-24 17:34:25&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;ace25e8993354a1094e3f15a7bba1014&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;Set current date&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_ace25e8993354a1094e3f15a7bba1014&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-04-24 17:48:01&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_item&lt;/table&gt;&lt;type&gt;onLoad&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1514832243</payload_hash>
+        <record_name>Set current date</record_name>
+        <reverted_from/>
+        <source>a9d0d3d7932d421094e3f15a7bba10fd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-04-24 17:48:02</sys_created_on>
+        <sys_id>d5469e4d93354a1094e3f15a7bba1064</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f1138bc760000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-04-24 17:48:02</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>9d469e4d98354a108a177af5c0bd2963</update_guid>
+        <update_guid_history>9d469e4d98354a108a177af5c0bd2963:-1514832243,18441a0dfa354a109db7fb6f08d0d831:-879364802,3cd3120da0354a106ec3810a3f0cb95f:1672587380,86531ac5aa354a10f33182e411982cf3:-323469882,c2235249df354a10f3345aa1eb91ef86:1495292143</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-06 07:02:40</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>6c6f0e8a426440d1942f483c65255069</sys_id>
+        <sys_metadata>ace25e8993354a1094e3f15a7bba1014</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Set current date</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Item">6d85325b93a9421094e3f15a7bba10ea</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_client_ace25e8993354a1094e3f15a7bba1014</sys_update_name>
+        <sys_update_version display_value="sys_script_client_ace25e8993354a1094e3f15a7bba1014">d5469e4d93354a1094e3f15a7bba1064</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-06 07:02:40</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

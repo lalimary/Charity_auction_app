@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>false</active>
+        <api_name>x_1383184_charityb.Fetch location SI</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>Fetch location SI</name>
+        <script><![CDATA[var GetUserLocation = Class.create();
+GetUserLocation.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    getLocation: function() {
+        var gr = new GlideRecord('sys_user');
+        if (gr.get(this.getParameter('sysparm_emp'))) {
+            return gr.location.getDisplayValue();
+        }
+        return ''; // Return an empty string if the user record is not found or location is empty
+    },
+
+    type: 'GetUserLocation'
+});
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-04-30 09:27:23</sys_created_on>
+        <sys_id>890d537e9375021094e3f15a7bba1043</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Fetch location SI</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_include_890d537e9375021094e3f15a7bba1043</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-04-30 09:43:32</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_include_890d537e9375021094e3f15a7bba1043</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;false&lt;/active&gt;&lt;api_name&gt;x_1383184_charityb.Fetch location SI&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;Fetch location SI&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var GetUserLocation = Class.create();
+GetUserLocation.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    getLocation: function() {
+        var gr = new GlideRecord('sys_user');
+        if (gr.get(this.getParameter('sysparm_emp'))) {
+            return gr.location.getDisplayValue();
+        }
+        return ''; // Return an empty string if the user record is not found or location is empty
+    },
+
+    type: 'GetUserLocation'
+});
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-04-30 09:27:23&lt;/sys_created_on&gt;&lt;sys_id&gt;890d537e9375021094e3f15a7bba1043&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Fetch location SI&lt;/sys_name&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_890d537e9375021094e3f15a7bba1043&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-04-30 09:43:32&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>81837579</payload_hash>
+        <record_name>Fetch location SI</record_name>
+        <reverted_from/>
+        <source>a9d0d3d7932d421094e3f15a7bba10fd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-04-30 09:43:32</sys_created_on>
+        <sys_id>76e0ef7293b5021094e3f15a7bba10a8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f2e6355400000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-04-30 09:43:32</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>3ee0ef723eb50210bccc0616b465ada7</update_guid>
+        <update_guid_history>3ee0ef723eb50210bccc0616b465ada7:81837579,de3d577eb7750210cbfde6d52d0d3908:-1652994948</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-06 09:12:03</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>2c2e6b2c214e4eec9ff322284f889269</sys_id>
+        <sys_metadata>890d537e9375021094e3f15a7bba1043</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Fetch location SI</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_include_890d537e9375021094e3f15a7bba1043</sys_update_name>
+        <sys_update_version display_value="sys_script_include_890d537e9375021094e3f15a7bba1043">76e0ef7293b5021094e3f15a7bba10a8</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-06 09:12:03</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
