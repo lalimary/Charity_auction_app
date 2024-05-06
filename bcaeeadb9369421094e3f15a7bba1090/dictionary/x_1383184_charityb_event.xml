@@ -6,15 +6,12 @@
         <element label="Description" max_length="500" name="description" type="string"/>
         <element label="End date" max_length="40" name="end_date" type="glide_date_time"/>
         <element label="Event manager" mandatory="true" max_length="32" name="event_manager" reference="sys_user" reference_qual="roles=x_1383184_charityb.event_manager^EQ" reference_qual_condition="roles=x_1383184_charityb.event_manager^EQ" type="reference"/>
-        <element label="Event name" mandatory="true" max_length="200" name="event_name" type="string"/>
-        <element choice="3" default="new" label="Event status" max_length="40" name="event_status" type="choice">
+        <element display="true" label="Event name" mandatory="true" max_length="200" name="event_name" type="string"/>
+        <element choice="3" default="scheduled" label="Event status" max_length="40" name="event_status" type="choice">
             <choice>
-                <element inactive="true" inactive_on_update="true" label="Completed" sequence="0" value="completed"/>
-                <element inactive_on_update="false" label="New" sequence="0" value="new"/>
+                <element inactive_on_update="false" label="Scheduled" sequence="0" value="scheduled"/>
                 <element inactive_on_update="false" label="In Progress" sequence="1" value="in progress"/>
-                <element inactive="true" inactive_on_update="true" label="Ongoing" sequence="1" value="ongoing"/>
-                <element inactive_on_update="false" label="Closed" sequence="2" value="closed"/>
-                <element inactive="true" inactive_on_update="true" label="Scheduled" sequence="2" value="scheduled"/>
+                <element inactive_on_update="false" label="Completed" sequence="2" value="completed"/>
                 <element inactive_on_update="false" label="Cancelled" sequence="3" value="cancelled"/>
             </choice>
         </element>

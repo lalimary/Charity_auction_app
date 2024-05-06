@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_1383184_charityb.URLShortener</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>URLShortener</name>
+        <script><![CDATA[var URLShortener = Class.create();
+URLShortener.prototype = {
+    initialize: function() {},
+
+    shortenURL: function(longURL) {
+        var accessToken = "f0b3673cccd2956ce903f007f3d93a52ed8a5715";
+        var apiUrl = "https://api-ssl.bitly.com/v4/shorten";
+        //var apiUrl = "https://api-ssl.bitly.com/v4/bitlinks/bit.ly/12a4b6c";
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", apiUrl, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                var shortenedURL = response.link;
+                // Update the form field with the shortened URL
+                g_form.setValue("your_url_field", shortenedURL);
+            }
+        };
+
+        var data = JSON.stringify({
+            long_url: longURL,
+            domain: "bit.ly"
+        });
+
+        xhr.send(data);
+    },
+
+    type: 'URLShortener'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-04-30 05:16:18</sys_created_on>
+        <sys_id>1b532af69371021094e3f15a7bba104f</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>URLShortener</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_include_1b532af69371021094e3f15a7bba104f</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-04-30 09:13:36</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_include_1b532af69371021094e3f15a7bba104f</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_1383184_charityb.URLShortener&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;URLShortener&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var URLShortener = Class.create();
+URLShortener.prototype = {
+    initialize: function() {},
+
+    shortenURL: function(longURL) {
+        var accessToken = "f0b3673cccd2956ce903f007f3d93a52ed8a5715";
+        var apiUrl = "https://api-ssl.bitly.com/v4/shorten";
+        //var apiUrl = "https://api-ssl.bitly.com/v4/bitlinks/bit.ly/12a4b6c";
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", apiUrl, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 &amp;&amp; xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                var shortenedURL = response.link;
+                // Update the form field with the shortened URL
+                g_form.setValue("your_url_field", shortenedURL);
+            }
+        };
+
+        var data = JSON.stringify({
+            long_url: longURL,
+            domain: "bit.ly"
+        });
+
+        xhr.send(data);
+    },
+
+    type: 'URLShortener'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;christy&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-04-30 05:16:18&lt;/sys_created_on&gt;&lt;sys_id&gt;1b532af69371021094e3f15a7bba104f&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;URLShortener&lt;/sys_name&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_1b532af69371021094e3f15a7bba104f&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;christy&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-04-30 09:13:36&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-219400674</payload_hash>
+        <record_name>URLShortener</record_name>
+        <reverted_from/>
+        <source>03a41e369331021094e3f15a7bba104a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-04-30 09:13:36</sys_created_on>
+        <sys_id>5c1a5b7a9375021094e3f15a7bba1017</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f2e47edd70000001</sys_recorded_at>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-04-30 09:13:36</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>141a5b7a3b750210e1ae15a8048f6c17</update_guid>
+        <update_guid_history>141a5b7a3b750210e1ae15a8048f6c17:-219400674,2f4857b650750210be23ef9bcc429055:-1150267012,c75517324335021054f600a701c7c3db:-2114518227,36e307fe3ef10210e6ac1b0816a19efd:465926147,10c3a276e8710210e916b9707ee31452:616453537</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-04-30 09:41:59</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>2c66e0d2bb7c4c7b83f1c2f5c09e5fb1</sys_id>
+        <sys_metadata>1b532af69371021094e3f15a7bba104f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>URLShortener</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_include_1b532af69371021094e3f15a7bba104f</sys_update_name>
+        <sys_update_version display_value="sys_script_include_1b532af69371021094e3f15a7bba104f">5c1a5b7a9375021094e3f15a7bba1017</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-04-30 09:41:59</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
