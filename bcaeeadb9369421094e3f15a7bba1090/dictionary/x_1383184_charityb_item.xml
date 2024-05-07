@@ -8,6 +8,7 @@
                 <element inactive_on_update="false" label="Auction completed" sequence="400" value="auction_completed"/>
             </choice>
         </element>
+        <element label="Bids" max_length="32" name="bids" reference="x_1383184_charityb_bids" type="reference"/>
         <element label=" Category" max_length="32" name="category" reference="x_1383184_charityb_item_category" type="reference"/>
         <element attributes="omit_sys_original=true" label="Current bid amount" max_length="20" name="current_bid_amount" type="currency"/>
         <element attributes="edge_encryption_enabled=true" label="Description" max_length="500" name="description" type="string"/>
@@ -19,12 +20,15 @@
         <element attributes="omit_sys_original=true" label="Start bid amount" max_length="20" name="start_bid_amount" type="currency"/>
         <element attributes="edge_encryption_enabled=true" label="Start date" mandatory="true" max_length="40" name="start_date" type="glide_date_time"/>
         <index name="index">
-            <element name="category"/>
+            <element name="bids"/>
         </index>
         <index name="index2">
-            <element name="donator"/>
+            <element name="category"/>
         </index>
         <index name="index3">
+            <element name="donator"/>
+        </index>
+        <index name="index4">
             <element name="location"/>
         </index>
     </element>

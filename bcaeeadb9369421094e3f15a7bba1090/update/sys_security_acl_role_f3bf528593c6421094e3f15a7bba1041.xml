@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-07 04:45:07</sys_created_on>
+        <sys_id>f3bf528593c6421094e3f15a7bba1041</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1383184_charityb_bids.x_1383184_charityb.bids_user</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_security_acl display_value="x_1383184_charityb_bids">37bf528593c6421094e3f15a7bba103e</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_f3bf528593c6421094e3f15a7bba1041</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-07 04:45:07</sys_updated_on>
+        <sys_user_role display_value="x_1383184_charityb.bids_user" name="x_1383184_charityb.bids_user">23bf568193c6421094e3f15a7bba1019</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

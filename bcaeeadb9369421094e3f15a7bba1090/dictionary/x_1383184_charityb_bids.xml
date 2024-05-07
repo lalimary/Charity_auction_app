@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="0a8f1e4193c6421094e3f15a7bba10a7" label="Bids" max_length="40" name="x_1383184_charityb_bids" type="collection">
+        <element label="Bidder" max_length="32" name="bidder" reference="sys_user" type="reference"/>
+        <element label="Bid_Amount" max_length="20" name="bid_amount" type="currency"/>
+        <element label="Bid_Item" max_length="32" name="bid_item" reference="x_1383184_charityb_item" type="reference"/>
+        <element label="Bid_Time" max_length="40" name="bid_time" type="glide_date_time"/>
+        <index name="index">
+            <element name="bid_item"/>
+        </index>
+        <index name="index2">
+            <element name="bidder"/>
+        </index>
+    </element>
+</database>
