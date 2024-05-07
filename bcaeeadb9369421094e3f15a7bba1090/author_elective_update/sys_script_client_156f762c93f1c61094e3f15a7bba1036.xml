@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>The start date should not be before today.</description>
+        <field>start_date</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Start date validation</name>
+        <order/>
+        <script><![CDATA[function onChange() {
+
+    var startDate = g_form.getValue('start_date');
+
+
+    var currentDate = new Date();
+
+    // Convert start date to Date object
+    var startDateObj = new Date(startDate);
+
+    // Validate start date is not before today
+    if (startDateObj < currentDate) {
+		g_form.clearValue('start_date');
+        g_form.showFieldMsg('start_date', 'Start date cannot be before today', 'error');
+        return;
+    }
+
+    // Clear any existing error message
+    g_form.clearMessages('start_date');
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-04-23 09:00:03</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>156f762c93f1c61094e3f15a7bba1036</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Start date validation</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_156f762c93f1c61094e3f15a7bba1036</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-06 09:58:17</sys_updated_on>
+        <table>x_1383184_charityb_item</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_client_156f762c93f1c61094e3f15a7bba1036</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;The start date should not be before today.&lt;/description&gt;&lt;field&gt;start_date&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Start date validation&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange() {
+
+    var startDate = g_form.getValue('start_date');
+
+
+    var currentDate = new Date();
+
+    // Convert start date to Date object
+    var startDateObj = new Date(startDate);
+
+    // Validate start date is not before today
+    if (startDateObj &lt; currentDate) {
+		g_form.clearValue('start_date');
+        g_form.showFieldMsg('start_date', 'Start date cannot be before today', 'error');
+        return;
+    }
+
+    // Clear any existing error message
+    g_form.clearMessages('start_date');
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-04-23 09:00:03&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;156f762c93f1c61094e3f15a7bba1036&lt;/sys_id&gt;&lt;sys_mod_count&gt;8&lt;/sys_mod_count&gt;&lt;sys_name&gt;Start date validation&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_156f762c93f1c61094e3f15a7bba1036&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-06 09:58:17&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_item&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1004299500</payload_hash>
+        <record_name>Start date validation</record_name>
+        <reverted_from/>
+        <source>a9d0d3d7932d421094e3f15a7bba10fd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-06 09:58:17</sys_created_on>
+        <sys_id>e9dd167c9346021094e3f15a7bba10c0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f4d56fd870000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-06 09:58:17</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>61dd167cd5460210a50852a020f389c0</update_guid>
+        <update_guid_history>61dd167cd5460210a50852a020f389c0:-1004299500,5fb5f5fc3c8202108126dd699f2c2952:1627010068,dba9e085cf7d0a1061951cb8e1748ffa:-1799312670,c64917e80b75c6103295c5271407bdc5:613684081,b9a8d7a86a75c610f14ff70f6bdef4fc:745605244,e07893a87375c610d5f9587e7a02f9ee:-493805890,9d285f281375c61005e17928cc8d5c62:-95867574,c7741764ae75c610e336da03b36c63cf:795034467,e9d3dbe04575c6100d7a261331f2ea46:-663353037</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-07 10:43:20</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>08249b923ef74d4dae90be8b4df63589</sys_id>
+        <sys_metadata>156f762c93f1c61094e3f15a7bba1036</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Start date validation</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Item">6d85325b93a9421094e3f15a7bba10ea</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_client_156f762c93f1c61094e3f15a7bba1036</sys_update_name>
+        <sys_update_version display_value="sys_script_client_156f762c93f1c61094e3f15a7bba1036">e9dd167c9346021094e3f15a7bba10c0</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-07 10:43:20</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

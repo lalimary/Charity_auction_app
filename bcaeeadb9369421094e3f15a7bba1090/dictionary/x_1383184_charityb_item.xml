@@ -13,12 +13,12 @@
         <element attributes="omit_sys_original=true" label="Current bid amount" max_length="20" name="current_bid_amount" type="currency"/>
         <element attributes="edge_encryption_enabled=true" label="Description" max_length="500" name="description" type="string"/>
         <element attributes="encode_utf8=false" label="Donator" max_length="32" name="donator" read_only="true" reference="sys_user" type="reference"/>
-        <element attributes="edge_encryption_enabled=true" label="End date" mandatory="true" max_length="40" name="end_date" type="glide_date_time"/>
+        <element label="End date" max_length="40" name="end_date" type="glide_date"/>
         <element label="Image" max_length="40" name="image" type="user_image"/>
         <element attributes="edge_encryption_enabled=true" display="true" label="Item name" mandatory="true" max_length="40" name="item_name" type="string"/>
         <element label="Location" max_length="32" name="location" type="string"/>
         <element attributes="omit_sys_original=true" label="Start bid amount" max_length="20" name="start_bid_amount" type="currency"/>
-        <element attributes="edge_encryption_enabled=true" label="Start date" mandatory="true" max_length="40" name="start_date" type="glide_date_time"/>
+        <element label="Start date" max_length="40" name="start_date" type="glide_date"/>
         <index name="index">
             <element name="bids"/>
         </index>
