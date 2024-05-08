@@ -37,7 +37,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>8b69a34d930e421094e3f15a7bba1047</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Event end date validation</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
@@ -45,7 +45,7 @@
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_script_client_8b69a34d930e421094e3f15a7bba1047</sys_update_name>
         <sys_updated_by>christy</sys_updated_by>
-        <sys_updated_on>2024-05-07 10:10:58</sys_updated_on>
+        <sys_updated_on>2024-05-08 08:23:26</sys_updated_on>
         <table>x_1383184_charityb_event</table>
         <type>onChange</type>
         <ui_type>0</ui_type>

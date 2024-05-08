@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="DELETE">
+        <active>true</active>
+        <application display_value="Charity Bids">b34a595493b9461094e3f15a7bba1007</application>
+        <assessment/>
+        <device_type/>
+        <filter/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>Item categories</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_1383184_charityb_item_category</name>
+        <order>300</order>
+        <override_menu_roles>false</override_menu_roles>
+        <query/>
+        <report/>
+        <roles>x_1383184_charityb.item_category_user</roles>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-06 06:17:17</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>0c4ba9fc9342021094e3f15a7bba1097</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Item categories</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_app_module_0c4ba9fc9342021094e3f15a7bba1097</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-06 09:26:32</sys_updated_on>
+        <timeline_page/>
+        <title>Item categories</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_app_module_0c4ba9fc9342021094e3f15a7bba1097</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="Charity Bids">b34a595493b9461094e3f15a7bba1007</application><assessment/><device_type/><filter/><hint/><homepage/><image/><link_type>LIST</link_type><map_page/><mobile_title>Item categories</mobile_title><mobile_view_name>Mobile</mobile_view_name><name>x_1383184_charityb_item_category</name><order>300</order><override_menu_roles>false</override_menu_roles><query/><report/><roles>x_1383184_charityb.item_category_user</roles><sys_class_name>sys_app_module</sys_class_name><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-06 06:17:17</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>0c4ba9fc9342021094e3f15a7bba1097</sys_id><sys_mod_count>3</sys_mod_count><sys_name>Item categories</sys_name><sys_overrides/><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_app_module_0c4ba9fc9342021094e3f15a7bba1097</sys_update_name><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-06 09:26:32</sys_updated_on><timeline_page/><title>Item categories</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+        <payload_hash>-1736119907</payload_hash>
+        <record_name>Item categories</record_name>
+        <reverted_from/>
+        <source>a9d0d3d7932d421094e3f15a7bba10fd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-06 09:26:32</sys_created_on>
+        <sys_id>189692749346021094e3f15a7bba108a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f4d39ea1c0000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-06 09:26:32</sys_updated_on>
+        <type>Module</type>
+        <update_guid>dc9692746f460210b1b5a94e79726f89</update_guid>
+        <update_guid_history>dc9692746f460210b1b5a94e79726f89:-1736119907,27d63d30d7c20210f38124e1490d975c:-696917769,7546713062c2021099ca2228106ab27a:542130934,084ba9fc414202100eca92b7c2264299:797778228</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Item categories">99894c619342c21094e3f15a7bba10bb</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-08 07:05:44</sys_created_on>
+        <sys_db_object display_value="" name="sys_app_module">sys_app_module</sys_db_object>
+        <sys_id>0ade24b62ce9464dac81bd0ff71b6211</sys_id>
+        <sys_metadata>0c4ba9fc9342021094e3f15a7bba1097</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Item categories</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_app_module_0c4ba9fc9342021094e3f15a7bba1097</sys_update_name>
+        <sys_update_version display_value="sys_app_module_0c4ba9fc9342021094e3f15a7bba1097">189692749346021094e3f15a7bba108a</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-08 07:05:44</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

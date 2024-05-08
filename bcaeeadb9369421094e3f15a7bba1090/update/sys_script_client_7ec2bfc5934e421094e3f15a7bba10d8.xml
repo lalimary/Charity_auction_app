@@ -11,24 +11,24 @@
         <name>Item end date validation</name>
         <order/>
         <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
-   var startDate = g_form.getValue('start_date');
+    var startDate = g_form.getValue('start_date');
     var endDate = g_form.getValue('end_date');
- 
+
     // Convert start date and end date to Date objects
     var startDateObj = new Date(startDate);
     var endDateObj = new Date(endDate);
- 
+
     // Validate end date is not before start date
     if (endDateObj < startDateObj) {
-		g_form.clearValue('end_date');
+        g_form.clearValue('end_date');
         g_form.showFieldMsg('end_date', 'End date cannot be before start date', 'error');
-		
+
         return;
-	}
-		
-	
- 
-    // Clear any existing error message
+    }
+
+
+
+   
     g_form.clearMessages('end_date');
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
@@ -37,15 +37,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>7ec2bfc5934e421094e3f15a7bba10d8</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>Item end date validation</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_script_client_7ec2bfc5934e421094e3f15a7bba10d8</sys_update_name>
-        <sys_updated_by>christy</sys_updated_by>
-        <sys_updated_on>2024-05-07 10:48:53</sys_updated_on>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-08 10:53:36</sys_updated_on>
         <table>x_1383184_charityb_item</table>
         <type>onChange</type>
         <ui_type>0</ui_type>
