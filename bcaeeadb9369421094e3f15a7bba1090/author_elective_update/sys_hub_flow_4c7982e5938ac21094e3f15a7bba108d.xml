@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="DELETE">
+        <access>public</access>
+        <acls/>
+        <active>false</active>
+        <annotation/>
+        <attributes>labelCacheCleanUpExecuted=true</attributes>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <compiler_build/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <internal_name>statusitem</internal_name>
+        <label_cache>[]</label_cache>
+        <latest_snapshot/>
+        <master_snapshot/>
+        <name>Status-Item</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>draft</status>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-08 16:24:37</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4c7982e5938ac21094e3f15a7bba108d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Status-Item</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_hub_flow_4c7982e5938ac21094e3f15a7bba108d</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-08 16:24:37</sys_updated_on>
+        <type>flow</type>
+    </sys_hub_flow>
+    <sys_translated_text action="DELETE" query="documentkey=4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_variable_value action="DELETE" query="document_key=4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_hub_trigger_instance action="DELETE" query="flow=4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_hub_flow_stage action="DELETE" query="flow=4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_flow_cat_variable_model action="DELETE" query="id=4c7982e5938ac21094e3f15a7bba108d^sys_idNOT IN4079c2e5938ac21094e3f15a7bba10f9"/>
+    <sys_flow_cat_variable_model action="DELETE">
+        <id>4c7982e5938ac21094e3f15a7bba108d</id>
+        <name>Status-Item</name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-08 16:24:37</sys_created_on>
+        <sys_id>4079c2e5938ac21094e3f15a7bba10f9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-08 16:24:37</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="DELETE" query="flow_catalog_model=4079c2e5938ac21094e3f15a7bba10f9"/>
+    <sys_hub_flow_input action="DELETE" query="model=4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_hub_flow_output action="DELETE" query="model=4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_hub_action_instance action="DELETE" query="flow=4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_hub_sub_flow_instance action="DELETE" query="flow=4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_hub_flow_logic action="DELETE" query="flow=4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_hub_pill_compound action="DELETE" query="attached_to=4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_hub_flow_variable action="DELETE" query="model=4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_documentation action="DELETE" query="name=var__m_sys_hub_flow_input_4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_choice action="DELETE" query="name=var__m_sys_hub_flow_input_4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_documentation action="DELETE" query="name=var__m_sys_hub_flow_output_4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_choice action="DELETE" query="name=var__m_sys_hub_flow_output_4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_flow_trigger_plan action="DELETE" query="plan_id=4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_flow_subflow_plan action="DELETE" query="plan_id=4c7982e5938ac21094e3f15a7bba108d"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_hub_flow_4c7982e5938ac21094e3f15a7bba108d</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow"><sys_hub_flow action="INSERT_OR_UPDATE"><access>public</access><acls/><active>false</active><annotation/><attributes>labelCacheCleanUpExecuted=true</attributes><callable_by_client_api>false</callable_by_client_api><category/><compiler_build/><copied_from/><copied_from_name/><description/><internal_name>statusitem</internal_name><label_cache>[]</label_cache><latest_snapshot/><master_snapshot/><name>Status-Item</name><natlang/><outputs/><pre_compiled>false</pre_compiled><remote_trigger_id/><run_as>user</run_as><run_with_roles/><sc_callable>false</sc_callable><show_draft_actions>false</show_draft_actions><show_triggered_flows>false</show_triggered_flows><status>draft</status><sys_class_name>sys_hub_flow</sys_class_name><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-08 16:24:37</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>4c7982e5938ac21094e3f15a7bba108d</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Status-Item</sys_name><sys_overrides/><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_hub_flow_4c7982e5938ac21094e3f15a7bba108d</sys_update_name><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-08 16:24:37</sys_updated_on><type>flow</type></sys_hub_flow><sys_translated_text action="delete_multiple" query="documentkey=4c7982e5938ac21094e3f15a7bba108d"/><sys_variable_value action="delete_multiple" query="document_key=4c7982e5938ac21094e3f15a7bba108d"/><sys_hub_trigger_instance action="delete_multiple" query="flow=4c7982e5938ac21094e3f15a7bba108d"/><sys_hub_flow_stage action="delete_multiple" query="flow=4c7982e5938ac21094e3f15a7bba108d"/><sys_flow_cat_variable_model action="delete_multiple" query="id=4c7982e5938ac21094e3f15a7bba108d^sys_idNOT IN4079c2e5938ac21094e3f15a7bba10f9"/><sys_flow_cat_variable_model action="INSERT_OR_UPDATE"><id>4c7982e5938ac21094e3f15a7bba108d</id><name>Status-Item</name><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-08 16:24:37</sys_created_on><sys_id>4079c2e5938ac21094e3f15a7bba10f9</sys_id><sys_mod_count>0</sys_mod_count><sys_scope/><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-08 16:24:37</sys_updated_on></sys_flow_cat_variable_model><sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=4079c2e5938ac21094e3f15a7bba10f9"/><sys_hub_flow_input action="delete_multiple" query="model=4c7982e5938ac21094e3f15a7bba108d"/><sys_hub_flow_output action="delete_multiple" query="model=4c7982e5938ac21094e3f15a7bba108d"/><sys_hub_alias_mapping action="delete_multiple" query="source_id=4c7982e5938ac21094e3f15a7bba108d"/><sys_hub_action_instance action="delete_multiple" query="flow=4c7982e5938ac21094e3f15a7bba108d"/><sys_hub_sub_flow_instance action="delete_multiple" query="flow=4c7982e5938ac21094e3f15a7bba108d"/><sys_hub_flow_logic action="delete_multiple" query="flow=4c7982e5938ac21094e3f15a7bba108d"/><sys_hub_pill_compound action="delete_multiple" query="attached_to=4c7982e5938ac21094e3f15a7bba108d"/><sys_hub_flow_variable action="delete_multiple" query="model=4c7982e5938ac21094e3f15a7bba108d"/><sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_4c7982e5938ac21094e3f15a7bba108d"/><sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_4c7982e5938ac21094e3f15a7bba108d"/><sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_4c7982e5938ac21094e3f15a7bba108d"/><sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_4c7982e5938ac21094e3f15a7bba108d"/><sys_flow_trigger_plan action="delete_multiple" query="plan_id=4c7982e5938ac21094e3f15a7bba108d"/><sys_flow_subflow_plan action="delete_multiple" query="plan_id=4c7982e5938ac21094e3f15a7bba108d"/></record_update>]]></payload>
+        <payload_hash>626790137</payload_hash>
+        <record_name>Status-Item</record_name>
+        <reverted_from/>
+        <source>5b7c5359934a821094e3f15a7bba10cd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-08 16:24:38</sys_created_on>
+        <sys_id>d479c2e5938ac21094e3f15a7bba10ff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f590569ce0000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-08 16:24:38</sys_updated_on>
+        <type>Flow</type>
+        <update_guid>1c79c2e50e8ac2108ca0f764d8c2bcfe</update_guid>
+        <update_guid_history>1c79c2e50e8ac2108ca0f764d8c2bcfe:626790137</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-09 04:37:18</sys_created_on>
+        <sys_db_object display_value="" name="sys_hub_flow">sys_hub_flow</sys_db_object>
+        <sys_id>0baebfda10ea4c388e6fd45ed4c39131</sys_id>
+        <sys_metadata>4c7982e5938ac21094e3f15a7bba108d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Status-Item</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_hub_flow_4c7982e5938ac21094e3f15a7bba108d</sys_update_name>
+        <sys_update_version display_value="sys_hub_flow_4c7982e5938ac21094e3f15a7bba108d">d479c2e5938ac21094e3f15a7bba10ff</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-09 04:37:18</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_action_role">
+    <sys_ui_action_role action="DELETE">
+        <sys_class_name>sys_ui_action_role</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-06 09:03:13</sys_created_on>
+        <sys_id>2abe02b89306021094e3f15a7bba109d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Report Inappropriate Image.x_1383184_charityb.buyer</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_ui_action display_value="Report Inappropriate Image">fb4b8af49306021094e3f15a7bba101f</sys_ui_action>
+        <sys_update_name>sys_ui_action_role_2abe02b89306021094e3f15a7bba109d</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-06 09:03:13</sys_updated_on>
+        <sys_user_role display_value="x_1383184_charityb.buyer" name="x_1383184_charityb.buyer">0830b65393a9421094e3f15a7bba10e0</sys_user_role>
+    </sys_ui_action_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_ui_action_role_2abe02b89306021094e3f15a7bba109d</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_action_role"><sys_ui_action_role action="INSERT_OR_UPDATE"><sys_class_name>sys_ui_action_role</sys_class_name><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-06 09:03:13</sys_created_on><sys_id>2abe02b89306021094e3f15a7bba109d</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Report Inappropriate Image.x_1383184_charityb.buyer</sys_name><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_ui_action display_value="Report Inappropriate Image">fb4b8af49306021094e3f15a7bba101f</sys_ui_action><sys_update_name>sys_ui_action_role_2abe02b89306021094e3f15a7bba109d</sys_update_name><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-06 09:03:13</sys_updated_on><sys_user_role display_value="x_1383184_charityb.buyer" name="x_1383184_charityb.buyer">0830b65393a9421094e3f15a7bba10e0</sys_user_role></sys_ui_action_role></record_update>]]></payload>
+        <payload_hash>1385540887</payload_hash>
+        <record_name>Report Inappropriate Image.x_1383184_charityb.buyer</record_name>
+        <reverted_from/>
+        <source>a9d0d3d7932d421094e3f15a7bba10fd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-06 09:03:13</sys_created_on>
+        <sys_id>f6311ebc9306021094e3f15a7bba1009</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f4d2492b20000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-06 09:03:13</sys_updated_on>
+        <type>UI Action Role</type>
+        <update_guid>3e311ebc950602109ccd85f356622c08</update_guid>
+        <update_guid_history>3e311ebc950602109ccd85f356622c08:1385540887</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-08 17:01:27</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_action_role">sys_ui_action_role</sys_db_object>
+        <sys_id>37061d4276014e949a427d79d0472a84</sys_id>
+        <sys_metadata>2abe02b89306021094e3f15a7bba109d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Report Inappropriate Image.x_1383184_charityb.buyer</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_ui_action_role_2abe02b89306021094e3f15a7bba109d</sys_update_name>
+        <sys_update_version display_value="sys_ui_action_role_2abe02b89306021094e3f15a7bba109d">f6311ebc9306021094e3f15a7bba1009</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-08 17:01:27</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

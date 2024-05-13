@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Set form to read only with status change</name>
+        <order/>
+        <script><![CDATA[function confirmAndSetAuctionStatus() {
+    if (confirm("Are you sure you want to confirm and schedule the auction?")) {
+        // Set form fields to read-only
+        g_form.setReadOnly(true);
+
+        // Set status field value to "Auction Scheduled"
+        g_form.setValue('auction_status', 'auction_scheduled');
+
+        // Save the form to update the record
+        g_form.save();
+
+        alert("Auction confirmed and scheduled!");
+    }
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-08 17:17:23</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>cd559e6593cac21094e3f15a7bba101d</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Set form to read only with status change</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_cd559e6593cac21094e3f15a7bba101d</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-08 18:52:07</sys_updated_on>
+        <table>x_1383184_charityb_item</table>
+        <type/>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

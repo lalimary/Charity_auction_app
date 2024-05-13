@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="f962f10a930e461094e3f15a7bba10a3" label="Report Issues" max_length="40" name="x_1383184_charityb_report_issues" type="collection">
+        <element label="Comments" max_length="500" name="comments" type="string"/>
+        <element label="Event Name" max_length="32" name="events" reference="x_1383184_charityb_event" type="reference"/>
+        <element label="Item Name" max_length="32" name="items" reference="x_1383184_charityb_item" type="reference"/>
+        <element label="Reported By" mandatory="true" max_length="32" name="name" reference="sys_user" type="reference"/>
+        <element label="Other Reason" max_length="100" name="other_reason" type="string"/>
+        <element label="Reported Date" max_length="40" name="reported_date" type="glide_date_time"/>
+        <element choice="3" default="events" label="Reporting For" max_length="40" name="reporting_for" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Event" sequence="0" value="events"/>
+                <element inactive_on_update="false" label="Item" sequence="1" value="items"/>
+            </choice>
+        </element>
+        <element choice="3" default="inappropriate content" label="Reporting Reason" max_length="40" name="reporting_reason" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Inappropriate Content" sequence="0" value="inappropriate content"/>
+                <element inactive_on_update="false" label="Missing Content" sequence="1" value="missing content"/>
+                <element inactive_on_update="false" label="Low Image Quality" sequence="2" value="low image quality"/>
+                <element inactive_on_update="false" label="Suspicious Activity" sequence="3" value="suspicious activity"/>
+                <element inactive_on_update="false" label="Other Reason" sequence="4" value="other reason"/>
+            </choice>
+        </element>
+        <element choice="3" label="Report Status" max_length="40" name="report_status" type="choice">
+            <choice/>
+        </element>
+        <element label="Resolution Date" max_length="40" name="resolution_date" type="glide_date_time"/>
+        <element label="Screenshots" max_length="40" name="screenshots" type="user_image"/>
+        <index name="index">
+            <element name="events"/>
+        </index>
+        <index name="index2">
+            <element name="items"/>
+        </index>
+        <index name="index3">
+            <element name="name"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>On submitting the item form, a confirmtion message appears.</description>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Item form submission confirmation</name>
+        <order/>
+        <script><![CDATA[function onSubmit() {
+    if (confirm("Are you sure you want to submit? This action cannot be undone.")) {
+        g_form.setValue('confirmation_accepted', true);
+        g_form.submit();
+    }
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-07 16:23:10</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4dcef8d99382821094e3f15a7bba102d</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Item form submission confirmation</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_4dcef8d99382821094e3f15a7bba102d</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-08 17:39:45</sys_updated_on>
+        <table>x_1383184_charityb_item</table>
+        <type>onSubmit</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_client_4dcef8d99382821094e3f15a7bba102d</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;On submitting the item form, a confirmtion message appears.&lt;/description&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Item form submission confirmation&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onSubmit() {
+    if (confirm("Are you sure you want to submit? This action cannot be undone.")) {
+        g_form.setValue('confirmation_accepted', true);
+        g_form.submit();
+    }
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-07 16:23:10&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;4dcef8d99382821094e3f15a7bba102d&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;Item form submission confirmation&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_4dcef8d99382821094e3f15a7bba102d&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-08 17:39:45&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_item&lt;/table&gt;&lt;type&gt;onSubmit&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-492722638</payload_hash>
+        <record_name>Item form submission confirmation</record_name>
+        <reverted_from/>
+        <source>5b7c5359934a821094e3f15a7bba10cd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-08 17:39:45</sys_created_on>
+        <sys_id>78aad22d93cac21094e3f15a7bba1054</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f594a31700000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-08 17:39:45</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>30aad22deacac210502c128db1418454</update_guid>
+        <update_guid_history>30aad22deacac210502c128db1418454:-492722638,041a122d37cac210f9a11ddc528fa7ae:-289928033,7ced42e9b68ac210bf1d53a6c0a3ff96:-492722638,db280ee1648ac2102e7cc2eaa508888c:-289928033,e0772315798e8210713cfd37100b9e8d:-492722638,d005e711428e8210dd19fc9bb126c04c:-289928033,098ff4d9c882821024e8e5d9ad9ef136:-476347937</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-08 17:58:53</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>16fe36c4a18046a6a07e3dadfe53eaa4</sys_id>
+        <sys_metadata>4dcef8d99382821094e3f15a7bba102d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Item form submission confirmation</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Item">6d85325b93a9421094e3f15a7bba10ea</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_client_4dcef8d99382821094e3f15a7bba102d</sys_update_name>
+        <sys_update_version display_value="sys_script_client_4dcef8d99382821094e3f15a7bba102d">78aad22d93cac21094e3f15a7bba1054</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-08 17:58:53</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

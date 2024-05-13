@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="7d45b8399386061094e3f15a7bba10c8" sys_domain="global" table="x_1383184_charityb_event" version="3" view="Users_view">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>image</element>
+            <position>0</position>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+            <sys_id>fd45b8399386061094e3f15a7bba10cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_event" sys_domain="global" view="3145b8399386061094e3f15a7bba10c4">7d45b8399386061094e3f15a7bba10c8</sys_ui_section>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>1</position>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+            <sys_id>7545b8399386061094e3f15a7bba10ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_event" sys_domain="global" view="3145b8399386061094e3f15a7bba10c4">7d45b8399386061094e3f15a7bba10c8</sys_ui_section>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>event_name</element>
+            <position>2</position>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+            <sys_id>f545b8399386061094e3f15a7bba10ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_event" sys_domain="global" view="3145b8399386061094e3f15a7bba10c4">7d45b8399386061094e3f15a7bba10c8</sys_ui_section>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>event_manager</element>
+            <position>3</position>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+            <sys_id>7945b8399386061094e3f15a7bba10ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_event" sys_domain="global" view="3145b8399386061094e3f15a7bba10c4">7d45b8399386061094e3f15a7bba10c8</sys_ui_section>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>start_date</element>
+            <position>4</position>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+            <sys_id>f945b8399386061094e3f15a7bba10ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_event" sys_domain="global" view="3145b8399386061094e3f15a7bba10c4">7d45b8399386061094e3f15a7bba10c8</sys_ui_section>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>5</position>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+            <sys_id>7d45b8399386061094e3f15a7bba10ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_event" sys_domain="global" view="3145b8399386061094e3f15a7bba10c4">7d45b8399386061094e3f15a7bba10c8</sys_ui_section>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>charity_conductor</element>
+            <position>6</position>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+            <sys_id>fd45b8399386061094e3f15a7bba10ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_event" sys_domain="global" view="3145b8399386061094e3f15a7bba10c4">7d45b8399386061094e3f15a7bba10c8</sys_ui_section>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>event_status</element>
+            <position>7</position>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+            <sys_id>7145b8399386061094e3f15a7bba10cf</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_event" sys_domain="global" view="3145b8399386061094e3f15a7bba10c4">7d45b8399386061094e3f15a7bba10c8</sys_ui_section>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>end_date</element>
+            <position>8</position>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+            <sys_id>f145b8399386061094e3f15a7bba10cf</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_event" sys_domain="global" view="3145b8399386061094e3f15a7bba10c4">7d45b8399386061094e3f15a7bba10c8</sys_ui_section>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>9</position>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+            <sys_id>7545b8399386061094e3f15a7bba10cf</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_event" sys_domain="global" view="3145b8399386061094e3f15a7bba10c4">7d45b8399386061094e3f15a7bba10c8</sys_ui_section>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>justgiving_url</element>
+            <position>10</position>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+            <sys_id>f545b8399386061094e3f15a7bba10cf</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_event" sys_domain="global" view="3145b8399386061094e3f15a7bba10c4">7d45b8399386061094e3f15a7bba10c8</sys_ui_section>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>description</element>
+            <position>11</position>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+            <sys_id>7945b8399386061094e3f15a7bba10cf</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_event" sys_domain="global" view="3145b8399386061094e3f15a7bba10c4">7d45b8399386061094e3f15a7bba10c8</sys_ui_section>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_1383184_charityb_event</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7d45b8399386061094e3f15a7bba10c8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_1383184_charityb_event</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+            <sys_update_name>sys_ui_section_7d45b8399386061094e3f15a7bba10c8</sys_update_name>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Users view" name="Users_view">3145b8399386061094e3f15a7bba10c4</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

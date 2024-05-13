@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>confirm_and_schedule_auction</action_name>
+        <active>true</active>
+        <client>false</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+        <comments/>
+        <condition>current.auction_status != 'auction_scheduled'</condition>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <format_for_configurable_workspace>false</format_for_configurable_workspace>
+        <hint/>
+        <isolate_script>true</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <messages/>
+        <name>Confirm and Schedule Auction</name>
+        <onclick/>
+        <order>100</order>
+        <script><![CDATA[/*// Specify the name or sys_id of the UI action you want to modify
+var uiActionName = 'confirm_and_schedule_auction';
+
+// Query the UI action record
+var uiActionGr = new GlideRecord('sys_ui_action');
+if (uiActionGr.get('name', uiActionName)) {
+    // Set the Client Script field to the name or sys_id of the client script
+    uiActionGr.setValue('client_script', 'my_client_script_sys_id');
+
+    // Update the UI action record
+    uiActionGr.update();
+} else {
+    gs.error('UI action not found: ' + uiActionName);
+}*/
+
+// onSubmit();
+// confirmAndSetAuctionStatus();
+
+
+if (confirm("Are you sure you want to confirm and schedule the auction?")) {
+    var itemSysId = g_form.getUniqueValue(); // Get the sys_id of the current record
+
+    // Create an AJAX request to update the record
+    var ga = new GlideAjax('UpdateAuctionStatus'); // Specify the name of your Script Include
+    ga.addParam('sys_id', itemSysId);
+    ga.addParam('auction_status', 'auction_scheduled');
+    ga.getXMLAnswer(function(response) {
+        if (response == 'success') {
+            alert("Auction confirmed and scheduled!");
+            // You may optionally reload the form or perform other actions here
+        } else {
+            alert("An error occurred while scheduling the auction.");
+        }
+    });
+}
+]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-08 17:07:54</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f0a2d2a193cac21094e3f15a7bba10fc</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>Confirm and Schedule Auction</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_ui_action_f0a2d2a193cac21094e3f15a7bba10fc</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-08 18:59:27</sys_updated_on>
+        <table>x_1383184_charityb_item</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+</record_update>

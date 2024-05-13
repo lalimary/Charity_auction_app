@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>name</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Report email autofill</name>
+        <order/>
+        <script/>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-09 18:36:35</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>80c03b7d93c2461094e3f15a7bba10ce</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Report email autofill</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_80c03b7d93c2461094e3f15a7bba10ce</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-09 19:32:17</sys_updated_on>
+        <table>x_1383184_charityb_image_report</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_client_80c03b7d93c2461094e3f15a7bba10ce</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client"><sys_script_client action="INSERT_OR_UPDATE"><active>false</active><applies_extended>false</applies_extended><condition/><description/><field>name</field><global>true</global><isolate_script>true</isolate_script><messages/><name>Report email autofill</name><order/><script/><sys_class_name>sys_script_client</sys_class_name><sys_created_by>christy</sys_created_by><sys_created_on>2024-05-09 18:36:35</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>80c03b7d93c2461094e3f15a7bba10ce</sys_id><sys_mod_count>6</sys_mod_count><sys_name>Report email autofill</sys_name><sys_overrides/><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_script_client_80c03b7d93c2461094e3f15a7bba10ce</sys_update_name><sys_updated_by>christy</sys_updated_by><sys_updated_on>2024-05-09 19:32:17</sys_updated_on><table>x_1383184_charityb_image_report</table><type>onLoad</type><ui_type>0</ui_type><view/></sys_script_client></record_update>]]></payload>
+        <payload_hash>-574716583</payload_hash>
+        <record_name>Report email autofill</record_name>
+        <reverted_from/>
+        <source>5b7c5359934a821094e3f15a7bba10cd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-09 19:32:17</sys_created_on>
+        <sys_id>0ffdbb3d9306461094e3f15a7bba10e5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f5ed795220000001</sys_recorded_at>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-09 19:32:17</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>c3fdbb3d42064610959f0e06fa650ce5</update_guid>
+        <update_guid_history>c3fdbb3d42064610959f0e06fa650ce5:-574716583,2fcbfb3906064610a756c1211d796a56:-1903431952,d1cbb379ab0646104aea9fcdeda837e8:-227708931,e0b973716c064610f74a5c49cb3c7bd2:-1838705993,9b83b3fd37c246109533f573c1aa0595:-1545626396,fbc13fbd85c24610c71ee738f43cec21:1311550140,b631bb3d0fc24610a6290fc63666825c:-135683879</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-10 03:55:51</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>08dfbd6368294ac885aa0bfe20953640</sys_id>
+        <sys_metadata>80c03b7d93c2461094e3f15a7bba10ce</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Report email autofill</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="">5ffdd319934e821094e3f15a7bba10ff</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_client_80c03b7d93c2461094e3f15a7bba10ce</sys_update_name>
+        <sys_update_version display_value="sys_script_client_80c03b7d93c2461094e3f15a7bba10ce">0ffdbb3d9306461094e3f15a7bba10e5</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-10 03:55:51</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

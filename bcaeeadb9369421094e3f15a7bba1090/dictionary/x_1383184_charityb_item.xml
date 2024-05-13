@@ -9,7 +9,7 @@
             </choice>
         </element>
         <element label="Bids" max_length="32" name="bids" reference="x_1383184_charityb_bids" type="reference"/>
-        <element display="true" label=" Category" max_length="32" name="category" reference="x_1383184_charityb_category" type="reference"/>
+        <element display="true" label=" Category" mandatory="true" max_length="32" name="category" reference="x_1383184_charityb_category" type="reference"/>
         <element attributes="omit_sys_original=true" label="Current bid amount" max_length="20" name="current_bid_amount" type="currency"/>
         <element attributes="edge_encryption_enabled=true" label="Description" mandatory="true" max_length="500" name="description" type="string"/>
         <element attributes="encode_utf8=false" label="Donator" max_length="32" name="donator" read_only="true" reference="sys_user" type="reference"/>

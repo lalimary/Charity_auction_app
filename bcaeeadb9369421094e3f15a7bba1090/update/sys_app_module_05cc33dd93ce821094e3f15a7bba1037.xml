@@ -4,7 +4,7 @@
         <application display_value="Charity Bids">b34a595493b9461094e3f15a7bba1007</application>
         <assessment/>
         <device_type/>
-        <filter table="x_1383184_charityb_item">auction_status=auction_scheduled^EQ<item display_value="Auction scheduled" endquery="false" field="auction_status" goto="false" newquery="false" operator="=" or="false" value="auction_scheduled"/>
+        <filter table="x_1383184_charityb_item">auction_status=auction_in_progress^EQ<item display_value="Auction in progress" endquery="false" field="auction_status" goto="false" newquery="false" operator="=" or="false" value="auction_in_progress"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </filter>
         <hint/>
@@ -26,17 +26,17 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>05cc33dd93ce821094e3f15a7bba1037</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>Auction list</sys_name>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Auctions</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_app_module_05cc33dd93ce821094e3f15a7bba1037</sys_update_name>
         <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-05-08 06:13:41</sys_updated_on>
+        <sys_updated_on>2024-05-10 07:23:32</sys_updated_on>
         <timeline_page/>
-        <title>Auction list</title>
+        <title>Auctions</title>
         <uncancelable>false</uncancelable>
         <view_name/>
         <window_name/>

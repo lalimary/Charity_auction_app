@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="DELETE">
+        <active>true</active>
+        <application display_value="Charity Bids">b34a595493b9461094e3f15a7bba1007</application>
+        <assessment/>
+        <device_type/>
+        <filter table="x_1383184_charityb_item">auction_status=auction_in_progress^EQ<item display_value="Auction in progress" endquery="false" field="auction_status" goto="false" newquery="false" operator="=" or="false" value="auction_in_progress"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>Auctions in Progress</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_1383184_charityb_item</name>
+        <order>35</order>
+        <override_menu_roles>false</override_menu_roles>
+        <query/>
+        <report/>
+        <roles/>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-10 05:20:57</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>82648ace934e461094e3f15a7bba101b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Auctions in Progress </sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_app_module_82648ace934e461094e3f15a7bba101b</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-10 05:20:57</sys_updated_on>
+        <timeline_page/>
+        <title>Auctions in Progress </title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_app_module_82648ace934e461094e3f15a7bba101b</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="Charity Bids">b34a595493b9461094e3f15a7bba1007</application><assessment/><device_type/><filter table="x_1383184_charityb_item">auction_status=auction_in_progress^EQ<item display_value="Auction in progress" endquery="false" field="auction_status" goto="false" newquery="false" operator="=" or="false" value="auction_in_progress"/><item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/></filter><hint/><homepage/><image/><link_type>LIST</link_type><map_page/><mobile_title>Auctions in Progress</mobile_title><mobile_view_name>Mobile</mobile_view_name><name>x_1383184_charityb_item</name><order>35</order><override_menu_roles>false</override_menu_roles><query/><report/><roles/><sys_class_name>sys_app_module</sys_class_name><sys_created_by>christy</sys_created_by><sys_created_on>2024-05-10 05:20:57</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>82648ace934e461094e3f15a7bba101b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Auctions in Progress </sys_name><sys_overrides/><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_app_module_82648ace934e461094e3f15a7bba101b</sys_update_name><sys_updated_by>christy</sys_updated_by><sys_updated_on>2024-05-10 05:20:57</sys_updated_on><timeline_page/><title>Auctions in Progress </title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+        <payload_hash>-1168236438</payload_hash>
+        <record_name>Auctions in Progress </record_name>
+        <reverted_from/>
+        <source>5b7c5359934a821094e3f15a7bba10cd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-10 05:20:57</sys_created_on>
+        <sys_id>31b406ce934e461094e3f15a7bba10e8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f60f2832e0000001</sys_recorded_at>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-10 05:20:57</sys_updated_on>
+        <type>Module</type>
+        <update_guid>75b406ce454e46102d4e70f424c6b9e7</update_guid>
+        <update_guid_history>75b406ce454e46102d4e70f424c6b9e7:-1168236438</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Auctions in Progress ">d9968206938e461094e3f15a7bba1078</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-10 05:29:06</sys_created_on>
+        <sys_db_object display_value="" name="sys_app_module">sys_app_module</sys_db_object>
+        <sys_id>2db579253c034ac693d8538005588341</sys_id>
+        <sys_metadata>82648ace934e461094e3f15a7bba101b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Auctions in Progress </sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_app_module_82648ace934e461094e3f15a7bba101b</sys_update_name>
+        <sys_update_version display_value="sys_app_module_82648ace934e461094e3f15a7bba101b">31b406ce934e461094e3f15a7bba10e8</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-10 05:29:06</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field>events</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-10 05:46:24</sys_created_on>
+        <sys_id>d67a8e0a938e461094e3f15a7bba1034</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>events</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_ui_policy_action_d67a8e0a938e461094e3f15a7bba1034</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-10 05:46:24</sys_updated_on>
+        <table>x_1383184_charityb_report_issues</table>
+        <ui_policy display_value="Event report">f24a4a0a938e461094e3f15a7bba107d</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+</record_update>
