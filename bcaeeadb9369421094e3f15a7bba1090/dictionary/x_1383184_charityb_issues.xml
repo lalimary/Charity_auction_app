@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="9850a1dd93de821094e3f15a7bba1052" label="Issues" max_length="40" name="x_1383184_charityb_issues" type="collection">
+        <element label="Assigned to" max_length="32" name="assigned_to" reference="sys_user" reference_qual="roles=x_1383184_charityb.Moderator^EQ" reference_qual_condition="roles=x_1383184_charityb.Moderator^EQ" type="reference"/>
+        <element label="Caller" max_length="32" name="caller" reference="sys_user" type="reference"/>
+        <element label="Comments" max_length="400" name="comments" type="string"/>
+        <element label="Event name" max_length="32" name="event_name" reference="x_1383184_charityb_event" type="reference"/>
+        <element choice="3" default="event" label="Issue type" max_length="40" name="issue_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Event" sequence="0" value="event"/>
+                <element inactive_on_update="false" label="Item" sequence="1" value="item"/>
+            </choice>
+        </element>
+        <element display="true" label="Item name" max_length="32" name="item_name" reference="x_1383184_charityb_item" type="reference"/>
+        <element label="Other reason" max_length="100" name="other_reason" type="string"/>
+        <element choice="3" default="inappropriate content" label="Reason" max_length="40" name="reason" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Inappropriate Content" sequence="0" value="inappropriate content"/>
+                <element inactive_on_update="false" label="Missing Content" sequence="1" value="missing content"/>
+                <element inactive_on_update="false" label="Low Image Quality" sequence="2" value="low image quality"/>
+                <element inactive_on_update="false" label="Suspicious Activity" sequence="3" value="suspicious activity"/>
+                <element inactive_on_update="false" label="Other Reason" sequence="4" value="other reason"/>
+            </choice>
+        </element>
+        <element label="Reported Date" max_length="40" name="reported_date" type="glide_date"/>
+        <element label="Resolution Date" max_length="40" name="resolution_date" type="glide_date"/>
+        <element label="Resolution Notes" max_length="500" name="resolution_notes" type="string"/>
+        <element label="Screenshots" max_length="40" name="screenshots" type="user_image"/>
+        <element choice="3" default="new" label="State" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="New" sequence="0" value="new"/>
+                <element inactive_on_update="false" label="In Progress" sequence="1" value="in progress"/>
+                <element inactive_on_update="false" label="On Hold" sequence="2" value="on hold"/>
+                <element inactive_on_update="false" label="Resolved" sequence="3" value="resolved"/>
+                <element inactive_on_update="false" label="Closed" sequence="4" value="closed"/>
+                <element inactive_on_update="false" label="Cancelled" sequence="5" value="cancelled"/>
+            </choice>
+        </element>
+        <element choice="3" default="3 - low" label="Urgency" max_length="40" name="urgency" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="1 - High" sequence="0" value="1 - high"/>
+                <element inactive_on_update="false" label="2 - Medium" sequence="1" value="2 - medium"/>
+                <element inactive_on_update="false" label="3 - Low" sequence="2" value="3 - low"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="assigned_to"/>
+        </index>
+        <index name="index2">
+            <element name="caller"/>
+        </index>
+        <index name="index3">
+            <element name="event_name"/>
+        </index>
+        <index name="index4">
+            <element name="item_name"/>
+        </index>
+    </element>
+</database>

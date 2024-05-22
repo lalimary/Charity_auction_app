@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>The donator name should be set to logged in user.</description>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Logged in Donator</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+      // Get the logged-in user's name
+    var userlogged = g_user.userID;
+	
+	if(g_form.isNewRecord())
+		{
+			g_form.setValue('donator',userlogged);
+		}
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-04-23 09:36:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2efa9fe89375c61094e3f15a7bba1098</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>Logged in Donator</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_2efa9fe89375c61094e3f15a7bba1098</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-21 05:13:46</sys_updated_on>
+        <table>x_1383184_charityb_item</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_client_2efa9fe89375c61094e3f15a7bba1098</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;The donator name should be set to logged in user.&lt;/description&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Logged in Donator&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onLoad() {
+      // Get the logged-in user's name
+    var userlogged = g_user.userID;
+	
+	if(g_form.isNewRecord())
+		{
+			g_form.setValue('donator',userlogged);
+		}
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-04-23 09:36:20&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;2efa9fe89375c61094e3f15a7bba1098&lt;/sys_id&gt;&lt;sys_mod_count&gt;14&lt;/sys_mod_count&gt;&lt;sys_name&gt;Logged in Donator&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_2efa9fe89375c61094e3f15a7bba1098&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-21 05:13:46&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_item&lt;/table&gt;&lt;type&gt;onLoad&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>383120704</payload_hash>
+        <record_name>Logged in Donator</record_name>
+        <reverted_from/>
+        <source>5b7c5359934a821094e3f15a7bba10cd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-21 05:13:46</sys_created_on>
+        <sys_id>c49c626d93d6061094e3f15a7bba1016</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f9991e43c0000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-21 05:13:46</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>8c9c626d26d60610bb18d16cc3bd3d15</update_guid>
+        <update_guid_history>8c9c626d26d60610bb18d16cc3bd3d15:383120704,bce12c45f13d0a1034879b90bec849e3:1887501037,7412848527b90a10e70960b751dbb0ef:-1988799220,50f100c5aeb90a10be2210bca786c4dc:1299388547,4eabaff8c9390a10660d96a42bae322c:1233900307,fc786ff410390a10d2da03eb01448694:-1815760986,4277ebb4ce390a10f769a3353dc60162:1233900307,9b366334d5390a10e3c255ebc96dea03:-547809279,12842bb010390a1076de1e68693bb219:-1782904243,6832abbc23f50a10fe1226773d189411:1812146800,c420aff822f50a10e431385709a41614:-486657853,029f1f786ef50a10ac64dc81c7d994da:1812146800,35dcd7f4eff50a1062a50555192fb907:-486657853,adb22ba483b5c610b4922e44bf6b897f:1812146800,452c5bacd075c6104cadb98a5ca15b71:-1831939040</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-21 07:06:47</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>4335f9a4be314dc689bdca9e4fd956b9</sys_id>
+        <sys_metadata>2efa9fe89375c61094e3f15a7bba1098</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Logged in Donator</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Item">6d85325b93a9421094e3f15a7bba10ea</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_client_2efa9fe89375c61094e3f15a7bba1098</sys_update_name>
+        <sys_update_version display_value="sys_script_client_2efa9fe89375c61094e3f15a7bba1098">c49c626d93d6061094e3f15a7bba1016</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-21 07:06:47</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

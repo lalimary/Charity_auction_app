@@ -7,7 +7,7 @@
 
 }]]></client_script_v2>
         <comments/>
-        <condition>current.auction_status != 'auction_scheduled'</condition>
+        <condition>current.auction_status=='item_submitted'</condition>
         <form_action>true</form_action>
         <form_button>true</form_button>
         <form_button_v2>false</form_button_v2>
@@ -30,42 +30,12 @@
         <name>Confirm and Schedule Auction</name>
         <onclick/>
         <order>100</order>
-        <script><![CDATA[/*// Specify the name or sys_id of the UI action you want to modify
-var uiActionName = 'confirm_and_schedule_auction';
+        <script><![CDATA[(function() {
+    current.auction_status = 'auction_scheduled';
 
-// Query the UI action record
-var uiActionGr = new GlideRecord('sys_ui_action');
-if (uiActionGr.get('name', uiActionName)) {
-    // Set the Client Script field to the name or sys_id of the client script
-    uiActionGr.setValue('client_script', 'my_client_script_sys_id');
-
-    // Update the UI action record
-    uiActionGr.update();
-} else {
-    gs.error('UI action not found: ' + uiActionName);
-}*/
-
-// onSubmit();
-// confirmAndSetAuctionStatus();
-
-
-if (confirm("Are you sure you want to confirm and schedule the auction?")) {
-    var itemSysId = g_form.getUniqueValue(); // Get the sys_id of the current record
-
-    // Create an AJAX request to update the record
-    var ga = new GlideAjax('UpdateAuctionStatus'); // Specify the name of your Script Include
-    ga.addParam('sys_id', itemSysId);
-    ga.addParam('auction_status', 'auction_scheduled');
-    ga.getXMLAnswer(function(response) {
-        if (response == 'success') {
-            alert("Auction confirmed and scheduled!");
-            // You may optionally reload the form or perform other actions here
-        } else {
-            alert("An error occurred while scheduling the auction.");
-        }
-    });
-}
-]]></script>
+    current.update();
+    action.setRedirectURL(current);
+})();]]></script>
         <show_insert>true</show_insert>
         <show_multiple_update>false</show_multiple_update>
         <show_query>false</show_query>
@@ -76,7 +46,7 @@ if (confirm("Are you sure you want to confirm and schedule the auction?")) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f0a2d2a193cac21094e3f15a7bba10fc</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>31</sys_mod_count>
         <sys_name>Confirm and Schedule Auction</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
@@ -84,7 +54,7 @@ if (confirm("Are you sure you want to confirm and schedule the auction?")) {
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_ui_action_f0a2d2a193cac21094e3f15a7bba10fc</sys_update_name>
         <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-05-08 18:59:27</sys_updated_on>
+        <sys_updated_on>2024-05-22 07:40:57</sys_updated_on>
         <table>x_1383184_charityb_item</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>

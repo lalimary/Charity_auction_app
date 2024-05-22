@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="60851c8e9352861094e3f15a7bba1085" sys_domain="global" table="x_1383184_charityb_bids" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-22 07:30:47</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b4851c8e9352861094e3f15a7bba1088</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_1383184_charityb_bids" name="x_1383184_charityb_bids" sys_domain="global" view="Default view">60851c8e9352861094e3f15a7bba1085</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_bids" sys_domain="global" view="Default view">74a4a5f5934a061094e3f15a7bba1066</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-22 07:30:47</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-22 07:32:37</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>efe554ce9352861094e3f15a7bba102b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_1383184_charityb_bids" name="x_1383184_charityb_bids" sys_domain="global" view="Default view">60851c8e9352861094e3f15a7bba1085</sys_ui_form>
+            <sys_ui_section caption="Bid" display_value="Bid" name="x_1383184_charityb_bids" sys_domain="global" view="Default view">23e554ce9352861094e3f15a7bba1012</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-22 07:32:37</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_1383184_charityb_bids</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-22 07:30:46</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>60851c8e9352861094e3f15a7bba1085</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_1383184_charityb_bids</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+            <sys_update_name>sys_ui_form_sections_60851c8e9352861094e3f15a7bba1085</sys_update_name>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-22 07:30:46</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

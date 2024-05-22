@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="DELETE">
+        <active>false</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description/>
+        <local_or_existing>Local</local_or_existing>
+        <name>x_1383184_charityb_item</name>
+        <operation display_value="write">write</operation>
+        <script/>
+        <security_attribute/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-20 11:14:06</sys_created_on>
+        <sys_id>e655369d9396c21094e3f15a7bba1012</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_1383184_charityb_item</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_security_acl_e655369d9396c21094e3f15a7bba1012</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-21 10:23:16</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_security_acl_e655369d9396c21094e3f15a7bba1012</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>false</active><admin_overrides>true</admin_overrides><advanced>false</advanced><condition/><description/><local_or_existing>Local</local_or_existing><name>x_1383184_charityb_item</name><operation display_value="write">write</operation><script/><security_attribute/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 11:14:06</sys_created_on><sys_id>e655369d9396c21094e3f15a7bba1012</sys_id><sys_mod_count>1</sys_mod_count><sys_name>x_1383184_charityb_item</sys_name><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_security_acl_e655369d9396c21094e3f15a7bba1012</sys_update_name><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-21 10:23:16</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+        <payload_hash>480567427</payload_hash>
+        <record_name>x_1383184_charityb_item</record_name>
+        <reverted_from/>
+        <source>5b7c5359934a821094e3f15a7bba10cd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-21 10:23:17</sys_created_on>
+        <sys_id>3d63bb69935e061094e3f15a7bba102b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f9aad42430000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-21 10:23:17</sys_updated_on>
+        <type>Access Control</type>
+        <update_guid>f163bb690e5e0610edc1665806a4212b</update_guid>
+        <update_guid_history>f163bb690e5e0610edc1665806a4212b:480567427,a4753e9d4296c2100c5455cefe445f0f:48709980</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-21 10:26:13</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl">sys_security_acl</sys_db_object>
+        <sys_id>6fe4f8587712408ca603538d7cce8699</sys_id>
+        <sys_metadata>e655369d9396c21094e3f15a7bba1012</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1383184_charityb_item</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="x_1383184_charityb_item">a185325b93a9421094e3f15a7bba10ed</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_security_acl_e655369d9396c21094e3f15a7bba1012</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_e655369d9396c21094e3f15a7bba1012">3d63bb69935e061094e3f15a7bba102b</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-21 10:26:13</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

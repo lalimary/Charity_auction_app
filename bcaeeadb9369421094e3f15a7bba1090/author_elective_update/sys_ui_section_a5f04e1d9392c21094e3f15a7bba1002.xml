@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section action="DELETE" caption="" section_id="a5f04e1d9392c21094e3f15a7bba1002" sys_domain="global" table="x_1383184_charityb_products" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>0</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>6ddc061d93d2c21094e3f15a7bba10da</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>donator</element>
+            <position>1</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>eddc061d93d2c21094e3f15a7bba10da</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>item_name</element>
+            <position>2</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>61dc061d93d2c21094e3f15a7bba10db</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>item_type</element>
+            <position>3</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>e1dc061d93d2c21094e3f15a7bba10db</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>item_status</element>
+            <position>4</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>65dc061d93d2c21094e3f15a7bba10db</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>value</element>
+            <position>5</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>e5dc061d93d2c21094e3f15a7bba10db</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>selling_price</element>
+            <position>6</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>69dc061d93d2c21094e3f15a7bba10db</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>7</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>e9dc061d93d2c21094e3f15a7bba10db</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>category</element>
+            <position>8</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>6ddc061d93d2c21094e3f15a7bba10db</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>auction_status</element>
+            <position>9</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>eddc061d93d2c21094e3f15a7bba10db</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>start_date</element>
+            <position>10</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>61dc061d93d2c21094e3f15a7bba10dc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>end_date</element>
+            <position>11</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>e1dc061d93d2c21094e3f15a7bba10dc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>start_bid_amount</element>
+            <position>12</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>65dc061d93d2c21094e3f15a7bba10dc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>highest_bid_amount</element>
+            <position>13</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>e5dc061d93d2c21094e3f15a7bba10dc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>14</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>69dc061d93d2c21094e3f15a7bba10dc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>description</element>
+            <position>15</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>e9dc061d93d2c21094e3f15a7bba10dc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>digital_category</element>
+            <position>16</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+            <sys_id>6ddc061d93d2c21094e3f15a7bba10dc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="DELETE">
+            <caption/>
+            <header>false</header>
+            <name>x_1383184_charityb_products</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-20 07:24:47</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a5f04e1d9392c21094e3f15a7bba1002</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_1383184_charityb_products</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+            <sys_update_name>sys_ui_section_a5f04e1d9392c21094e3f15a7bba1002</sys_update_name>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-20 07:24:47</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_ui_section_a5f04e1d9392c21094e3f15a7bba1002</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_section caption="" section_id="a5f04e1d9392c21094e3f15a7bba1002" sys_domain="global" table="x_1383184_charityb_products" version="3" view=""><sys_ui_element action="INSERT_OR_UPDATE"><element>.begin_split</element><position>0</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>6ddc061d93d2c21094e3f15a7bba10da</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type>.begin_split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>donator</element><position>1</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>eddc061d93d2c21094e3f15a7bba10da</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>item_name</element><position>2</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>61dc061d93d2c21094e3f15a7bba10db</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>item_type</element><position>3</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>e1dc061d93d2c21094e3f15a7bba10db</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>item_status</element><position>4</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>65dc061d93d2c21094e3f15a7bba10db</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>value</element><position>5</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>e5dc061d93d2c21094e3f15a7bba10db</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>selling_price</element><position>6</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>69dc061d93d2c21094e3f15a7bba10db</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.split</element><position>7</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>e9dc061d93d2c21094e3f15a7bba10db</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type>.split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>category</element><position>8</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>6ddc061d93d2c21094e3f15a7bba10db</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>auction_status</element><position>9</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>eddc061d93d2c21094e3f15a7bba10db</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>start_date</element><position>10</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>61dc061d93d2c21094e3f15a7bba10dc</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>end_date</element><position>11</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>e1dc061d93d2c21094e3f15a7bba10dc</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>start_bid_amount</element><position>12</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>65dc061d93d2c21094e3f15a7bba10dc</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>highest_bid_amount</element><position>13</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>e5dc061d93d2c21094e3f15a7bba10dc</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.end_split</element><position>14</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>69dc061d93d2c21094e3f15a7bba10dc</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type>.end_split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>description</element><position>15</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>e9dc061d93d2c21094e3f15a7bba10dc</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>digital_category</element><position>16</position><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:16:40</sys_created_on><sys_id>6ddc061d93d2c21094e3f15a7bba10dc</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_products" sys_domain="global" view="Default view">a5f04e1d9392c21094e3f15a7bba1002</sys_ui_section><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:16:40</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_section action="INSERT_OR_UPDATE"><caption/><header>false</header><name>x_1383184_charityb_products</name><roles/><sys_class_name>sys_ui_section</sys_class_name><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 07:24:47</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>a5f04e1d9392c21094e3f15a7bba1002</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_1383184_charityb_products</sys_name><sys_overrides/><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_ui_section_a5f04e1d9392c21094e3f15a7bba1002</sys_update_name><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 07:24:47</sys_updated_on><sys_user/><title>true</title><view display_value="Default view" name="NULL">Default view</view><view_name/></sys_ui_section></sys_ui_section></record_update>]]></payload>
+        <payload_hash>-1058714358</payload_hash>
+        <record_name>Products</record_name>
+        <reverted_from/>
+        <source>5b7c5359934a821094e3f15a7bba10cd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-20 08:16:40</sys_created_on>
+        <sys_id>a9dc061d93d2c21094e3f15a7bba10df</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f9512fc490000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-20 08:16:40</sys_updated_on>
+        <type>Form Layout</type>
+        <update_guid>21dc061ddbd2c210332e155bf6b2f9df</update_guid>
+        <update_guid_history>21dc061ddbd2c210332e155bf6b2f9df:-1058714358,dd8c8ed97cd2c210f96eae4ac1edbb03:-470864155,45524add8c92c2101b9f0c06d1972ce9:-1058714358,adf08a5d4692c2100e2deab7fa4a87fe:-338650927,e9f08a5d2b92c2103dabddec10ae83f6:-1594601973</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-22 08:25:04</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_section">sys_ui_section</sys_db_object>
+        <sys_id>003fdc8bd64445f58004911c5ac26701</sys_id>
+        <sys_metadata>a5f04e1d9392c21094e3f15a7bba1002</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1383184_charityb_products</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="">80e7a9599312c21094e3f15a7bba105a</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_ui_section_a5f04e1d9392c21094e3f15a7bba1002</sys_update_name>
+        <sys_update_version display_value="sys_ui_section_a5f04e1d9392c21094e3f15a7bba1002">a9dc061d93d2c21094e3f15a7bba10df</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-22 08:25:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

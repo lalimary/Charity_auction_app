@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="0a8f1e4193c6421094e3f15a7bba10a7" label="Bid" max_length="40" name="x_1383184_charityb_bids" type="collection">
-        <element label="Bidder" max_length="32" name="bidder" reference="sys_user" type="reference"/>
-        <element label="Bid_Amount" max_length="20" name="bid_amount" type="currency"/>
+        <element default="javascript:gs.getUserID();" dynamic_default_value="2fd8e97bef3221002841f7f775c0fbc1" label="Bidder" mandatory="true" max_length="32" name="bidder" reference="sys_user" type="reference" use_dynamic_default="true"/>
         <element label="Bid_Item" max_length="32" name="bid_item" reference="x_1383184_charityb_item" type="reference"/>
         <element label="Bid Date" max_length="40" name="bid_time" type="glide_date_time"/>
-        <element label="Current bid amount" max_length="20" name="current_bid_amount" type="currency"/>
+        <element label="Highest bid amount" max_length="20" name="highest_bid_amount" type="currency"/>
+        <element display="true" label="Item name" max_length="32" name="item_name" reference="x_1383184_charityb_item" type="reference"/>
+        <element label="Total bids" max_length="40" name="total_bids" type="integer"/>
+        <element label="Your bid amount" max_length="20" name="your_bid_amount" type="currency"/>
         <index name="index">
             <element name="bid_item"/>
         </index>
         <index name="index2">
             <element name="bidder"/>
+        </index>
+        <index name="index3">
+            <element name="item_name"/>
         </index>
     </element>
 </database>

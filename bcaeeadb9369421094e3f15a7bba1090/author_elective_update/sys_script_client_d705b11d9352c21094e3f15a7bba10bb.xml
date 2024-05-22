@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>email</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>NameFieldOnChange</name>
+        <order/>
+        <script><![CDATA[function onChange() {
+    var name = g_form.getValue('name'); // Get the selected name from the reference field
+    if (name) {
+        var ga = new GlideAjax('RetrieveEmailScript'); // Create a GlideAjax object and specify the server-side script
+        ga.addParam('sysparm_name', 'getEmail'); 
+        ga.addParam('sysparm_name_value', name); // Pass the selected name as a parameter
+        ga.getXMLAnswer(function(response) {
+            if (response) {
+                g_form.setValue('email', response); // Populate the email field with the retrieved email address
+            }
+        });
+    }
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-20 06:38:23</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d705b11d9352c21094e3f15a7bba10bb</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>NameFieldOnChange</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_d705b11d9352c21094e3f15a7bba10bb</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-20 06:56:36</sys_updated_on>
+        <table>x_1383184_charityb_user_profile</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_client_d705b11d9352c21094e3f15a7bba10bb</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;email&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;NameFieldOnChange&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange() {
+    var name = g_form.getValue('name'); // Get the selected name from the reference field
+    if (name) {
+        var ga = new GlideAjax('RetrieveEmailScript'); // Create a GlideAjax object and specify the server-side script
+        ga.addParam('sysparm_name', 'getEmail'); 
+        ga.addParam('sysparm_name_value', name); // Pass the selected name as a parameter
+        ga.getXMLAnswer(function(response) {
+            if (response) {
+                g_form.setValue('email', response); // Populate the email field with the retrieved email address
+            }
+        });
+    }
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-20 06:38:23&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;d705b11d9352c21094e3f15a7bba10bb&lt;/sys_id&gt;&lt;sys_mod_count&gt;5&lt;/sys_mod_count&gt;&lt;sys_name&gt;NameFieldOnChange&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_d705b11d9352c21094e3f15a7bba10bb&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-20 06:56:36&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_user_profile&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1305091004</payload_hash>
+        <record_name>NameFieldOnChange</record_name>
+        <reverted_from/>
+        <source>5b7c5359934a821094e3f15a7bba10cd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-20 06:56:36</sys_created_on>
+        <sys_id>e48abd919392c21094e3f15a7bba10f4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f94c9ade00000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-20 06:56:36</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>ac8abd91cd92c210a10946fc268ea1f3</update_guid>
+        <update_guid_history>ac8abd91cd92c210a10946fc268ea1f3:1305091004,583a7d51c892c210208bdcb1fa6f81d8:-1230248823,8a793951b192c21089987fa0d7d2d603:-1806640676,c908b1dd7e52c210dbe320861abe79ef:-1230248823,65863d5d6252c2102386b029be7d99b7:899449087,6d567dd94852c210f5e082dc5ee2e80f:-1315755200</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-20 07:03:14</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>70e95d1b06c043409aec8c024418b564</sys_id>
+        <sys_metadata>d705b11d9352c21094e3f15a7bba10bb</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>NameFieldOnChange</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="User profile">0f7bed5d9312c21094e3f15a7bba1044</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_client_d705b11d9352c21094e3f15a7bba10bb</sys_update_name>
+        <sys_update_version display_value="sys_script_client_d705b11d9352c21094e3f15a7bba10bb">e48abd919392c21094e3f15a7bba10f4</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-20 07:03:14</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

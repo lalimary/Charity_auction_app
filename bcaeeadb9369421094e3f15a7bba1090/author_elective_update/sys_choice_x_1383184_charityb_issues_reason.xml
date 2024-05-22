@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="reason" table="x_1383184_charityb_issues" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>reason</element>
+            <name>x_1383184_charityb_issues</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-20 05:45:44</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>reason</sys_name>
+            <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+            <sys_update_name>sys_choice_x_1383184_charityb_issues_reason</sys_update_name>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-20 05:45:44</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>reason</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Inappropriate Content</label>
+            <language>en</language>
+            <name>x_1383184_charityb_issues</name>
+            <sequence>0</sequence>
+            <synonyms/>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-20 05:45:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-20 05:45:44</sys_updated_on>
+            <value>inappropriate content</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>reason</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Missing Content</label>
+            <language>en</language>
+            <name>x_1383184_charityb_issues</name>
+            <sequence>1</sequence>
+            <synonyms/>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-20 05:45:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-20 05:45:44</sys_updated_on>
+            <value>missing content</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>reason</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Low Image Quality</label>
+            <language>en</language>
+            <name>x_1383184_charityb_issues</name>
+            <sequence>2</sequence>
+            <synonyms/>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-20 05:45:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-20 05:45:44</sys_updated_on>
+            <value>low image quality</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>reason</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Suspicious Activity</label>
+            <language>en</language>
+            <name>x_1383184_charityb_issues</name>
+            <sequence>3</sequence>
+            <synonyms/>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-20 05:45:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-20 05:45:44</sys_updated_on>
+            <value>suspicious activity</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>reason</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Other Reason</label>
+            <language>en</language>
+            <name>x_1383184_charityb_issues</name>
+            <sequence>4</sequence>
+            <synonyms/>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-20 05:45:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-20 05:45:44</sys_updated_on>
+            <value>other reason</value>
+        </sys_choice>
+    </sys_choice>
+</record_update>
