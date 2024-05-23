@@ -8,7 +8,6 @@
                 <element inactive_on_update="false" label="Auction completed" sequence="400" value="auction_completed"/>
             </choice>
         </element>
-        <element label="Bids" max_length="32" name="bids" reference="x_1383184_charityb_bids" type="reference"/>
         <element label=" Category" mandatory="true" max_length="32" name="category" reference="x_1383184_charityb_category" type="reference"/>
         <element attributes="omit_sys_original=true" label="Current bid amount" max_length="20" name="current_bid_amount" type="currency"/>
         <element attributes="edge_encryption_enabled=true" label="Description" mandatory="true" max_length="500" name="description" type="string"/>
@@ -17,19 +16,17 @@
         <element label="Image" max_length="40" name="image" type="user_image"/>
         <element attributes="edge_encryption_enabled=true" display="true" label="Item name" mandatory="true" max_length="40" name="item_name" type="string"/>
         <element label="Location" max_length="32" name="location" reference="x_1383184_charityb_user_profile" type="reference"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
         <element attributes="omit_sys_original=true" label="Start bid amount" max_length="20" name="start_bid_amount" type="currency"/>
         <element label="Start date" mandatory="true" max_length="40" name="start_date" type="glide_date"/>
         <element label="Value" max_length="20" name="value" type="currency"/>
         <index name="index">
-            <element name="bids"/>
-        </index>
-        <index name="index2">
             <element name="category"/>
         </index>
-        <index name="index3">
+        <index name="index2">
             <element name="donator"/>
         </index>
-        <index name="index4">
+        <index name="index3">
             <element name="location"/>
         </index>
     </element>

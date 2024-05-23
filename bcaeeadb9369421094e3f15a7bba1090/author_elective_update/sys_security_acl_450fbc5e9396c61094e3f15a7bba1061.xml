@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="DELETE">
+        <active>false</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description>Allow write for records in x_1383184_charityb_issues, always.</description>
+        <local_or_existing>Local</local_or_existing>
+        <name>x_1383184_charityb_issues</name>
+        <operation display_value="write">write</operation>
+        <script/>
+        <security_attribute/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-23 05:11:52</sys_created_on>
+        <sys_id>450fbc5e9396c61094e3f15a7bba1061</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>x_1383184_charityb_issues</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_security_acl_450fbc5e9396c61094e3f15a7bba1061</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-23 05:28:18</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_security_acl_450fbc5e9396c61094e3f15a7bba1061</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>false</active><admin_overrides>true</admin_overrides><advanced>false</advanced><condition/><description>Allow write for records in x_1383184_charityb_issues, always.</description><local_or_existing>Local</local_or_existing><name>x_1383184_charityb_issues</name><operation display_value="write">write</operation><script/><security_attribute/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>christy</sys_created_by><sys_created_on>2024-05-23 05:11:52</sys_created_on><sys_id>450fbc5e9396c61094e3f15a7bba1061</sys_id><sys_mod_count>4</sys_mod_count><sys_name>x_1383184_charityb_issues</sys_name><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_security_acl_450fbc5e9396c61094e3f15a7bba1061</sys_update_name><sys_updated_by>christy</sys_updated_by><sys_updated_on>2024-05-23 05:28:18</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+        <payload_hash>-962567989</payload_hash>
+        <record_name>x_1383184_charityb_issues</record_name>
+        <reverted_from/>
+        <source>f587788a9316861094e3f15a7bba10f4</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-23 05:28:19</sys_created_on>
+        <sys_id>e813c9d293d6c61094e3f15a7bba1061</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fa3ebed9a0000001</sys_recorded_at>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-23 05:28:19</sys_updated_on>
+        <type>Access Control</type>
+        <update_guid>a013c9d288d6c6104a0b637839a0e061</update_guid>
+        <update_guid_history>a013c9d288d6c6104a0b637839a0e061:-962567989,dee245d231d6c610b163407561954050:-404583964,63d201d2dfd6c6104178bf6caf8fdfc2:-962567989,9e810d12f2d6c610639fc29735905292:-404583964,f74ffc5ea096c6104e2a0f9b86b94ded:-933386177</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-23 05:34:18</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl">sys_security_acl</sys_db_object>
+        <sys_id>00e763a57ca740d4bb301c6578df51a9</sys_id>
+        <sys_metadata>450fbc5e9396c61094e3f15a7bba1061</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1383184_charityb_issues</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="x_1383184_charityb_issues">ee51ed119312c21094e3f15a7bba10dd</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_security_acl_450fbc5e9396c61094e3f15a7bba1061</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_450fbc5e9396c61094e3f15a7bba1061">e813c9d293d6c61094e3f15a7bba1061</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-23 05:34:18</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
