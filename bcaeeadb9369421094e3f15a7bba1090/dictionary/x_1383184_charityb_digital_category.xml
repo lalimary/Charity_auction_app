@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="update_synch=true" db_object_id="ddea8add9392c21094e3f15a7bba1087" extends="dl_matcher" label="Digital category" max_length="40" name="x_1383184_charityb_digital_category" type="collection">
-        <element display="true" label="Digital category" max_length="20" name="digital_category" type="string"/>
-    </element>
-</database>

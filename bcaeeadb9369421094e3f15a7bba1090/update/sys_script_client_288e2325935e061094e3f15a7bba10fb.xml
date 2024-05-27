@@ -17,23 +17,22 @@
             g_form.setReadOnly(fields[i], true);
         }
     }
-}
-]]></script>
+}]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>lalitha</sys_created_by>
         <sys_created_on>2024-05-21 10:04:57</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>288e2325935e061094e3f15a7bba10fb</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Read-Only When Auction Scheduled</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_script_client_288e2325935e061094e3f15a7bba10fb</sys_update_name>
-        <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-05-23 06:50:35</sys_updated_on>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-24 09:02:08</sys_updated_on>
         <table>x_1383184_charityb_item</table>
         <type>onLoad</type>
         <ui_type>0</ui_type>

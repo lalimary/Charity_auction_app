@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="update_synch=true" db_object_id="48ddc22a9352021094e3f15a7bba10b3" extends="dl_matcher" label="Reason for issue" max_length="40" name="x_1383184_charityb_reason_for_issue" type="collection">
+        <element display="true" label="Reason" max_length="100" name="reason" type="string"/>
+    </element>
+</database>

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
     <sys_app_module action="INSERT_OR_UPDATE">
         <active>false</active>
-        <application display_value="Charity Bids">b34a595493b9461094e3f15a7bba1007</application>
+        <application/>
         <assessment/>
         <device_type/>
-        <filter table="x_1383184_charityb_item">donatorDYNAMIC90d1921e5f510100a9ad2572f2b477fe^EQ<item endquery="false" field="donator" goto="false" newquery="false" operator="DYNAMIC" or="false" value="90d1921e5f510100a9ad2572f2b477fe"/>
-            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
-        </filter>
+        <filter/>
         <hint>Table to view the list of items on auction</hint>
         <homepage/>
         <image/>
@@ -26,15 +24,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>21442db49342021094e3f15a7bba10cf</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>My submissions</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_app_module_21442db49342021094e3f15a7bba10cf</sys_update_name>
-        <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-05-09 07:40:11</sys_updated_on>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-24 06:37:45</sys_updated_on>
         <timeline_page/>
         <title>My submissions</title>
         <uncancelable>false</uncancelable>

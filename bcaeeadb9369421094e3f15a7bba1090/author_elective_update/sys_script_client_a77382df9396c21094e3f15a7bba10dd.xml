@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>your_bid_amount</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Bid process</name>
+        <order/>
+        <script><![CDATA[// function onChange(control, oldValue, newValue, isLoading) {
+//     if (isLoading || newValue === '') {
+//         return; // Exit if the form is loading or the new value is empty
+//     }
+
+//    // var startBidAmount = parseFloat(g_form.getValue('start_bid_amount')); // Get the starting bid amount from the item
+//     var highestBidAmount = parseFloat(g_form.getValue('highest_bid_amount')); // Get the current highest bid amount
+
+//     // If highestBidAmount is not set or is falsy, set it to startBidAmount
+//    /* if (isNaN(highestBidAmount) || highestBidAmount === 0) {
+//         g_form.setValue('highest_bid_amount', startBidAmount);
+//         highestBidAmount = startBidAmount;
+//     }*/
+
+//     var yourBidAmount = parseFloat(newValue); // Get the entered bid amount
+
+//     // Check if the entered bid amount is greater than the highest bid amount
+//     if (yourBidAmount > highestBidAmount) {
+//         g_form.setValue('highest_bid_amount', yourBidAmount); // Update the highest bid amount with the entered bid amount
+//     } else {
+//         // Display an error message and clear the entered bid amount if it's not valid
+//         g_form.showFieldMsg('your_bid_amount', 'Your bid amount must be greater than the highest bid amount.', 'error');
+//         g_form.setValue('your_bid_amount', ''); // Clear the entered bid amount
+//     }
+// }
+
+
+/************************************************************************/
+
+
+// function onChange(control, oldValue, newValue, isLoading) {
+//     if (isLoading || newValue === '') {
+//         return;
+//     }
+
+//     var highestBidAmountStr = g_form.getValue('highest_bid_amount');
+//     //var yourBidAmountStr = newValue;
+//     var yourBidAmountStr = g_form.getValue('your_bid_amount');
+//     // Parse the currency values, remove any formatting if needed
+// //     var highestBidAmount = parseCurrency(highestBidAmountStr);
+// //     var yourBidAmount = parseCurrency(yourBidAmountStr);
+
+//     // Check if your_bid_amount is less than or equal to highest_bid_amount
+//     if (yourBidAmountStr <= highestBidAmountStr) {
+//         g_form.showFieldMsg('your_bid_amount', 'Your bid amount must be greater than the current highest bid amount.', 'error');
+//         g_form.setValue('your_bid_amount', '');
+//     } else if (yourBidAmountStr > highestBidAmountStr){
+//         // Update the highest_bid_amount field
+//         g_form.setValue('highest_bid_amount', yourBidAmountStr);
+//     }
+// }
+
+// function parseCurrency(value) {
+//     // Remove any non-numeric characters (like currency symbols and commas)
+//     value = value.replace(/[^\d.-]/g, '');
+//     return parseFloat(value);
+// }
+
+
+/************************************************************************************************/
+function onChange(control, oldValue, newValue, isLoading) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    var highestBidAmountStr = g_form.getValue('item_name.highest_bid_amount');
+    var yourBidAmountStr = newValue;
+
+
+    // Parse the currency values, remove any formatting if needed
+    var highestBidAmount = parseCurrency(highestBidAmountStr);
+    var yourBidAmount = parseCurrency(yourBidAmountStr);
+
+    // Check if your_bid_amount is less than or equal to highest_bid_amount
+    if (yourBidAmount <= highestBidAmount) {
+        g_form.showFieldMsg('your_bid_amount', 'Your bid amount must be greater than the current highest bid amount.', 'error');
+        g_form.setValue('your_bid_amount', '');
+    } else {
+        // Update the highest_bid_amount field
+        g_form.setValue('highest_bid_amount', yourBidAmountStr);
+    }
+}
+
+function parseCurrency(value) {
+    // Remove any non-numeric characters (like currency symbols and commas)
+    value = value.replace(/[^\d.-]/g, '');
+    return parseFloat(value);
+}
+
+
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-26 12:51:03</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a77382df9396c21094e3f15a7bba10dd</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>Bid process</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_a77382df9396c21094e3f15a7bba10dd</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-26 18:52:39</sys_updated_on>
+        <table>x_1383184_charityb_bid</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_client_a77382df9396c21094e3f15a7bba10dd</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;your_bid_amount&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Bid process&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[// function onChange(control, oldValue, newValue, isLoading) {
+//     if (isLoading || newValue === '') {
+//         return; // Exit if the form is loading or the new value is empty
+//     }
+
+//    // var startBidAmount = parseFloat(g_form.getValue('start_bid_amount')); // Get the starting bid amount from the item
+//     var highestBidAmount = parseFloat(g_form.getValue('highest_bid_amount')); // Get the current highest bid amount
+
+//     // If highestBidAmount is not set or is falsy, set it to startBidAmount
+//    /* if (isNaN(highestBidAmount) || highestBidAmount === 0) {
+//         g_form.setValue('highest_bid_amount', startBidAmount);
+//         highestBidAmount = startBidAmount;
+//     }*/
+
+//     var yourBidAmount = parseFloat(newValue); // Get the entered bid amount
+
+//     // Check if the entered bid amount is greater than the highest bid amount
+//     if (yourBidAmount &gt; highestBidAmount) {
+//         g_form.setValue('highest_bid_amount', yourBidAmount); // Update the highest bid amount with the entered bid amount
+//     } else {
+//         // Display an error message and clear the entered bid amount if it's not valid
+//         g_form.showFieldMsg('your_bid_amount', 'Your bid amount must be greater than the highest bid amount.', 'error');
+//         g_form.setValue('your_bid_amount', ''); // Clear the entered bid amount
+//     }
+// }
+
+
+/************************************************************************/
+
+
+// function onChange(control, oldValue, newValue, isLoading) {
+//     if (isLoading || newValue === '') {
+//         return;
+//     }
+
+//     var highestBidAmountStr = g_form.getValue('highest_bid_amount');
+//     //var yourBidAmountStr = newValue;
+//     var yourBidAmountStr = g_form.getValue('your_bid_amount');
+//     // Parse the currency values, remove any formatting if needed
+// //     var highestBidAmount = parseCurrency(highestBidAmountStr);
+// //     var yourBidAmount = parseCurrency(yourBidAmountStr);
+
+//     // Check if your_bid_amount is less than or equal to highest_bid_amount
+//     if (yourBidAmountStr &lt;= highestBidAmountStr) {
+//         g_form.showFieldMsg('your_bid_amount', 'Your bid amount must be greater than the current highest bid amount.', 'error');
+//         g_form.setValue('your_bid_amount', '');
+//     } else if (yourBidAmountStr &gt; highestBidAmountStr){
+//         // Update the highest_bid_amount field
+//         g_form.setValue('highest_bid_amount', yourBidAmountStr);
+//     }
+// }
+
+// function parseCurrency(value) {
+//     // Remove any non-numeric characters (like currency symbols and commas)
+//     value = value.replace(/[^\d.-]/g, '');
+//     return parseFloat(value);
+// }
+
+
+/************************************************************************************************/
+function onChange(control, oldValue, newValue, isLoading) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    var highestBidAmountStr = g_form.getValue('item_name.highest_bid_amount');
+    var yourBidAmountStr = newValue;
+
+
+    // Parse the currency values, remove any formatting if needed
+    var highestBidAmount = parseCurrency(highestBidAmountStr);
+    var yourBidAmount = parseCurrency(yourBidAmountStr);
+
+    // Check if your_bid_amount is less than or equal to highest_bid_amount
+    if (yourBidAmount &lt;= highestBidAmount) {
+        g_form.showFieldMsg('your_bid_amount', 'Your bid amount must be greater than the current highest bid amount.', 'error');
+        g_form.setValue('your_bid_amount', '');
+    } else {
+        // Update the highest_bid_amount field
+        g_form.setValue('highest_bid_amount', yourBidAmountStr);
+    }
+}
+
+function parseCurrency(value) {
+    // Remove any non-numeric characters (like currency symbols and commas)
+    value = value.replace(/[^\d.-]/g, '');
+    return parseFloat(value);
+}
+
+
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-26 12:51:03&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;a77382df9396c21094e3f15a7bba10dd&lt;/sys_id&gt;&lt;sys_mod_count&gt;13&lt;/sys_mod_count&gt;&lt;sys_name&gt;Bid process&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_a77382df9396c21094e3f15a7bba10dd&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-26 18:52:39&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_bid&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1344734022</payload_hash>
+        <record_name>Bid process</record_name>
+        <reverted_from/>
+        <source>f587788a9316861094e3f15a7bba10f4</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-26 18:52:39</sys_created_on>
+        <sys_id>3be7df5b931ec21094e3f15a7bba1014</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fb63f65800000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-26 18:52:39</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>ffe7df5b1a1ec2106162ac3229797d13</update_guid>
+        <update_guid_history>ffe7df5b1a1ec2106162ac3229797d13:1344734022,5d331797df1ec210d5ec6ca5de0b4026:-1031751,bff29b575e1ec2102d86900653a63c23:1617036579,2b92db97351ec210cc10c64fbdfca70f:312035863,7e321b57c31ec2104d5913acaa33dd16:-1441610744,1f4207174fdac2109d0f588ae93b14ef:636757685,68104353f3dac2100cf93ff09a4ab175:-697172978,2adf3a1374dac21077733e50dde5a023:632784551,15af72537edac2108fe271bf78e77f31:846040487,747ff2df4d9ac210673178ebef292fbc:632784551,19ba32db5d9ac210773ffed039b572e9:1384273629,d7c7bad71d9ac210072f4598f607f53f:-1601012255,61350e9f2a96c210040bb606d37f1b22:-1724338309,76258613a7d6c21074cb894a4ae90cde:419549291</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-27 17:16:34</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>a610f8c385734333a63c6f045a9c14f9</sys_id>
+        <sys_metadata>a77382df9396c21094e3f15a7bba10dd</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Bid process</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Bid">73f7b8929396c61094e3f15a7bba107f</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_client_a77382df9396c21094e3f15a7bba10dd</sys_update_name>
+        <sys_update_version display_value="sys_script_client_a77382df9396c21094e3f15a7bba10dd">3be7df5b931ec21094e3f15a7bba1014</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-27 17:16:34</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

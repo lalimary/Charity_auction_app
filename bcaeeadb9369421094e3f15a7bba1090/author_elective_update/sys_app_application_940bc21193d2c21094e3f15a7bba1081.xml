@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application">
+    <sys_app_application action="DELETE">
+        <active>true</active>
+        <category display_value="Custom Applications">e0355b31ef303000a61d5a3615c0fb78</category>
+        <description/>
+        <device_type>browser</device_type>
+        <hint/>
+        <name>Digital category</name>
+        <order>100</order>
+        <roles>x_1383184_charityb.digital_category_user</roles>
+        <sys_class_name>sys_app_application</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-20 08:08:41</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>940bc21193d2c21094e3f15a7bba1081</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Digital category</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_app_application_940bc21193d2c21094e3f15a7bba1081</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-20 08:08:41</sys_updated_on>
+        <title>Digital category</title>
+        <view_name/>
+    </sys_app_application>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_app_application_940bc21193d2c21094e3f15a7bba1081</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application"><sys_app_application action="INSERT_OR_UPDATE"><active>true</active><category display_value="Custom Applications">e0355b31ef303000a61d5a3615c0fb78</category><description/><device_type>browser</device_type><hint/><name>Digital category</name><order>100</order><roles>x_1383184_charityb.digital_category_user</roles><sys_class_name>sys_app_application</sys_class_name><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-20 08:08:41</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>940bc21193d2c21094e3f15a7bba1081</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Digital category</sys_name><sys_overrides/><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_app_application_940bc21193d2c21094e3f15a7bba1081</sys_update_name><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-20 08:08:41</sys_updated_on><title>Digital category</title><view_name/></sys_app_application></record_update>]]></payload>
+        <payload_hash>-1069920151</payload_hash>
+        <record_name>Digital category</record_name>
+        <reverted_from/>
+        <source>5b7c5359934a821094e3f15a7bba10cd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-20 08:08:41</sys_created_on>
+        <sys_id>dc0bc21193d2c21094e3f15a7bba1083</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f950babac0000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-20 08:08:41</sys_updated_on>
+        <type>Application Menu</type>
+        <update_guid>140bc2118ed2c210533a7106d5ff9183</update_guid>
+        <update_guid_history>140bc2118ed2c210533a7106d5ff9183:-1069920151</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Digital category">044ff22e9356021094e3f15a7bba1076</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-24 09:09:21</sys_created_on>
+        <sys_db_object display_value="" name="sys_app_application">sys_app_application</sys_db_object>
+        <sys_id>59b68e6f2995464a982a92e06ce62be4</sys_id>
+        <sys_metadata>940bc21193d2c21094e3f15a7bba1081</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Digital category</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_app_application_940bc21193d2c21094e3f15a7bba1081</sys_update_name>
+        <sys_update_version display_value="sys_app_application_940bc21193d2c21094e3f15a7bba1081">dc0bc21193d2c21094e3f15a7bba1083</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-24 09:09:21</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

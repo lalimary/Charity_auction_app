@@ -31,22 +31,12 @@
         <onclick/>
         <order>20</order>
         <script><![CDATA[(function executeAction() {
-    // Get the current user's sys_id
     var currentUser = gs.getUserID();
-
-    // Assign the current record to the user
     current.assigned_to = currentUser;
-
-    // Change the status to "In Progress"
-    current.setValue('status', 'in progress'); // Assuming '2' represents the "In Progress" state. Adjust as needed.
-
-    // Update the record
+    current.setValue('status', 'in progress');
     current.update();
-
-    // Redirect to the updated record
     action.setRedirectURL(current);
-})();
-]]></script>
+})();]]></script>
         <show_insert>true</show_insert>
         <show_multiple_update>false</show_multiple_update>
         <show_query>false</show_query>
@@ -57,7 +47,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6fb3aa2193d6061094e3f15a7bba10db</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_name>Assign to Me</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
@@ -65,7 +55,7 @@
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_ui_action_6fb3aa2193d6061094e3f15a7bba10db</sys_update_name>
         <sys_updated_by>christy</sys_updated_by>
-        <sys_updated_on>2024-05-21 09:55:08</sys_updated_on>
+        <sys_updated_on>2024-05-24 09:11:01</sys_updated_on>
         <table>x_1383184_charityb_issues</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>

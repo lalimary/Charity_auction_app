@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_1383184_charityb_events" version="2" view="testimonial_view">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>event_name</element>
+            <list_id display_value="x_1383184_charityb_events" element="NULL" name="x_1383184_charityb_events" parent="NULL" relationship="NULL" sys_domain="global" view="b946ca67935a061094e3f15a7bba103c">1f39426b935a061094e3f15a7bba10c2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-27 07:47:18</sys_created_on>
+            <sys_id>1f39426b935a061094e3f15a7bba10c3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-27 07:47:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>charity_company</element>
+            <list_id display_value="x_1383184_charityb_events" element="NULL" name="x_1383184_charityb_events" parent="NULL" relationship="NULL" sys_domain="global" view="b946ca67935a061094e3f15a7bba103c">1f39426b935a061094e3f15a7bba10c2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-27 07:47:18</sys_created_on>
+            <sys_id>9339426b935a061094e3f15a7bba10c4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-27 07:47:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>description</element>
+            <list_id display_value="x_1383184_charityb_events" element="NULL" name="x_1383184_charityb_events" parent="NULL" relationship="NULL" sys_domain="global" view="b946ca67935a061094e3f15a7bba103c">1f39426b935a061094e3f15a7bba10c2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-27 07:47:18</sys_created_on>
+            <sys_id>1739426b935a061094e3f15a7bba10c4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-27 07:47:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>end_date</element>
+            <list_id display_value="x_1383184_charityb_events" element="NULL" name="x_1383184_charityb_events" parent="NULL" relationship="NULL" sys_domain="global" view="b946ca67935a061094e3f15a7bba103c">1f39426b935a061094e3f15a7bba10c2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-27 07:47:18</sys_created_on>
+            <sys_id>9739426b935a061094e3f15a7bba10c4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-27 07:47:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>event_manager</element>
+            <list_id display_value="x_1383184_charityb_events" element="NULL" name="x_1383184_charityb_events" parent="NULL" relationship="NULL" sys_domain="global" view="b946ca67935a061094e3f15a7bba103c">1f39426b935a061094e3f15a7bba10c2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-27 07:47:18</sys_created_on>
+            <sys_id>1b39426b935a061094e3f15a7bba10c4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-27 07:47:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>event_status</element>
+            <list_id display_value="x_1383184_charityb_events" element="NULL" name="x_1383184_charityb_events" parent="NULL" relationship="NULL" sys_domain="global" view="b946ca67935a061094e3f15a7bba103c">1f39426b935a061094e3f15a7bba10c2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-27 07:47:18</sys_created_on>
+            <sys_id>9b39426b935a061094e3f15a7bba10c4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-27 07:47:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>image</element>
+            <list_id display_value="x_1383184_charityb_events" element="NULL" name="x_1383184_charityb_events" parent="NULL" relationship="NULL" sys_domain="global" view="b946ca67935a061094e3f15a7bba103c">1f39426b935a061094e3f15a7bba10c2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-27 07:47:18</sys_created_on>
+            <sys_id>1f39426b935a061094e3f15a7bba10c4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-27 07:47:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>justgiving_url</element>
+            <list_id display_value="x_1383184_charityb_events" element="NULL" name="x_1383184_charityb_events" parent="NULL" relationship="NULL" sys_domain="global" view="b946ca67935a061094e3f15a7bba103c">1f39426b935a061094e3f15a7bba10c2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>7</position>
+            <sum>false</sum>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-27 07:47:18</sys_created_on>
+            <sys_id>9f39426b935a061094e3f15a7bba10c4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-27 07:47:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>start_date</element>
+            <list_id display_value="x_1383184_charityb_events" element="NULL" name="x_1383184_charityb_events" parent="NULL" relationship="NULL" sys_domain="global" view="b946ca67935a061094e3f15a7bba103c">1f39426b935a061094e3f15a7bba10c2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>8</position>
+            <sum>false</sum>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-27 07:47:18</sys_created_on>
+            <sys_id>1339426b935a061094e3f15a7bba10c5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-27 07:47:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_1383184_charityb_events</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-27 07:47:18</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>1f39426b935a061094e3f15a7bba10c2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_1383184_charityb_events</sys_name>
+            <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+            <sys_update_name>sys_ui_list_x_1383184_charityb_events_testimonial_view</sys_update_name>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-27 07:47:18</sys_updated_on>
+            <sys_user/>
+            <view display_value="Testimonial view" name="testimonial_view">b946ca67935a061094e3f15a7bba103c</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

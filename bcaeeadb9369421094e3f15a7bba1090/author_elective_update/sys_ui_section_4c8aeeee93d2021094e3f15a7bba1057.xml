@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section action="DELETE" caption="Testimonials" section_id="4c8aeeee93d2021094e3f15a7bba1057" sys_domain="global" table="x_1383184_charityb_event" version="3" view="Testimonials">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>testimonials</element>
+            <position>0</position>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-24 07:38:42</sys_created_on>
+            <sys_id>8c8aeeee93d2021094e3f15a7bba1059</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Testimonials" display_value="Testimonials" name="x_1383184_charityb_event" sys_domain="global" view="048aeeee93d2021094e3f15a7bba1053">4c8aeeee93d2021094e3f15a7bba1057</sys_ui_section>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-24 07:38:42</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="DELETE">
+            <caption>Testimonials</caption>
+            <header>false</header>
+            <name>x_1383184_charityb_event</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-24 07:38:42</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4c8aeeee93d2021094e3f15a7bba1057</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_1383184_charityb_event</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+            <sys_update_name>sys_ui_section_4c8aeeee93d2021094e3f15a7bba1057</sys_update_name>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-24 07:38:42</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Testimonials" name="Testimonials">048aeeee93d2021094e3f15a7bba1053</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_ui_section_4c8aeeee93d2021094e3f15a7bba1057</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_section caption="Testimonials" section_id="4c8aeeee93d2021094e3f15a7bba1057" sys_domain="global" table="x_1383184_charityb_event" version="3" view="Testimonials"><sys_ui_element action="INSERT_OR_UPDATE"><element>testimonials</element><position>0</position><sys_created_by>christy</sys_created_by><sys_created_on>2024-05-24 07:38:42</sys_created_on><sys_id>8c8aeeee93d2021094e3f15a7bba1059</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="Testimonials" display_value="Testimonials" name="x_1383184_charityb_event" sys_domain="global" view="048aeeee93d2021094e3f15a7bba1053">4c8aeeee93d2021094e3f15a7bba1057</sys_ui_section><sys_updated_by>christy</sys_updated_by><sys_updated_on>2024-05-24 07:38:42</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_section action="INSERT_OR_UPDATE"><caption>Testimonials</caption><header>false</header><name>x_1383184_charityb_event</name><roles/><sys_class_name>sys_ui_section</sys_class_name><sys_created_by>christy</sys_created_by><sys_created_on>2024-05-24 07:38:42</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>4c8aeeee93d2021094e3f15a7bba1057</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_1383184_charityb_event</sys_name><sys_overrides/><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_ui_section_4c8aeeee93d2021094e3f15a7bba1057</sys_update_name><sys_updated_by>christy</sys_updated_by><sys_updated_on>2024-05-24 07:38:42</sys_updated_on><sys_user/><title>false</title><view display_value="Testimonials" name="Testimonials">048aeeee93d2021094e3f15a7bba1053</view><view_name/></sys_ui_section></sys_ui_section></record_update>]]></payload>
+        <payload_hash>499220615</payload_hash>
+        <record_name>Event</record_name>
+        <reverted_from/>
+        <source>f587788a9316861094e3f15a7bba10f4</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-24 07:38:42</sys_created_on>
+        <sys_id>c88aeeee93d2021094e3f15a7bba105b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fa989ab320000001</sys_recorded_at>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-24 07:38:42</sys_updated_on>
+        <type>Form Layout</type>
+        <update_guid>408aeeeec9d202100568478e9547a85b</update_guid>
+        <update_guid_history>408aeeeec9d202100568478e9547a85b:499220615</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-24 10:19:34</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_section">sys_ui_section</sys_db_object>
+        <sys_id>050e849b28564a23a2bb97bd116a3c21</sys_id>
+        <sys_metadata>4c8aeeee93d2021094e3f15a7bba1057</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Testimonials</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="">f9ea49909379461094e3f15a7bba1075</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_ui_section_4c8aeeee93d2021094e3f15a7bba1057</sys_update_name>
+        <sys_update_version display_value="sys_ui_section_4c8aeeee93d2021094e3f15a7bba1057">c88aeeee93d2021094e3f15a7bba105b</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-24 10:19:34</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

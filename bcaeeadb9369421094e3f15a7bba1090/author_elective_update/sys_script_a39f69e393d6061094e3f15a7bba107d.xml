@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="DELETE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>false</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_1383184_charityb_bid</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>script 4</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+    var itemQuery = new global.GlideQuery('x_1383184_charityb_item')
+        .where('item_name', current.item_name)
+        .select('start_bid_amount', 'highest_bid_amount')
+        .toArray(1);
+
+    if (itemQuery.length > 0) {
+        var yourBidAmount = current.your_bid_amount;
+        var startBidAmount = itemQuery[0].start_bid_amount;
+        var highestBidAmount = itemQuery[0].highest_bid_amount;
+
+        // Ensure the highestBidAmount is at least the startBidAmount
+        if (isNaN(highestBidAmount) || highestBidAmount < startBidAmount) {
+            highestBidAmount = startBidAmount;
+            var updateQuery = new global.GlideQuery('x_1383184_charityb_item')
+                .where('item_name', current.item_name)
+                .updateMultiple({ highest_bid_amount: startBidAmount });
+        }
+    }
+
+    if (yourBidAmount > highestBidAmount) {
+        highestBidAmount = yourBidAmount;
+        var updateQuery2 = new global.GlideQuery('x_1383184_charityb_bid')
+            .where('item_name', current.item_name)
+            .updateMultiple({ highest_bid_amount: yourBidAmount });
+    } else {
+        gs.addErrorMessage("Your bid amount should be greater than the current highest bid.");
+        current.state = previous.state;
+        current.setAbortAction(true);
+    }
+})(current, previous);
+
+/****************************************************************************************************/
+
+	// Check if the current bid is greater than the highest bid
+// 	if (yourBidAmount > highestBidAmount) {
+// 		itemGR.setValue('highest_bid_amount', yourBidAmount);
+// 		itemGR.update();
+// 	} else {
+// 		gs.addErrorMessage("Your bid amount should be greater than the current highest bid.");
+// 		current.state = previous.state;
+// 		current.setAbortAction(true);
+// 		// Prevent the record from being saved
+// 	}
+
+// })(current, previous);
+
+
+
+
+
+
+
+// (function executeRule(current, previous /*null when async*/) {
+//     var itemGr = new GlideRecord('x_1383184_charityb_item'); // Replace with your item table name
+//     if (itemGr.get(current.item_name)) { // Assuming item_name is the reference field to the item table
+//         var startBidAmount = parseFloat(itemGr.getValue('start_bid_amount'));
+//         var highestBidAmount = parseFloat(itemGr.getValue('highest_bid_amount'));
+//         var yourBidAmount = parseFloat(current.getValue('your_bid_amount'));
+
+//         if (isNaN(startBidAmount) || isNaN(yourBidAmount)) {
+//             gs.addErrorMessage("Invalid bid amount.");
+//             current.setAbortAction(true);
+//             return;
+//         }
+
+//         if (isNaN(highestBidAmount) || highestBidAmount < startBidAmount) {
+//             highestBidAmount = startBidAmount;
+//             itemGr.setValue('highest_bid_amount', startBidAmount);
+//             try {
+//                 itemGr.update();
+//             } catch (e) {
+//                 gs.error("Error updating highest bid amount: " + e);
+//                 current.setAbortAction(true);
+//                 return;
+//             }
+//         }
+
+//         if (yourBidAmount <= startBidAmount) {
+//             gs.addErrorMessage("Your bid amount should be greater than the current start bid.");
+//             current.setAbortAction(true);
+//             return;
+//         }
+
+//         itemGr.setValue('highest_bid_amount', yourBidAmount); // Update the highest bid amount
+//         try {
+//             itemGr.update();
+//         } catch (e) {
+//             gs.error("Error updating highest bid amount: " + e);
+//             current.setAbortAction(true);
+//             return;
+//         }
+//     }
+// })(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-27 05:57:40</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a39f69e393d6061094e3f15a7bba107d</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>script 4</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_a39f69e393d6061094e3f15a7bba107d</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-27 09:24:05</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="DELETE" query="documentkey=a39f69e393d6061094e3f15a7bba107d"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_a39f69e393d6061094e3f15a7bba107d</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;false&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_1383184_charityb_bid&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;script 4&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+    var itemQuery = new global.GlideQuery('x_1383184_charityb_item')
+        .where('item_name', current.item_name)
+        .select('start_bid_amount', 'highest_bid_amount')
+        .toArray(1);
+
+    if (itemQuery.length &gt; 0) {
+        var yourBidAmount = current.your_bid_amount;
+        var startBidAmount = itemQuery[0].start_bid_amount;
+        var highestBidAmount = itemQuery[0].highest_bid_amount;
+
+        // Ensure the highestBidAmount is at least the startBidAmount
+        if (isNaN(highestBidAmount) || highestBidAmount &lt; startBidAmount) {
+            highestBidAmount = startBidAmount;
+            var updateQuery = new global.GlideQuery('x_1383184_charityb_item')
+                .where('item_name', current.item_name)
+                .updateMultiple({ highest_bid_amount: startBidAmount });
+        }
+    }
+
+    if (yourBidAmount &gt; highestBidAmount) {
+        highestBidAmount = yourBidAmount;
+        var updateQuery2 = new global.GlideQuery('x_1383184_charityb_bid')
+            .where('item_name', current.item_name)
+            .updateMultiple({ highest_bid_amount: yourBidAmount });
+    } else {
+        gs.addErrorMessage("Your bid amount should be greater than the current highest bid.");
+        current.state = previous.state;
+        current.setAbortAction(true);
+    }
+})(current, previous);
+
+/****************************************************************************************************/
+
+	// Check if the current bid is greater than the highest bid
+// 	if (yourBidAmount &gt; highestBidAmount) {
+// 		itemGR.setValue('highest_bid_amount', yourBidAmount);
+// 		itemGR.update();
+// 	} else {
+// 		gs.addErrorMessage("Your bid amount should be greater than the current highest bid.");
+// 		current.state = previous.state;
+// 		current.setAbortAction(true);
+// 		// Prevent the record from being saved
+// 	}
+
+// })(current, previous);
+
+
+
+
+
+
+
+// (function executeRule(current, previous /*null when async*/) {
+//     var itemGr = new GlideRecord('x_1383184_charityb_item'); // Replace with your item table name
+//     if (itemGr.get(current.item_name)) { // Assuming item_name is the reference field to the item table
+//         var startBidAmount = parseFloat(itemGr.getValue('start_bid_amount'));
+//         var highestBidAmount = parseFloat(itemGr.getValue('highest_bid_amount'));
+//         var yourBidAmount = parseFloat(current.getValue('your_bid_amount'));
+
+//         if (isNaN(startBidAmount) || isNaN(yourBidAmount)) {
+//             gs.addErrorMessage("Invalid bid amount.");
+//             current.setAbortAction(true);
+//             return;
+//         }
+
+//         if (isNaN(highestBidAmount) || highestBidAmount &lt; startBidAmount) {
+//             highestBidAmount = startBidAmount;
+//             itemGr.setValue('highest_bid_amount', startBidAmount);
+//             try {
+//                 itemGr.update();
+//             } catch (e) {
+//                 gs.error("Error updating highest bid amount: " + e);
+//                 current.setAbortAction(true);
+//                 return;
+//             }
+//         }
+
+//         if (yourBidAmount &lt;= startBidAmount) {
+//             gs.addErrorMessage("Your bid amount should be greater than the current start bid.");
+//             current.setAbortAction(true);
+//             return;
+//         }
+
+//         itemGr.setValue('highest_bid_amount', yourBidAmount); // Update the highest bid amount
+//         try {
+//             itemGr.update();
+//         } catch (e) {
+//             gs.error("Error updating highest bid amount: " + e);
+//             current.setAbortAction(true);
+//             return;
+//         }
+//     }
+// })(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-27 05:57:40&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;a39f69e393d6061094e3f15a7bba107d&lt;/sys_id&gt;&lt;sys_mod_count&gt;23&lt;/sys_mod_count&gt;&lt;sys_name&gt;script 4&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_a39f69e393d6061094e3f15a7bba107d&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-27 09:24:05&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;after&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=a39f69e393d6061094e3f15a7bba107d"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1868486670</payload_hash>
+        <record_name>script 4</record_name>
+        <reverted_from/>
+        <source>f587788a9316861094e3f15a7bba10f4</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-27 09:24:06</sys_created_on>
+        <sys_id>c56f52a393da061094e3f15a7bba10e4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fb95d3b7b0000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-27 09:24:06</sys_updated_on>
+        <type>Business Rule</type>
+        <update_guid>0d6f52a360da061054f109ca3c7672e3</update_guid>
+        <update_guid_history>0d6f52a360da061054f109ca3c7672e3:-1868486670,243f56a350da06100cd0105e80adae2b:-506175739,def742e7265a06101729e1c9a4b35070:-1000570583,ec864667895a0610a86f7447eb25ac20:1651246293,1da382a3025a06107ef19d68ce1cc1b4:1002546907,f56cb1e7231a06105489ef87107963ef:1000449965,f9cb75a7071a0610d6259f6051bba960:-2050144352,dfaafde3411a0610e133f9685ab298ff:1000449965,825a71e35e1a06101b9fd4aea274b147:1113710620,bc18b923661a0610a64dee6a038ec171:870525577,1ba7b5ef3cd60610e6e673b3a4ea83d6:1336979360,089639af15d60610ecc6a8d285b4879f:-281314654,a546b1afe2d60610f8a2127801b4babd:696660432,0536fd6f17d6061070027f1a08e3632f:-1639373703,fc06356f4ed60610efa5070e3d2eeee2:-281314654,79c5f56f77d60610611b1ac753cf44cf:-2080201858,4a75bd2f0ed60610e9ea44125c0301a4:496609455,d9f47deb75d60610499f35467d1866e5:124331828,79b4712fd7d60610971708eb7d5afe3a:496609455,f664fdab80d6061057fcfa26318acf37:-1310332139,e9f2f96b2cd606106637f57116969257:496609455,6342712b9dd60610a427724813c2cdc3:402322511,8d8179e7d8d606106b5af205a23d6b8d:835110984,1d20f1a749d606106cba694b6c0bcca6:702018344</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-27 16:15:27</sys_created_on>
+        <sys_db_object display_value="" name="sys_script">sys_script</sys_db_object>
+        <sys_id>05c5fa5363344435811ab82183750f61</sys_id>
+        <sys_metadata>a39f69e393d6061094e3f15a7bba107d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>script 4</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Bid">73f7b8929396c61094e3f15a7bba107f</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_a39f69e393d6061094e3f15a7bba107d</sys_update_name>
+        <sys_update_version display_value="sys_script_a39f69e393d6061094e3f15a7bba107d">c56f52a393da061094e3f15a7bba10e4</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-27 16:15:27</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

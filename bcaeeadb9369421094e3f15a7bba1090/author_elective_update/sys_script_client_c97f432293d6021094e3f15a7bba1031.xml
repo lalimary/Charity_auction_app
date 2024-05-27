@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>your_bid_amount</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Set startbidamount to highest bid amount</name>
+        <order/>
+        <script><![CDATA[// function onLoad() {
+
+//     var startBid = g_form.getValue('item_name.start_bid_amount');
+//     // 	var startBidAmount = parseCurrency(startBid);
+//     var highestBid = g_form.getValue('item_name.highest_bid_amount');
+//     var yourBid = g_form.getValue('your_bid_amount');
+//     // 	var highestBidAmount = parseCurrency(startBid);
+
+//     // 	if (highestBid < startBid){
+//     //     g_form.setValue('highest_bid_amount', startBid);
+//     // 	}
+
+//     if (!highestBid) {
+//         g_form.setValue('highest_bid_amount', startBid);
+//     } else if (highestBid > yourBid) {
+//         g_form.setValue('highest_bid_amount', yourBid);
+//     } else {
+// 		g_form.setValue('highest_bid_amount', '');
+// 	}
+// }
+
+
+
+
+
+function onLoad() {
+    // Get the values of start_bid_amount and highest_bid_amount
+    var startBidAmountStr = g_form.getValue('item_name.start_bid_amount');
+    var highestBidAmountStr = g_form.getValue('item_name.highest_bid_amount');
+
+    // Parse the currency values, remove any formatting if needed
+    var startBidAmount = parseCurrency(startBidAmountStr);
+    var highestBidAmount = parseCurrency(highestBidAmountStr);
+
+    // Check if highest_bid_amount is less than start_bid_amount
+    if (highestBidAmount < startBidAmount) {
+        // Set highest_bid_amount to start_bid_amount
+        g_form.setValue('item_name.highest_bid_amount', startBidAmountStr);
+    }
+}
+
+function parseCurrency(value) {
+    // Remove any non-numeric characters (like currency symbols and commas)
+    value = value.replace(/[^\d.-]/g, '');
+    return parseFloat(value);
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-24 10:22:54</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c97f432293d6021094e3f15a7bba1031</sys_id>
+        <sys_mod_count>50</sys_mod_count>
+        <sys_name>Set startbidamount to highest bid amount</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_c97f432293d6021094e3f15a7bba1031</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-26 18:52:34</sys_updated_on>
+        <table>x_1383184_charityb_bid</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_client_c97f432293d6021094e3f15a7bba1031</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;your_bid_amount&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Set startbidamount to highest bid amount&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[// function onLoad() {
+
+//     var startBid = g_form.getValue('item_name.start_bid_amount');
+//     // 	var startBidAmount = parseCurrency(startBid);
+//     var highestBid = g_form.getValue('item_name.highest_bid_amount');
+//     var yourBid = g_form.getValue('your_bid_amount');
+//     // 	var highestBidAmount = parseCurrency(startBid);
+
+//     // 	if (highestBid &lt; startBid){
+//     //     g_form.setValue('highest_bid_amount', startBid);
+//     // 	}
+
+//     if (!highestBid) {
+//         g_form.setValue('highest_bid_amount', startBid);
+//     } else if (highestBid &gt; yourBid) {
+//         g_form.setValue('highest_bid_amount', yourBid);
+//     } else {
+// 		g_form.setValue('highest_bid_amount', '');
+// 	}
+// }
+
+
+
+
+
+function onLoad() {
+    // Get the values of start_bid_amount and highest_bid_amount
+    var startBidAmountStr = g_form.getValue('item_name.start_bid_amount');
+    var highestBidAmountStr = g_form.getValue('item_name.highest_bid_amount');
+
+    // Parse the currency values, remove any formatting if needed
+    var startBidAmount = parseCurrency(startBidAmountStr);
+    var highestBidAmount = parseCurrency(highestBidAmountStr);
+
+    // Check if highest_bid_amount is less than start_bid_amount
+    if (highestBidAmount &lt; startBidAmount) {
+        // Set highest_bid_amount to start_bid_amount
+        g_form.setValue('item_name.highest_bid_amount', startBidAmountStr);
+    }
+}
+
+function parseCurrency(value) {
+    // Remove any non-numeric characters (like currency symbols and commas)
+    value = value.replace(/[^\d.-]/g, '');
+    return parseFloat(value);
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-24 10:22:54&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;c97f432293d6021094e3f15a7bba1031&lt;/sys_id&gt;&lt;sys_mod_count&gt;50&lt;/sys_mod_count&gt;&lt;sys_name&gt;Set startbidamount to highest bid amount&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_c97f432293d6021094e3f15a7bba1031&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-26 18:52:34&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_bid&lt;/table&gt;&lt;type&gt;onLoad&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>2145248840</payload_hash>
+        <record_name>Set startbidamount to highest bid amount</record_name>
+        <reverted_from/>
+        <source>f587788a9316861094e3f15a7bba10f4</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-26 18:52:34</sys_created_on>
+        <sys_id>a2e717db931ec21094e3f15a7bba1043</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fb63f51de0000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-26 18:52:34</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>6ae717db0e1ec210aeac9ed435746242</update_guid>
+        <update_guid_history>6ae717db0e1ec210aeac9ed435746242:2145248840,1532d357af1ec2108cd3fdb3e546905f:-1216183301,ae6387174adac210d59a11229f7d6929:-1673500786,8d134f172fdac210d812b418bd155397:1481892161,d6d28f17bcdac2106e188c430a0174b3:1967455845,51c18f93a6dac210c77c6f084bd694aa:1788394252,8271cf9377dac21060d96d8bc72c2609:327122819,5a5103d32cdac210ae942e9d2a6ce324:-961738976,d9214f939adac210dba8b1ddc5667f83:1549967667,7fc0c793b1dac21079ab9d1fb2b44989:-961738976,18c0cf13fedac21040b66f30421a452a:-1678751602,b22ff6136ddac210866d28a46a3888d1:-717837647,88ee7e9f8a9ac210a09704fc24634a6b:311560163,f2be3adf999ac21072324e23073710ea:743736859,71bd729fdf9ac210370d92ad7f9b3d4f:2088893961,6b2d7a1f8c9ac210e3da18c62afa8b73:-65374135,8dacbadb0e9ac2101fb978b2f91d67ba:-347137164,e91b32db269ac210bf638b2663fd0ced:1687700992,3db386df2b96c210ecdabc38b88b99f1:-583844979,9cb306db7896c2100012e982709c8e82:1687700992,d97df11b0a96c2106763521524440877:-1776169176,b7e05e8316968210e498692c5457181c:-301522451,06d0da43d796821017c17a21ca177870:1429831510,b1c052430c968210255d14194b7ca3df:-301522451,a07f820346968210e7f88c5664d1c8a8:-102033594,f8ae4ecf8a568210da3c00d25fa84732:1622023433,eddcce4f895682104f39b424b19b39c4:-1699328717,5ec7860b9556821012ab1b1a63cf2420:2113301592,20a602c750568210e00a65bcdef2cecc:-1232561736,50b54e47ce56821073dc9aff08a51878:-1034260750,b32ff18f9c16821063e80f04f84a40ac:1768774292,9bfef94f1f168210e93b3e497cf3b484:533116075,1bcef94f141682102854bb9cdf6d2ae5:-1391290568,38ceb50f8b168210de033c3955a8524c:-894083381,063e390f0f168210130f2913bebd483a:-1738956610,ee1db5cbda1682101d486cac9cb75c3a:-1475869696,07dc3d8bb21682106e74a5e7e6a10b42:1416945705,9b5cf58b01168210457a477ae9096100:-386956234,566b314b45168210eccfc0012ec6db01:-2687043,5c0bf9c75616821065fba582703823a1:2056213574,66ca710bad1682101d31482e2c964f6f:757046955,50d8b5470f16821087767734696c9afa:429187170,3aa8fd0741168210d677d74dcdd7c859:1736661401,2aa0318be3d2821041e3b087467d74f9:2089406382,ea80bd4b6bd28210dd3cc960203a9034:296722017,398f290b31d2821075053ec41a7f1e3e:2089406382,6c339f2692d602107f1a3ed6debac9be:212410885,d7f2d7265fd602102c85a9b72b0a7445:-454283502,c792d7262ad6021098e497a23c0b0740:114402994,17625f624cd602106f59848dedf60ca7:-936948407,11109f22f3d602104bdf7e2c7e03b7cb:127584343</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-27 16:18:21</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>285e3318fe5d4767b6a9bc46e0609861</sys_id>
+        <sys_metadata>c97f432293d6021094e3f15a7bba1031</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Set startbidamount to highest bid amount</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Bid">73f7b8929396c61094e3f15a7bba107f</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_client_c97f432293d6021094e3f15a7bba1031</sys_update_name>
+        <sys_update_version display_value="sys_script_client_c97f432293d6021094e3f15a7bba1031">a2e717db931ec21094e3f15a7bba1043</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-27 16:18:21</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

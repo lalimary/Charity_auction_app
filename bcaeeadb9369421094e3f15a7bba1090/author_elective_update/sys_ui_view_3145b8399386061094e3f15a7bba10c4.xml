@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_view">
+    <sys_ui_view action="DELETE">
+        <group/>
+        <hidden>false</hidden>
+        <name>Users_view</name>
+        <roles/>
+        <sys_class_name>sys_ui_view</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+        <sys_id>3145b8399386061094e3f15a7bba10c4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Users view</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_ui_view_3145b8399386061094e3f15a7bba10c4</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+        <title>Users view</title>
+        <user/>
+    </sys_ui_view>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_ui_view_3145b8399386061094e3f15a7bba10c4</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_view"><sys_ui_view action="INSERT_OR_UPDATE"><group/><hidden>false</hidden><name>Users_view</name><roles/><sys_class_name>sys_ui_view</sys_class_name><sys_created_by>christy</sys_created_by><sys_created_on>2024-05-09 04:55:24</sys_created_on><sys_id>3145b8399386061094e3f15a7bba10c4</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Users view</sys_name><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_ui_view_3145b8399386061094e3f15a7bba10c4</sys_update_name><sys_updated_by>christy</sys_updated_by><sys_updated_on>2024-05-09 04:55:24</sys_updated_on><title>Users view</title><user/></sys_ui_view></record_update>]]></payload>
+        <payload_hash>1376057102</payload_hash>
+        <record_name>Users view</record_name>
+        <reverted_from/>
+        <source>5b7c5359934a821094e3f15a7bba10cd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-09 04:55:24</sys_created_on>
+        <sys_id>3145b8399386061094e3f15a7bba10c7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f5bb4c4560000001</sys_recorded_at>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-09 04:55:24</sys_updated_on>
+        <type>UI View</type>
+        <update_guid>7545b839e7860610e4b023d6fe59b8c6</update_guid>
+        <update_guid_history>7545b839e7860610e4b023d6fe59b8c6:1376057102</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-24 08:54:09</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_view">sys_ui_view</sys_db_object>
+        <sys_id>6bd2a6b5fd504e07b6144c47c7b02291</sys_id>
+        <sys_metadata>3145b8399386061094e3f15a7bba10c4</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Users view</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_ui_view_3145b8399386061094e3f15a7bba10c4</sys_update_name>
+        <sys_update_version display_value="sys_ui_view_3145b8399386061094e3f15a7bba10c4">3145b8399386061094e3f15a7bba10c7</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-24 08:54:09</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

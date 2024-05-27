@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="DELETE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>false</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_1383184_charityb_bid</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Update Current Bid  on Item SCRIPT 2</name>
+        <order>20</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+
+    var itemGR = new GlideRecord('x_1383184_charityb_item');
+    if (itemGR.get(current.item_name)) {
+        var yourBidAmount = current.your_bid_amount;
+
+        // Check if the current bid is greater than the highest bid
+        if (parseFloat(yourBidAmount) > parseFloat(itemGR.getValue('highest_bid_amount'))) {
+            itemGR.setValue('highest_bid_amount', yourBidAmount);
+            itemGR.update();
+
+            // Update highest bid in bid record
+//             current.highest_bid = yourBidAmount;
+//             current.update();
+        } 
+    }
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-26 18:57:08</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>1228135f931ec21094e3f15a7bba10b8</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>Update Current Bid  on Item SCRIPT 2</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_1228135f931ec21094e3f15a7bba10b8</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-27 09:50:01</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="DELETE" query="documentkey=1228135f931ec21094e3f15a7bba10b8"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_1228135f931ec21094e3f15a7bba10b8</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;false&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_1383184_charityb_bid&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Update Current Bid  on Item SCRIPT 2&lt;/name&gt;&lt;order&gt;20&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+
+    var itemGR = new GlideRecord('x_1383184_charityb_item');
+    if (itemGR.get(current.item_name)) {
+        var yourBidAmount = current.your_bid_amount;
+
+        // Check if the current bid is greater than the highest bid
+        if (parseFloat(yourBidAmount) &gt; parseFloat(itemGR.getValue('highest_bid_amount'))) {
+            itemGR.setValue('highest_bid_amount', yourBidAmount);
+            itemGR.update();
+
+            // Update highest bid in bid record
+//             current.highest_bid = yourBidAmount;
+//             current.update();
+        } 
+    }
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-26 18:57:08&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;1228135f931ec21094e3f15a7bba10b8&lt;/sys_id&gt;&lt;sys_mod_count&gt;12&lt;/sys_mod_count&gt;&lt;sys_name&gt;Update Current Bid  on Item SCRIPT 2&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_1228135f931ec21094e3f15a7bba10b8&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-27 09:50:01&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;after&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=1228135f931ec21094e3f15a7bba10b8"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1433085455</payload_hash>
+        <record_name>Update Current Bid  on Item SCRIPT 2</record_name>
+        <reverted_from/>
+        <source>f587788a9316861094e3f15a7bba10f4</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-27 09:50:02</sys_created_on>
+        <sys_id>0955a6e793da061094e3f15a7bba10e1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fb974f97a0000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-27 09:50:02</sys_updated_on>
+        <type>Business Rule</type>
+        <update_guid>4d55a6e7a9da0610f87ebe61c8acafe0</update_guid>
+        <update_guid_history>4d55a6e7a9da0610f87ebe61c8acafe0:-1433085455,18222a2743da06103ce40b8c83811807:1766766468,8210a2e388da0610f94d8811a4f32905:-1433085455,4acf5aa320da0610e16539ee98ce7132:1766766468,46cfa5278cd606104bf932d58f92668a:-1433085455,d41de96384d606101b48b3a383e5596d:1766766468,909bedeff796061053d9254923376798:-1485627730,2729ad2fdf9606101305d6362262f73a:-689252645,da3429e7519606105314f77361c81988:-1485627730,1ac3e9a70d960610c93b3a9eea811ad5:-1897975793,93da2793439ec21049dd90a36a931813:1755096186,0f2a9b9fd11ec21015e9123dc01a5ea7:1890070587,e1f8db1ff21ec21074c95bd129264bcc:-1577299058</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-27 16:16:18</sys_created_on>
+        <sys_db_object display_value="" name="sys_script">sys_script</sys_db_object>
+        <sys_id>0fce2922ac764570830ad32053e7ba40</sys_id>
+        <sys_metadata>1228135f931ec21094e3f15a7bba10b8</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Update Current Bid  on Item SCRIPT 2</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Bid">73f7b8929396c61094e3f15a7bba107f</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_1228135f931ec21094e3f15a7bba10b8</sys_update_name>
+        <sys_update_version display_value="sys_script_1228135f931ec21094e3f15a7bba10b8">0955a6e793da061094e3f15a7bba10e1</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-27 16:16:18</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

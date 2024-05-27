@@ -15,7 +15,7 @@
         <mobile_title>Assigned to me</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
         <name>x_1383184_charityb_issues</name>
-        <order>380</order>
+        <order>1550</order>
         <override_menu_roles>false</override_menu_roles>
         <query/>
         <report/>
@@ -26,15 +26,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>8530244e9392861094e3f15a7bba10e7</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Assigned to me</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_app_module_8530244e9392861094e3f15a7bba10e7</sys_update_name>
-        <sys_updated_by>christy</sys_updated_by>
-        <sys_updated_on>2024-05-23 04:38:10</sys_updated_on>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-24 09:12:06</sys_updated_on>
         <timeline_page/>
         <title>Assigned to me</title>
         <uncancelable>false</uncancelable>

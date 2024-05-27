@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="DELETE">
+        <active>false</active>
+        <application/>
+        <assessment/>
+        <device_type/>
+        <filter/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>Event Views</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_1383184_charityb_event</name>
+        <order>600</order>
+        <override_menu_roles>false</override_menu_roles>
+        <query/>
+        <report/>
+        <roles>x_1383184_charityb.event_manager</roles>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-04-23 11:25:53</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b5f4772c93f5c61094e3f15a7bba108c</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Events</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_app_module_b5f4772c93f5c61094e3f15a7bba108c</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-09 07:40:19</sys_updated_on>
+        <timeline_page/>
+        <title>Events</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_app_module_b5f4772c93f5c61094e3f15a7bba108c</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>false</active><application/><assessment/><device_type/><filter/><hint/><homepage/><image/><link_type>LIST</link_type><map_page/><mobile_title>Event Views</mobile_title><mobile_view_name>Mobile</mobile_view_name><name>x_1383184_charityb_event</name><order>600</order><override_menu_roles>false</override_menu_roles><query/><report/><roles>x_1383184_charityb.event_manager</roles><sys_class_name>sys_app_module</sys_class_name><sys_created_by>christy</sys_created_by><sys_created_on>2024-04-23 11:25:53</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>b5f4772c93f5c61094e3f15a7bba108c</sys_id><sys_mod_count>6</sys_mod_count><sys_name>Events</sys_name><sys_overrides/><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_app_module_b5f4772c93f5c61094e3f15a7bba108c</sys_update_name><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-09 07:40:19</sys_updated_on><timeline_page/><title>Events</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+        <payload_hash>-916872734</payload_hash>
+        <record_name>Events</record_name>
+        <reverted_from/>
+        <source>5b7c5359934a821094e3f15a7bba10cd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-22 08:24:43</sys_created_on>
+        <sys_id>4fd12cce9392861094e3f15a7bba10ca</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f9f6714260000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-22 08:24:43</sys_updated_on>
+        <type>Module</type>
+        <update_guid>0bd12cce09928610ecf6787004d5efca</update_guid>
+        <update_guid_history>0bd12cce09928610ecf6787004d5efca:0,250bd9b5294a061082e1fb87ae36bdcc:-1781415238,e1462578d5420210db65fd1a64c111b5:-987134309,f516a538c1420210847327bcb5050cfe:-1011370116,cd06a1381d420210224d20e3c5a371e7:-1084077537,5635213818420210d669eb9ead300e42:-1011370116,30657f2cf6f5c6104ceee1c27906a293:-1935576194,3d35772cf8f5c610b3c8c9c0d0d34d93:-1825748855</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Events">c250d76293d6021094e3f15a7bba10b9</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-24 10:24:02</sys_created_on>
+        <sys_db_object display_value="" name="sys_app_module">sys_app_module</sys_db_object>
+        <sys_id>41677d927c3f4d408c8b22f20660ca40</sys_id>
+        <sys_metadata>b5f4772c93f5c61094e3f15a7bba108c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Events</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_app_module_b5f4772c93f5c61094e3f15a7bba108c</sys_update_name>
+        <sys_update_version display_value="sys_app_module_b5f4772c93f5c61094e3f15a7bba108c">4fd12cce9392861094e3f15a7bba10ca</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-24 10:24:02</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

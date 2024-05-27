@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_1383184_charityb_reason_for_issue">
+    <x_1383184_charityb_reason_for_issue action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <order>100</order>
+        <reason>Low Image Quality</reason>
+        <sys_class_name>x_1383184_charityb_reason_for_issue</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-24 05:37:22</sys_created_on>
+        <sys_id>d8be0a6a9352021094e3f15a7bba1041</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Low Image Quality</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>x_1383184_charityb_reason_for_issue_d8be0a6a9352021094e3f15a7bba1041</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-24 05:37:22</sys_updated_on>
+    </x_1383184_charityb_reason_for_issue>
+</record_update>

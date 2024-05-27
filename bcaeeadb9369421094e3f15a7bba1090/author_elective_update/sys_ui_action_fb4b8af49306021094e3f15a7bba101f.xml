@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="DELETE">
+        <action_name>report_inappropriate_image</action_name>
+        <active>false</active>
+        <client>true</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+        <comments/>
+        <condition>current.auction_status != 'item_submitted'</condition>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>true</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <format_for_configurable_workspace>false</format_for_configurable_workspace>
+        <hint/>
+        <isolate_script>false</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <messages/>
+        <name>Report Image</name>
+        <onclick>openReportForm()</onclick>
+        <order>200</order>
+        <script><![CDATA[// !current.image.nil() ^ // Check if the image field is not empty
+//     (current.auction_status == 'Item Submitted' || current.auction_status == 'Auction Scheduled') ^ 
+// Check the status
+//     current.sys_id.nil() == false;// Check if the record has been saved
+function openReportForm() {
+    // Define the URL of the new record form for the report table
+    var newFormURL = 'https://dev203498.service-now.com/nav_to.do?uri=x_1383184_charityb_image_report.do?sys_id=fd44e629930ec21094e3f15a7bba102c';
+
+    // Open the new record form in a new browser tab
+    window.open(newFormURL, '_blank');
+}
+]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-06 08:42:18</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>fb4b8af49306021094e3f15a7bba101f</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_name>Report Image</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_ui_action_fb4b8af49306021094e3f15a7bba101f</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-21 09:29:30</sys_updated_on>
+        <table>x_1383184_charityb_item</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_ui_action_fb4b8af49306021094e3f15a7bba101f</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_action"&gt;&lt;sys_ui_action action="INSERT_OR_UPDATE"&gt;&lt;action_name&gt;report_inappropriate_image&lt;/action_name&gt;&lt;active&gt;false&lt;/active&gt;&lt;client&gt;true&lt;/client&gt;&lt;client_script_v2&gt;&lt;![CDATA[function onClick(g_form) {
+
+}]]&gt;&lt;/client_script_v2&gt;&lt;comments/&gt;&lt;condition&gt;current.auction_status != 'item_submitted'&lt;/condition&gt;&lt;form_action&gt;true&lt;/form_action&gt;&lt;form_button&gt;true&lt;/form_button&gt;&lt;form_button_v2&gt;false&lt;/form_button_v2&gt;&lt;form_context_menu&gt;true&lt;/form_context_menu&gt;&lt;form_link&gt;false&lt;/form_link&gt;&lt;form_menu_button_v2&gt;false&lt;/form_menu_button_v2&gt;&lt;form_style/&gt;&lt;format_for_configurable_workspace&gt;false&lt;/format_for_configurable_workspace&gt;&lt;hint/&gt;&lt;isolate_script&gt;false&lt;/isolate_script&gt;&lt;list_action&gt;false&lt;/list_action&gt;&lt;list_banner_button&gt;false&lt;/list_banner_button&gt;&lt;list_button&gt;false&lt;/list_button&gt;&lt;list_choice&gt;false&lt;/list_choice&gt;&lt;list_context_menu&gt;false&lt;/list_context_menu&gt;&lt;list_link&gt;false&lt;/list_link&gt;&lt;list_save_with_form_button&gt;false&lt;/list_save_with_form_button&gt;&lt;list_style/&gt;&lt;messages/&gt;&lt;name&gt;Report Image&lt;/name&gt;&lt;onclick&gt;openReportForm()&lt;/onclick&gt;&lt;order&gt;200&lt;/order&gt;&lt;script&gt;&lt;![CDATA[// !current.image.nil() ^ // Check if the image field is not empty
+//     (current.auction_status == 'Item Submitted' || current.auction_status == 'Auction Scheduled') ^ 
+// Check the status
+//     current.sys_id.nil() == false;// Check if the record has been saved
+function openReportForm() {
+    // Define the URL of the new record form for the report table
+    var newFormURL = 'https://dev203498.service-now.com/nav_to.do?uri=x_1383184_charityb_image_report.do?sys_id=fd44e629930ec21094e3f15a7bba102c';
+
+    // Open the new record form in a new browser tab
+    window.open(newFormURL, '_blank');
+}
+]]&gt;&lt;/script&gt;&lt;show_insert&gt;true&lt;/show_insert&gt;&lt;show_multiple_update&gt;false&lt;/show_multiple_update&gt;&lt;show_query&gt;false&lt;/show_query&gt;&lt;show_update&gt;true&lt;/show_update&gt;&lt;sys_class_name&gt;sys_ui_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-06 08:42:18&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;fb4b8af49306021094e3f15a7bba101f&lt;/sys_id&gt;&lt;sys_mod_count&gt;22&lt;/sys_mod_count&gt;&lt;sys_name&gt;Report Image&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_action_fb4b8af49306021094e3f15a7bba101f&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-21 09:29:30&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_item&lt;/table&gt;&lt;ui11_compatible&gt;true&lt;/ui11_compatible&gt;&lt;ui16_compatible&gt;false&lt;/ui16_compatible&gt;&lt;/sys_ui_action&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>688052113</payload_hash>
+        <record_name>Report Image</record_name>
+        <reverted_from/>
+        <source>5b7c5359934a821094e3f15a7bba10cd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-21 09:29:30</sys_created_on>
+        <sys_id>0e17e769931e061094e3f15a7bba107d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f9a7c06640000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-21 09:29:30</sys_updated_on>
+        <type>UI Action</type>
+        <update_guid>c217e769351e0610e58ecd06e877c47d</update_guid>
+        <update_guid_history>c217e769351e0610e58ecd06e877c47d:688052113,9c3b35464d4e46109e223e2ef221b9c3:2112149260,ee052a692c0ec2102fcd637b72cd902f:-255783395,c8a46e29890ec21060f7f566c417f39c:-583389555,57642a29710ec21005a44331250b6971:-255783395,3e3462290c0ec210b916920b97292fdc:1155192307,9ff32229820ec210f7ded7a03955adc5:498746243,fb175ae5b5cac2102dddf869bc0e34b7:-2008185205,499696e535cac210a58cbd35f950ed2b:-947215910,648616e582cac2108cd55559483c734f:-1346658965,dc355665c6cac210db84008fc51ad0fd:-31315166,02e4d225dacac2109fb8139f14ca81ed:-1400022270,df549ee107cac2107812c35e4fbe9ad8:755465153,a224dae1efcac210ee00e5177354e586:883870669,e4f39ae173cac21020290ca7bc2d0afa:1982465765,d5829e6178cac210e5c031b46bc4b739:1639226154,d9915e21a6cac21072793287ba3c2dbe:1032883691,e9f3da7043460210f3f0333202b7ff9b:1913492963,e1beca789506021006cda3d292f893dc:1856135531,cccd46b85006021062671ce7bc4cd21d:-752215897,4a7d42b87f0602103c2cd02736ec71a9:-1444645862,8b3d4e381d060210d1768ddda04d64c2:-849066532,907c4e38fc0602108269c993fd4538ba:-1311244453</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-24 09:12:34</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_action">sys_ui_action</sys_db_object>
+        <sys_id>3dffe445e8754c0c98fe7319a77c3990</sys_id>
+        <sys_metadata>fb4b8af49306021094e3f15a7bba101f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Report Image</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Item">6d85325b93a9421094e3f15a7bba10ea</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_ui_action_fb4b8af49306021094e3f15a7bba101f</sys_update_name>
+        <sys_update_version display_value="sys_ui_action_fb4b8af49306021094e3f15a7bba101f">0e17e769931e061094e3f15a7bba107d</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-24 09:12:34</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

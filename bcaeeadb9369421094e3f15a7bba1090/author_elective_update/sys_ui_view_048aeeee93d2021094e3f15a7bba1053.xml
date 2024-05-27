@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_view">
+    <sys_ui_view action="DELETE">
+        <group/>
+        <hidden>false</hidden>
+        <name>Testimonials</name>
+        <roles/>
+        <sys_class_name>sys_ui_view</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-24 07:38:42</sys_created_on>
+        <sys_id>048aeeee93d2021094e3f15a7bba1053</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Testimonials</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_ui_view_048aeeee93d2021094e3f15a7bba1053</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-24 08:01:55</sys_updated_on>
+        <title>Testimonials</title>
+        <user/>
+    </sys_ui_view>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_ui_view_048aeeee93d2021094e3f15a7bba1053</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_view"><sys_ui_view action="INSERT_OR_UPDATE"><group/><hidden>false</hidden><name>Testimonials</name><roles/><sys_class_name>sys_ui_view</sys_class_name><sys_created_by>christy</sys_created_by><sys_created_on>2024-05-24 07:38:42</sys_created_on><sys_id>048aeeee93d2021094e3f15a7bba1053</sys_id><sys_mod_count>2</sys_mod_count><sys_name>Testimonials</sys_name><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_ui_view_048aeeee93d2021094e3f15a7bba1053</sys_update_name><sys_updated_by>christy</sys_updated_by><sys_updated_on>2024-05-24 08:01:55</sys_updated_on><title>Testimonials</title><user/></sys_ui_view></record_update>]]></payload>
+        <payload_hash>409553432</payload_hash>
+        <record_name>Testimonials</record_name>
+        <reverted_from/>
+        <source>f587788a9316861094e3f15a7bba10f4</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-24 08:01:55</sys_created_on>
+        <sys_id>0cdfaee69316021094e3f15a7bba10f4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fa99eea750000001</sys_recorded_at>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-24 08:01:55</sys_updated_on>
+        <type>UI View</type>
+        <update_guid>0cdfa2e647160210b07bfdfdc2c8f577</update_guid>
+        <update_guid_history>0cdfa2e647160210b07bfdfdc2c8f577:409553432,afbf2ee6e61602100d90c5409842b86f:1802069947,848aeeee48d202101575d56fe0137a55:409553432</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-24 10:19:34</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_view">sys_ui_view</sys_db_object>
+        <sys_id>410de970b30b4714a0535a90f092b410</sys_id>
+        <sys_metadata>048aeeee93d2021094e3f15a7bba1053</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Testimonials</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_ui_view_048aeeee93d2021094e3f15a7bba1053</sys_update_name>
+        <sys_update_version display_value="sys_ui_view_048aeeee93d2021094e3f15a7bba1053">0cdfaee69316021094e3f15a7bba10f4</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-24 10:19:34</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

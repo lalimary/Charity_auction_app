@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="DELETE">
+        <active>true</active>
+        <application/>
+        <assessment/>
+        <device_type/>
+        <filter/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>NEW</link_type>
+        <map_page/>
+        <mobile_title>Issues</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_1383184_charityb_issues</name>
+        <order>7</order>
+        <override_menu_roles>false</override_menu_roles>
+        <query/>
+        <report/>
+        <roles/>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-20 05:50:11</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c70b695d9312c21094e3f15a7bba10f2</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Create Issues</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_app_module_c70b695d9312c21094e3f15a7bba10f2</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-22 07:51:08</sys_updated_on>
+        <timeline_page/>
+        <title>Create Issues</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_app_module_c70b695d9312c21094e3f15a7bba10f2</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application/><assessment/><device_type/><filter/><hint/><homepage/><image/><link_type>NEW</link_type><map_page/><mobile_title>Issues</mobile_title><mobile_view_name>Mobile</mobile_view_name><name>x_1383184_charityb_issues</name><order>7</order><override_menu_roles>false</override_menu_roles><query/><report/><roles/><sys_class_name>sys_app_module</sys_class_name><sys_created_by>christy</sys_created_by><sys_created_on>2024-05-20 05:50:11</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>c70b695d9312c21094e3f15a7bba10f2</sys_id><sys_mod_count>2</sys_mod_count><sys_name>Create Issues</sys_name><sys_overrides/><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_app_module_c70b695d9312c21094e3f15a7bba10f2</sys_update_name><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-22 07:51:08</sys_updated_on><timeline_page/><title>Create Issues</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+        <payload_hash>392238123</payload_hash>
+        <record_name>Create Issues</record_name>
+        <reverted_from/>
+        <source>5b7c5359934a821094e3f15a7bba10cd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-22 08:24:43</sys_created_on>
+        <sys_id>8bd12cce9392861094e3f15a7bba10ce</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f9f6714520000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-22 08:24:43</sys_updated_on>
+        <type>Module</type>
+        <update_guid>8b2a148232928610b1627e2639cbd39c</update_guid>
+        <update_guid_history>8b2a148232928610b1627e2639cbd39c:-1186211901,8b2a148232928610b1627e2639cbd39c:-1186211901,4b0b3be13c9e0610d1b54d3fc2c21c0f:1195670046,fb4b699d2f12c210d10e8ed61a244cf2:-162780710</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Create Issues">5ee52e6b93da061094e3f15a7bba1019</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-27 09:52:35</sys_created_on>
+        <sys_db_object display_value="" name="sys_app_module">sys_app_module</sys_db_object>
+        <sys_id>3c45af24abf948ac96308e0f7a21a644</sys_id>
+        <sys_metadata>c70b695d9312c21094e3f15a7bba10f2</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Create Issues</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_app_module_c70b695d9312c21094e3f15a7bba10f2</sys_update_name>
+        <sys_update_version display_value="sys_app_module_c70b695d9312c21094e3f15a7bba10f2">8bd12cce9392861094e3f15a7bba10ce</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-27 09:52:35</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

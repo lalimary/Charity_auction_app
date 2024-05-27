@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>The bid amount entered by the user is greater than the required amount (starting bid amount for the first bid and current highest bid amount for subsequent bids).</description>
+        <field>your_bid_amount</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Validate bid amount</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    var itemId = g_form.getValue('item_name.number');
+    var ga = new GlideAjax('BidUtils');
+    ga.addParam('sysparm_name', 'validateyourBidAmount');
+    ga.addParam('sysparm_item_name.number', itemId);
+    ga.addParam('sysparm_your_bid_amount', newValue);
+    ga.getXMLAnswer(function(response) {
+        if (response !== 'valid') {
+            g_form.showFieldMsg('your_bid_amount', 'Your bid amount must be greater than the highest bid amount.', 'error');
+            g_form.setValue('your_bid_amount', '');
+        }
+    });
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-24 05:17:56</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a2f58e6e9312021094e3f15a7bba107c</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Validate bid amount</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_a2f58e6e9312021094e3f15a7bba107c</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-24 10:24:09</sys_updated_on>
+        <table>x_1383184_charityb_bid</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_client_a2f58e6e9312021094e3f15a7bba107c</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;The bid amount entered by the user is greater than the required amount (starting bid amount for the first bid and current highest bid amount for subsequent bids).&lt;/description&gt;&lt;field&gt;your_bid_amount&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Validate bid amount&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    var itemId = g_form.getValue('item_name.number');
+    var ga = new GlideAjax('BidUtils');
+    ga.addParam('sysparm_name', 'validateyourBidAmount');
+    ga.addParam('sysparm_item_name.number', itemId);
+    ga.addParam('sysparm_your_bid_amount', newValue);
+    ga.getXMLAnswer(function(response) {
+        if (response !== 'valid') {
+            g_form.showFieldMsg('your_bid_amount', 'Your bid amount must be greater than the highest bid amount.', 'error');
+            g_form.setValue('your_bid_amount', '');
+        }
+    });
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-24 05:17:56&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;a2f58e6e9312021094e3f15a7bba107c&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;Validate bid amount&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_a2f58e6e9312021094e3f15a7bba107c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-24 10:24:09&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_bid&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1524240233</payload_hash>
+        <record_name>Validate bid amount</record_name>
+        <reverted_from/>
+        <source>f587788a9316861094e3f15a7bba10f4</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-24 10:24:09</sys_created_on>
+        <sys_id>2b50936293d6021094e3f15a7bba10b4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18faa2122690000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-24 10:24:09</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>ef5093620bd6021034793b37589337b3</update_guid>
+        <update_guid_history>ef5093620bd6021034793b37589337b3:-1524240233,89f432ae1d160210ddb0ba4a9fae9dfd:331278212,49d4f62e3d1602100b34af15ac07c94b:1375507883,af5e2a66c71602104a9cfd9f471a18dc:-1050906059,72bd6a26d516021014bec60fbf09a33a:801188066,d6a5a66ad0d202104b65b09ee12eff6b:1333242914,ca4a4ae2ee5202103fba0bb71ad04680:-1994388419</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-27 16:17:51</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>77eb465f755a4c5a846bffa6d02722a4</sys_id>
+        <sys_metadata>a2f58e6e9312021094e3f15a7bba107c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Validate bid amount</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Bid">73f7b8929396c61094e3f15a7bba107f</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_client_a2f58e6e9312021094e3f15a7bba107c</sys_update_name>
+        <sys_update_version display_value="sys_script_client_a2f58e6e9312021094e3f15a7bba107c">2b50936293d6021094e3f15a7bba10b4</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-27 16:17:51</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
