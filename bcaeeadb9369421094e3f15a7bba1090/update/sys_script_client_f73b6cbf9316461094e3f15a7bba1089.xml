@@ -10,27 +10,46 @@
         <messages/>
         <name>CS3 (Test2)</name>
         <order/>
-        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+        <script><![CDATA[var isUpdating = false;
+
+function onChange(control, oldValue, newValue, isLoading, isTemplate) {
     if (isLoading || newValue === '') {
         return;
     }
 
-    var highestBidAmount = g_form.getValue('item_name.highest_bid_amount');
-    var yourBidAmount = newValue;
-
-    if (yourBidAmount > highestBidAmount) {
-        g_form.setValue('item_name.highest_bid_amount', newValue);
-    } else {
-        g_form.addErrorMessage('Your bid amount must be higher than the current highest bid amount.');
+    function parseCurrency(value) {
+        if (!value) return NaN;
+        // Remove any non-numeric characters except for periods and minus sign
+        value = value.replace(/[^0-9.-]+/g, "");
+        return parseFloat(value);
     }
-}]]></script>
+
+    var yourBid = parseCurrency(g_form.getValue('your_bid_amount'));
+    var startBid = parseCurrency(g_form.getValue('item_name.start_bid_amount'));
+    var highestBid = parseCurrency(g_form.getValue('item_name.highest_bid_amount'));
+
+
+    if (yourBid > startBid && yourBid > highestBid) {
+		isUpdating = true; // Set the flag to avoid recursion
+        g_form.setValue('item_name.highest_bid_amount', yourBid);
+    } else {
+// 		g_form.clearValue('your_bid_amount');
+		
+        g_form.showFieldMsg('your_bid_amount','Your bid should be greater than the highest bid and start bid','error');
+		isUpdating = true; // Set the flag to avoid recursion
+		g_form.clearValue('your_bid_amount');
+		g_form.setValue('your_bid_amount', 'NULL');
+    }
+	g_form.clearMessages('your_bid_amount');
+}
+]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>lalitha</sys_created_by>
         <sys_created_on>2024-05-27 19:36:13</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f73b6cbf9316461094e3f15a7bba1089</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>39</sys_mod_count>
         <sys_name>CS3 (Test2)</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
@@ -38,10 +57,10 @@
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_script_client_f73b6cbf9316461094e3f15a7bba1089</sys_update_name>
         <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-05-27 19:57:17</sys_updated_on>
+        <sys_updated_on>2024-05-29 16:52:20</sys_updated_on>
         <table>x_1383184_charityb_bid</table>
         <type>onChange</type>
-        <ui_type>0</ui_type>
+        <ui_type>10</ui_type>
         <view/>
     </sys_script_client>
 </record_update>

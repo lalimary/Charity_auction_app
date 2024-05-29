@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
     <sys_security_acl action="INSERT_OR_UPDATE">
-        <active>false</active>
+        <active>true</active>
         <admin_overrides>true</admin_overrides>
         <advanced>false</advanced>
         <condition/>
-        <description>Allow create for testimonial in x_1383184_charityb_events, always.</description>
+        <description>Default access control on x_1383184_charityb_events</description>
         <local_or_existing>Local</local_or_existing>
         <name>x_1383184_charityb_events.testimonial</name>
-        <operation display_value="create">create</operation>
+        <operation display_value="read">read</operation>
         <script/>
         <security_attribute/>
         <sys_class_name>sys_security_acl</sys_class_name>
         <sys_created_by>christy</sys_created_by>
-        <sys_created_on>2024-05-28 06:07:51</sys_created_on>
-        <sys_id>70fbfef393de461094e3f15a7bba1059</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_created_on>2024-05-29 08:59:32</sys_created_on>
+        <sys_id>f0fc281c936ac61094e3f15a7bba1002</sys_id>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>x_1383184_charityb_events.testimonial</sys_name>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
-        <sys_update_name>sys_security_acl_70fbfef393de461094e3f15a7bba1059</sys_update_name>
-        <sys_updated_by>christy</sys_updated_by>
-        <sys_updated_on>2024-05-28 10:02:59</sys_updated_on>
+        <sys_update_name>sys_security_acl_f0fc281c936ac61094e3f15a7bba1002</sys_update_name>
+        <sys_updated_by>mentor</sys_updated_by>
+        <sys_updated_on>2024-05-29 15:20:39</sys_updated_on>
         <type display_value="record">record</type>
     </sys_security_acl>
 </record_update>

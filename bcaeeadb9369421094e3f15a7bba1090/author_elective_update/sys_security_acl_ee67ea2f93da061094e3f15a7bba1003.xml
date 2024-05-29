@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="DELETE">
+        <active>false</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description>Allow write for testimonial in x_1383184_charityb_events, for users with role x_1383184_charityb.events_user.</description>
+        <local_or_existing>Local</local_or_existing>
+        <name>x_1383184_charityb_events.testimonial</name>
+        <operation display_value="write">write</operation>
+        <script/>
+        <security_attribute/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-27 10:00:23</sys_created_on>
+        <sys_id>ee67ea2f93da061094e3f15a7bba1003</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>x_1383184_charityb_events.testimonial</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_security_acl_ee67ea2f93da061094e3f15a7bba1003</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-29 09:27:58</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_security_acl_ee67ea2f93da061094e3f15a7bba1003</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>false</active><admin_overrides>true</admin_overrides><advanced>false</advanced><condition/><description>Allow write for testimonial in x_1383184_charityb_events, for users with role x_1383184_charityb.events_user.</description><local_or_existing>Local</local_or_existing><name>x_1383184_charityb_events.testimonial</name><operation display_value="write">write</operation><script/><security_attribute/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>christy</sys_created_by><sys_created_on>2024-05-27 10:00:23</sys_created_on><sys_id>ee67ea2f93da061094e3f15a7bba1003</sys_id><sys_mod_count>19</sys_mod_count><sys_name>x_1383184_charityb_events.testimonial</sys_name><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_security_acl_ee67ea2f93da061094e3f15a7bba1003</sys_update_name><sys_updated_by>christy</sys_updated_by><sys_updated_on>2024-05-29 09:27:58</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+        <payload_hash>1006875606</payload_hash>
+        <record_name>x_1383184_charityb_events.testimonial</record_name>
+        <reverted_from/>
+        <source>d57fef4c9326c61094e3f15a7bba1002</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-29 09:27:58</sys_created_on>
+        <sys_id>e173389493aac61094e3f15a7bba100e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fc3ad80590000001</sys_recorded_at>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-29 09:27:58</sys_updated_on>
+        <type>Access Control</type>
+        <update_guid>a973389464aac610ee4711f589284c0d</update_guid>
+        <update_guid_history>a973389464aac610ee4711f589284c0d:1006875606,37851c10ad2ac610f4361801b3efec1d:1131310063,30e110d837e6c610ae6d29d8e4691214:1006875606,9b007bf76ed286109254e7f2ba8b1e6f:1131310063,a8afa7ff03928610098b66ee9172a533:1006875606,e1b8e7ff85928610de25cf50d9b5c8f7:1131310063,5308abbfcf9286107f85aede9025fa21:1006875606,dcaa877b4512861019ba313e01e2b393:1131310063,451ac73beb1286109f19fe7837926403:-1374385961,fdd947f7dc12861058889bfaf4b7e7ba:2014772482,aaa90ff73d128610a986b0c2a60fc9cd:426705769,8b0ffef70bde461089bc19374a9ef0e5:2014772482,051d7677b0de461067a2124632babc3c:-806397359,2eab3af31dde4610015df05a50c459d1:2014772482,531b3eb313de461009f7091d877bce94:240542885,9d193233abde4610a164069f0e111b52:2014772482,6088b2ff9c9e4610d08efea48330e8e0:426705769,1176763f889e46107d5bfee6c75ede6c:2014772482,63c2f6f7eb9e46101de0128fa3437a8f:1747226354,78b7662f0dda0610feb62b0acc13953e:-1161273028</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-29 10:20:42</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl">sys_security_acl</sys_db_object>
+        <sys_id>3dd367f020c040d096262c4c9142e100</sys_id>
+        <sys_metadata>ee67ea2f93da061094e3f15a7bba1003</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1383184_charityb_events.testimonial</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Testimonial">66ceb12f931a061094e3f15a7bba1051</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_security_acl_ee67ea2f93da061094e3f15a7bba1003</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_ee67ea2f93da061094e3f15a7bba1003">e173389493aac61094e3f15a7bba100e</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-29 10:20:42</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

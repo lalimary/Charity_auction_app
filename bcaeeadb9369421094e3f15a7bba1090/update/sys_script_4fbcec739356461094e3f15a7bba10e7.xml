@@ -5,13 +5,13 @@
         <action_delete>false</action_delete>
         <action_insert>true</action_insert>
         <action_query>false</action_query>
-        <action_update>false</action_update>
-        <active>true</active>
+        <action_update>true</action_update>
+        <active>false</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
         <change_fields>false</change_fields>
         <client_callable>false</client_callable>
-        <collection>x_1383184_charityb_bid</collection>
+        <collection>x_1383184_charityb_item</collection>
         <condition/>
         <description/>
         <execute_function>false</execute_function>
@@ -19,7 +19,7 @@
         <is_rest>false</is_rest>
         <message/>
         <name>Bid process</name>
-        <order>500</order>
+        <order>100</order>
         <priority>100</priority>
         <rest_method/>
         <rest_method_text/>
@@ -27,33 +27,53 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[(function executeRule(current, previous ) {
-    var yourBidAmount = current.getValue('your_bid_amount');
-    var itemSysId = current.getValue('item_name'); // Reference field in bid table
+        <script><![CDATA[// (function executeRule(current, previous) {
+//     var yourBidAmount = current.getValue('your_bid_amount');
+//     var itemSysId = current.getValue('item_name'); 
 
 
-    var item = new GlideRecord('x_1383184_charityb_item');
-    if (item.get(itemSysId)) {
-        var currentHighestBid = item.getValue('highest_bid_amount') ; 
-        var currentStartBid = item.getValue('start_bid_amount')||0;
+//     var item = new GlideRecord('x_1383184_charityb_item');
+//     if (item.get(itemSysId)) {
+//         var currentHighestBid = item.getValue('highest_bid_amount');
+//         var currentStartBid = item.getValue('start_bid_amount');
 
 
-        if (yourBidAmount > currentHighestBid) {
-            current.setValue('item_namehighest_bid_amount', current.getValue('your_bid_amount')); //update highestbid in item record
-            item.update();
+//         if (current.your_bid_amount <= currentHighestBid) {
+//             gs.addErrorMessage('Your bid amount must be higher than the current highest bid amount.');
+// //             item.setValue('highest_bid_amount', yourBidAmount); //update highestbid in item record
+//             item.setAbortAction(true);
 
-        } else {
-            gs.addErrorMessage('Your bid amount must be higher than the current highest bid amount.');
-            item.setAbortAction(true);
+
+//         } else {
+//             item.setValue('highest_bid_amount', yourBidAmount); 
+//             item.update();
+//         }
+
+//     } else {
+//         gs.addErrorMessage('The item associated with this bid was not found.');
+//         current.setAbortAction(true);
+//     }
+	
+// })(current, previous);
+
+
+
+(function executeRule(current, g_scratchpad, previous /*null when async*/) {
+    // Retrieve the item record
+    var itemGr = new GlideRecord('x_1383184_charityb_item'); // Replace with your item table name
+    if (itemGr.get(current.item_name)) {
+        // Set scratchpad variables
+        g_scratchpad.startBidAmount = parseFloat(itemGr.getValue('start_bid_amount'));
+        g_scratchpad.highestBidAmount = parseFloat(itemGr.getValue('highest_bid_amount'));
+        
+        // Ensure highest_bid_amount is at least start_bid_amount
+        if (isNaN(g_scratchpad.highestBidAmount) || g_scratchpad.highestBidAmount < g_scratchpad.startBidAmount) {
+            g_scratchpad.highestBidAmount = g_scratchpad.startBidAmount;
+            current.highest_bid_amount = g_scratchpad.startBidAmount;
+            current.update(); // Update the current record with the correct highest_bid_amount
         }
-
-    } else {
-        gs.addErrorMessage('The item associated with this bid was not found.');
-        current.setAbortAction(true);
     }
-})(current, previous);
-
-
+})(current, g_scratchpad, previous);
 ]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>lalitha</sys_created_by>
@@ -61,7 +81,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>4fbcec739356461094e3f15a7bba10e7</sys_id>
-        <sys_mod_count>67</sys_mod_count>
+        <sys_mod_count>92</sys_mod_count>
         <sys_name>Bid process</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
@@ -69,7 +89,7 @@
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_script_4fbcec739356461094e3f15a7bba10e7</sys_update_name>
         <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-05-28 10:18:56</sys_updated_on>
+        <sys_updated_on>2024-05-29 11:41:06</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>

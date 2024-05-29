@@ -5,8 +5,8 @@
         <action_delete>false</action_delete>
         <action_insert>true</action_insert>
         <action_query>false</action_query>
-        <action_update>false</action_update>
-        <active>true</active>
+        <action_update>true</action_update>
+        <active>false</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
         <change_fields>false</change_fields>
@@ -27,23 +27,21 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
-    // If the highest bid amount is not set or is lower than the start bid amount
-    if (!current.highest_bid_amount || current.highest_bid_amount < current.start_bid_amount) {
-        // Set the highest bid amount to the start bid amount
-        current.highest_bid_amount = current.start_bid_amount;
+        <script><![CDATA[(function executeRule(current, g_scratchpad, previous) {
+    var itemGr = new GlideRecord('x_1383184_charityb_item'); 
+    if (itemGr.get(current.item_name)) {
+      
+        g_scratchpad.startBidAmount = parseFloat(itemGr.getValue('start_bid_amount'));
+        g_scratchpad.highestBidAmount = parseFloat(itemGr.getValue('highest_bid_amount'));
+        
+     
+        if (isNaN(g_scratchpad.highestBidAmount) || g_scratchpad.highestBidAmount < g_scratchpad.startBidAmount) {
+            g_scratchpad.highestBidAmount = g_scratchpad.startBidAmount;
+            current.highest_bid_amount = g_scratchpad.startBidAmount;
+            current.update(); 
+        }
     }
-})(current, previous);
-
-
-// (function executeRule(current, previous /*null when async*/) {
-//     // If the highest bid amount is not set or is lower than the start bid amount
-//     if (!highest_bid_amount || highest_bid_amount <start_bid_amount) {
-//         // Set the highest bid amount to the start bid amount
-//         highest_bid_amount = start_bid_amount;
-//     }
-// })(current, previous);
-
+})(current, g_scratchpad, previous);
 ]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>lalitha</sys_created_by>
@@ -51,7 +49,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>aa99407b9392461094e3f15a7bba1087</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>32</sys_mod_count>
         <sys_name>Assign startbid to highestbid</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
@@ -59,9 +57,9 @@
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_script_aa99407b9392461094e3f15a7bba1087</sys_update_name>
         <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-05-28 17:20:48</sys_updated_on>
+        <sys_updated_on>2024-05-29 12:06:18</sys_updated_on>
         <template/>
-        <when>before</when>
+        <when>before_display</when>
     </sys_script>
     <sys_translated_text action="delete_multiple" query="documentkey=aa99407b9392461094e3f15a7bba1087"/>
 </record_update>

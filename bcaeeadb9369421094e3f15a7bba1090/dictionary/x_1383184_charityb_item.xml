@@ -15,7 +15,7 @@
         <element label="Highest bid amount" max_length="20" name="highest_bid_amount" type="currency"/>
         <element label="Image" max_length="40" name="image" type="user_image"/>
         <element attributes="edge_encryption_enabled=true" display="true" label="Item name" mandatory="true" max_length="40" name="item_name" type="string"/>
-        <element label="Location" max_length="32" name="location" reference="x_1383184_charityb_user_profile" type="reference"/>
+        <element label="Location" max_length="32" name="location" reference="cmn_location" type="reference"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
         <element attributes="omit_sys_original=true" label="Start bid amount" max_length="20" name="start_bid_amount" type="currency"/>
         <element label="Start date" mandatory="true" max_length="40" name="start_date" type="glide_date"/>

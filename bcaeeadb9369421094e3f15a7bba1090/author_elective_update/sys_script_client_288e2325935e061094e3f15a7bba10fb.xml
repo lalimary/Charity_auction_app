@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Make all fields read only when the auction status is changed to read only</description>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Read-Only When Auction Scheduled</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+    if (g_form.getValue('auction_status') == 'auction_scheduled') {
+        var fields = g_form.getEditableFields();
+        for (var i = 0; i < fields.length; i++) {
+            g_form.setReadOnly(fields[i], true);
+        }
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-21 10:04:57</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>288e2325935e061094e3f15a7bba10fb</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Read-Only When Auction Scheduled</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_288e2325935e061094e3f15a7bba10fb</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 17:53:57</sys_updated_on>
+        <table>x_1383184_charityb_item</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_client_288e2325935e061094e3f15a7bba10fb</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;Make all fields read only when the auction status is changed to read only&lt;/description&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Read-Only When Auction Scheduled&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onLoad() {
+    if (g_form.getValue('auction_status') == 'auction_scheduled') {
+        var fields = g_form.getEditableFields();
+        for (var i = 0; i &lt; fields.length; i++) {
+            g_form.setReadOnly(fields[i], true);
+        }
+    }
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-21 10:04:57&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;288e2325935e061094e3f15a7bba10fb&lt;/sys_id&gt;&lt;sys_mod_count&gt;5&lt;/sys_mod_count&gt;&lt;sys_name&gt;Read-Only When Auction Scheduled&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_288e2325935e061094e3f15a7bba10fb&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 17:53:57&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_item&lt;/table&gt;&lt;type&gt;onLoad&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1661090382</payload_hash>
+        <record_name>Read-Only When Auction Scheduled</record_name>
+        <reverted_from/>
+        <source>c0eb6f489326c61094e3f15a7bba1011</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 17:53:57</sys_created_on>
+        <sys_id>1d47ea9c93a20a1094e3f15a7bba1013</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fc57cbe6e0000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 17:53:57</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>1547ea9c67a20a1012a1ff9d01fbad13</update_guid>
+        <update_guid_history>1547ea9c67a20a1012a1ff9d01fbad13:-1661090382,569dba6a25560210354702d7fa648998:780801061,f1e55d9e4f1ac610e2386ebae99a75c2:-345398443,cba5159e4e1ac610998c119e048643b6:1265378152,c201fba5025e06109cceaff48828a55f:-345398443,dd3f63e1ef5e061073fd0e6500bddeaa:-1120787178</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 17:55:36</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>19bca7651248415dbbf4beedd809ae39</sys_id>
+        <sys_metadata>288e2325935e061094e3f15a7bba10fb</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Read-Only When Auction Scheduled</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Item">6d85325b93a9421094e3f15a7bba10ea</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_client_288e2325935e061094e3f15a7bba10fb</sys_update_name>
+        <sys_update_version display_value="sys_script_client_288e2325935e061094e3f15a7bba10fb">1d47ea9c93a20a1094e3f15a7bba1013</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 17:55:36</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

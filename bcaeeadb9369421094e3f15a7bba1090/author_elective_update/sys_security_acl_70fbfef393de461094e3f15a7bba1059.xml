@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="DELETE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description>Allow read for testimonial in x_1383184_charityb_events, always.</description>
+        <local_or_existing>Local</local_or_existing>
+        <name>x_1383184_charityb_events.testimonial</name>
+        <operation display_value="read">read</operation>
+        <script/>
+        <security_attribute/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-28 06:07:51</sys_created_on>
+        <sys_id>70fbfef393de461094e3f15a7bba1059</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>x_1383184_charityb_events.testimonial</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_security_acl_70fbfef393de461094e3f15a7bba1059</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-29 07:19:45</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_security_acl_70fbfef393de461094e3f15a7bba1059</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><condition/><description>Allow read for testimonial in x_1383184_charityb_events, always.</description><local_or_existing>Local</local_or_existing><name>x_1383184_charityb_events.testimonial</name><operation display_value="read">read</operation><script/><security_attribute/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>christy</sys_created_by><sys_created_on>2024-05-28 06:07:51</sys_created_on><sys_id>70fbfef393de461094e3f15a7bba1059</sys_id><sys_mod_count>9</sys_mod_count><sys_name>x_1383184_charityb_events.testimonial</sys_name><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_security_acl_70fbfef393de461094e3f15a7bba1059</sys_update_name><sys_updated_by>christy</sys_updated_by><sys_updated_on>2024-05-29 07:19:45</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+        <payload_hash>-1701313655</payload_hash>
+        <record_name>x_1383184_charityb_events.testimonial</record_name>
+        <reverted_from/>
+        <source>d57fef4c9326c61094e3f15a7bba1002</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-29 07:19:45</sys_created_on>
+        <sys_id>5316d850932ac61094e3f15a7bba107e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fc3381da10000001</sys_recorded_at>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-29 07:19:45</sys_updated_on>
+        <type>Access Control</type>
+        <update_guid>1f16d0501a2ac61065d0982aaf25df85</update_guid>
+        <update_guid_history>1f16d0501a2ac61065d0982aaf25df85:-1701313655,d40690505a2ac610975a38f7755e5704:1999187003,ace133bba4d28610326ba61979acb652:968505460,f82a433bb51286108a61114c3dcb8bf8:1999187003,d0a9cff70b128610960a604d3ec2086b:968505460,b70f363be5de4610e1401bf72e9d9083:1999187003,1f0dfa77fdde4610c7edf6862fc3a7b4:448501900,836cbe3741de4610162ec44fee331959:1999187003,e64cf63724de46104d7763c7c3cde0e1:1220829279,101cb23718de46100dc9cb052c986a88:393656780</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-29 07:33:25</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl">sys_security_acl</sys_db_object>
+        <sys_id>76909077de5d47f0896c67bb7f3ede90</sys_id>
+        <sys_metadata>70fbfef393de461094e3f15a7bba1059</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1383184_charityb_events.testimonial</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Testimonial">66ceb12f931a061094e3f15a7bba1051</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_security_acl_70fbfef393de461094e3f15a7bba1059</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_70fbfef393de461094e3f15a7bba1059">5316d850932ac61094e3f15a7bba107e</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-29 07:33:25</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
