@@ -4,13 +4,13 @@
             <element>event_name</element>
             <position>0</position>
             <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-05-27 07:11:14</sys_created_on>
-            <sys_id>f2f042ef931a061094e3f15a7bba10cc</sys_id>
+            <sys_created_on>2024-05-28 07:05:19</sys_created_on>
+            <sys_id>8e3947f79312861094e3f15a7bba109e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_events" sys_domain="global" view="Default view">f435f9cf93d2821094e3f15a7bba10d3</sys_ui_section>
             <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-05-27 07:11:14</sys_updated_on>
+            <sys_updated_on>2024-05-28 07:05:19</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>event_manager</element>
             <position>1</position>
             <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-05-27 07:11:14</sys_created_on>
-            <sys_id>7af042ef931a061094e3f15a7bba10cc</sys_id>
+            <sys_created_on>2024-05-28 07:05:19</sys_created_on>
+            <sys_id>023947f79312861094e3f15a7bba109f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_events" sys_domain="global" view="Default view">f435f9cf93d2821094e3f15a7bba10d3</sys_ui_section>
             <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-05-27 07:11:14</sys_updated_on>
+            <sys_updated_on>2024-05-28 07:05:19</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -32,13 +32,13 @@
             <element>charity_company</element>
             <position>2</position>
             <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-05-27 07:11:14</sys_created_on>
-            <sys_id>faf042ef931a061094e3f15a7bba10cc</sys_id>
+            <sys_created_on>2024-05-28 07:05:19</sys_created_on>
+            <sys_id>823947f79312861094e3f15a7bba109f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_events" sys_domain="global" view="Default view">f435f9cf93d2821094e3f15a7bba10d3</sys_ui_section>
             <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-05-27 07:11:14</sys_updated_on>
+            <sys_updated_on>2024-05-28 07:05:19</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -46,13 +46,13 @@
             <element>.split</element>
             <position>3</position>
             <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-05-27 07:11:14</sys_created_on>
-            <sys_id>7ef042ef931a061094e3f15a7bba10cc</sys_id>
+            <sys_created_on>2024-05-28 07:05:19</sys_created_on>
+            <sys_id>063947f79312861094e3f15a7bba109f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_events" sys_domain="global" view="Default view">f435f9cf93d2821094e3f15a7bba10d3</sys_ui_section>
             <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-05-27 07:11:14</sys_updated_on>
+            <sys_updated_on>2024-05-28 07:05:19</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
@@ -60,13 +60,13 @@
             <element>start_date</element>
             <position>4</position>
             <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-05-27 07:11:14</sys_created_on>
-            <sys_id>fef042ef931a061094e3f15a7bba10cc</sys_id>
+            <sys_created_on>2024-05-28 07:05:19</sys_created_on>
+            <sys_id>863947f79312861094e3f15a7bba109f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_events" sys_domain="global" view="Default view">f435f9cf93d2821094e3f15a7bba10d3</sys_ui_section>
             <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-05-27 07:11:14</sys_updated_on>
+            <sys_updated_on>2024-05-28 07:05:19</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -74,13 +74,13 @@
             <element>end_date</element>
             <position>5</position>
             <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-05-27 07:11:14</sys_created_on>
-            <sys_id>72f042ef931a061094e3f15a7bba10cd</sys_id>
+            <sys_created_on>2024-05-28 07:05:19</sys_created_on>
+            <sys_id>0a3947f79312861094e3f15a7bba109f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_events" sys_domain="global" view="Default view">f435f9cf93d2821094e3f15a7bba10d3</sys_ui_section>
             <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-05-27 07:11:14</sys_updated_on>
+            <sys_updated_on>2024-05-28 07:05:19</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -88,13 +88,13 @@
             <element>event_status</element>
             <position>6</position>
             <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-05-27 07:11:14</sys_created_on>
-            <sys_id>f2f042ef931a061094e3f15a7bba10cd</sys_id>
+            <sys_created_on>2024-05-28 07:05:19</sys_created_on>
+            <sys_id>8a3947f79312861094e3f15a7bba109f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_events" sys_domain="global" view="Default view">f435f9cf93d2821094e3f15a7bba10d3</sys_ui_section>
             <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-05-27 07:11:14</sys_updated_on>
+            <sys_updated_on>2024-05-28 07:05:19</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -102,13 +102,13 @@
             <element>.end_split</element>
             <position>7</position>
             <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-05-27 07:11:14</sys_created_on>
-            <sys_id>76f042ef931a061094e3f15a7bba10cd</sys_id>
+            <sys_created_on>2024-05-28 07:05:19</sys_created_on>
+            <sys_id>0e3947f79312861094e3f15a7bba109f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_events" sys_domain="global" view="Default view">f435f9cf93d2821094e3f15a7bba10d3</sys_ui_section>
             <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-05-27 07:11:14</sys_updated_on>
+            <sys_updated_on>2024-05-28 07:05:19</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
@@ -116,13 +116,13 @@
             <element>justgiving_url</element>
             <position>8</position>
             <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-05-27 07:11:14</sys_created_on>
-            <sys_id>f6f042ef931a061094e3f15a7bba10cd</sys_id>
+            <sys_created_on>2024-05-28 07:05:19</sys_created_on>
+            <sys_id>8e3947f79312861094e3f15a7bba109f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_events" sys_domain="global" view="Default view">f435f9cf93d2821094e3f15a7bba10d3</sys_ui_section>
             <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-05-27 07:11:14</sys_updated_on>
+            <sys_updated_on>2024-05-28 07:05:19</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -130,13 +130,13 @@
             <element>description</element>
             <position>9</position>
             <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-05-27 07:11:14</sys_created_on>
-            <sys_id>7af042ef931a061094e3f15a7bba10cd</sys_id>
+            <sys_created_on>2024-05-28 07:05:19</sys_created_on>
+            <sys_id>023947f79312861094e3f15a7bba10a0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_events" sys_domain="global" view="Default view">f435f9cf93d2821094e3f15a7bba10d3</sys_ui_section>
             <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-05-27 07:11:14</sys_updated_on>
+            <sys_updated_on>2024-05-28 07:05:19</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -144,13 +144,27 @@
             <element>image</element>
             <position>10</position>
             <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-05-27 07:11:14</sys_created_on>
-            <sys_id>faf042ef931a061094e3f15a7bba10cd</sys_id>
+            <sys_created_on>2024-05-28 07:05:19</sys_created_on>
+            <sys_id>823947f79312861094e3f15a7bba10a0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_events" sys_domain="global" view="Default view">f435f9cf93d2821094e3f15a7bba10d3</sys_ui_section>
             <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-05-27 07:11:14</sys_updated_on>
+            <sys_updated_on>2024-05-28 07:05:19</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>testimonial</element>
+            <position>11</position>
+            <sys_created_by>christy</sys_created_by>
+            <sys_created_on>2024-05-28 07:05:19</sys_created_on>
+            <sys_id>063947f79312861094e3f15a7bba10a0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_events" sys_domain="global" view="Default view">f435f9cf93d2821094e3f15a7bba10d3</sys_ui_section>
+            <sys_updated_by>christy</sys_updated_by>
+            <sys_updated_on>2024-05-28 07:05:19</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

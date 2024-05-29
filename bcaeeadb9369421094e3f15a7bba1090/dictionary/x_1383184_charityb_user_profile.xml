@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="0f7bed5d9312c21094e3f15a7bba1044" label="User profile" max_length="40" name="x_1383184_charityb_user_profile" type="collection">
         <element label="Bio" max_length="600" name="bio" type="string"/>
-        <element label="Location" max_length="32" name="location" reference="cmn_location" type="reference"/>
+        <element label="Location" max_length="32" name="location" reference="imp_location" type="reference"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="My location" max_length="150" name="my_location" type="string"/>
         <element default="javascript:gs.getUserID();" display="true" dynamic_default_value="2fd8e97bef3221002841f7f775c0fbc1" label="Name" max_length="32" name="name" reference="sys_user" type="reference" use_dynamic_default="true"/>
         <element label="Profile image" max_length="40" name="profile_image" type="user_image"/>
         <index name="index">
