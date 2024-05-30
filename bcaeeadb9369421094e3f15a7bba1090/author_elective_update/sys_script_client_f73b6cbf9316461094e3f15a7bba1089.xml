@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>your_bid_amount</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>CS3 (Test2)</name>
+        <order/>
+        <script><![CDATA[var isUpdating = false;
+
+function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    function parseCurrency(value) {
+        if (!value) return NaN;
+        // Remove any non-numeric characters except for periods and minus sign
+        value = value.replace(/[^0-9.-]+/g, "");
+        return parseFloat(value);
+    }
+
+    var yourBid = parseCurrency(g_form.getValue('your_bid_amount'));
+    var startBid = parseCurrency(g_form.getValue('item_name.start_bid_amount'));
+    var highestBid = parseCurrency(g_form.getValue('item_name.highest_bid_amount'));
+
+
+    if (yourBid > startBid && yourBid > highestBid) {
+		isUpdating = true; // Set the flag to avoid recursion
+        g_form.setValue('item_name.highest_bid_amount', yourBid);
+    } else {
+// 		g_form.clearValue('your_bid_amount');
+		
+        g_form.showFieldMsg('your_bid_amount','Your bid should be greater than the highest bid and start bid','error');
+		isUpdating = true; // Set the flag to avoid recursion
+		g_form.clearValue('your_bid_amount');
+		g_form.setValue('your_bid_amount', 'NULL');
+    }
+	g_form.clearMessages('your_bid_amount');
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-27 19:36:13</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f73b6cbf9316461094e3f15a7bba1089</sys_id>
+        <sys_mod_count>39</sys_mod_count>
+        <sys_name>CS3 (Test2)</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_f73b6cbf9316461094e3f15a7bba1089</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 16:52:20</sys_updated_on>
+        <table>x_1383184_charityb_bid</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_client_f73b6cbf9316461094e3f15a7bba1089</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;your_bid_amount&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;CS3 (Test2)&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[var isUpdating = false;
+
+function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    function parseCurrency(value) {
+        if (!value) return NaN;
+        // Remove any non-numeric characters except for periods and minus sign
+        value = value.replace(/[^0-9.-]+/g, "");
+        return parseFloat(value);
+    }
+
+    var yourBid = parseCurrency(g_form.getValue('your_bid_amount'));
+    var startBid = parseCurrency(g_form.getValue('item_name.start_bid_amount'));
+    var highestBid = parseCurrency(g_form.getValue('item_name.highest_bid_amount'));
+
+
+    if (yourBid &gt; startBid &amp;&amp; yourBid &gt; highestBid) {
+		isUpdating = true; // Set the flag to avoid recursion
+        g_form.setValue('item_name.highest_bid_amount', yourBid);
+    } else {
+// 		g_form.clearValue('your_bid_amount');
+		
+        g_form.showFieldMsg('your_bid_amount','Your bid should be greater than the highest bid and start bid','error');
+		isUpdating = true; // Set the flag to avoid recursion
+		g_form.clearValue('your_bid_amount');
+		g_form.setValue('your_bid_amount', 'NULL');
+    }
+	g_form.clearMessages('your_bid_amount');
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-27 19:36:13&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;f73b6cbf9316461094e3f15a7bba1089&lt;/sys_id&gt;&lt;sys_mod_count&gt;39&lt;/sys_mod_count&gt;&lt;sys_name&gt;CS3 (Test2)&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_f73b6cbf9316461094e3f15a7bba1089&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 16:52:20&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_bid&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1203221546</payload_hash>
+        <record_name>CS3 (Test2)</record_name>
+        <reverted_from/>
+        <source>c0eb6f489326c61094e3f15a7bba1011</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 16:52:20</sys_created_on>
+        <sys_id>f629969c93620a1094e3f15a7bba1014</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fc54453d20000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 16:52:20</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>ae29969c52620a10bbc3e748a4ccd313</update_guid>
+        <update_guid_history>ae29969c52620a10bbc3e748a4ccd313:-1203221546,74f8d25c28620a10df5b0ed1c9cd18fe:-262830775,c2789a5c17620a1049daac5226b73e7f:-1203221546,7b48121c5d620a10418d81000c868e6e:-1090998878,1408d25c41620a10cc31e73ce527452b:167009523,e8845258d0620a10a4cb014efaaf6ff3:-693713978,03f3d618c4620a103bbf7ceec02cd7ee:167009523,15e39218f5620a108a0d981a260a26d0:-425311101,cbc39218f6620a10288033793ea75acb:-1409226000,9fb3ded406620a10358b1a9ec55e7d4c:11293722,a893da94da620a107b099f04e5265bba:1892744412,f2331ad455620a1042bf6ae37d2bb54c:631044597,9e1356d489620a10a27c0c5de4293b93:-64240881,bf8256943d620a101fc345ec93c38fc2:-1315441563,63629e14c6620a100ab4d547ea3d281a:1382119871,6d32de54cd620a10287604f85573c930:-1209898423,8112de548f620a1010aed5ed9e24f117:-338981684,78f15e14e1620a102e9f5affacefd5d0:1960574731,a4b1d654e9620a108488d45c010f606a:-338981684,2e91d654a0620a10de6c48c1a033e565:1558287020,8e474e1801220a10f77da1a3dc8bbd6c:-338981684,4086cad47d220a10c7588b56bedcf27b:-635277432,c5d4c65476220a103fcad74dd628a376:1595478293,1bf10250e2220a1075fe5ef05d05b31c:-635277432,37b18e105e220a107f94f22aedb8bd08:1414173304,c8a14a103b220a10484cb67a4660191d:1391972057,34614adc8deec61007db121abf53ed00:-703117234,c2210adcd0eec6106ccb54c3a22c8dfa:-1428007504,9c908a9c5deec610ff94c66c4d5b29fe:-327089296,db3ffd5c45eec610ac502d895970844f:1093741511,f7aebd1cdfeec6102d3a267e37f1c433:-1781317415,1e4ef11c8deec6103347aab715afe135:-1153736100,44bdfd5824eec610bc1b73c48217a9ce:787777674,158d3d584ceec610cb0a38b6e42c0a3c:-556185846,4a293388a066c610293d36f65cc0035f:-283184029,587133001366c61025a1f33187a4a8eb:-2136259882,6b80778cc026c6107500b9eba0e5031a:-778098593,0570778cc826c61061247d9cb46bbc16:-962893962,6850b0b77a564610398b7a62c5b8dd3a:13994902,737b6cff5d1646101f0cf6360258e881:-602915767</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-30 06:50:45</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>1a1adf834c364405858efa7752f45e99</sys_id>
+        <sys_metadata>f73b6cbf9316461094e3f15a7bba1089</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CS3 (Test2)</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Bid">73f7b8929396c61094e3f15a7bba107f</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_client_f73b6cbf9316461094e3f15a7bba1089</sys_update_name>
+        <sys_update_version display_value="sys_script_client_f73b6cbf9316461094e3f15a7bba1089">f629969c93620a1094e3f15a7bba1014</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-05-30 06:50:45</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

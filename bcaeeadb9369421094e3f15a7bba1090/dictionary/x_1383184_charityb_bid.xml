@@ -2,7 +2,7 @@
     <element db_object_id="73f7b8929396c61094e3f15a7bba107f" label="Bid" max_length="40" name="x_1383184_charityb_bid" type="collection">
         <element default="javascript:gs.getUserID();" dynamic_default_value="2fd8e97bef3221002841f7f775c0fbc1" label="Bidder" max_length="32" name="bidder" read_only="true" reference="sys_user" type="reference" use_dynamic_default="true"/>
         <element active="false" label="Highest bid amount" max_length="20" name="highest_bid_amount" type="currency"/>
-        <element label="Item name" max_length="32" name="item_name" reference="x_1383184_charityb_item" type="reference"/>
+        <element label="Item name" max_length="32" name="item_name" reference="x_1383184_charityb_item" reference_qual="auction_status=auction_in_progress^EQ" reference_qual_condition="auction_status=auction_in_progress^EQ" type="reference"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
         <element label="Your bid amount" mandatory="true" max_length="20" name="your_bid_amount" reference_qual="null" reference_qual_condition="null" type="currency"/>
         <index name="index">

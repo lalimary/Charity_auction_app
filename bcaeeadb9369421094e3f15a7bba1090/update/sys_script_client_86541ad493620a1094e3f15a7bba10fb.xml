@@ -8,7 +8,7 @@
         <global>true</global>
         <isolate_script>true</isolate_script>
         <messages/>
-        <name>CS3 (SAMPLE TEST)</name>
+        <name>Validate your bid amount</name>
         <order/>
         <script><![CDATA[var isUpdating = false;
 
@@ -38,30 +38,33 @@ function onChange(control, oldValue, newValue, isLoading, isTemplate) {
     if (yourBid > startBid && yourBid > highestBid) {
         g_form.setValue('item_name.highest_bid_amount', yourBid);
     } else {
-        g_form.showFieldMsg('your_bid_amount','Your bid should be greater than the highest bid and start bid','error');
-        g_form.setValue('your_bid_amount','NULL');
+        // g_form.clearValue('your_bid_amount');
+        g_form.setValue('your_bid_amount', 'null');
+        g_form.showFieldMsg('your_bid_amount', 'Your bid should be greater than the highest bid and start bid', 'error');
+
+        // g_form.setDisplay('');
+        return false;
     }
 
     g_form.clearMessages('your_bid_amount');
-    
+
     isUpdating = false; // Reset the flag after execution
-}
-]]></script>
+}]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>lalitha</sys_created_by>
         <sys_created_on>2024-05-29 16:31:52</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>86541ad493620a1094e3f15a7bba10fb</sys_id>
-        <sys_mod_count>15</sys_mod_count>
-        <sys_name>CS3 (SAMPLE TEST)</sys_name>
+        <sys_mod_count>48</sys_mod_count>
+        <sys_name>Validate your bid amount</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_script_client_86541ad493620a1094e3f15a7bba10fb</sys_update_name>
         <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-05-29 16:52:56</sys_updated_on>
+        <sys_updated_on>2024-05-30 06:51:40</sys_updated_on>
         <table>x_1383184_charityb_bid</table>
         <type>onChange</type>
         <ui_type>10</ui_type>
