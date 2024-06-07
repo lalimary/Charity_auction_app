@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="2">ec44192e9366c21094e3f15a7bba106e</sp_column>
+        <sp_widget display_value="HTML">8679ef89cb21120000f8d856634c9c4f</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-06-05 05:26:21</sys_created_on>
+        <sys_id>d64f7f9293ee821094e3f15a7bba108f</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_instance_d64f7f9293ee821094e3f15a7bba108f</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-05 11:37:41</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"html": {
+		"value": "<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<h2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong> &nbsp;Buy</strong></h2>\r\n<h4>Elevate your shopping experience with purpose by browsing our collection of items for sale, where each purchase directly supports our charitable initiatives.&nbsp;</h4>",
+		"displayValue": "<p>&nbsp;</p>\n<p>&nbsp;</p>\n<h2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong> &nbsp;Buy</strong></h2>\n<h4>Elevate your shopping experience with purpose by browsing our collection of items for sale, where each purchase directly supports our charitable initiatives.&nbsp;</h4>"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=d64f7f9293ee821094e3f15a7bba108f"/>
+</record_update>

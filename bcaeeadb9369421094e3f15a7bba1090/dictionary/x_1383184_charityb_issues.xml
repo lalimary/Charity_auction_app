@@ -10,13 +10,13 @@
                 <element inactive_on_update="false" label="Item" sequence="1" value="item"/>
             </choice>
         </element>
-        <element label="Item name" max_length="32" name="item_name" reference="x_1383184_charityb_item" type="reference"/>
+        <element display="true" label="Item name" max_length="32" name="item_name" reference="x_1383184_charityb_item" type="reference"/>
         <element label="Other reason" max_length="100" name="other_reason" type="string"/>
         <element label="Reason" max_length="32" name="reason" reference="x_1383184_charityb_reason_for_issue" type="reference"/>
         <element label="Resolution date" max_length="40" name="resolution_date" type="glide_date"/>
         <element label="Resolution comments" max_length="500" name="resolution_notes" type="journal"/>
         <element label="Screenshots" max_length="40" name="screenshots" type="user_image"/>
-        <element choice="3" default="new" label="State" max_length="40" name="status" type="choice">
+        <element choice="3" default="new" label="State" max_length="40" name="status" read_only="true" type="choice">
             <choice>
                 <element inactive="true" inactive_on_update="true" label="Inquiry / Help" sequence="0" value="inquiry/help"/>
                 <element inactive_on_update="false" label="New" sequence="0" value="new"/>

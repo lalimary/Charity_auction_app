@@ -3,107 +3,107 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>number</element>
-            <list_id display_value="x_1383184_charityb_bid" element="NULL" name="x_1383184_charityb_bid" parent="x_1383184_charityb_item" relationship="NULL" sys_domain="global" view="Default view">55a3b9ab93d6061094e3f15a7bba10e1</list_id>
+            <list_id display_value="x_1383184_charityb_bid" element="NULL" name="x_1383184_charityb_bid" parent="x_1383184_charityb_item" relationship="NULL" sys_domain="global" view="Default view">392a6d759362021094e3f15a7bba1007</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
             <sum>false</sum>
             <sys_created_by>lalitha</sys_created_by>
-            <sys_created_on>2024-05-27 06:12:58</sys_created_on>
-            <sys_id>55a3b9ab93d6061094e3f15a7bba10e2</sys_id>
+            <sys_created_on>2024-06-03 05:17:48</sys_created_on>
+            <sys_id>352a6d759362021094e3f15a7bba1008</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>lalitha</sys_updated_by>
-            <sys_updated_on>2024-05-27 06:12:58</sys_updated_on>
+            <sys_updated_on>2024-06-03 05:17:48</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>item_name</element>
-            <list_id display_value="x_1383184_charityb_bid" element="NULL" name="x_1383184_charityb_bid" parent="x_1383184_charityb_item" relationship="NULL" sys_domain="global" view="Default view">55a3b9ab93d6061094e3f15a7bba10e1</list_id>
+            <list_id display_value="x_1383184_charityb_bid" element="NULL" name="x_1383184_charityb_bid" parent="x_1383184_charityb_item" relationship="NULL" sys_domain="global" view="Default view">392a6d759362021094e3f15a7bba1007</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
             <sum>false</sum>
             <sys_created_by>lalitha</sys_created_by>
-            <sys_created_on>2024-05-27 06:12:58</sys_created_on>
-            <sys_id>d9a3b9ab93d6061094e3f15a7bba10e2</sys_id>
+            <sys_created_on>2024-06-03 05:17:48</sys_created_on>
+            <sys_id>b52a6d759362021094e3f15a7bba1008</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>lalitha</sys_updated_by>
-            <sys_updated_on>2024-05-27 06:12:58</sys_updated_on>
+            <sys_updated_on>2024-06-03 05:17:48</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>bidder</element>
-            <list_id display_value="x_1383184_charityb_bid" element="NULL" name="x_1383184_charityb_bid" parent="x_1383184_charityb_item" relationship="NULL" sys_domain="global" view="Default view">55a3b9ab93d6061094e3f15a7bba10e1</list_id>
+            <element>x_1383184_charityb_bidder</element>
+            <list_id display_value="x_1383184_charityb_bid" element="NULL" name="x_1383184_charityb_bid" parent="x_1383184_charityb_item" relationship="NULL" sys_domain="global" view="Default view">392a6d759362021094e3f15a7bba1007</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>2</position>
             <sum>false</sum>
             <sys_created_by>lalitha</sys_created_by>
-            <sys_created_on>2024-05-27 06:12:58</sys_created_on>
-            <sys_id>5da3b9ab93d6061094e3f15a7bba10e2</sys_id>
+            <sys_created_on>2024-06-03 05:17:48</sys_created_on>
+            <sys_id>392a6d759362021094e3f15a7bba1008</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>lalitha</sys_updated_by>
-            <sys_updated_on>2024-05-27 06:12:58</sys_updated_on>
+            <sys_updated_on>2024-06-03 05:17:48</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>your_bid_amount</element>
-            <list_id display_value="x_1383184_charityb_bid" element="NULL" name="x_1383184_charityb_bid" parent="x_1383184_charityb_item" relationship="NULL" sys_domain="global" view="Default view">55a3b9ab93d6061094e3f15a7bba10e1</list_id>
+            <list_id display_value="x_1383184_charityb_bid" element="NULL" name="x_1383184_charityb_bid" parent="x_1383184_charityb_item" relationship="NULL" sys_domain="global" view="Default view">392a6d759362021094e3f15a7bba1007</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>3</position>
             <sum>false</sum>
             <sys_created_by>lalitha</sys_created_by>
-            <sys_created_on>2024-05-27 06:12:58</sys_created_on>
-            <sys_id>dda3b9ab93d6061094e3f15a7bba10e2</sys_id>
+            <sys_created_on>2024-06-03 05:17:48</sys_created_on>
+            <sys_id>b92a6d759362021094e3f15a7bba1008</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>lalitha</sys_updated_by>
-            <sys_updated_on>2024-05-27 06:12:58</sys_updated_on>
+            <sys_updated_on>2024-06-03 05:17:48</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>item_name.start_date</element>
-            <list_id display_value="x_1383184_charityb_bid" element="NULL" name="x_1383184_charityb_bid" parent="x_1383184_charityb_item" relationship="NULL" sys_domain="global" view="Default view">55a3b9ab93d6061094e3f15a7bba10e1</list_id>
+            <list_id display_value="x_1383184_charityb_bid" element="NULL" name="x_1383184_charityb_bid" parent="x_1383184_charityb_item" relationship="NULL" sys_domain="global" view="Default view">392a6d759362021094e3f15a7bba1007</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>4</position>
             <sum>false</sum>
             <sys_created_by>lalitha</sys_created_by>
-            <sys_created_on>2024-05-27 06:12:58</sys_created_on>
-            <sys_id>51a3b9ab93d6061094e3f15a7bba10e3</sys_id>
+            <sys_created_on>2024-06-03 05:17:48</sys_created_on>
+            <sys_id>3d2a6d759362021094e3f15a7bba1008</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>lalitha</sys_updated_by>
-            <sys_updated_on>2024-05-27 06:12:58</sys_updated_on>
+            <sys_updated_on>2024-06-03 05:17:48</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>item_name.end_date</element>
-            <list_id display_value="x_1383184_charityb_bid" element="NULL" name="x_1383184_charityb_bid" parent="x_1383184_charityb_item" relationship="NULL" sys_domain="global" view="Default view">55a3b9ab93d6061094e3f15a7bba10e1</list_id>
+            <list_id display_value="x_1383184_charityb_bid" element="NULL" name="x_1383184_charityb_bid" parent="x_1383184_charityb_item" relationship="NULL" sys_domain="global" view="Default view">392a6d759362021094e3f15a7bba1007</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>5</position>
             <sum>false</sum>
             <sys_created_by>lalitha</sys_created_by>
-            <sys_created_on>2024-05-27 06:12:58</sys_created_on>
-            <sys_id>d1a3b9ab93d6061094e3f15a7bba10e3</sys_id>
+            <sys_created_on>2024-06-03 05:17:48</sys_created_on>
+            <sys_id>bd2a6d759362021094e3f15a7bba1008</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>lalitha</sys_updated_by>
-            <sys_updated_on>2024-05-27 06:12:58</sys_updated_on>
+            <sys_updated_on>2024-06-03 05:17:48</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>sys_created_on</element>
-            <list_id display_value="x_1383184_charityb_bid" element="NULL" name="x_1383184_charityb_bid" parent="x_1383184_charityb_item" relationship="NULL" sys_domain="global" view="Default view">55a3b9ab93d6061094e3f15a7bba10e1</list_id>
+            <list_id display_value="x_1383184_charityb_bid" element="NULL" name="x_1383184_charityb_bid" parent="x_1383184_charityb_item" relationship="NULL" sys_domain="global" view="Default view">392a6d759362021094e3f15a7bba1007</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>6</position>
             <sum>false</sum>
             <sys_created_by>lalitha</sys_created_by>
-            <sys_created_on>2024-05-27 06:12:58</sys_created_on>
-            <sys_id>55a3b9ab93d6061094e3f15a7bba10e3</sys_id>
+            <sys_created_on>2024-06-03 05:17:48</sys_created_on>
+            <sys_id>312a6d759362021094e3f15a7bba1009</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>lalitha</sys_updated_by>
-            <sys_updated_on>2024-05-27 06:12:58</sys_updated_on>
+            <sys_updated_on>2024-06-03 05:17:48</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
@@ -117,10 +117,10 @@
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
             <sys_created_by>lalitha</sys_created_by>
-            <sys_created_on>2024-05-27 06:12:57</sys_created_on>
+            <sys_created_on>2024-06-03 05:17:48</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>55a3b9ab93d6061094e3f15a7bba10e1</sys_id>
+            <sys_id>392a6d759362021094e3f15a7bba1007</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>x_1383184_charityb_bid</sys_name>
             <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
@@ -128,7 +128,7 @@
             <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
             <sys_update_name>sys_ui_list_x_1383184_charityb_bid_x_1383184_charityb_item_null</sys_update_name>
             <sys_updated_by>lalitha</sys_updated_by>
-            <sys_updated_on>2024-05-27 06:12:57</sys_updated_on>
+            <sys_updated_on>2024-06-03 05:17:48</sys_updated_on>
             <sys_user/>
             <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>

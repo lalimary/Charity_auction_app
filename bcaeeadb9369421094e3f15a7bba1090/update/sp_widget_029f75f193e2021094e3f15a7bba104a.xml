@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=(function() {
+    data.widgetId = options.widgetId; 
+
+    if (input && input.action === "create_profile") {
+        var name = input.name;
+        var location = input.location;
+        var bio = input.bio;
+        var profileImage = input.profileImage; 
+
+       
+        var userProfileGR = new GlideRecord("x_1383184_charityb_user_profile");
+        
+        // Set field values
+        userProfileGR.setValue("name", name);
+        userProfileGR.setValue("location", location);
+        userProfileGR.setValue("bio", bio);
+
+        
+        if (profileImage) {
+            userProfileGR.setValue("profile_image", profileImage);
+        }
+
+     
+        var profileSysId = userProfileGR.insert();
+
+        
+        gs.addInfoMessage("User profile created successfully.");
+        action.setRedirectURL(current);
+        return;
+    }
+})();]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>cb_create_profile</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Charity Create Profile</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[var FetchUserProfileAjax = Class.create();
+FetchUserProfileAjax.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+
+    fetchUserProfile: function() {
+        var userId = gs.getUserID();
+        var userProfileGR = new GlideRecord("sys_user");
+        if (userProfileGR.get(userId)) {
+            var name = userProfileGR.getValue("name");
+            var location = userProfileGR.getValue("location");
+
+            var profileData = {
+                name: name,
+                location: location
+            };
+
+            return JSON.stringify(profileData);
+        } else {
+            return null; 
+        }
+    }
+
+});
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-06-03 06:51:29</sys_created_on>
+        <sys_id>029f75f193e2021094e3f15a7bba104a</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Charity Create Profile</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_widget_029f75f193e2021094e3f15a7bba104a</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-03 07:18:31</sys_updated_on>
+        <template><![CDATA[<div class="container">
+  <h2>Create User Profile</h2>
+  <form id="profileForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="location">Location:</label>
+      <input type="text" class="form-control" id="location" name="location" required>
+    </div>
+    <div class="form-group">
+      <label for="bio">Bio:</label>
+      <textarea class="form-control" id="bio" name="bio" rows="4" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="profileImage">Profile Image:</label>
+      <input type="file" class="form-control-file" id="profileImage" name="profileImage">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css>body{&#13;
+	background-color: #f9f5e8;&#13;
+&#13;
+}&#13;
+&#13;
+.itemDonate1 {&#13;
+    background-image: url(ItemDonate3.jpg);&#13;
+    min-height: 30vh;&#13;
+    background-size: 100% 100%;&#13;
+    background-repeat: no-repeat;&#13;
+    position: relative;&#13;
+    width: 45vh;&#13;
+    top: 2.2rem;&#13;
+    border-radius: 27px;&#13;
+    left: -5.4rem;&#13;
+    box-shadow: rgba(0, 0, 0, .35) 0rem .5rem 1.5rem;&#13;
+    /* transform: rotate(16deg); */&#13;
+}&#13;
+&#13;
+.itemDonate2 {&#13;
+    background-image: url(DonateMain4.jpg);&#13;
+    min-height: 32vh;&#13;
+    background-size: 100% 100%;&#13;
+    background-repeat: no-repeat;&#13;
+    position: relative;&#13;
+    width: 25vh;&#13;
+    top: 5.2rem;&#13;
+    left: 12.6rem;&#13;
+    border-radius: 29%;&#13;
+    box-shadow: rgba(0, 0, 0, .35) 0rem .5rem 1.5rem;&#13;
+    /* transform: rotate(351deg); */&#13;
+}&#13;
+&#13;
+.DonateMain3 {&#13;
+    border-radius: 29px;&#13;
+    background-image: url(DonateMain3.jpg);&#13;
+    min-height: 45vh;&#13;
+    background-size: 100% 100%;&#13;
+    background-repeat: no-repeat;&#13;
+    position: relative;&#13;
+    width: 27vh;&#13;
+    top: -1.8rem;&#13;
+    left: -9.4rem;&#13;
+    box-shadow: rgba(0, 0, 0, .35) 0rem .5rem 1.5rem;&#13;
+    /* transform: rotate(351deg); */&#13;
+}&#13;
+&#13;
+.col-md-3 {&#13;
+    width: 25%;&#13;
+    background: #373c53;&#13;
+    display: flex;&#13;
+    border-radius: 45px;&#13;
+    min-height: 90vh;&#13;
+    flex-direction: column;&#13;
+    justify-content: space-evenly;&#13;
+}&#13;
+&#13;
+.panel-body {&#13;
+    padding: 1.5rem;&#13;
+    border: .3rem solid #ffe7de;&#13;
+    background: #fff;&#13;
+    box-shadow: rgba(50, 50, 93, .25) 0px 13px 27px -5px, rgba(0, 0, 0, .3) 0px 8px 16px -8px;&#13;
+    border-radius: 2.2rem;&#13;
+    width: 83%;&#13;
+    position: relative;&#13;
+    left: 152px;&#13;
+    top: 35px;&#13;
+}&#13;
+</css>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <human_readable_url_structure/>
+        <id>upload_item</id>
+        <internal>false</internal>
+        <omit_watcher>false</omit_watcher>
+        <public>false</public>
+        <roles/>
+        <seo_script/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-03 09:28:55</sys_created_on>
+        <sys_id>cca36e7d9366021094e3f15a7bba106b</sys_id>
+        <sys_mod_count>34</sys_mod_count>
+        <sys_name>upload_item</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_page_cca36e7d9366021094e3f15a7bba106b</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-05 19:47:31</sys_updated_on>
+        <title>Upload Item</title>
+        <use_seo_script>false</use_seo_script>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=cca36e7d9366021094e3f15a7bba106b"/>
+</record_update>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="2ff0398b93d2821094e3f15a7bba100c" label="Events" max_length="40" name="x_1383184_charityb_events" type="collection">
         <element label="Charity company" max_length="32" name="charity_company" reference="core_company" type="reference"/>
-        <element label="Description" max_length="500" name="description" type="string"/>
-        <element label="End date" max_length="40" name="end_date" type="glide_date"/>
-        <element label="Event manager" max_length="32" name="event_manager" reference="sys_user" reference_qual="roles=x_1383184_charityb.event_manager^EQ" reference_qual_condition="roles=x_1383184_charityb.event_manager^EQ" type="reference"/>
-        <element display="true" label="Event name" max_length="200" name="event_name" type="string"/>
+        <element label="Description" mandatory="true" max_length="500" name="description" type="string"/>
+        <element label="End date" mandatory="true" max_length="40" name="end_date" type="glide_date"/>
+        <element label="Event manager" mandatory="true" max_length="32" name="event_manager" reference="sys_user" reference_qual="roles=x_1383184_charityb.event_manager^EQ" reference_qual_condition="roles=x_1383184_charityb.event_manager^EQ" type="reference"/>
+        <element display="true" label="Event name" mandatory="true" max_length="200" name="event_name" type="string"/>
         <element choice="3" default="new" label="Event status" max_length="40" name="event_status" type="choice">
             <choice>
                 <element inactive_on_update="false" label="New" sequence="0" value="new"/>
@@ -15,7 +15,7 @@
         </element>
         <element label="Image" max_length="40" name="image" type="user_image"/>
         <element label="Justgiving url" max_length="1024" name="justgiving_url" type="url"/>
-        <element label="Start date" max_length="40" name="start_date" type="glide_date"/>
+        <element label="Start date" mandatory="true" max_length="40" name="start_date" type="glide_date"/>
         <element label="Testimonial" max_length="4000" name="testimonial" type="journal"/>
         <index name="index">
             <element name="charity_company"/>

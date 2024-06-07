@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope) {
+    var c = this;
+
+    // Initialize data.items
+    c.data.items = c.data.items || [];
+
+    // Function to handle placing a bid
+    c.placeBid = function(item) {
+        alert('Placing bid for: ' + item.item_name);
+        // Add your logic here to open a bid modal, send a request, etc.
+    };
+
+    // Function to show item details
+    c.showDetails = function(item) {
+        c.selectedItem = item;
+    };
+}
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.item-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.item-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.item-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.item-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+.item-donator, .item-dates div, .item-value, .item-start-bid {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+.item-dates div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-status {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.item-status.item-submitted {
+    color: #3498db;
+}
+
+.item-status.auction-scheduled {
+    color: #f39c12;
+}
+
+.item-status.auction-in-progress {
+    color: #27ae60;
+}
+
+.item-status.auction-completed {
+    color: #e74c3c;
+}
+
+.place-bid-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+.place-bid-btn:hover {
+    background-color: #218838;
+}
+
+/* Item details section styles */
+.item-details-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item-details-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.item-details-section img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.details {
+    font-size: 16px;
+    color: #555;
+}
+
+.details p {
+    margin-bottom: 10px;
+}
+
+.details .place-bid-btn {
+    margin-top: 20px;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>color</field_list>
+        <has_preview>true</has_preview>
+        <id>item_list</id>
+        <internal>false</internal>
+        <link><![CDATA[function($scope) {
+    // Link function to handle additional setup
+    $scope.placeBid = function(item) {
+        alert('Placing bid for: ' + item.name);
+        // Here you can add logic to open a bid modal, send a request, etc.
+    };
+}
+]]></link>
+        <name>Item list</name>
+        <option_schema>[{"name":"show_star_rating","default_value":"Use system properties","section":"Presentation","label":"Show star rating","type":"choice","choices":[{"label":"Yes","value":"Yes"},{"label":"No","value":"No"},{"label":"Use system properties","value":"Use system properties"}]},{"hint":"Number of articles to display per page","name":"limit_article","section":"other","default_value":"10","label":"Number of articles to display per page","type":"integer"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    // Initialize an array to hold the items
+    data.items = [];
+
+    // Define the table name
+    var tableName = 'x_1383184_charityb_item';  // Replace with your actual table name
+
+    // Create a new GlideRecord object
+    var gr = new GlideRecord(tableName);
+    if (gr.isValid()) {
+        gr.query();
+
+        // Status mapping
+        var statusMapping = {
+            'item_submitted': 'Item Submitted',
+            'auction_scheduled': 'Auction Scheduled',
+            'auction_in_progress': 'Auction In Progress',
+            'auction_completed': 'Auction Completed'
+        };
+
+        // Loop through each record and add it to the items array
+        while (gr.next()) {
+            var donatorName = '';
+            if (gr.donator) {
+                var userGr = new GlideRecord('sys_user');
+                if (userGr.get(gr.donator)) {
+                    donatorName = userGr.getValue('name');
+                }
+            }
+
+            var auctionStatus = gr.getValue('auction_status');
+            var displayStatus = statusMapping[auctionStatus] || auctionStatus;
+
+            data.items.push({
+                item_name: gr.getValue('item_name'),
+                donator: donatorName,
+                start_date: gr.getValue('start_date'),
+                end_date: gr.getValue('end_date'),
+                value: gr.getValue('value'),
+                start_bid_amount: gr.getValue('start_bid_amount'),
+                auction_status: displayStatus,
+                image: gr.getDisplayValue('image')
+            });
+        }
+    } else {
+        gs.error('Invalid table name: ' + tableName);
+    }
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-04 17:29:41</sys_created_on>
+        <sys_id>244b5d529326821094e3f15a7bba104c</sys_id>
+        <sys_mod_count>26</sys_mod_count>
+        <sys_name>Item list</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_widget_244b5d529326821094e3f15a7bba104c</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-05 16:34:38</sys_updated_on>
+        <template><![CDATA[<div class="container">
+    <h1>Items List</h1>
+    <div id="items-grid" class="items-grid">
+        <div ng-repeat="item in c.data.items" class="item-card" ng-click="c.showDetails(item)">
+            <img ng-src="{{item.image}}" alt="{{item.item_name}}">
+            <div class="item-details">
+                <div class="item-title">{{item.item_name}}</div>
+                <div class="item-donator">Donator: {{item.donator}}</div>
+                <div class="item-dates">
+                    <div>Start Date: {{item.start_date}}</div>
+                    <div>End Date: {{item.end_date}}</div>
+                </div>
+                <div class="item-value">Value: {{item.value}}</div>
+                <div class="item-start-bid">Start Bid: {{item.start_bid_amount}}</div>
+                <div class="item-status" ng-class="{'item-submitted': item.auction_status === 'Item Submitted', 'auction-scheduled': item.auction_status === 'Auction Scheduled', 'auction-in-progress': item.auction_status === 'Auction In Progress', 'auction-completed': item.auction_status === 'Auction Completed'}">
+                    Status: {{item.auction_status}}
+                </div>
+                <button ng-if="item.auction_status === 'Auction In Progress'" class="place-bid-btn" ng-click="c.placeBid(item); $event.stopPropagation();">Place Bid</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for item details -->
+    <div class="modal" ng-show="c.showModal">
+        <div class="modal-content">
+            <span class="close" ng-click="c.closeModal()">&times;</span>
+            <h2>{{c.selectedItem.item_name}}</h2>
+            <img ng-src="{{c.selectedItem.image}}" alt="{{c.selectedItem.item_name}}">
+            <div class="modal-details">
+                <p><strong>Donator:</strong> {{c.selectedItem.donator}}</p>
+                <p><strong>Start Date:</strong> {{c.selectedItem.start_date}}</p>
+                <p><strong>End Date:</strong> {{c.selectedItem.end_date}}</p>
+                <p><strong>Value:</strong> {{c.selectedItem.value}}</p>
+                <p><strong>Start Bid:</strong> {{c.selectedItem.start_bid_amount}}</p>
+                <p><strong>Status:</strong> {{c.selectedItem.auction_status}}</p>
+                <button ng-if="c.selectedItem.auction_status === 'Auction In Progress'" class="place-bid-btn" ng-click="c.placeBid(c.selectedItem)">Place Bid</button>
+            </div>
+        </div>
+    </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

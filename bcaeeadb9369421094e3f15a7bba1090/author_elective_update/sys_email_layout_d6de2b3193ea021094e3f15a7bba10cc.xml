@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_email_layout">
+    <sys_email_layout action="DELETE">
+        <advanced>true</advanced>
+        <advanced_layout><![CDATA[<html lang="en">
+
+<head>
+	<meta charset="utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<style type="text/css">
+		* {
+			-webkit-text-size-adjust: none;
+		}
+
+		body {
+			margin: 0 !important;
+			padding: 0 !important;
+			font-family: Lato, Arial, sans-serif;
+			max-width: 600px;
+		}
+
+		p.footer {
+			margin: 0;
+			font-size: 14px;
+			line-height: 18px;
+			color: #ffffff;
+		}
+
+		#snc_notification_unsubscribe , #snc_notification_preference {
+			color: #3C59E7;
+			font-size: 16px;
+			line-height: 19px;
+		}
+
+		#snc_notification_unsubscribe {
+			padding-right: 8px;
+		}
+
+		#snc_notification_preference {
+			padding-left: 8px;
+		}
+
+		body,
+		table,
+		td,
+		p,
+		a {
+			-ms-text-size-adjust: 100% !important;
+			-webkit-text-size-adjust: 100% !important;
+		}
+
+		table,
+		tr,
+		td {
+			border-spacing: 0 !important;
+			mso-table-lspace: 0 !important;
+			mso-table-rspace: 0 !important;
+			border-collapse: collapse !important;
+			mso-line-height-rule: exactly !important;
+		}
+
+		.ExternalClass * {
+			line-height: 100%;
+		}
+
+		.mobile-link a,
+		.mobile-link span {
+			text-decoration: none !important;
+			color: inherit !important;
+			border: none !important;
+		}
+	</style>
+</head>
+
+<body style="margin: 0 auto !important;">
+	<table class="w100" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" bgcolor="#F7F7F9"
+		style="width:100%; max-width: 600px; background-color:#F7F7F9; margin: 0 auto; padding: 0px;">
+		<tbody>
+			<tr>
+				<td align="center"
+					style="background: #27284A;text-align:center;font-family:Arial, Tahoma, sans-serif;color:#425968;font-size:13px;line-height:14px;">
+					<table cellspacing="0" style="border-spacing: 0; width: 100%">
+						<tr style="background-color: #27284A;">
+							<td height="100" width="140">
+								<img src="email_template_header.png" height="100" width="140" />
+							</td>
+							<td valign="bottom" height="100" align="center" >
+								<table style="margin: 0 auto;">
+									<tr>
+										<td>
+											<img src="x_1383184_charityb.Charity Bids logo.png" height="150"/>
+										</td>
+
+									</tr>
+									<tr><td height="18"></td></tr>
+								</table>
+							</td>
+							<td width="140"></td>
+						</tr>
+						<tr style="background-color: #27284A;" height="30">
+							<td></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+	<table width="100%" style="max-width: 600px; background-color:#F7F7F9;" cellspacing="0" cellpadding="0" border="0" align="center">
+		<tbody>
+			<tr>
+				<!-- Left-->
+				<td valign="top" width="16">
+					<table width="16">
+						<tr height="36" style="background: #27284A;">
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<!-- CONTAINER -->
+				<td width="100%">
+					<table class="w100" cellspacing="0" cellpadding="0" border="0" align="center" width="100%"
+						style="background-image: linear-gradient(to bottom , rgba(39,40,74,1), rgba(247,247,249,0));margin:0px; padding:0px; box-shadow: 0px 2px 10px rgba(23, 40, 52, 0.08);">
+						<tbody>
+							<!-- Main Container -->
+							<tr>
+								<td class="pad-sides-20" align="center"
+									style="border-radius:6px;text-align:left;padding-left:24px;padding-right:24px;padding-top:18px;padding-bottom:18px; background-color: #FFFFFF;">
+									${notification:body}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+				</td>
+				<!-- END CONTAINER -->
+
+				<!-- Right-->
+				<td width="16" valign="top">
+					<table width="16">
+						<tr height="36" style="background: #27284A;">
+							<td></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+			</tr>
+		</tbody>
+	</table>
+	<table width="100%" style="max-width: 600px" cellspacing="0" cellpadding="0" border="0" align="center">
+		<tbody>
+			<tr>
+				<td align="center" height="60" style="background-color: #F7F7F9;">
+					${NOTIF_UNSUB} | ${NOTIF_PREFS}
+				</td>
+			</tr>
+			<tr>
+				<td height="36" style="background-color: #27284A;"></td>
+			</tr>
+			<tr>
+				<td valign="top" align="center" height="38" style="background-color: #27284A;">
+					<img src="email_template_now_logo.png" height="20" />
+				</td>
+			</tr>
+			<tr>
+				<td style="background-color: #27284A; color: #fff;">
+					<table width="100%" cellspacing="0" style="color: #fff;">
+						<tr align="center">
+							<td>
+								<p class="footer" style="color: white;">
+									2225 Lawson Lane, Santa Clara, CA 95054, United States
+								</p>
+							</td>
+
+						</tr>
+						<tr align="center">
+							<td>
+								<p class="footer" style="color: white;">
+									&#169; 2020 AcmeTech Inc. All rights reserved.
+								</p>
+							</td>
+						</tr>
+
+					</table>
+				</td>
+			</tr>
+			<tr cellspacing="0">
+				<td align="center" bgcolor="#27284A" height="102">
+					<img src="email_template_footer.png" width="100%" height="102" />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>]]></advanced_layout>
+        <description>Layout of the email won</description>
+        <layout><![CDATA[<p>&lt;!DOCTYPE html&gt;<br />&lt;html lang="en"&gt;<br />&lt;head&gt;<br />&nbsp; &nbsp; &lt;meta charset="UTF-8"&gt;<br />&nbsp; &nbsp; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br />&nbsp; &nbsp; &lt;style&gt;<br />&nbsp; &nbsp; &nbsp; &nbsp; body {<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; font-family: Arial, sans-serif;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: #f4f4f4;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin: 0;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 0;<br />&nbsp; &nbsp; &nbsp; &nbsp; }<br />&nbsp; &nbsp; &nbsp; &nbsp; .container {<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 100%;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; max-width: 600px;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin: 0 auto;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: #ffffff;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border: 1px solid #ddd;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 20px;<br />&nbsp; &nbsp; &nbsp; &nbsp; }<br />&nbsp; &nbsp; &nbsp; &nbsp; .header {<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: #4CAF50;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color: white;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 10px;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; text-align: center;<br />&nbsp; &nbsp; &nbsp; &nbsp; }<br />&nbsp; &nbsp; &nbsp; &nbsp; .content {<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 20px;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; line-height: 1.6;<br />&nbsp; &nbsp; &nbsp; &nbsp; }<br />&nbsp; &nbsp; &nbsp; &nbsp; .footer {<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: #f4f4f4;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; text-align: center;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 10px;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; font-size: 12px;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color: #888;<br />&nbsp; &nbsp; &nbsp; &nbsp; }<br />&nbsp; &nbsp; &nbsp; &nbsp; .button {<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; display: inline-block;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 10px 20px;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin: 20px 0;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: #4CAF50;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color: white;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; text-decoration: none;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border-radius: 5px;<br />&nbsp; &nbsp; &nbsp; &nbsp; }<br />&nbsp; &nbsp; &lt;/style&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&nbsp; &nbsp; &lt;div class="container"&gt;<br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="header"&gt;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h1&gt;{{subject}}&lt;/h1&gt;<br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;<br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="content"&gt;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{body}}<br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;<br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="footer"&gt;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;&amp;copy; 2024 Auction House. All rights reserved.&lt;/p&gt;<br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;<br />&nbsp; &nbsp; &lt;/div&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;</p>]]></layout>
+        <name>Bid won email layout</name>
+        <sys_class_name>sys_email_layout</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-03 14:59:15</sys_created_on>
+        <sys_id>d6de2b3193ea021094e3f15a7bba10cc</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Bid won email layout</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_email_layout_d6de2b3193ea021094e3f15a7bba10cc</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-04 06:45:04</sys_updated_on>
+    </sys_email_layout>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_email_layout_d6de2b3193ea021094e3f15a7bba10cc</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_email_layout"&gt;&lt;sys_email_layout action="INSERT_OR_UPDATE"&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;advanced_layout&gt;&lt;![CDATA[&lt;html lang="en"&gt;
+
+&lt;head&gt;
+	&lt;meta charset="utf-8"&gt;&lt;/meta&gt;
+	&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;&lt;/meta&gt;
+	&lt;style type="text/css"&gt;
+		* {
+			-webkit-text-size-adjust: none;
+		}
+
+		body {
+			margin: 0 !important;
+			padding: 0 !important;
+			font-family: Lato, Arial, sans-serif;
+			max-width: 600px;
+		}
+
+		p.footer {
+			margin: 0;
+			font-size: 14px;
+			line-height: 18px;
+			color: #ffffff;
+		}
+
+		#snc_notification_unsubscribe , #snc_notification_preference {
+			color: #3C59E7;
+			font-size: 16px;
+			line-height: 19px;
+		}
+
+		#snc_notification_unsubscribe {
+			padding-right: 8px;
+		}
+
+		#snc_notification_preference {
+			padding-left: 8px;
+		}
+
+		body,
+		table,
+		td,
+		p,
+		a {
+			-ms-text-size-adjust: 100% !important;
+			-webkit-text-size-adjust: 100% !important;
+		}
+
+		table,
+		tr,
+		td {
+			border-spacing: 0 !important;
+			mso-table-lspace: 0 !important;
+			mso-table-rspace: 0 !important;
+			border-collapse: collapse !important;
+			mso-line-height-rule: exactly !important;
+		}
+
+		.ExternalClass * {
+			line-height: 100%;
+		}
+
+		.mobile-link a,
+		.mobile-link span {
+			text-decoration: none !important;
+			color: inherit !important;
+			border: none !important;
+		}
+	&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body style="margin: 0 auto !important;"&gt;
+	&lt;table class="w100" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" bgcolor="#F7F7F9"
+		style="width:100%; max-width: 600px; background-color:#F7F7F9; margin: 0 auto; padding: 0px;"&gt;
+		&lt;tbody&gt;
+			&lt;tr&gt;
+				&lt;td align="center"
+					style="background: #27284A;text-align:center;font-family:Arial, Tahoma, sans-serif;color:#425968;font-size:13px;line-height:14px;"&gt;
+					&lt;table cellspacing="0" style="border-spacing: 0; width: 100%"&gt;
+						&lt;tr style="background-color: #27284A;"&gt;
+							&lt;td height="100" width="140"&gt;
+								&lt;img src="email_template_header.png" height="100" width="140" /&gt;
+							&lt;/td&gt;
+							&lt;td valign="bottom" height="100" align="center" &gt;
+								&lt;table style="margin: 0 auto;"&gt;
+									&lt;tr&gt;
+										&lt;td&gt;
+											&lt;img src="x_1383184_charityb.Charity Bids logo.png" height="150"/&gt;
+										&lt;/td&gt;
+
+									&lt;/tr&gt;
+									&lt;tr&gt;&lt;td height="18"&gt;&lt;/td&gt;&lt;/tr&gt;
+								&lt;/table&gt;
+							&lt;/td&gt;
+							&lt;td width="140"&gt;&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr style="background-color: #27284A;" height="30"&gt;
+							&lt;td&gt;&lt;/td&gt;
+						&lt;/tr&gt;
+					&lt;/table&gt;
+				&lt;/td&gt;
+			&lt;/tr&gt;
+
+		&lt;/tbody&gt;
+	&lt;/table&gt;
+	&lt;table width="100%" style="max-width: 600px; background-color:#F7F7F9;" cellspacing="0" cellpadding="0" border="0" align="center"&gt;
+		&lt;tbody&gt;
+			&lt;tr&gt;
+				&lt;!-- Left--&gt;
+				&lt;td valign="top" width="16"&gt;
+					&lt;table width="16"&gt;
+						&lt;tr height="36" style="background: #27284A;"&gt;
+							&lt;td&gt;&lt;/td&gt;
+						&lt;/tr&gt;
+					&lt;/table&gt;
+				&lt;/td&gt;
+				&lt;!-- CONTAINER --&gt;
+				&lt;td width="100%"&gt;
+					&lt;table class="w100" cellspacing="0" cellpadding="0" border="0" align="center" width="100%"
+						style="background-image: linear-gradient(to bottom , rgba(39,40,74,1), rgba(247,247,249,0));margin:0px; padding:0px; box-shadow: 0px 2px 10px rgba(23, 40, 52, 0.08);"&gt;
+						&lt;tbody&gt;
+							&lt;!-- Main Container --&gt;
+							&lt;tr&gt;
+								&lt;td class="pad-sides-20" align="center"
+									style="border-radius:6px;text-align:left;padding-left:24px;padding-right:24px;padding-top:18px;padding-bottom:18px; background-color: #FFFFFF;"&gt;
+									${notification:body}
+								&lt;/td&gt;
+							&lt;/tr&gt;
+						&lt;/tbody&gt;
+					&lt;/table&gt;
+
+
+				&lt;/td&gt;
+				&lt;!-- END CONTAINER --&gt;
+
+				&lt;!-- Right--&gt;
+				&lt;td width="16" valign="top"&gt;
+					&lt;table width="16"&gt;
+						&lt;tr height="36" style="background: #27284A;"&gt;
+							&lt;td&gt;&lt;/td&gt;
+						&lt;/tr&gt;
+					&lt;/table&gt;
+				&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+			&lt;/tr&gt;
+		&lt;/tbody&gt;
+	&lt;/table&gt;
+	&lt;table width="100%" style="max-width: 600px" cellspacing="0" cellpadding="0" border="0" align="center"&gt;
+		&lt;tbody&gt;
+			&lt;tr&gt;
+				&lt;td align="center" height="60" style="background-color: #F7F7F9;"&gt;
+					${NOTIF_UNSUB} | ${NOTIF_PREFS}
+				&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td height="36" style="background-color: #27284A;"&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td valign="top" align="center" height="38" style="background-color: #27284A;"&gt;
+					&lt;img src="email_template_now_logo.png" height="20" /&gt;
+				&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td style="background-color: #27284A; color: #fff;"&gt;
+					&lt;table width="100%" cellspacing="0" style="color: #fff;"&gt;
+						&lt;tr align="center"&gt;
+							&lt;td&gt;
+								&lt;p class="footer" style="color: white;"&gt;
+									2225 Lawson Lane, Santa Clara, CA 95054, United States
+								&lt;/p&gt;
+							&lt;/td&gt;
+
+						&lt;/tr&gt;
+						&lt;tr align="center"&gt;
+							&lt;td&gt;
+								&lt;p class="footer" style="color: white;"&gt;
+									&amp;#169; 2020 AcmeTech Inc. All rights reserved.
+								&lt;/p&gt;
+							&lt;/td&gt;
+						&lt;/tr&gt;
+
+					&lt;/table&gt;
+				&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr cellspacing="0"&gt;
+				&lt;td align="center" bgcolor="#27284A" height="102"&gt;
+					&lt;img src="email_template_footer.png" width="100%" height="102" /&gt;
+				&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/tbody&gt;
+	&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;]]&gt;&lt;/advanced_layout&gt;&lt;description&gt;Layout of the email won&lt;/description&gt;&lt;layout&gt;&lt;![CDATA[&lt;p&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;br /&gt;&amp;lt;html lang="en"&amp;gt;&lt;br /&gt;&amp;lt;head&amp;gt;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;lt;meta charset="UTF-8"&amp;gt;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&amp;gt;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;lt;style&amp;gt;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; body {&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; font-family: Arial, sans-serif;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; background-color: #f4f4f4;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; margin: 0;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; padding: 0;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; .container {&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; width: 100%;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; max-width: 600px;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; margin: 0 auto;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; background-color: #ffffff;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; border: 1px solid #ddd;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; padding: 20px;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; .header {&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; background-color: #4CAF50;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; color: white;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; padding: 10px;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; text-align: center;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; .content {&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; padding: 20px;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; line-height: 1.6;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; .footer {&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; background-color: #f4f4f4;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; text-align: center;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; padding: 10px;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; font-size: 12px;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; color: #888;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; .button {&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; display: inline-block;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; padding: 10px 20px;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; margin: 20px 0;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; background-color: #4CAF50;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; color: white;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; text-decoration: none;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; border-radius: 5px;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;lt;/style&amp;gt;&lt;br /&gt;&amp;lt;/head&amp;gt;&lt;br /&gt;&amp;lt;body&amp;gt;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;lt;div class="container"&amp;gt;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;lt;div class="header"&amp;gt;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;lt;h1&amp;gt;{{subject}}&amp;lt;/h1&amp;gt;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;lt;/div&amp;gt;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;lt;div class="content"&amp;gt;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; {{body}}&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;lt;/div&amp;gt;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;lt;div class="footer"&amp;gt;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;lt;p&amp;gt;&amp;amp;copy; 2024 Auction House. All rights reserved.&amp;lt;/p&amp;gt;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;lt;/div&amp;gt;&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;lt;/div&amp;gt;&lt;br /&gt;&amp;lt;/body&amp;gt;&lt;br /&gt;&amp;lt;/html&amp;gt;&lt;/p&gt;]]&gt;&lt;/layout&gt;&lt;name&gt;Bid won email layout&lt;/name&gt;&lt;sys_class_name&gt;sys_email_layout&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-03 14:59:15&lt;/sys_created_on&gt;&lt;sys_id&gt;d6de2b3193ea021094e3f15a7bba10cc&lt;/sys_id&gt;&lt;sys_mod_count&gt;5&lt;/sys_mod_count&gt;&lt;sys_name&gt;Bid won email layout&lt;/sys_name&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_email_layout_d6de2b3193ea021094e3f15a7bba10cc&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-04 06:45:04&lt;/sys_updated_on&gt;&lt;/sys_email_layout&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>432919874</payload_hash>
+        <record_name>Bid won email layout</record_name>
+        <reverted_from/>
+        <source>c0eb6f489326c61094e3f15a7bba1011</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-04 06:45:04</sys_created_on>
+        <sys_id>79b7878e936a421094e3f15a7bba1032</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fe1fe83940000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-04 06:45:04</sys_updated_on>
+        <type>Email Layout</type>
+        <update_guid>31b7878e476a421084e3bc8b850ac932</update_guid>
+        <update_guid_history>31b7878e476a421084e3bc8b850ac932:432919874,f687cf4e7b6a421048a56b4e6de777eb:-823579705,fbf6074eb46a42104212cc6b9dd1b666:-637304244,c9d3900af36e0210e65743835f7bed30:924341075,681bb73dc5ea02107669aecc6c854e87:-1228019213,8b3feb31c3ea0210ef67652742e88011:-1085490449</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-04 07:03:32</sys_created_on>
+        <sys_db_object display_value="" name="sys_email_layout">sys_email_layout</sys_db_object>
+        <sys_id>28abfa0f0fdf460086de8fbd9b8d97a4</sys_id>
+        <sys_metadata>d6de2b3193ea021094e3f15a7bba10cc</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Bid won email layout</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_email_layout_d6de2b3193ea021094e3f15a7bba10cc</sys_update_name>
+        <sys_update_version display_value="sys_email_layout_d6de2b3193ea021094e3f15a7bba10cc">79b7878e936a421094e3f15a7bba1032</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-04 07:03:32</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

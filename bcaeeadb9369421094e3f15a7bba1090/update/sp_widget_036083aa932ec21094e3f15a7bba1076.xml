@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[// Define the 'api' object
+var api = {};
+
+// Controller function
+api.controller = function($scope) {
+    var c = this;
+
+    // Initialize data.events
+    c.data.events = c.data.events || [];
+
+    // Function to handle adding items for auction
+    c.addItemsForAuction = function(event) {
+        alert('Adding items for auction for event: ' + event.event_name);
+        // Add your logic here to open a form for adding items for auction for the selected event
+    };
+
+    // Function to handle donating money directly
+    c.donateMoney = function(event) {
+        alert('Donating money directly to event: ' + event.event_name);
+        // Add your logic here to open a form for donating money directly to the selected event
+    };
+
+    // Function to show event details
+    c.showDetails = function(event) {
+        c.selectedEvent = event;
+    };
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* Event grid styles */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.event-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.event-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+.event-manager, .event-company, .event-dates div, .event-status {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+.event-dates div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-status {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.event-status.event-new {
+    color: #3498db;
+}
+
+.event-status.event-in-progress {
+    color: #f39c12;
+}
+
+.event-status.event-completed {
+    color: #27ae60;
+}
+
+.event-status.event-canceled {
+    color: #e74c3c;
+}
+
+.place-bid-btn:hover {
+    background-color: #218838;
+}
+
+/* Event details section styles */
+.event-details-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-details-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.event-details-section img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.details {
+    font-size: 16px;
+    color: #555;
+}
+
+.details p {
+    margin-bottom: 10px;
+}
+
+.details .place-bid-btn {
+    margin-top: 20px;
+}
+
+/* Add styles for add item and donate buttons */
+.add-item-btn, .donate-money-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.add-item-btn:hover, .donate-money-btn:hover {
+    background-color: #0056b3;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>color</field_list>
+        <has_preview>true</has_preview>
+        <id>event_list</id>
+        <internal>false</internal>
+        <link><![CDATA[function link() {
+    // Link function to handle additional setup
+    $scope.addItemForAuction = function(event) {
+        alert('Adding item for auction for event: ' + event.event_name);
+        // Here you can add logic to open a form for adding items for auction
+    };
+
+    $scope.donateMoney = function(event) {
+        alert('Donating money directly to event: ' + event.event_name);
+        // Here you can add logic to open a form for donating money directly to the event
+    };
+
+    $scope.showDetails = function(event) {
+        $scope.selectedEvent = event;
+        // Here you can add logic to show event details, maybe in a modal
+    };
+}
+]]></link>
+        <name>event list</name>
+        <option_schema>[{"name":"show_star_rating","default_value":"Use system properties","section":"Presentation","label":"Show star rating","type":"choice","choices":[{"label":"Yes","value":"Yes"},{"label":"No","value":"No"},{"label":"Use system properties","value":"Use system properties"}]},{"hint":"Number of articles to display per page","name":"limit_article","section":"other","default_value":"10","label":"Number of articles to display per page","type":"integer"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    // Initialize an array to hold the events
+    data.events = [];
+
+    // Define the table name
+    var tableName = 'x_1383184_charityb_events';  // Replace with your actual table name
+
+    // Create a new GlideRecord object
+    var gr = new GlideRecord(tableName);
+    if (gr.isValid()) {
+        gr.query();
+
+        // Loop through each record and add it to the events array
+        while (gr.next()) {
+            data.events.push({
+                event_name: gr.getValue('event_name'),
+                event_manager: gr.getValue('event_manager'),
+                start_date: gr.getValue('start_date'),
+                end_date: gr.getValue('end_date'),
+                charity_company: gr.getValue('charity_company'),
+                event_status: gr.getValue('event_status'),
+                image: gr.getDisplayValue('image')
+            });
+        }
+    } else {
+        gs.error('Invalid table name: ' + tableName);
+    }
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-05 19:30:10</sys_created_on>
+        <sys_id>036083aa932ec21094e3f15a7bba1076</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>event list</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_widget_036083aa932ec21094e3f15a7bba1076</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-05 19:49:04</sys_updated_on>
+        <template><![CDATA[<div class="container">
+    <h1>Events List</h1>
+    <div id="events-grid" class="events-grid">
+        <div ng-repeat="event in c.data.events" class="event-card" ng-click="c.showDetails(event)">
+            <img ng-src="{{event.image}}" alt="{{event.event_name}}">
+            <div class="event-details">
+                <div class="event-title">{{event.event_name}}</div>
+                <div class="event-manager">Manager: {{event.event_manager}}</div>
+                <div class="event-dates">
+                    <div>Start Date: {{event.start_date}}</div>
+                    <div>End Date: {{event.end_date}}</div>
+                </div>
+                <div class="event-charity">Charity Company: {{event.charity_company}}</div>
+                <div class="event-status">{{event.event_status}}</div>
+                <button class="add-item-btn" ng-click="c.addItemsForAuction(event); $event.stopPropagation();">Add Items for Auction</button>
+                <button class="donate-money-btn" ng-click="c.donateMoney(event); $event.stopPropagation();">Donate Money Directly</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for event details -->
+    <div class="modal" ng-show="c.showModal">
+        <div class="modal-content">
+            <span class="close" ng-click="c.closeModal()">&times;</span>
+            <h2>{{c.selectedEvent.event_name}}</h2>
+            <img ng-src="{{c.selectedEvent.image}}" alt="{{c.selectedEvent.event_name}}">
+            <div class="modal-details">
+                <p><strong>Manager:</strong> {{c.selectedEvent.event_manager}}</p>
+                <p><strong>Start Date:</strong> {{c.selectedEvent.start_date}}</p>
+                <p><strong>End Date:</strong> {{c.selectedEvent.end_date}}</p>
+                <p><strong>Charity Company:</strong> {{c.selectedEvent.charity_company}}</p>
+                <p><strong>Status:</strong> {{c.selectedEvent.event_status}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css>/*body{&#13;
+	background: radial-gradient(circle, rgba(253,234,227,1) 0%, rgba(233,182,163,1) 100%);&#13;
+&#13;
+}*/&#13;
+&#13;
+&#13;
+/* Global Styles */&#13;
+body {&#13;
+    font-family: 'Roboto', sans-serif;&#13;
+    background-color: #f9f5e8;&#13;
+    color: #333;&#13;
+    margin: 0;&#13;
+    padding: 0;&#13;
+}&#13;
+&#13;
+.container {&#13;
+    max-width: 1200px;&#13;
+    margin: 0 auto;&#13;
+    padding: 20px;&#13;
+}&#13;
+&#13;
+h1 {&#13;
+    text-align: center;&#13;
+    margin-bottom: 40px;&#13;
+    font-size: 36px;&#13;
+    color: #2c3e50;&#13;
+    text-transform: uppercase;&#13;
+    letter-spacing: 1.5px;&#13;
+    font-weight: 700;&#13;
+}&#13;
+&#13;
+/* Item Details Section */&#13;
+.item-details-section {&#13;
+    background-color: #fff;&#13;
+    border-radius: 12px;&#13;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);&#13;
+    padding: 40px;&#13;
+    margin-bottom: 40px;&#13;
+}&#13;
+&#13;
+.item-details-section h2 {&#13;
+    font-size: 28px;&#13;
+    margin-bottom: 20px;&#13;
+    color: #2c3e50;&#13;
+    font-weight: bold;&#13;
+}&#13;
+&#13;
+.item-details-section img {&#13;
+    width: 100%;&#13;
+    height: auto;&#13;
+    border-radius: 8px;&#13;
+    margin-bottom: 20px;&#13;
+}&#13;
+&#13;
+.item-description {&#13;
+    font-size: 18px;&#13;
+    line-height: 1.6;&#13;
+    margin-bottom: 20px;&#13;
+}&#13;
+&#13;
+/* Bidding Section */&#13;
+.bidding-section {&#13;
+    background-color: #f9f9f9;&#13;
+    border-radius: 12px;&#13;
+    padding: 20px;&#13;
+    margin-bottom: 40px;&#13;
+}&#13;
+&#13;
+.bid-form {&#13;
+    display: flex;&#13;
+    flex-wrap: wrap;&#13;
+}&#13;
+&#13;
+.bid-form input[type="number"] {&#13;
+    padding: 10px;&#13;
+    font-size: 16px;&#13;
+    border-radius: 6px;&#13;
+    border: 1px solid #ccc;&#13;
+    margin-right: 10px;&#13;
+    margin-bottom: 10px;&#13;
+}&#13;
+&#13;
+.bid-form button {&#13;
+    padding: 12px 20px;&#13;
+    font-size: 16px;&#13;
+    background-color: #3498db;&#13;
+    color: #fff;&#13;
+    border: none;&#13;
+    border-radius: 6px;&#13;
+    cursor: pointer;&#13;
+}&#13;
+&#13;
+.bid-form button:hover {&#13;
+    background-color: #2980b9;&#13;
+}&#13;
+&#13;
+.bid-history {&#13;
+    margin-top: 20px;&#13;
+}&#13;
+&#13;
+.bid-history h3 {&#13;
+    font-size: 24px;&#13;
+    margin-bottom: 10px;&#13;
+    color: #2c3e50;&#13;
+}&#13;
+&#13;
+.bid-history-table {&#13;
+    width: 100%;&#13;
+    border-collapse: collapse;&#13;
+}&#13;
+&#13;
+.bid-history-table th,&#13;
+.bid-history-table td {&#13;
+    padding: 10px;&#13;
+    border-bottom: 1px solid #ddd;&#13;
+    text-align: left;&#13;
+}&#13;
+&#13;
+/* Related Items Section */&#13;
+.related-items-section {&#13;
+    margin-bottom: 40px;&#13;
+}&#13;
+&#13;
+.related-items-section h2 {&#13;
+    font-size: 28px;&#13;
+    margin-bottom: 20px;&#13;
+    color: #2c3e50;&#13;
+    font-weight: bold;&#13;
+}&#13;
+&#13;
+.related-items-grid {&#13;
+    display: grid;&#13;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));&#13;
+    gap: 20px;&#13;
+}&#13;
+&#13;
+.related-item-card {&#13;
+    background-color: #fff;&#13;
+    border-radius: 12px;&#13;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);&#13;
+    overflow: hidden;&#13;
+}&#13;
+&#13;
+.related-item-card img {&#13;
+    width: 100%;&#13;
+    height: 150px;&#13;
+    object-fit: cover;&#13;
+    border-top-left-radius: 12px;&#13;
+    border-top-right-radius: 12px;&#13;
+}&#13;
+&#13;
+.related-item-details {&#13;
+    padding: 15px;&#13;
+}&#13;
+&#13;
+.related-item-title {&#13;
+    font-size: 18px;&#13;
+    margin-bottom: 10px;&#13;
+    color: #333;&#13;
+    font-weight: bold;&#13;
+}&#13;
+&#13;
+.related-item-description {&#13;
+    font-size: 16px;&#13;
+    color: #555;&#13;
+    line-height: 1.4;&#13;
+}&#13;
+&#13;
+/* Responsive Styles */&#13;
+@media screen and (max-width: 768px) {&#13;
+    .container {&#13;
+        padding: 10px;&#13;
+    }&#13;
+&#13;
+    .item-details-section {&#13;
+        padding: 20px;&#13;
+    }&#13;
+&#13;
+    .bid-form input[type="number"] {&#13;
+        width: 100%;&#13;
+        margin-right: 0;&#13;
+        margin-bottom: 10px;&#13;
+    }&#13;
+}&#13;
+</css>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <human_readable_url_structure/>
+        <id>list_of_items</id>
+        <internal>false</internal>
+        <omit_watcher>false</omit_watcher>
+        <public>false</public>
+        <roles/>
+        <seo_script/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-04 17:18:34</sys_created_on>
+        <sys_id>65b8195e93e2821094e3f15a7bba1048</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>list_of_items</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_page_65b8195e93e2821094e3f15a7bba1048</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-05 19:46:53</sys_updated_on>
+        <title>List of items</title>
+        <use_seo_script>false</use_seo_script>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=65b8195e93e2821094e3f15a7bba1048"/>
+</record_update>

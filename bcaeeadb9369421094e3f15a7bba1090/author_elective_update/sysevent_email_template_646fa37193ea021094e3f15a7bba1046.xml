@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_email_template">
+    <sysevent_email_template action="DELETE">
+        <collection>x_1383184_charityb_bid</collection>
+        <email_layout/>
+        <message/>
+        <message_html/>
+        <message_list/>
+        <message_text/>
+        <name>Auction won template</name>
+        <sms_alternate/>
+        <subject/>
+        <sys_class_name>sysevent_email_template</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-03 15:00:51</sys_created_on>
+        <sys_id>646fa37193ea021094e3f15a7bba1046</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Auction won template</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sysevent_email_template_646fa37193ea021094e3f15a7bba1046</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-03 17:34:11</sys_updated_on>
+        <sys_version>2</sys_version>
+    </sysevent_email_template>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sysevent_email_template_646fa37193ea021094e3f15a7bba1046</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_email_template"><sysevent_email_template action="INSERT_OR_UPDATE"><collection>x_1383184_charityb_bid</collection><email_layout/><message/><message_html/><message_list/><message_text/><name>Auction won template</name><sms_alternate/><subject/><sys_class_name>sysevent_email_template</sys_class_name><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-06-03 15:00:51</sys_created_on><sys_id>646fa37193ea021094e3f15a7bba1046</sys_id><sys_mod_count>6</sys_mod_count><sys_name>Auction won template</sys_name><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sysevent_email_template_646fa37193ea021094e3f15a7bba1046</sys_update_name><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-06-03 17:34:11</sys_updated_on><sys_version>2</sys_version></sysevent_email_template></record_update>]]></payload>
+        <payload_hash>-858201514</payload_hash>
+        <record_name>Auction won template</record_name>
+        <reverted_from/>
+        <source>c0eb6f489326c61094e3f15a7bba1011</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-04 07:03:32</sys_created_on>
+        <sys_id>1cfbc70693aa421094e3f15a7bba10e2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fe20f6b820000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-04 07:03:32</sys_updated_on>
+        <type>Email Template</type>
+        <update_guid>a4b29486d76e0210b98ee66474a9848c</update_guid>
+        <update_guid_history>a4b29486d76e0210b98ee66474a9848c:-644490450,a4b29486d76e0210b98ee66474a9848c:-644490450,964d88421e6e0210eab6696d0c2984db:-1710619553,383c0842e56e0210b0b41d7b09d124da:-1239001847,1c2788ca462e02101238532ba1de5e6f:389290820,e2ab3fbdfaea02103b43044ec83023e1:1946713196,bf53b7759fea0210a539125047dc7be4:-1277155729,2e9f63714fea021050b56094e857ada6:-1826325233</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-04 07:04:04</sys_created_on>
+        <sys_db_object display_value="" name="sysevent_email_template">sysevent_email_template</sys_db_object>
+        <sys_id>157bd7c51e5a4cd3a4529e503a6ccec1</sys_id>
+        <sys_metadata>646fa37193ea021094e3f15a7bba1046</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Auction won template</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Bid">73f7b8929396c61094e3f15a7bba107f</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sysevent_email_template_646fa37193ea021094e3f15a7bba1046</sys_update_name>
+        <sys_update_version display_value="sysevent_email_template_646fa37193ea021094e3f15a7bba1046">1cfbc70693aa421094e3f15a7bba10e2</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-04 07:04:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

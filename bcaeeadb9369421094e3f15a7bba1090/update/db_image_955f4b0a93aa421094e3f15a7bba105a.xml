@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category/>
+        <format>JPEG</format>
+        <height>4428</height>
+        <image>82921b0e93aa421094e3f15a7bba1055</image>
+        <name>itemFormBgImage.jpg</name>
+        <size_bytes>5556185</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-04 07:18:40</sys_created_on>
+        <sys_id>955f4b0a93aa421094e3f15a7bba105a</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>itemFormBgImage.jpg</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>db_image_955f4b0a93aa421094e3f15a7bba105a</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-04 07:33:58</sys_updated_on>
+        <thumbnail/>
+        <width>2952</width>
+    </db_image>
+</record_update>

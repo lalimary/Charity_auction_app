@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
     <sp_page action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <css/>
+        <css>.homecolor1{&#13;
+  background color:#f9f5e8}</css>
         <draft>false</draft>
         <dynamic_title_structure/>
         <human_readable_url_structure/>
@@ -16,14 +17,14 @@
         <sys_created_by>lalitha</sys_created_by>
         <sys_created_on>2024-05-29 07:15:55</sys_created_on>
         <sys_id>87359010932ac61094e3f15a7bba10e1</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>cde_index</sys_name>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sp_page_87359010932ac61094e3f15a7bba10e1</sys_update_name>
         <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-05-29 07:15:55</sys_updated_on>
+        <sys_updated_on>2024-06-05 18:37:31</sys_updated_on>
         <title>Charity Bids home</title>
         <use_seo_script>false</use_seo_script>
     </sp_page>

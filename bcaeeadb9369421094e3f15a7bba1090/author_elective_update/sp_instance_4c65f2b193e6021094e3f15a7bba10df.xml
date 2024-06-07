@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">40b73b9a93ae821094e3f15a7bba1096</sp_column>
+        <sp_widget display_value="HTML">8679ef89cb21120000f8d856634c9c4f</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-06-03 10:46:27</sys_created_on>
+        <sys_id>4c65f2b193e6021094e3f15a7bba10df</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_instance_4c65f2b193e6021094e3f15a7bba10df</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-05 05:04:53</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"html": {
+		"value": "<h4>&nbsp;</h4>\r\n<h1><strong>CHARITY BIDS</strong></h1>\r\n<h4>Your generosity today can be the lifeline for someone in need tomorrow. Together, we can make a difference that echoes through generations.</h4>",
+		"displayValue": "<h4>&nbsp;</h4>\n<h1><strong>CHARITY BIDS</strong></h1>\n<h4>Your generosity today can be the lifeline for someone in need tomorrow. Together, we can make a difference that echoes through generations.</h4>"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=4c65f2b193e6021094e3f15a7bba10df"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sp_instance_4c65f2b193e6021094e3f15a7bba10df</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;40b73b9a93ae821094e3f15a7bba1096&lt;/sp_column&gt;&lt;sp_widget display_value="HTML"&gt;8679ef89cb21120000f8d856634c9c4f&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;christy&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-03 10:46:27&lt;/sys_created_on&gt;&lt;sys_id&gt;4c65f2b193e6021094e3f15a7bba10df&lt;/sys_id&gt;&lt;sys_mod_count&gt;9&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_4c65f2b193e6021094e3f15a7bba10df&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;christy&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-05 05:04:53&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"html": {
+		"value": "&lt;h4&gt;&amp;nbsp;&lt;/h4&gt;\r\n&lt;h1&gt;&lt;strong&gt;CHARITY BIDS&lt;/strong&gt;&lt;/h1&gt;\r\n&lt;h4&gt;Your generosity today can be the lifeline for someone in need tomorrow. Together, we can make a difference that echoes through generations.&lt;/h4&gt;",
+		"displayValue": "&lt;h4&gt;&amp;nbsp;&lt;/h4&gt;\n&lt;h1&gt;&lt;strong&gt;CHARITY BIDS&lt;/strong&gt;&lt;/h1&gt;\n&lt;h4&gt;Your generosity today can be the lifeline for someone in need tomorrow. Together, we can make a difference that echoes through generations.&lt;/h4&gt;"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=4c65f2b193e6021094e3f15a7bba10df"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1750756172</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>247253e493ae021094e3f15a7bba10eb</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-06-05 05:04:54</sys_created_on>
+        <sys_id>d06a335e93ae821094e3f15a7bba107f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fe6c92a210000001</sys_recorded_at>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-05 05:04:54</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>986a335e78ae821038559d880233d47e</update_guid>
+        <update_guid_history>986a335e78ae821038559d880233d47e:1750756172,a8b7779a01ae821083ed79cd5fcf53fd:1113049618,7ea73b9a4aae82103dee5f3cc70aa93c:898012396,56a7bf5a36ae821005c2e10f220a334f:-1682236450,99ea7e39b1e602105ac135fbf8a692b4:898012396,0cda7e3904e60210f86132088462b849:-1978465070,e288fef17ce60210dd351ee90cedf0a8:898012396,1f78b6b515e60210c0347040c843dc6f:1935298736,b706b6f1afe6021031c02bd4a33a41bc:898012396,0865bab128e602107537f7f74a7b1489:-1881315798</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">449afb5e93ae821094e3f15a7bba10f0</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-06-05 05:05:43</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>46f46a81b6524cd8a52418f32161ab10</sys_id>
+        <sys_metadata>4c65f2b193e6021094e3f15a7bba10df</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sp_instance_4c65f2b193e6021094e3f15a7bba10df</sys_update_name>
+        <sys_update_version display_value="sp_instance_4c65f2b193e6021094e3f15a7bba10df">d06a335e93ae821094e3f15a7bba107f</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-05 05:05:43</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

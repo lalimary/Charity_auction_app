@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_email_layout">
+    <sys_email_layout action="INSERT_OR_UPDATE">
+        <advanced>false</advanced>
+        <advanced_layout><![CDATA[<html lang="en">
+
+<head>
+	<meta charset="utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<style type="text/css">
+		* {
+			-webkit-text-size-adjust: none;
+		}
+
+		body {
+			margin: 0 !important;
+			padding: 0 !important;
+			font-family: Lato, Arial, sans-serif;
+			max-width: 600px;
+		}
+
+		p.footer {
+			margin: 0;
+			font-size: 14px;
+			line-height: 18px;
+			color: #ffffff;
+		}
+
+		#snc_notification_unsubscribe , #snc_notification_preference {
+			color: #3C59E7;
+			font-size: 16px;
+			line-height: 19px;
+		}
+
+		#snc_notification_unsubscribe {
+			padding-right: 8px;
+		}
+
+		#snc_notification_preference {
+			padding-left: 8px;
+		}
+
+		body,
+		table,
+		td,
+		p,
+		a {
+			-ms-text-size-adjust: 100% !important;
+			-webkit-text-size-adjust: 100% !important;
+		}
+
+		table,
+		tr,
+		td {
+			border-spacing: 0 !important;
+			mso-table-lspace: 0 !important;
+			mso-table-rspace: 0 !important;
+			border-collapse: collapse !important;
+			mso-line-height-rule: exactly !important;
+		}
+
+		.ExternalClass * {
+			line-height: 100%;
+		}
+
+		.mobile-link a,
+		.mobile-link span {
+			text-decoration: none !important;
+			color: inherit !important;
+			border: none !important;
+		}
+	</style>
+</head>
+
+<body style="margin: 0 auto !important;">
+	<table class="w100" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" bgcolor="#F7F7F9"
+		style="width:100%; max-width: 600px; background-color:#F7F7F9; margin: 0 auto; padding: 0px;">
+		<tbody>
+			<tr>
+				<td align="center"
+					style="background: #27284A;text-align:center;font-family:Arial, Tahoma, sans-serif;color:#425968;font-size:13px;line-height:14px;">
+					<table cellspacing="0" style="border-spacing: 0; width: 100%">
+						<tr style="background-color: #27284A;">
+							<td height="100" width="140">
+								<img src="email_template_header.png" height="100" width="140" />
+							</td>
+							<td valign="bottom" height="100" align="center" >
+								<table style="margin: 0 auto;">
+									<tr>
+										<td>
+											<img src="email_template_now_logo.png" height="35" />
+										</td>
+
+									</tr>
+									<tr><td height="18"></td></tr>
+								</table>
+							</td>
+							<td width="140"></td>
+						</tr>
+						<tr style="background-color: #27284A;" height="30">
+							<td></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+	<table width="100%" style="max-width: 600px; background-color:#F7F7F9;" cellspacing="0" cellpadding="0" border="0" align="center">
+		<tbody>
+			<tr>
+				<!-- Left-->
+				<td valign="top" width="16">
+					<table width="16">
+						<tr height="36" style="background: #27284A;">
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<!-- CONTAINER -->
+				<td width="100%">
+					<table class="w100" cellspacing="0" cellpadding="0" border="0" align="center" width="100%"
+						style="background-image: linear-gradient(to bottom , rgba(39,40,74,1), rgba(247,247,249,0));margin:0px; padding:0px; box-shadow: 0px 2px 10px rgba(23, 40, 52, 0.08);">
+						<tbody>
+							<!-- Main Container -->
+							<tr>
+								<td class="pad-sides-20" align="center"
+									style="border-radius:6px;text-align:left;padding-left:24px;padding-right:24px;padding-top:18px;padding-bottom:18px; background-color: #FFFFFF;">
+									${notification:body}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+				</td>
+				<!-- END CONTAINER -->
+
+				<!-- Right-->
+				<td width="16" valign="top">
+					<table width="16">
+						<tr height="36" style="background: #27284A;">
+							<td></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+			</tr>
+		</tbody>
+	</table>
+	<table width="100%" style="max-width: 600px" cellspacing="0" cellpadding="0" border="0" align="center">
+		<tbody>
+			<tr>
+				<td align="center" height="60" style="background-color: #F7F7F9;">
+					${NOTIF_UNSUB} | ${NOTIF_PREFS}
+				</td>
+			</tr>
+			<tr>
+				<td height="36" style="background-color: #27284A;"></td>
+			</tr>
+			<tr>
+				<td valign="top" align="center" height="38" style="background-color: #27284A;">
+					<img src="email_template_now_logo.png" height="20" />
+				</td>
+			</tr>
+			<tr>
+				<td style="background-color: #27284A; color: #fff;">
+					<table width="100%" cellspacing="0" style="color: #fff;">
+						<tr align="center">
+							<td>
+								<p class="footer" style="color: white;">
+									2225 Lawson Lane, Santa Clara, CA 95054, United States
+								</p>
+							</td>
+
+						</tr>
+						<tr align="center">
+							<td>
+								<p class="footer" style="color: white;">
+									&#169; 2020 AcmeTech Inc. All rights reserved.
+								</p>
+							</td>
+						</tr>
+
+					</table>
+				</td>
+			</tr>
+			<tr cellspacing="0">
+				<td align="center" bgcolor="#27284A" height="102">
+					<img src="email_template_footer.png" width="100%" height="102" />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>]]></advanced_layout>
+        <description>A layout for all employee facing notifications that contains theme, header, footer, unsubscribe, and preferences.</description>
+        <layout><![CDATA[<style type="text/css">	* {		-webkit-text-size-adjust: none;	}	body {		margin: 0 auto !important;		padding: 0 !important;		font-family: Lato, Arial, sans-serif;	}	.btn a {		text-decoration: none;	}	.btn.inverse a {		color: #fff;	}	#requestapprove a {		color: #fff !important;	}	span.footer,	#templateAddress,	#templateCopyright,	#templateCopyright *,	#templateAddress * {		margin: 0;		font-size: 14px;		line-height: 18px;		color: #ffffff;	}	#snc_notification_unsubscribe,	#snc_notification_preference {		color: #3C59E7;		font-size: 16px;		line-height: 19px;	}	#snc_notification_unsubscribe {		padding-right: 8px;	}	#snc_notification_preference {		padding-left: 8px;	}	body,	table,	td,	p,	a {		-ms-text-size-adjust: 100% !important;		-webkit-text-size-adjust: 100% !important;	}	table,	tr,	td {		border-spacing: 0 !important;		mso-table-lspace: 0 !important;		mso-table-rspace: 0 !important;		border-collapse: collapse !important;		mso-line-height-rule: exactly !important;	}	.ExternalClass * {		line-height: 100%;	}	.mobile-link a,	.mobile-link span {		text-decoration: none !important;		color: inherit !important;		border: none !important;	}</style>
+<div style="margin: 0 auto !important;" align="center">
+<p></p>
+<table class="w100" style="width: 600px; background-color: #f7f7f9; margin: 0 auto !important; padding: 0px;" border="0" width="600" cellspacing="0" cellpadding="0" align="center" bgcolor="#F7F7F9">
+<tbody>
+<tr>
+<td style="background: #27284A; text-align: center; font-family: Arial, Tahoma, sans-serif; color: #425968; font-size: 13px; line-height: 14px;" align="center">
+<table style="border-spacing: 0; width: 100%;" border="0" width="600" cellspacing="0" cellpadding="0">
+<tbody>
+<tr style="background-color: #27284a;">
+<td width="140" height="98"><img style="height: 98px;" src="email_template_header.png" width="140" height="98" /></td>
+<td align="center" valign="bottom" height="98">
+<table style="margin: 0 auto;">
+<tbody>
+<tr>
+<td height="34"><img src="/sys_attachment.do?sys_id=633c870693aa421094e3f15a7bba1059" height="34" width="167" style="height: 125px;" /></td>
+</tr>
+<tr>
+<td height="16"></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width="140"></td>
+</tr>
+<tr style="background-color: #27284a;" height="32">
+<td></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" width="600" cellspacing="0" cellpadding="0">
+<tbody>
+<tr><!-- Left-->
+<td valign="top" width="18">
+<table width="18" cellspacing="0">
+<tbody>
+<tr style="background: #27284A;" height="48">
+<td></td>
+</tr>
+</tbody>
+</table>
+</td>
+<!-- CONTAINER -->
+<td width="564">
+<table class="w100" style="background-image: linear-gradient(to bottom , rgba(39,40,74,1), rgba(247,247,249,0)); margin: 0px; padding: 0px; box-shadow: 0px 2px 10px rgba(23, 40, 52, 0.08);" border="0" width="100%" cellspacing="0" cellpadding="0" align="center">
+<tbody><!-- Main Container -->
+<tr>
+<td class="pad-sides-20" style="border-radius: 6px; text-align: left; background-color: #ffffff; padding: 24px 24px 24px 24px;" align="center">${notification:body}</td>
+</tr>
+</tbody>
+</table>
+</td>
+<!-- END CONTAINER --> <!-- Right-->
+<td valign="top" width="18">
+<table width="18" cellspacing="0">
+<tbody>
+<tr style="background: #27284A;" height="48">
+<td></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f7f7f9;" align="center" height="60">${NOTIF_UNSUB} | ${NOTIF_PREFS}</td>
+</tr>
+<!-- Footer started -->
+<tr style="background-color: #27284a;">
+<td>
+<table style="background-color: #27284a;" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="background-color: #27284a;" height="36"></td>
+</tr>
+<tr>
+<td style="background-color: #27284a;" align="center" valign="top" height="38"></td>
+</tr>
+<tr>
+<td style="background-color: #27284a; color: #fff;">
+<table style="color: #fff;" border="0" width="600" cellspacing="0" cellpadding="0">
+<tbody>
+<tr align="center">
+<td><span id="templateAddress" class="footer" style="color: #ffffff; font-size: 12px; line-height: 18px; text-align: center; margin: 0 !important;"> 225 Marks road, Indiqube Sapphire, Residency road, Bangalore -72</span></td>
+</tr>
+<tr align="center">
+<td><span id="templateCopyright" class="footer" style="color: #ffffff; font-size: 12px; line-height: 18px; text-align: center; margin: 0 !important;"> &copy; 2024 AcmeTech Inc. All rights reserved. </span></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr cellspacing="0">
+<td align="center" bgcolor="#27284A" height="102"><img src="email_template_footer.png" width="600" height="102" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!-- Footer end--></tbody>
+</table>
+</div>]]></layout>
+        <name>Auction win layout</name>
+        <sys_class_name>sys_email_layout</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-04 07:04:26</sys_created_on>
+        <sys_id>dd2c870693aa421094e3f15a7bba105e</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Auction win layout</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_email_layout_dd2c870693aa421094e3f15a7bba105e</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-04 14:45:04</sys_updated_on>
+    </sys_email_layout>
+</record_update>

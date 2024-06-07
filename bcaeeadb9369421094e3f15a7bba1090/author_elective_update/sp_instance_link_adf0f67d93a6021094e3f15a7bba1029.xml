@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_link">
+    <sp_instance_link action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>primary</color>
+        <css/>
+        <glyph>user-circle</glyph>
+        <id/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <order>1</order>
+        <roles/>
+        <sc_cat_item/>
+        <sc_category/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="2">b949b1b993a2021094e3f15a7bba10ec</sp_column>
+        <sp_page display_value="cb_profile">69e7a9b19362021094e3f15a7bba1080</sp_page>
+        <sp_widget display_value="Icon Link">3caa67afcb13020000f8d856634c9c2e</sp_widget>
+        <sys_class_name>sp_instance_link</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-06-03 10:27:11</sys_created_on>
+        <sys_id>adf0f67d93a6021094e3f15a7bba1029</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Create Profile</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_instance_link_adf0f67d93a6021094e3f15a7bba1029</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-05 04:51:03</sys_updated_on>
+        <title>Create Profile</title>
+        <type>page</type>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"link_template": {
+		"value": "Color Box",
+		"displayValue": "Color Box"
+	}
+}]]></widget_parameters>
+    </sp_instance_link>
+    <sys_translated_text action="DELETE" query="documentkey=adf0f67d93a6021094e3f15a7bba1029"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sp_instance_link_adf0f67d93a6021094e3f15a7bba1029</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance_link"&gt;&lt;sp_instance_link action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;primary&lt;/color&gt;&lt;css/&gt;&lt;glyph&gt;user-circle&lt;/glyph&gt;&lt;id/&gt;&lt;kb_article/&gt;&lt;kb_category/&gt;&lt;kb_topic/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;sc_cat_item/&gt;&lt;sc_category/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="2"&gt;b949b1b993a2021094e3f15a7bba10ec&lt;/sp_column&gt;&lt;sp_page display_value="cb_profile"&gt;69e7a9b19362021094e3f15a7bba1080&lt;/sp_page&gt;&lt;sp_widget display_value="Icon Link"&gt;3caa67afcb13020000f8d856634c9c2e&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance_link&lt;/sys_class_name&gt;&lt;sys_created_by&gt;christy&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-03 10:27:11&lt;/sys_created_on&gt;&lt;sys_id&gt;adf0f67d93a6021094e3f15a7bba1029&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;Create Profile&lt;/sys_name&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_link_adf0f67d93a6021094e3f15a7bba1029&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;christy&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-05 04:51:03&lt;/sys_updated_on&gt;&lt;title&gt;Create Profile&lt;/title&gt;&lt;type&gt;page&lt;/type&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"link_template": {
+		"value": "Color Box",
+		"displayValue": "Color Box"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance_link&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=adf0f67d93a6021094e3f15a7bba1029"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1906674879</payload_hash>
+        <record_name>Create Profile</record_name>
+        <reverted_from/>
+        <source>247253e493ae021094e3f15a7bba10eb</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-06-05 04:51:04</sys_created_on>
+        <sys_id>6137ff5a93ae821094e3f15a7bba107f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fe6bc7f060000001</sys_recorded_at>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-05 04:51:04</sys_updated_on>
+        <type>Instance with Link</type>
+        <update_guid>2937ff5a76ae8210fc928c285a67c17e</update_guid>
+        <update_guid_history>2937ff5a76ae8210fc928c285a67c17e:-1906674879,e037ff5aceae8210d147e8f2bc12b80f:69408414,0a417e7de3a602104e5a176bb295763d:-1906674879,b9f0f67d6aa60210b9bfbf33e3639a2b:-1648541658</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Create Profile">640a735e93ae821094e3f15a7bba103b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-06-05 05:03:17</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance_link">sp_instance_link</sys_db_object>
+        <sys_id>1d8bb5ce91984e80846c5f7d15afed90</sys_id>
+        <sys_metadata>adf0f67d93a6021094e3f15a7bba1029</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Create Profile</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sp_instance_link_adf0f67d93a6021094e3f15a7bba1029</sys_update_name>
+        <sys_update_version display_value="sp_instance_link_adf0f67d93a6021094e3f15a7bba1029">6137ff5a93ae821094e3f15a7bba107f</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-05 05:03:17</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

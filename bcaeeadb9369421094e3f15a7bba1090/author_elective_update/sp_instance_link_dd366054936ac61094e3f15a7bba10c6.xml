@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_link">
+    <sp_instance_link action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>primary</color>
+        <css/>
+        <glyph>user</glyph>
+        <id/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <order>1</order>
+        <roles/>
+        <sc_cat_item/>
+        <sc_category/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="2">75262054936ac61094e3f15a7bba10cc</sp_column>
+        <sp_page/>
+        <sp_widget display_value="Icon Link">3caa67afcb13020000f8d856634c9c2e</sp_widget>
+        <sys_class_name>sp_instance_link</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 08:30:04</sys_created_on>
+        <sys_id>dd366054936ac61094e3f15a7bba10c6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>User profile</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_instance_link_dd366054936ac61094e3f15a7bba10c6</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 08:31:06</sys_updated_on>
+        <title>User profile</title>
+        <type>page</type>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"link_template": {
+		"value": "Color Box",
+		"displayValue": "Color Box"
+	}
+}]]></widget_parameters>
+    </sp_instance_link>
+    <sys_translated_text action="DELETE" query="documentkey=dd366054936ac61094e3f15a7bba10c6"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sp_instance_link_dd366054936ac61094e3f15a7bba10c6</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance_link"&gt;&lt;sp_instance_link action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;primary&lt;/color&gt;&lt;css/&gt;&lt;glyph&gt;user&lt;/glyph&gt;&lt;id/&gt;&lt;kb_article/&gt;&lt;kb_category/&gt;&lt;kb_topic/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;sc_cat_item/&gt;&lt;sc_category/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="2"&gt;75262054936ac61094e3f15a7bba10cc&lt;/sp_column&gt;&lt;sp_page/&gt;&lt;sp_widget display_value="Icon Link"&gt;3caa67afcb13020000f8d856634c9c2e&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance_link&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 08:30:04&lt;/sys_created_on&gt;&lt;sys_id&gt;dd366054936ac61094e3f15a7bba10c6&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;User profile&lt;/sys_name&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_link_dd366054936ac61094e3f15a7bba10c6&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 08:31:06&lt;/sys_updated_on&gt;&lt;title&gt;User profile&lt;/title&gt;&lt;type&gt;page&lt;/type&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"link_template": {
+		"value": "Color Box",
+		"displayValue": "Color Box"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance_link&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=dd366054936ac61094e3f15a7bba10c6"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>2042083097</payload_hash>
+        <record_name>User profile</record_name>
+        <reverted_from/>
+        <source>c0eb6f489326c61094e3f15a7bba1011</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 08:31:07</sys_created_on>
+        <sys_id>ec76e454936ac61094e3f15a7bba10b9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fc37971af0000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 08:31:07</sys_updated_on>
+        <type>Instance with Link</type>
+        <update_guid>6076ec14c36ac61009d46fb8b39b71ce</update_guid>
+        <update_guid_history>6076ec14c36ac61009d46fb8b39b71ce:2042083097,59366054bd6ac6102e086520a8c324c8:-873376260</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="User profile">1d533e66932ec21094e3f15a7bba102e</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-05 18:32:58</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance_link">sp_instance_link</sys_db_object>
+        <sys_id>0ade250a1dca4596b31f943ddcd201a4</sys_id>
+        <sys_metadata>dd366054936ac61094e3f15a7bba10c6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>User profile</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sp_instance_link_dd366054936ac61094e3f15a7bba10c6</sys_update_name>
+        <sys_update_version display_value="sp_instance_link_dd366054936ac61094e3f15a7bba10c6">ec76e454936ac61094e3f15a7bba10b9</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-05 18:32:58</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -40,7 +40,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2d4151249366021094e3f15a7bba10ca</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Abort your bid amount when null</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
@@ -48,7 +48,7 @@
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_script_2d4151249366021094e3f15a7bba10ca</sys_update_name>
         <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-05-30 06:53:07</sys_updated_on>
+        <sys_updated_on>2024-06-03 05:02:38</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>

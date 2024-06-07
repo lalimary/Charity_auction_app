@@ -30,42 +30,27 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+        <script><![CDATA[(function executeRule(current, previous  ) {
 
 
     function parseCurrency(value) {
         if (!value) return NaN;
-        // Remove any non-numeric characters except for periods and minus sign
         value = value.replace(/[^0-9.-]+/g, "");
         return parseFloat(value);
     }
 
     var yourBidAmount = parseCurrency(current.getValue('your_bid_amount'));
-    var itemSysId = current.getValue('item_name'); // Assuming 'item_name' is the reference field linking the bid to the item
+    var itemSysId = current.getValue('item_name'); 
 
-    //     // Query the item record associated with the bid
     var item = new GlideRecord('x_1383184_charityb_item');
     if (item.get(itemSysId)) {
-        // gs.addErrorMessage('The item associated with this bid was not found.');
-        // item.setAbortAction(true);
         var currentHighestBid = parseCurrency(item.getValue('highest_bid_amount') || 0); // Convert to float, default to 0 if highest bid amount is not set
         var currentStartBid = parseCurrency(item.getValue('start_bid_amount') || 0);
 
-        //         // 		WORKIN CODE
         item.setValue('highest_bid_amount', yourBidAmount);
         item.update();
 
-        // if (yourBidAmount <= currentHighestBid && yourBidAmount <= currentStartBid) {
-        //     // Update the highest bid amount on the item
-        //     current.setAbortAction(true);
-        //     gs.addErrorMessage('Your bid amount must be higher than the current highest bid amount.');
-
-        // } else {
-        //     item.setValue('highest_bid_amount', yourBidAmount);
-        //     item.update();
-        // }
     } else {
-        // If the item record is not found, add an error message and prevent the insert
         gs.addErrorMessage('The item associated with this bid was not found.');
         current.setAbortAction(true);
     }
@@ -76,7 +61,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>4e48029893220a1094e3f15a7bba1043</sys_id>
-        <sys_mod_count>26</sys_mod_count>
+        <sys_mod_count>29</sys_mod_count>
         <sys_name>Update your bid amount</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
@@ -84,7 +69,7 @@
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_script_4e48029893220a1094e3f15a7bba1043</sys_update_name>
         <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-05-30 06:52:24</sys_updated_on>
+        <sys_updated_on>2024-06-03 10:01:11</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>

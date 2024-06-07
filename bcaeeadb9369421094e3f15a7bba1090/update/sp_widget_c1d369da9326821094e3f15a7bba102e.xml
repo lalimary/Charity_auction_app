@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[//api.controller=function() {
+  /* widget controller */
+ //var c = this;
+//};
+
+
+
+api.controller=function ($scope, $element, $rootScope, $timeout) {
+  var c = this;
+  init();
+
+  function init() {
+    $timeout(function() {
+      $rootScope.$broadcast('sp.update.breadcrumbs', c.data.breadcrumbs);
+    });
+  }
+
+  $scope.hideCategoryWidget = !$scope.data.category;
+  $scope.showCategories = function() {
+    $scope.hideCategoryWidget = true;
+    $rootScope.$broadcast("$sp.show.categories_widget");
+  };
+}
+
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>color</field_list>
+        <has_preview>false</has_preview>
+        <id>item_categories</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Item categories</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[// populate the 'data' object
+var categoryGR = new GlideRecord('x_1383184_charityb_category');
+gs.info("category: " + $sp.getValue('category'));
+categoryGR.addQuery('parent_id', $sp.getValue('category'));
+categoryGR.query();
+
+data.categories = [];
+while (categoryGR.next()) {
+  var category = {
+    'value': categoryGR.getUniqueValue(),
+    'label': categoryGR.getValue('label')
+  };
+  data.categories.push(category);
+}
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-04 18:07:08</sys_created_on>
+        <sys_id>c1d369da9326821094e3f15a7bba102e</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Item categories</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_widget_c1d369da9326821094e3f15a7bba102e</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-04 18:21:19</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-{{options.color}} b">
+  <div class="panel-heading">
+    <h4 class="panel-title">${Categories}</h4>
+  </div>
+  <div class="panel-body">
+    <div ng-repeat="a in data.categories | orderBy:'label'" class="m-b">
+      <a href="?id=category&category={{::a.value}}">{{::a.label}}</a>
+    </div>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

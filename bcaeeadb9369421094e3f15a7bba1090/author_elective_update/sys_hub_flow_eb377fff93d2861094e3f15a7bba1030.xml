@@ -1,0 +1,1579 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="DELETE">
+        <access>public</access>
+        <acls/>
+        <active>false</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=71184000,viewActivatedIn=naturalLanguage</attributes>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <internal_name>bid_process</internal_name>
+        <label_cache>[{"name":"17a8c595-bb22-4db5-a5af-f404d351cb52.Record","label":"1 - Look Up Record➛Item Record","reference":"x_1383184_charityb_item","reference_display":"Item","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created or Updated_1.current.item_name.highest_bid_amount","label":"Trigger - Record Created or Updated➛Bid Record➛Item name➛Highest bid amount","reference":"","reference_display":"Highest bid amount","type":"currency","base_type":"currency","parent_table_name":"x_1383184_charityb_item","column_name":"highest_bid_amount"},{"name":"Created or Updated_1.current.your_bid_amount","label":"Trigger - Record Created or Updated➛Bid Record➛Your bid amount","reference":"","reference_display":"Your bid amount","type":"currency","base_type":"currency","parent_table_name":"x_1383184_charityb_bid","column_name":"your_bid_amount"},{"name":"Created or Updated_1.current","label":"Trigger - Record Created or Updated➛Bid Record","reference":"x_1383184_charityb_bid","reference_display":"Bid","type":"reference","base_type":"reference","attributes":{}}]</label_cache>
+        <master_snapshot>7ac6041c93a6c61094e3f15a7bba1066</master_snapshot>
+        <name>Bid process</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id>5fc6441c93a6c61094e3f15a7bba101a</remote_trigger_id>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-28 10:26:24</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>eb377fff93d2861094e3f15a7bba1030</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Bid process</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_hub_flow_eb377fff93d2861094e3f15a7bba1030</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:13:57</sys_updated_on>
+        <type>flow</type>
+    </sys_hub_flow>
+    <sys_translated_text action="DELETE" query="documentkey=eb377fff93d2861094e3f15a7bba1030"/>
+    <sys_variable_value action="DELETE" query="document_key=eb377fff93d2861094e3f15a7bba1030"/>
+    <sys_flow_record_trigger action="DELETE">
+        <active>true</active>
+        <condition table="x_1383184_charityb_bid">^EQ<item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <name/>
+        <on_delete>false</on_delete>
+        <on_insert>true</on_insert>
+        <on_update>true</on_update>
+        <run_flow_in>background</run_flow_in>
+        <run_on_extended>false</run_on_extended>
+        <run_when_setting>both</run_when_setting>
+        <run_when_user_list/>
+        <run_when_user_setting>any</run_when_user_setting>
+        <sys_class_name>sys_flow_record_trigger</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:51</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>5fc6441c93a6c61094e3f15a7bba101a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:51</sys_updated_on>
+        <table>x_1383184_charityb_bid</table>
+    </sys_flow_record_trigger>
+    <sys_trigger_runner_mapping action="DELETE">
+        <active>true</active>
+        <data>{"run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any","run_on_extended":"false"}</data>
+        <identifier>eb377fff93d2861094e3f15a7bba1030</identifier>
+        <runner>FDTriggerRunner</runner>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:51</sys_created_on>
+        <sys_id>d7c6441c93a6c61094e3f15a7bba101b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:51</sys_updated_on>
+        <trigger display_value="">5fc6441c93a6c61094e3f15a7bba101a</trigger>
+    </sys_trigger_runner_mapping>
+    <sys_trigger_runner_mapping action="DELETE" query="identifier=eb377fff93d2861094e3f15a7bba1030^sys_idNOT INd7c6441c93a6c61094e3f15a7bba101b"/>
+    <sys_hub_trigger_instance action="DELETE" query="flow=eb377fff93d2861094e3f15a7bba1030^sys_idNOT INf4a6ccd893a6c61094e3f15a7bba10a3"/>
+    <sys_hub_trigger_instance action="DELETE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Bid process">eb377fff93d2861094e3f15a7bba1030</flow>
+        <name>Created or Updated</name>
+        <remote_sys_id/>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:08</sys_created_on>
+        <sys_id>f4a6ccd893a6c61094e3f15a7bba10a3</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:51</sys_updated_on>
+        <trigger_definition display_value="Created or Updated">a45d9180c32222002841b63b12d3aea7</trigger_definition>
+        <trigger_inputs/>
+        <trigger_outputs/>
+        <trigger_type>record_create_or_update</trigger_type>
+    </sys_hub_trigger_instance>
+    <sys_variable_value action="DELETE" query="document_key=f4a6ccd893a6c61094e3f15a7bba10a3"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>f4a6ccd893a6c61094e3f15a7bba10a3</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:08</sys_created_on>
+        <sys_id>30a6ccd893a6c61094e3f15a7bba10a5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:08</sys_updated_on>
+        <value>^EQ</value>
+        <variable display_value="Condition">707dd180c32222002841b63b12d3aecb</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>f4a6ccd893a6c61094e3f15a7bba10a3</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:08</sys_created_on>
+        <sys_id>7ca6ccd893a6c61094e3f15a7bba10a4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:08</sys_updated_on>
+        <value>every</value>
+        <variable display_value="Run Trigger">2b9def50c31132002841b63b12d3ae5b</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>f4a6ccd893a6c61094e3f15a7bba10a3</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:08</sys_created_on>
+        <sys_id>f0a6ccd893a6c61094e3f15a7bba10a5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:08</sys_updated_on>
+        <value>x_1383184_charityb_bid</value>
+        <variable display_value="Table">cf1e1980c32222002841b63b12d3aea0</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="table=var__m_sys_hub_trigger_output_a45d9180c32222002841b63b12d3aea7^id=f4a6ccd893a6c61094e3f15a7bba10a3"/>
+    <sys_hub_flow_stage action="DELETE" query="flow=eb377fff93d2861094e3f15a7bba1030"/>
+    <sys_flow_cat_variable_model action="DELETE" query="id=eb377fff93d2861094e3f15a7bba1030^sys_idNOT INe7377fff93d2861094e3f15a7bba1031"/>
+    <sys_flow_cat_variable_model action="DELETE">
+        <id>eb377fff93d2861094e3f15a7bba1030</id>
+        <name>Bid process</name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-28 10:26:24</sys_created_on>
+        <sys_id>e7377fff93d2861094e3f15a7bba1031</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-28 10:26:24</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="DELETE" query="flow_catalog_model=e7377fff93d2861094e3f15a7bba1031"/>
+    <sys_hub_flow_input action="DELETE" query="model=eb377fff93d2861094e3f15a7bba1030^sys_idNOT IN78a6ccd893a6c61094e3f15a7bba1097,78a6ccd893a6c61094e3f15a7bba109e,b0a6ccd893a6c61094e3f15a7bba109b"/>
+    <sys_hub_flow_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Bid process">eb377fff93d2861094e3f15a7bba1030</model>
+        <model_id>eb377fff93d2861094e3f15a7bba1030</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:08</sys_created_on>
+        <sys_id>78a6ccd893a6c61094e3f15a7bba1097</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:51</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="DELETE" query="action_input=78a6ccd893a6c61094e3f15a7bba1097"/>
+    <sys_hub_flow_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Bid process">eb377fff93d2861094e3f15a7bba1030</model>
+        <model_id>eb377fff93d2861094e3f15a7bba1030</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:08</sys_created_on>
+        <sys_id>78a6ccd893a6c61094e3f15a7bba109e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:51</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="DELETE" query="action_input=78a6ccd893a6c61094e3f15a7bba109e"/>
+    <sys_hub_flow_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FDCollection,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>changed_fields</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Changed Fields</label>
+        <mandatory>false</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="Bid process">eb377fff93d2861094e3f15a7bba1030</model>
+        <model_id>eb377fff93d2861094e3f15a7bba1030</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:08</sys_created_on>
+        <sys_id>b0a6ccd893a6c61094e3f15a7bba109b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:08</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="DELETE" query="action_input=b0a6ccd893a6c61094e3f15a7bba109b"/>
+    <sys_hub_flow_output action="DELETE" query="model=eb377fff93d2861094e3f15a7bba1030"/>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=eb377fff93d2861094e3f15a7bba1030"/>
+    <sys_hub_action_instance action="DELETE" query="flow=eb377fff93d2861094e3f15a7bba1030^sys_idNOT IN01a6ccd893a6c61094e3f15a7bba10bd,74a6ccd893a6c61094e3f15a7bba10ad"/>
+    <sys_hub_action_instance action="DELETE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Bid process">eb377fff93d2861094e3f15a7bba1030</flow>
+        <order>5</order>
+        <parent_ui_id>6145fa92-b9c8-40e4-aaec-1f5392661536</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:09</sys_created_on>
+        <sys_id>01a6ccd893a6c61094e3f15a7bba10bd</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:13:34</sys_updated_on>
+        <ui_id>b8ec85f3-f83c-4c4f-8854-900d7f133076</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="DELETE" query="document_key=01a6ccd893a6c61094e3f15a7bba10bd"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_hub_action_instance</document>
+        <document_key>01a6ccd893a6c61094e3f15a7bba10bd</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:09</sys_created_on>
+        <sys_id>49a6ccd893a6c61094e3f15a7bba10be</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:09</sys_updated_on>
+        <value>x_1383184_charityb_item</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="id=01a6ccd893a6c61094e3f15a7bba10bd"/>
+    <sys_element_mapping action="DELETE">
+        <field>record</field>
+        <id>01a6ccd893a6c61094e3f15a7bba10bd</id>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:09</sys_created_on>
+        <sys_id>c5a6ccd893a6c61094e3f15a7bba10be</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:09</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{17a8c595-bb22-4db5-a5af-f404d351cb52.Record}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="DELETE">
+        <field>table_name</field>
+        <id>01a6ccd893a6c61094e3f15a7bba10bd</id>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:09</sys_created_on>
+        <sys_id>41a6ccd893a6c61094e3f15a7bba10be</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:09</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="DELETE">
+        <field>values</field>
+        <id>01a6ccd893a6c61094e3f15a7bba10bd</id>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:09</sys_created_on>
+        <sys_id>05a6ccd893a6c61094e3f15a7bba10be</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:09</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>highest_bid_amount={{Created or Updated_1.current.your_bid_amount}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="DELETE" query="instance=01a6ccd893a6c61094e3f15a7bba10bd"/>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=01a6ccd893a6c61094e3f15a7bba10bd"/>
+    <sys_hub_action_instance action="DELETE">
+        <action_inputs/>
+        <action_type display_value="Look Up Record">9d09f99587003300663ca1bb36cb0ba3</action_type>
+        <action_type_parent display_value="Look Up Record">b93f42810b30030085c083eb37673a63</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Bid process">eb377fff93d2861094e3f15a7bba1030</flow>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:09</sys_created_on>
+        <sys_id>74a6ccd893a6c61094e3f15a7bba10ad</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:13:34</sys_updated_on>
+        <ui_id>17a8c595-bb22-4db5-a5af-f404d351cb52</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="DELETE" query="document_key=74a6ccd893a6c61094e3f15a7bba10ad"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_hub_action_instance</document>
+        <document_key>74a6ccd893a6c61094e3f15a7bba10ad</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:09</sys_created_on>
+        <sys_id>34a6ccd893a6c61094e3f15a7bba10af</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:09</sys_updated_on>
+        <value>x_1383184_charityb_item</value>
+        <variable display_value="Table">d909f99587003300663ca1bb36cb0ba4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_hub_action_instance</document>
+        <document_key>74a6ccd893a6c61094e3f15a7bba10ad</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:09</sys_created_on>
+        <sys_id>70a6ccd893a6c61094e3f15a7bba10af</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:09</sys_updated_on>
+        <value>auction_status=auction_in_progress</value>
+        <variable display_value="Conditions">d509f99587003300663ca1bb36cb0ba9</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="table=var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3^id=74a6ccd893a6c61094e3f15a7bba10ad"/>
+    <sys_hub_input_scripts action="DELETE" query="instance=74a6ccd893a6c61094e3f15a7bba10ad"/>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=74a6ccd893a6c61094e3f15a7bba10ad"/>
+    <sys_hub_sub_flow_instance action="DELETE" query="flow=eb377fff93d2861094e3f15a7bba1030"/>
+    <sys_hub_flow_logic action="DELETE" query="flow=eb377fff93d2861094e3f15a7bba1030^sys_idNOT IN70a6ccd893a6c61094e3f15a7bba10b4,f8a6ccd893a6c61094e3f15a7bba10b6,fca6ccd893a6c61094e3f15a7bba10af"/>
+    <sys_hub_flow_logic action="DELETE">
+        <attributes/>
+        <block display_value="">b8a6ccd893a6c61094e3f15a7bba10b3</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Bid process">eb377fff93d2861094e3f15a7bba1030</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <logic_definition display_value="End">d176605ea76103004f27b0d2187901c7</logic_definition>
+        <order>3</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>feb4ac37-c53f-4b32-ada8-e27f20c0845d</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:09</sys_created_on>
+        <sys_id>70a6ccd893a6c61094e3f15a7bba10b4</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:52</sys_updated_on>
+        <ui_id>b501a722-cc79-4423-8e88-771b2752c741</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="DELETE" query="document_key=70a6ccd893a6c61094e3f15a7bba10b4"/>
+    <sys_hub_flow_logic_ext_input action="DELETE" query="model=70a6ccd893a6c61094e3f15a7bba10b4"/>
+    <sys_hub_input_scripts action="DELETE" query="instance=70a6ccd893a6c61094e3f15a7bba10b4"/>
+    <sys_hub_flow_logic action="DELETE">
+        <attributes/>
+        <block display_value="">34a6ccd893a6c61094e3f15a7bba10b6</block>
+        <comment/>
+        <connected_to>feb4ac37-c53f-4b32-ada8-e27f20c0845d</connected_to>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Bid process">eb377fff93d2861094e3f15a7bba1030</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <logic_definition display_value="Else">1f781bf3c32232002841b63b12d3aee6</logic_definition>
+        <order>4</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:09</sys_created_on>
+        <sys_id>f8a6ccd893a6c61094e3f15a7bba10b6</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:52</sys_updated_on>
+        <ui_id>6145fa92-b9c8-40e4-aaec-1f5392661536</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="DELETE" query="document_key=f8a6ccd893a6c61094e3f15a7bba10b6"/>
+    <sys_hub_flow_logic_ext_input action="DELETE" query="model=f8a6ccd893a6c61094e3f15a7bba10b6"/>
+    <sys_hub_input_scripts action="DELETE" query="instance=f8a6ccd893a6c61094e3f15a7bba10b6"/>
+    <sys_hub_flow_logic action="DELETE">
+        <attributes/>
+        <block display_value="">38a6ccd893a6c61094e3f15a7bba10af</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Bid process">eb377fff93d2861094e3f15a7bba1030</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:09</sys_created_on>
+        <sys_id>fca6ccd893a6c61094e3f15a7bba10af</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:51</sys_updated_on>
+        <ui_id>feb4ac37-c53f-4b32-ada8-e27f20c0845d</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="DELETE" query="document_key=fca6ccd893a6c61094e3f15a7bba10af"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>fca6ccd893a6c61094e3f15a7bba10af</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:09</sys_created_on>
+        <sys_id>b4a6ccd893a6c61094e3f15a7bba10b3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:09</sys_updated_on>
+        <value>yourBid is lesser than or equal highestBid</value>
+        <variable display_value="Condition Label">f0af19c1c32632002841b63b12d3aea3</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="id=fca6ccd893a6c61094e3f15a7bba10af"/>
+    <sys_element_mapping action="DELETE">
+        <field>condition</field>
+        <id>fca6ccd893a6c61094e3f15a7bba10af</id>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:09</sys_created_on>
+        <sys_id>34a6ccd893a6c61094e3f15a7bba10b3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:09</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value>{{Created or Updated_1.current.your_bid_amount}}&lt;={{Created or Updated_1.current.item_name.highest_bid_amount}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="DELETE">
+        <field>condition_name</field>
+        <id>fca6ccd893a6c61094e3f15a7bba10af</id>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:09</sys_created_on>
+        <sys_id>70a6ccd893a6c61094e3f15a7bba10b3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:09</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="DELETE" query="model=fca6ccd893a6c61094e3f15a7bba10af"/>
+    <sys_hub_input_scripts action="DELETE" query="instance=fca6ccd893a6c61094e3f15a7bba10af"/>
+    <sys_hub_pill_compound action="DELETE" query="attached_to=eb377fff93d2861094e3f15a7bba1030"/>
+    <sys_hub_flow_variable action="DELETE" query="model=eb377fff93d2861094e3f15a7bba1030"/>
+    <sys_documentation action="DELETE" query="name=var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030^sys_idNOT IN3ca6ccd893a6c61094e3f15a7bba10a0,b8a6ccd893a6c61094e3f15a7bba109d,f0a6ccd893a6c61094e3f15a7bba109a"/>
+    <sys_documentation action="DELETE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:08</sys_created_on>
+        <sys_id>3ca6ccd893a6c61094e3f15a7bba10a0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:08</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="DELETE">
+        <element>changed_fields</element>
+        <help/>
+        <hint/>
+        <label>Changed Fields</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:08</sys_created_on>
+        <sys_id>b8a6ccd893a6c61094e3f15a7bba109d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:08</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="DELETE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:08</sys_created_on>
+        <sys_id>f0a6ccd893a6c61094e3f15a7bba109a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:08</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="DELETE" query="name=var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030"/>
+    <sys_documentation action="DELETE" query="name=var__m_sys_hub_flow_output_eb377fff93d2861094e3f15a7bba1030"/>
+    <sys_choice action="DELETE" query="name=var__m_sys_hub_flow_output_eb377fff93d2861094e3f15a7bba1030"/>
+    <sys_hub_flow_snapshot action="DELETE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,viewActivatedIn=naturalLanguage</attributes>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <internal_name>bid_process</internal_name>
+        <label_cache>[{"name":"17a8c595-bb22-4db5-a5af-f404d351cb52.Record","label":"1 - Look Up Record➛Item Record","reference":"x_1383184_charityb_item","reference_display":"Item","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created or Updated_1.current.item_name.highest_bid_amount","label":"Trigger - Record Created or Updated➛Bid Record➛Item name➛Highest bid amount","reference":"","reference_display":"Highest bid amount","type":"currency","base_type":"currency","parent_table_name":"x_1383184_charityb_item","column_name":"highest_bid_amount"},{"name":"Created or Updated_1.current.your_bid_amount","label":"Trigger - Record Created or Updated➛Bid Record➛Your bid amount","reference":"","reference_display":"Your bid amount","type":"currency","base_type":"currency","parent_table_name":"x_1383184_charityb_bid","column_name":"your_bid_amount"},{"name":"Created or Updated_1.current","label":"Trigger - Record Created or Updated➛Bid Record","reference":"x_1383184_charityb_bid","reference_display":"Bid","type":"reference","base_type":"reference","attributes":{}}]</label_cache>
+        <master>true</master>
+        <name>Bid process</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="Bid process">eb377fff93d2861094e3f15a7bba1030</parent_flow>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:49</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>7ac6041c93a6c61094e3f15a7bba1066</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:49</sys_updated_on>
+        <type>flow</type>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="DELETE" query="documentkey=7ac6041c93a6c61094e3f15a7bba1066"/>
+    <sys_variable_value action="DELETE" query="document_key=7ac6041c93a6c61094e3f15a7bba1066"/>
+    <sys_hub_trigger_instance action="DELETE" query="flow=7ac6041c93a6c61094e3f15a7bba1066^sys_idNOT IN83c6041c93a6c61094e3f15a7bba10ce"/>
+    <sys_hub_trigger_instance action="DELETE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Bid process">7ac6041c93a6c61094e3f15a7bba1066</flow>
+        <name>Created or Updated</name>
+        <remote_sys_id/>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>83c6041c93a6c61094e3f15a7bba10ce</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:51</sys_updated_on>
+        <trigger_definition display_value="Created or Updated">a45d9180c32222002841b63b12d3aea7</trigger_definition>
+        <trigger_inputs/>
+        <trigger_outputs/>
+        <trigger_type>record_create_or_update</trigger_type>
+    </sys_hub_trigger_instance>
+    <sys_variable_value action="DELETE" query="document_key=83c6041c93a6c61094e3f15a7bba10ce"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>83c6041c93a6c61094e3f15a7bba10ce</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>0bc6041c93a6c61094e3f15a7bba10cf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <value>every</value>
+        <variable display_value="Run Trigger">2b9def50c31132002841b63b12d3ae5b</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>83c6041c93a6c61094e3f15a7bba10ce</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>8fc6041c93a6c61094e3f15a7bba10cf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <value>x_1383184_charityb_bid</value>
+        <variable display_value="Table">cf1e1980c32222002841b63b12d3aea0</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>83c6041c93a6c61094e3f15a7bba10ce</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>cbc6041c93a6c61094e3f15a7bba10cf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <value>^EQ</value>
+        <variable display_value="Condition">707dd180c32222002841b63b12d3aecb</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="table=var__m_sys_hub_trigger_output_a45d9180c32222002841b63b12d3aea7^id=83c6041c93a6c61094e3f15a7bba10ce"/>
+    <sys_hub_flow_stage action="DELETE" query="flow=7ac6041c93a6c61094e3f15a7bba1066"/>
+    <sys_flow_cat_variable_model action="DELETE" query="id=7ac6041c93a6c61094e3f15a7bba1066^sys_idNOT INb6c6041c93a6c61094e3f15a7bba1067"/>
+    <sys_flow_cat_variable_model action="DELETE">
+        <id>7ac6041c93a6c61094e3f15a7bba1066</id>
+        <name>Bid process</name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:49</sys_created_on>
+        <sys_id>b6c6041c93a6c61094e3f15a7bba1067</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:49</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="DELETE" query="flow_catalog_model=b6c6041c93a6c61094e3f15a7bba1067"/>
+    <sys_hub_flow_input action="DELETE" query="model=7ac6041c93a6c61094e3f15a7bba1066^sys_idNOT IN7ac6041c93a6c61094e3f15a7bba1068,7ec6041c93a6c61094e3f15a7bba1077,f2c6041c93a6c61094e3f15a7bba10a5"/>
+    <sys_hub_flow_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id,uiTypeLabel=Document ID</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Bid process">7ac6041c93a6c61094e3f15a7bba1066</model>
+        <model_id>7ac6041c93a6c61094e3f15a7bba1066</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:49</sys_created_on>
+        <sys_id>7ac6041c93a6c61094e3f15a7bba1068</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:49</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="DELETE" query="action_input=7ac6041c93a6c61094e3f15a7bba1068"/>
+    <sys_hub_flow_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>changed_fields</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Changed Fields</label>
+        <mandatory>false</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="Bid process">7ac6041c93a6c61094e3f15a7bba1066</model>
+        <model_id>7ac6041c93a6c61094e3f15a7bba1066</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>7ec6041c93a6c61094e3f15a7bba1077</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="DELETE" query="action_input=7ec6041c93a6c61094e3f15a7bba1077"/>
+    <sys_hub_flow_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name,uiTypeLabel=Table Name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Bid process">7ac6041c93a6c61094e3f15a7bba1066</model>
+        <model_id>7ac6041c93a6c61094e3f15a7bba1066</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>f2c6041c93a6c61094e3f15a7bba10a5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="DELETE" query="action_input=f2c6041c93a6c61094e3f15a7bba10a5"/>
+    <sys_hub_flow_output action="DELETE" query="model=7ac6041c93a6c61094e3f15a7bba1066"/>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=7ac6041c93a6c61094e3f15a7bba1066"/>
+    <sys_hub_action_instance action="DELETE" query="flow=7ac6041c93a6c61094e3f15a7bba1066^sys_idNOT IN43c6041c93a6c61094e3f15a7bba10c4,47c6041c93a6c61094e3f15a7bba10cc"/>
+    <sys_hub_action_instance action="DELETE">
+        <action_inputs/>
+        <action_type display_value="Look Up Record">9d09f99587003300663ca1bb36cb0ba3</action_type>
+        <action_type_parent display_value="Look Up Record">b93f42810b30030085c083eb37673a63</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Bid process">7ac6041c93a6c61094e3f15a7bba1066</flow>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>43c6041c93a6c61094e3f15a7bba10c4</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <ui_id>17a8c595-bb22-4db5-a5af-f404d351cb52</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="DELETE" query="document_key=43c6041c93a6c61094e3f15a7bba10c4"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_hub_action_instance</document>
+        <document_key>43c6041c93a6c61094e3f15a7bba10c4</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>03c6041c93a6c61094e3f15a7bba10c6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <value>x_1383184_charityb_item</value>
+        <variable display_value="Table">d909f99587003300663ca1bb36cb0ba4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_hub_action_instance</document>
+        <document_key>43c6041c93a6c61094e3f15a7bba10c4</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>4fc6041c93a6c61094e3f15a7bba10c5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <value>auction_status=auction_in_progress</value>
+        <variable display_value="Conditions">d509f99587003300663ca1bb36cb0ba9</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="table=var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3^id=43c6041c93a6c61094e3f15a7bba10c4"/>
+    <sys_hub_input_scripts action="DELETE" query="instance=43c6041c93a6c61094e3f15a7bba10c4"/>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=43c6041c93a6c61094e3f15a7bba10c4"/>
+    <sys_hub_action_instance action="DELETE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Bid process">7ac6041c93a6c61094e3f15a7bba1066</flow>
+        <order>5</order>
+        <parent_ui_id>6145fa92-b9c8-40e4-aaec-1f5392661536</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>47c6041c93a6c61094e3f15a7bba10cc</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <ui_id>b8ec85f3-f83c-4c4f-8854-900d7f133076</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="DELETE" query="document_key=47c6041c93a6c61094e3f15a7bba10cc"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_hub_action_instance</document>
+        <document_key>47c6041c93a6c61094e3f15a7bba10cc</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>8fc6041c93a6c61094e3f15a7bba10cd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <value>x_1383184_charityb_item</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="id=47c6041c93a6c61094e3f15a7bba10cc"/>
+    <sys_element_mapping action="DELETE">
+        <field>record</field>
+        <id>47c6041c93a6c61094e3f15a7bba10cc</id>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>0fc6041c93a6c61094e3f15a7bba10cd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{17a8c595-bb22-4db5-a5af-f404d351cb52.Record}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="DELETE">
+        <field>table_name</field>
+        <id>47c6041c93a6c61094e3f15a7bba10cc</id>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>87c6041c93a6c61094e3f15a7bba10cd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="DELETE">
+        <field>values</field>
+        <id>47c6041c93a6c61094e3f15a7bba10cc</id>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>4bc6041c93a6c61094e3f15a7bba10cd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>highest_bid_amount={{Created or Updated_1.current.your_bid_amount}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="DELETE" query="instance=47c6041c93a6c61094e3f15a7bba10cc"/>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=47c6041c93a6c61094e3f15a7bba10cc"/>
+    <sys_hub_sub_flow_instance action="DELETE" query="flow=7ac6041c93a6c61094e3f15a7bba1066"/>
+    <sys_hub_flow_logic action="DELETE" query="flow=7ac6041c93a6c61094e3f15a7bba1066^sys_idNOT IN03c6041c93a6c61094e3f15a7bba10b5,0fc6041c93a6c61094e3f15a7bba10b0,8fc6041c93a6c61094e3f15a7bba10b7"/>
+    <sys_hub_flow_logic action="DELETE">
+        <attributes/>
+        <block display_value="">b8a6ccd893a6c61094e3f15a7bba10b3</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Bid process">7ac6041c93a6c61094e3f15a7bba1066</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <logic_definition display_value="End">d176605ea76103004f27b0d2187901c7</logic_definition>
+        <order>3</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>feb4ac37-c53f-4b32-ada8-e27f20c0845d</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>03c6041c93a6c61094e3f15a7bba10b5</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <ui_id>b501a722-cc79-4423-8e88-771b2752c741</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="DELETE" query="document_key=03c6041c93a6c61094e3f15a7bba10b5"/>
+    <sys_hub_flow_logic_ext_input action="DELETE" query="model=03c6041c93a6c61094e3f15a7bba10b5"/>
+    <sys_hub_input_scripts action="DELETE" query="instance=03c6041c93a6c61094e3f15a7bba10b5"/>
+    <sys_hub_flow_logic action="DELETE">
+        <attributes/>
+        <block display_value="">38a6ccd893a6c61094e3f15a7bba10af</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Bid process">7ac6041c93a6c61094e3f15a7bba1066</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>0fc6041c93a6c61094e3f15a7bba10b0</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <ui_id>feb4ac37-c53f-4b32-ada8-e27f20c0845d</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="DELETE" query="document_key=0fc6041c93a6c61094e3f15a7bba10b0"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>0fc6041c93a6c61094e3f15a7bba10b0</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>07c6041c93a6c61094e3f15a7bba10b4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <value>yourBid is lesser than or equal highestBid</value>
+        <variable display_value="Condition Label">f0af19c1c32632002841b63b12d3aea3</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="id=0fc6041c93a6c61094e3f15a7bba10b0"/>
+    <sys_element_mapping action="DELETE">
+        <field>condition</field>
+        <id>0fc6041c93a6c61094e3f15a7bba10b0</id>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>83c6041c93a6c61094e3f15a7bba10b4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value>{{Created or Updated_1.current.your_bid_amount}}&lt;={{Created or Updated_1.current.item_name.highest_bid_amount}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="DELETE">
+        <field>condition_name</field>
+        <id>0fc6041c93a6c61094e3f15a7bba10b0</id>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>cfc6041c93a6c61094e3f15a7bba10b3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="DELETE" query="model=0fc6041c93a6c61094e3f15a7bba10b0"/>
+    <sys_hub_input_scripts action="DELETE" query="instance=0fc6041c93a6c61094e3f15a7bba10b0"/>
+    <sys_hub_flow_logic action="DELETE">
+        <attributes/>
+        <block display_value="">34a6ccd893a6c61094e3f15a7bba10b6</block>
+        <comment/>
+        <connected_to>feb4ac37-c53f-4b32-ada8-e27f20c0845d</connected_to>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Bid process">7ac6041c93a6c61094e3f15a7bba1066</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <logic_definition display_value="Else">1f781bf3c32232002841b63b12d3aee6</logic_definition>
+        <order>4</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>8fc6041c93a6c61094e3f15a7bba10b7</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <ui_id>6145fa92-b9c8-40e4-aaec-1f5392661536</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="DELETE" query="document_key=8fc6041c93a6c61094e3f15a7bba10b7"/>
+    <sys_hub_flow_logic_ext_input action="DELETE" query="model=8fc6041c93a6c61094e3f15a7bba10b7"/>
+    <sys_hub_input_scripts action="DELETE" query="instance=8fc6041c93a6c61094e3f15a7bba10b7"/>
+    <sys_hub_pill_compound action="DELETE" query="attached_to=7ac6041c93a6c61094e3f15a7bba1066"/>
+    <sys_hub_flow_variable action="DELETE" query="model=7ac6041c93a6c61094e3f15a7bba1066"/>
+    <sys_documentation action="DELETE" query="name=var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066^sys_idNOT IN0bc6041c93a6c61094e3f15a7bba10a9,36c6041c93a6c61094e3f15a7bba1074,76c6041c93a6c61094e3f15a7bba107c"/>
+    <sys_documentation action="DELETE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>0bc6041c93a6c61094e3f15a7bba10a9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="DELETE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>36c6041c93a6c61094e3f15a7bba1074</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="DELETE">
+        <element>changed_fields</element>
+        <help/>
+        <hint/>
+        <label>Changed Fields</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:50</sys_created_on>
+        <sys_id>76c6041c93a6c61094e3f15a7bba107c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:50</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="DELETE" query="name=var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066"/>
+    <sys_documentation action="DELETE" query="name=var__m_sys_hub_flow_output_7ac6041c93a6c61094e3f15a7bba1066"/>
+    <sys_choice action="DELETE" query="name=var__m_sys_hub_flow_output_7ac6041c93a6c61094e3f15a7bba1066"/>
+    <sys_hub_flow action="DELETE">
+        <sys_id>eb377fff93d2861094e3f15a7bba1030</sys_id>
+        <latest_snapshot>7ac6041c93a6c61094e3f15a7bba1066</latest_snapshot>
+        <compiler_build>glide-vancouver-07-06-2023__patch2-hotfix1-10-04-2023_10-06-2023_1235.zip</compiler_build>
+    </sys_hub_flow>
+    <sys_flow_trigger_plan action="DELETE" query="plan_id=eb377fff93d2861094e3f15a7bba1030^sys_idNOT IN9bc6441c93a6c61094e3f15a7bba101c"/>
+    <sys_flow_trigger_plan action="DELETE">
+        <binding_strategy>com.snc.process_flow.engine.binding.Every</binding_strategy>
+        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"9bc6441c93a6c61094e3f15a7bba101c","name":"plan","plan_signature":null}}</plan>
+        <plan_id>eb377fff93d2861094e3f15a7bba1030</plan_id>
+        <snapshot>e9f6881c93a6c61094e3f15a7bba1080</snapshot>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:12:51</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9bc6441c93a6c61094e3f15a7bba101c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:12:51</sys_updated_on>
+        <trigger display_value="">5fc6441c93a6c61094e3f15a7bba101a</trigger>
+    </sys_flow_trigger_plan>
+    <sys_flow_subflow_plan action="DELETE" query="plan_id=eb377fff93d2861094e3f15a7bba1030"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_hub_flow_eb377fff93d2861094e3f15a7bba1030</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_hub_flow"&gt;&lt;sys_hub_flow action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;acls/&gt;&lt;active&gt;false&lt;/active&gt;&lt;annotation/&gt;&lt;attributes&gt;browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=71184000,viewActivatedIn=naturalLanguage&lt;/attributes&gt;&lt;callable_by_client_api&gt;false&lt;/callable_by_client_api&gt;&lt;category/&gt;&lt;copied_from/&gt;&lt;copied_from_name/&gt;&lt;description/&gt;&lt;internal_name&gt;bid_process&lt;/internal_name&gt;&lt;label_cache&gt;[{"name":"17a8c595-bb22-4db5-a5af-f404d351cb52.Record","label":"1 - Look Up Record➛Item Record","reference":"x_1383184_charityb_item","reference_display":"Item","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created or Updated_1.current.item_name.highest_bid_amount","label":"Trigger - Record Created or Updated➛Bid Record➛Item name➛Highest bid amount","reference":"","reference_display":"Highest bid amount","type":"currency","base_type":"currency","parent_table_name":"x_1383184_charityb_item","column_name":"highest_bid_amount"},{"name":"Created or Updated_1.current.your_bid_amount","label":"Trigger - Record Created or Updated➛Bid Record➛Your bid amount","reference":"","reference_display":"Your bid amount","type":"currency","base_type":"currency","parent_table_name":"x_1383184_charityb_bid","column_name":"your_bid_amount"},{"name":"Created or Updated_1.current","label":"Trigger - Record Created or Updated➛Bid Record","reference":"x_1383184_charityb_bid","reference_display":"Bid","type":"reference","base_type":"reference","attributes":{}}]&lt;/label_cache&gt;&lt;master_snapshot&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/master_snapshot&gt;&lt;name&gt;Bid process&lt;/name&gt;&lt;natlang/&gt;&lt;outputs/&gt;&lt;pre_compiled&gt;false&lt;/pre_compiled&gt;&lt;remote_trigger_id&gt;5fc6441c93a6c61094e3f15a7bba101a&lt;/remote_trigger_id&gt;&lt;run_as&gt;user&lt;/run_as&gt;&lt;run_with_roles/&gt;&lt;sc_callable&gt;false&lt;/sc_callable&gt;&lt;show_draft_actions&gt;false&lt;/show_draft_actions&gt;&lt;show_triggered_flows&gt;false&lt;/show_triggered_flows&gt;&lt;status&gt;published&lt;/status&gt;&lt;sys_class_name&gt;sys_hub_flow&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-28 10:26:24&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;eb377fff93d2861094e3f15a7bba1030&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;Bid process&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_hub_flow_eb377fff93d2861094e3f15a7bba1030&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:13:57&lt;/sys_updated_on&gt;&lt;type&gt;flow&lt;/type&gt;&lt;/sys_hub_flow&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=eb377fff93d2861094e3f15a7bba1030"/&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=eb377fff93d2861094e3f15a7bba1030"/&gt;&lt;sys_flow_record_trigger action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;condition table="x_1383184_charityb_bid"&gt;^EQ&lt;item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;&lt;/condition&gt;&lt;name/&gt;&lt;on_delete&gt;false&lt;/on_delete&gt;&lt;on_insert&gt;true&lt;/on_insert&gt;&lt;on_update&gt;true&lt;/on_update&gt;&lt;run_flow_in&gt;background&lt;/run_flow_in&gt;&lt;run_on_extended&gt;false&lt;/run_on_extended&gt;&lt;run_when_setting&gt;both&lt;/run_when_setting&gt;&lt;run_when_user_list/&gt;&lt;run_when_user_setting&gt;any&lt;/run_when_user_setting&gt;&lt;sys_class_name&gt;sys_flow_record_trigger&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:51&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;5fc6441c93a6c61094e3f15a7bba101a&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_overrides/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:51&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_bid&lt;/table&gt;&lt;/sys_flow_record_trigger&gt;&lt;sys_trigger_runner_mapping action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;data&gt;{"run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any","run_on_extended":"false"}&lt;/data&gt;&lt;identifier&gt;eb377fff93d2861094e3f15a7bba1030&lt;/identifier&gt;&lt;runner&gt;FDTriggerRunner&lt;/runner&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:51&lt;/sys_created_on&gt;&lt;sys_id&gt;d7c6441c93a6c61094e3f15a7bba101b&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:51&lt;/sys_updated_on&gt;&lt;trigger display_value=""&gt;5fc6441c93a6c61094e3f15a7bba101a&lt;/trigger&gt;&lt;/sys_trigger_runner_mapping&gt;&lt;sys_trigger_runner_mapping action="delete_multiple" query="identifier=eb377fff93d2861094e3f15a7bba1030^sys_idNOT INd7c6441c93a6c61094e3f15a7bba101b"/&gt;&lt;sys_hub_trigger_instance action="delete_multiple" query="flow=eb377fff93d2861094e3f15a7bba1030^sys_idNOT INf4a6ccd893a6c61094e3f15a7bba10a3"/&gt;&lt;sys_hub_trigger_instance action="INSERT_OR_UPDATE"&gt;&lt;comment/&gt;&lt;display_text/&gt;&lt;flow display_value="Bid process"&gt;eb377fff93d2861094e3f15a7bba1030&lt;/flow&gt;&lt;name&gt;Created or Updated&lt;/name&gt;&lt;remote_sys_id/&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:08&lt;/sys_created_on&gt;&lt;sys_id&gt;f4a6ccd893a6c61094e3f15a7bba10a3&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:51&lt;/sys_updated_on&gt;&lt;trigger_definition display_value="Created or Updated"&gt;a45d9180c32222002841b63b12d3aea7&lt;/trigger_definition&gt;&lt;trigger_inputs/&gt;&lt;trigger_outputs/&gt;&lt;trigger_type&gt;record_create_or_update&lt;/trigger_type&gt;&lt;/sys_hub_trigger_instance&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=f4a6ccd893a6c61094e3f15a7bba10a3"/&gt;&lt;sys_variable_value action="INSERT_OR_UPDATE"&gt;&lt;document&gt;sys_hub_trigger_instance&lt;/document&gt;&lt;document_key&gt;f4a6ccd893a6c61094e3f15a7bba10a3&lt;/document_key&gt;&lt;order&gt;100&lt;/order&gt;&lt;sys_class_name&gt;sys_variable_value&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:08&lt;/sys_created_on&gt;&lt;sys_id&gt;30a6ccd893a6c61094e3f15a7bba10a5&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:08&lt;/sys_updated_on&gt;&lt;value&gt;^EQ&lt;/value&gt;&lt;variable display_value="Condition"&gt;707dd180c32222002841b63b12d3aecb&lt;/variable&gt;&lt;/sys_variable_value&gt;&lt;sys_variable_value action="INSERT_OR_UPDATE"&gt;&lt;document&gt;sys_hub_trigger_instance&lt;/document&gt;&lt;document_key&gt;f4a6ccd893a6c61094e3f15a7bba10a3&lt;/document_key&gt;&lt;order&gt;200&lt;/order&gt;&lt;sys_class_name&gt;sys_variable_value&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:08&lt;/sys_created_on&gt;&lt;sys_id&gt;7ca6ccd893a6c61094e3f15a7bba10a4&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:08&lt;/sys_updated_on&gt;&lt;value&gt;every&lt;/value&gt;&lt;variable display_value="Run Trigger"&gt;2b9def50c31132002841b63b12d3ae5b&lt;/variable&gt;&lt;/sys_variable_value&gt;&lt;sys_variable_value action="INSERT_OR_UPDATE"&gt;&lt;document&gt;sys_hub_trigger_instance&lt;/document&gt;&lt;document_key&gt;f4a6ccd893a6c61094e3f15a7bba10a3&lt;/document_key&gt;&lt;order&gt;1&lt;/order&gt;&lt;sys_class_name&gt;sys_variable_value&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:08&lt;/sys_created_on&gt;&lt;sys_id&gt;f0a6ccd893a6c61094e3f15a7bba10a5&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:08&lt;/sys_updated_on&gt;&lt;value&gt;x_1383184_charityb_bid&lt;/value&gt;&lt;variable display_value="Table"&gt;cf1e1980c32222002841b63b12d3aea0&lt;/variable&gt;&lt;/sys_variable_value&gt;&lt;sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_trigger_output_a45d9180c32222002841b63b12d3aea7^id=f4a6ccd893a6c61094e3f15a7bba10a3"/&gt;&lt;sys_hub_flow_stage action="delete_multiple" query="flow=eb377fff93d2861094e3f15a7bba1030"/&gt;&lt;sys_flow_cat_variable_model action="delete_multiple" query="id=eb377fff93d2861094e3f15a7bba1030^sys_idNOT INe7377fff93d2861094e3f15a7bba1031"/&gt;&lt;sys_flow_cat_variable_model action="INSERT_OR_UPDATE"&gt;&lt;id&gt;eb377fff93d2861094e3f15a7bba1030&lt;/id&gt;&lt;name&gt;Bid process&lt;/name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-28 10:26:24&lt;/sys_created_on&gt;&lt;sys_id&gt;e7377fff93d2861094e3f15a7bba1031&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-28 10:26:24&lt;/sys_updated_on&gt;&lt;/sys_flow_cat_variable_model&gt;&lt;sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=e7377fff93d2861094e3f15a7bba1031"/&gt;&lt;sys_hub_flow_input action="delete_multiple" query="model=eb377fff93d2861094e3f15a7bba1030^sys_idNOT IN78a6ccd893a6c61094e3f15a7bba1097,78a6ccd893a6c61094e3f15a7bba109e,b0a6ccd893a6c61094e3f15a7bba109b"/&gt;&lt;sys_hub_flow_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent&gt;table_name&lt;/dependent&gt;&lt;dependent_on_field&gt;table_name&lt;/dependent_on_field&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;current&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value=""&gt;document_id&lt;/internal_type&gt;&lt;label&gt;Record&lt;/label&gt;&lt;mandatory&gt;true&lt;/mandatory&gt;&lt;max_length&gt;200&lt;/max_length&gt;&lt;model display_value="Bid process"&gt;eb377fff93d2861094e3f15a7bba1030&lt;/model&gt;&lt;model_id&gt;eb377fff93d2861094e3f15a7bba1030&lt;/model_id&gt;&lt;model_table&gt;sys_hub_flow&lt;/model_table&gt;&lt;name&gt;var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;100&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_hub_flow_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:08&lt;/sys_created_on&gt;&lt;sys_id&gt;78a6ccd893a6c61094e3f15a7bba1097&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:51&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;true&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_hub_flow_input&gt;&lt;sys_hub_action_input_action_instance action="delete_multiple" query="action_input=78a6ccd893a6c61094e3f15a7bba1097"/&gt;&lt;sys_hub_flow_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;table_name&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value=""&gt;table_name&lt;/internal_type&gt;&lt;label&gt;Table Name&lt;/label&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;200&lt;/max_length&gt;&lt;model display_value="Bid process"&gt;eb377fff93d2861094e3f15a7bba1030&lt;/model&gt;&lt;model_id&gt;eb377fff93d2861094e3f15a7bba1030&lt;/model_id&gt;&lt;model_table&gt;sys_hub_flow&lt;/model_table&gt;&lt;name&gt;var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;101&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_hub_flow_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:08&lt;/sys_created_on&gt;&lt;sys_id&gt;78a6ccd893a6c61094e3f15a7bba109e&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:51&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_hub_flow_input&gt;&lt;sys_hub_action_input_action_instance action="delete_multiple" query="action_input=78a6ccd893a6c61094e3f15a7bba109e"/&gt;&lt;sys_hub_flow_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FDCollection,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;changed_fields&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value="String"&gt;string&lt;/internal_type&gt;&lt;label&gt;Changed Fields&lt;/label&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;4000&lt;/max_length&gt;&lt;model display_value="Bid process"&gt;eb377fff93d2861094e3f15a7bba1030&lt;/model&gt;&lt;model_id&gt;eb377fff93d2861094e3f15a7bba1030&lt;/model_id&gt;&lt;model_table&gt;sys_hub_flow&lt;/model_table&gt;&lt;name&gt;var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;100&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_hub_flow_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:08&lt;/sys_created_on&gt;&lt;sys_id&gt;b0a6ccd893a6c61094e3f15a7bba109b&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:08&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_hub_flow_input&gt;&lt;sys_hub_action_input_action_instance action="delete_multiple" query="action_input=b0a6ccd893a6c61094e3f15a7bba109b"/&gt;&lt;sys_hub_flow_output action="delete_multiple" query="model=eb377fff93d2861094e3f15a7bba1030"/&gt;&lt;sys_hub_alias_mapping action="delete_multiple" query="source_id=eb377fff93d2861094e3f15a7bba1030"/&gt;&lt;sys_hub_action_instance action="delete_multiple" query="flow=eb377fff93d2861094e3f15a7bba1030^sys_idNOT IN01a6ccd893a6c61094e3f15a7bba10bd,74a6ccd893a6c61094e3f15a7bba10ad"/&gt;&lt;sys_hub_action_instance action="INSERT_OR_UPDATE"&gt;&lt;action_inputs/&gt;&lt;action_inputs/&gt;&lt;action_type display_value="Update Record"&gt;f9d01dd2c31332002841b63b12d3aea1&lt;/action_type&gt;&lt;action_type_parent display_value="Update Record"&gt;baf174c8c3c232002841b63b12d3aee4&lt;/action_type_parent&gt;&lt;attributes/&gt;&lt;comment/&gt;&lt;display_text/&gt;&lt;flow display_value="Bid process"&gt;eb377fff93d2861094e3f15a7bba1030&lt;/flow&gt;&lt;order&gt;5&lt;/order&gt;&lt;parent_ui_id&gt;6145fa92-b9c8-40e4-aaec-1f5392661536&lt;/parent_ui_id&gt;&lt;sys_class_name&gt;sys_hub_action_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:09&lt;/sys_created_on&gt;&lt;sys_id&gt;01a6ccd893a6c61094e3f15a7bba10bd&lt;/sys_id&gt;&lt;sys_mod_count&gt;8&lt;/sys_mod_count&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:13:34&lt;/sys_updated_on&gt;&lt;ui_id&gt;b8ec85f3-f83c-4c4f-8854-900d7f133076&lt;/ui_id&gt;&lt;/sys_hub_action_instance&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=01a6ccd893a6c61094e3f15a7bba10bd"/&gt;&lt;sys_variable_value action="INSERT_OR_UPDATE"&gt;&lt;document&gt;sys_hub_action_instance&lt;/document&gt;&lt;document_key&gt;01a6ccd893a6c61094e3f15a7bba10bd&lt;/document_key&gt;&lt;order&gt;50&lt;/order&gt;&lt;sys_class_name&gt;sys_variable_value&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:09&lt;/sys_created_on&gt;&lt;sys_id&gt;49a6ccd893a6c61094e3f15a7bba10be&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:09&lt;/sys_updated_on&gt;&lt;value&gt;x_1383184_charityb_item&lt;/value&gt;&lt;variable display_value="Table"&gt;b5d01916c31332002841b63b12d3aec9&lt;/variable&gt;&lt;/sys_variable_value&gt;&lt;sys_element_mapping action="delete_multiple" query="id=01a6ccd893a6c61094e3f15a7bba10bd"/&gt;&lt;sys_element_mapping action="INSERT_OR_UPDATE"&gt;&lt;field&gt;record&lt;/field&gt;&lt;id&gt;01a6ccd893a6c61094e3f15a7bba10bd&lt;/id&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:09&lt;/sys_created_on&gt;&lt;sys_id&gt;c5a6ccd893a6c61094e3f15a7bba10be&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:09&lt;/sys_updated_on&gt;&lt;table&gt;var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1&lt;/table&gt;&lt;value&gt;{{17a8c595-bb22-4db5-a5af-f404d351cb52.Record}}&lt;/value&gt;&lt;/sys_element_mapping&gt;&lt;sys_element_mapping action="INSERT_OR_UPDATE"&gt;&lt;field&gt;table_name&lt;/field&gt;&lt;id&gt;01a6ccd893a6c61094e3f15a7bba10bd&lt;/id&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:09&lt;/sys_created_on&gt;&lt;sys_id&gt;41a6ccd893a6c61094e3f15a7bba10be&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:09&lt;/sys_updated_on&gt;&lt;table&gt;var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1&lt;/table&gt;&lt;value/&gt;&lt;/sys_element_mapping&gt;&lt;sys_element_mapping action="INSERT_OR_UPDATE"&gt;&lt;field&gt;values&lt;/field&gt;&lt;id&gt;01a6ccd893a6c61094e3f15a7bba10bd&lt;/id&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:09&lt;/sys_created_on&gt;&lt;sys_id&gt;05a6ccd893a6c61094e3f15a7bba10be&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:09&lt;/sys_updated_on&gt;&lt;table&gt;var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1&lt;/table&gt;&lt;value&gt;highest_bid_amount={{Created or Updated_1.current.your_bid_amount}}&lt;/value&gt;&lt;/sys_element_mapping&gt;&lt;sys_hub_input_scripts action="delete_multiple" query="instance=01a6ccd893a6c61094e3f15a7bba10bd"/&gt;&lt;sys_hub_alias_mapping action="delete_multiple" query="source_id=01a6ccd893a6c61094e3f15a7bba10bd"/&gt;&lt;sys_hub_action_instance action="INSERT_OR_UPDATE"&gt;&lt;action_inputs/&gt;&lt;action_type display_value="Look Up Record"&gt;9d09f99587003300663ca1bb36cb0ba3&lt;/action_type&gt;&lt;action_type_parent display_value="Look Up Record"&gt;b93f42810b30030085c083eb37673a63&lt;/action_type_parent&gt;&lt;attributes/&gt;&lt;comment/&gt;&lt;display_text/&gt;&lt;flow display_value="Bid process"&gt;eb377fff93d2861094e3f15a7bba1030&lt;/flow&gt;&lt;order&gt;1&lt;/order&gt;&lt;parent_ui_id/&gt;&lt;sys_class_name&gt;sys_hub_action_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:09&lt;/sys_created_on&gt;&lt;sys_id&gt;74a6ccd893a6c61094e3f15a7bba10ad&lt;/sys_id&gt;&lt;sys_mod_count&gt;8&lt;/sys_mod_count&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:13:34&lt;/sys_updated_on&gt;&lt;ui_id&gt;17a8c595-bb22-4db5-a5af-f404d351cb52&lt;/ui_id&gt;&lt;/sys_hub_action_instance&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=74a6ccd893a6c61094e3f15a7bba10ad"/&gt;&lt;sys_variable_value action="INSERT_OR_UPDATE"&gt;&lt;document&gt;sys_hub_action_instance&lt;/document&gt;&lt;document_key&gt;74a6ccd893a6c61094e3f15a7bba10ad&lt;/document_key&gt;&lt;order&gt;0&lt;/order&gt;&lt;sys_class_name&gt;sys_variable_value&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:09&lt;/sys_created_on&gt;&lt;sys_id&gt;34a6ccd893a6c61094e3f15a7bba10af&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:09&lt;/sys_updated_on&gt;&lt;value&gt;x_1383184_charityb_item&lt;/value&gt;&lt;variable display_value="Table"&gt;d909f99587003300663ca1bb36cb0ba4&lt;/variable&gt;&lt;/sys_variable_value&gt;&lt;sys_variable_value action="INSERT_OR_UPDATE"&gt;&lt;document&gt;sys_hub_action_instance&lt;/document&gt;&lt;document_key&gt;74a6ccd893a6c61094e3f15a7bba10ad&lt;/document_key&gt;&lt;order&gt;1&lt;/order&gt;&lt;sys_class_name&gt;sys_variable_value&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:09&lt;/sys_created_on&gt;&lt;sys_id&gt;70a6ccd893a6c61094e3f15a7bba10af&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:09&lt;/sys_updated_on&gt;&lt;value&gt;auction_status=auction_in_progress&lt;/value&gt;&lt;variable display_value="Conditions"&gt;d509f99587003300663ca1bb36cb0ba9&lt;/variable&gt;&lt;/sys_variable_value&gt;&lt;sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3^id=74a6ccd893a6c61094e3f15a7bba10ad"/&gt;&lt;sys_hub_input_scripts action="delete_multiple" query="instance=74a6ccd893a6c61094e3f15a7bba10ad"/&gt;&lt;sys_hub_alias_mapping action="delete_multiple" query="source_id=74a6ccd893a6c61094e3f15a7bba10ad"/&gt;&lt;sys_hub_sub_flow_instance action="delete_multiple" query="flow=eb377fff93d2861094e3f15a7bba1030"/&gt;&lt;sys_hub_flow_logic action="delete_multiple" query="flow=eb377fff93d2861094e3f15a7bba1030^sys_idNOT IN70a6ccd893a6c61094e3f15a7bba10b4,f8a6ccd893a6c61094e3f15a7bba10b6,fca6ccd893a6c61094e3f15a7bba10af"/&gt;&lt;sys_hub_flow_logic action="INSERT_OR_UPDATE"&gt;&lt;attributes/&gt;&lt;block display_value=""&gt;b8a6ccd893a6c61094e3f15a7bba10b3&lt;/block&gt;&lt;comment/&gt;&lt;connected_to/&gt;&lt;decision_table/&gt;&lt;decision_table_inputs/&gt;&lt;display_text/&gt;&lt;extended_inputs/&gt;&lt;flow display_value="Bid process"&gt;eb377fff93d2861094e3f15a7bba1030&lt;/flow&gt;&lt;flow_variable/&gt;&lt;flow_variables_assigned/&gt;&lt;inputs/&gt;&lt;logic_definition display_value="End"&gt;d176605ea76103004f27b0d2187901c7&lt;/logic_definition&gt;&lt;order&gt;3&lt;/order&gt;&lt;outputs_assigned/&gt;&lt;outputs_to_assign/&gt;&lt;parent_ui_id&gt;feb4ac37-c53f-4b32-ada8-e27f20c0845d&lt;/parent_ui_id&gt;&lt;sys_class_name&gt;sys_hub_flow_logic&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:09&lt;/sys_created_on&gt;&lt;sys_id&gt;70a6ccd893a6c61094e3f15a7bba10b4&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:52&lt;/sys_updated_on&gt;&lt;ui_id&gt;b501a722-cc79-4423-8e88-771b2752c741&lt;/ui_id&gt;&lt;workflow_inputs/&gt;&lt;workflow_reference/&gt;&lt;/sys_hub_flow_logic&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=70a6ccd893a6c61094e3f15a7bba10b4"/&gt;&lt;sys_hub_flow_logic_ext_input action="delete_multiple" query="model=70a6ccd893a6c61094e3f15a7bba10b4"/&gt;&lt;sys_hub_input_scripts action="delete_multiple" query="instance=70a6ccd893a6c61094e3f15a7bba10b4"/&gt;&lt;sys_hub_flow_logic action="INSERT_OR_UPDATE"&gt;&lt;attributes/&gt;&lt;block display_value=""&gt;34a6ccd893a6c61094e3f15a7bba10b6&lt;/block&gt;&lt;comment/&gt;&lt;connected_to&gt;feb4ac37-c53f-4b32-ada8-e27f20c0845d&lt;/connected_to&gt;&lt;decision_table/&gt;&lt;decision_table_inputs/&gt;&lt;display_text/&gt;&lt;extended_inputs/&gt;&lt;flow display_value="Bid process"&gt;eb377fff93d2861094e3f15a7bba1030&lt;/flow&gt;&lt;flow_variable/&gt;&lt;flow_variables_assigned/&gt;&lt;inputs/&gt;&lt;logic_definition display_value="Else"&gt;1f781bf3c32232002841b63b12d3aee6&lt;/logic_definition&gt;&lt;order&gt;4&lt;/order&gt;&lt;outputs_assigned/&gt;&lt;outputs_to_assign/&gt;&lt;parent_ui_id/&gt;&lt;sys_class_name&gt;sys_hub_flow_logic&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:09&lt;/sys_created_on&gt;&lt;sys_id&gt;f8a6ccd893a6c61094e3f15a7bba10b6&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:52&lt;/sys_updated_on&gt;&lt;ui_id&gt;6145fa92-b9c8-40e4-aaec-1f5392661536&lt;/ui_id&gt;&lt;workflow_inputs/&gt;&lt;workflow_reference/&gt;&lt;/sys_hub_flow_logic&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=f8a6ccd893a6c61094e3f15a7bba10b6"/&gt;&lt;sys_hub_flow_logic_ext_input action="delete_multiple" query="model=f8a6ccd893a6c61094e3f15a7bba10b6"/&gt;&lt;sys_hub_input_scripts action="delete_multiple" query="instance=f8a6ccd893a6c61094e3f15a7bba10b6"/&gt;&lt;sys_hub_flow_logic action="INSERT_OR_UPDATE"&gt;&lt;attributes/&gt;&lt;block display_value=""&gt;38a6ccd893a6c61094e3f15a7bba10af&lt;/block&gt;&lt;comment/&gt;&lt;connected_to/&gt;&lt;decision_table/&gt;&lt;decision_table_inputs/&gt;&lt;display_text/&gt;&lt;extended_inputs/&gt;&lt;flow display_value="Bid process"&gt;eb377fff93d2861094e3f15a7bba1030&lt;/flow&gt;&lt;flow_variable/&gt;&lt;flow_variables_assigned/&gt;&lt;inputs/&gt;&lt;inputs/&gt;&lt;logic_definition display_value="If"&gt;af4e1945c3e232002841b63b12d3ae3e&lt;/logic_definition&gt;&lt;order&gt;2&lt;/order&gt;&lt;outputs_assigned/&gt;&lt;outputs_to_assign/&gt;&lt;parent_ui_id/&gt;&lt;sys_class_name&gt;sys_hub_flow_logic&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:09&lt;/sys_created_on&gt;&lt;sys_id&gt;fca6ccd893a6c61094e3f15a7bba10af&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:51&lt;/sys_updated_on&gt;&lt;ui_id&gt;feb4ac37-c53f-4b32-ada8-e27f20c0845d&lt;/ui_id&gt;&lt;workflow_inputs/&gt;&lt;workflow_reference/&gt;&lt;/sys_hub_flow_logic&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=fca6ccd893a6c61094e3f15a7bba10af"/&gt;&lt;sys_variable_value action="INSERT_OR_UPDATE"&gt;&lt;document&gt;sys_hub_flow_logic&lt;/document&gt;&lt;document_key&gt;fca6ccd893a6c61094e3f15a7bba10af&lt;/document_key&gt;&lt;order&gt;10&lt;/order&gt;&lt;sys_class_name&gt;sys_variable_value&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:09&lt;/sys_created_on&gt;&lt;sys_id&gt;b4a6ccd893a6c61094e3f15a7bba10b3&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:09&lt;/sys_updated_on&gt;&lt;value&gt;yourBid is lesser than or equal highestBid&lt;/value&gt;&lt;variable display_value="Condition Label"&gt;f0af19c1c32632002841b63b12d3aea3&lt;/variable&gt;&lt;/sys_variable_value&gt;&lt;sys_element_mapping action="delete_multiple" query="id=fca6ccd893a6c61094e3f15a7bba10af"/&gt;&lt;sys_element_mapping action="INSERT_OR_UPDATE"&gt;&lt;field&gt;condition&lt;/field&gt;&lt;id&gt;fca6ccd893a6c61094e3f15a7bba10af&lt;/id&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:09&lt;/sys_created_on&gt;&lt;sys_id&gt;34a6ccd893a6c61094e3f15a7bba10b3&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:09&lt;/sys_updated_on&gt;&lt;table&gt;var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e&lt;/table&gt;&lt;value&gt;{{Created or Updated_1.current.your_bid_amount}}&amp;lt;={{Created or Updated_1.current.item_name.highest_bid_amount}}&lt;/value&gt;&lt;/sys_element_mapping&gt;&lt;sys_element_mapping action="INSERT_OR_UPDATE"&gt;&lt;field&gt;condition_name&lt;/field&gt;&lt;id&gt;fca6ccd893a6c61094e3f15a7bba10af&lt;/id&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:09&lt;/sys_created_on&gt;&lt;sys_id&gt;70a6ccd893a6c61094e3f15a7bba10b3&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:09&lt;/sys_updated_on&gt;&lt;table&gt;var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e&lt;/table&gt;&lt;value/&gt;&lt;/sys_element_mapping&gt;&lt;sys_hub_flow_logic_ext_input action="delete_multiple" query="model=fca6ccd893a6c61094e3f15a7bba10af"/&gt;&lt;sys_hub_input_scripts action="delete_multiple" query="instance=fca6ccd893a6c61094e3f15a7bba10af"/&gt;&lt;sys_hub_pill_compound action="delete_multiple" query="attached_to=eb377fff93d2861094e3f15a7bba1030"/&gt;&lt;sys_hub_flow_variable action="delete_multiple" query="model=eb377fff93d2861094e3f15a7bba1030"/&gt;&lt;sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030^sys_idNOT IN3ca6ccd893a6c61094e3f15a7bba10a0,b8a6ccd893a6c61094e3f15a7bba109d,f0a6ccd893a6c61094e3f15a7bba109a"/&gt;&lt;sys_documentation action="INSERT_OR_UPDATE"&gt;&lt;element&gt;table_name&lt;/element&gt;&lt;help/&gt;&lt;hint/&gt;&lt;label&gt;Table Name&lt;/label&gt;&lt;language&gt;en&lt;/language&gt;&lt;name&gt;var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030&lt;/name&gt;&lt;plural/&gt;&lt;sys_class_name&gt;sys_documentation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:08&lt;/sys_created_on&gt;&lt;sys_id&gt;3ca6ccd893a6c61094e3f15a7bba10a0&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:08&lt;/sys_updated_on&gt;&lt;url/&gt;&lt;url_target/&gt;&lt;/sys_documentation&gt;&lt;sys_documentation action="INSERT_OR_UPDATE"&gt;&lt;element&gt;changed_fields&lt;/element&gt;&lt;help/&gt;&lt;hint/&gt;&lt;label&gt;Changed Fields&lt;/label&gt;&lt;language&gt;en&lt;/language&gt;&lt;name&gt;var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030&lt;/name&gt;&lt;plural/&gt;&lt;sys_class_name&gt;sys_documentation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:08&lt;/sys_created_on&gt;&lt;sys_id&gt;b8a6ccd893a6c61094e3f15a7bba109d&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:08&lt;/sys_updated_on&gt;&lt;url/&gt;&lt;url_target/&gt;&lt;/sys_documentation&gt;&lt;sys_documentation action="INSERT_OR_UPDATE"&gt;&lt;element&gt;current&lt;/element&gt;&lt;help/&gt;&lt;hint/&gt;&lt;label&gt;Record&lt;/label&gt;&lt;language&gt;en&lt;/language&gt;&lt;name&gt;var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030&lt;/name&gt;&lt;plural/&gt;&lt;sys_class_name&gt;sys_documentation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:08&lt;/sys_created_on&gt;&lt;sys_id&gt;f0a6ccd893a6c61094e3f15a7bba109a&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:08&lt;/sys_updated_on&gt;&lt;url/&gt;&lt;url_target/&gt;&lt;/sys_documentation&gt;&lt;sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_eb377fff93d2861094e3f15a7bba1030"/&gt;&lt;sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_eb377fff93d2861094e3f15a7bba1030"/&gt;&lt;sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_eb377fff93d2861094e3f15a7bba1030"/&gt;&lt;sys_hub_flow_snapshot action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;acls/&gt;&lt;active&gt;true&lt;/active&gt;&lt;annotation/&gt;&lt;attributes&gt;browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,viewActivatedIn=naturalLanguage&lt;/attributes&gt;&lt;callable_by_client_api&gt;false&lt;/callable_by_client_api&gt;&lt;category/&gt;&lt;copied_from/&gt;&lt;copied_from_name/&gt;&lt;description/&gt;&lt;internal_name&gt;bid_process&lt;/internal_name&gt;&lt;label_cache&gt;[{"name":"17a8c595-bb22-4db5-a5af-f404d351cb52.Record","label":"1 - Look Up Record➛Item Record","reference":"x_1383184_charityb_item","reference_display":"Item","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created or Updated_1.current.item_name.highest_bid_amount","label":"Trigger - Record Created or Updated➛Bid Record➛Item name➛Highest bid amount","reference":"","reference_display":"Highest bid amount","type":"currency","base_type":"currency","parent_table_name":"x_1383184_charityb_item","column_name":"highest_bid_amount"},{"name":"Created or Updated_1.current.your_bid_amount","label":"Trigger - Record Created or Updated➛Bid Record➛Your bid amount","reference":"","reference_display":"Your bid amount","type":"currency","base_type":"currency","parent_table_name":"x_1383184_charityb_bid","column_name":"your_bid_amount"},{"name":"Created or Updated_1.current","label":"Trigger - Record Created or Updated➛Bid Record","reference":"x_1383184_charityb_bid","reference_display":"Bid","type":"reference","base_type":"reference","attributes":{}}]&lt;/label_cache&gt;&lt;master&gt;true&lt;/master&gt;&lt;name&gt;Bid process&lt;/name&gt;&lt;natlang/&gt;&lt;outputs/&gt;&lt;parent_flow display_value="Bid process"&gt;eb377fff93d2861094e3f15a7bba1030&lt;/parent_flow&gt;&lt;remote_trigger_id/&gt;&lt;run_as&gt;user&lt;/run_as&gt;&lt;run_with_roles/&gt;&lt;sc_callable&gt;false&lt;/sc_callable&gt;&lt;status&gt;published&lt;/status&gt;&lt;sys_class_name&gt;sys_hub_flow_snapshot&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:49&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_overrides/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:49&lt;/sys_updated_on&gt;&lt;type&gt;flow&lt;/type&gt;&lt;/sys_hub_flow_snapshot&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=7ac6041c93a6c61094e3f15a7bba1066"/&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=7ac6041c93a6c61094e3f15a7bba1066"/&gt;&lt;sys_hub_trigger_instance action="delete_multiple" query="flow=7ac6041c93a6c61094e3f15a7bba1066^sys_idNOT IN83c6041c93a6c61094e3f15a7bba10ce"/&gt;&lt;sys_hub_trigger_instance action="INSERT_OR_UPDATE"&gt;&lt;comment/&gt;&lt;display_text/&gt;&lt;flow display_value="Bid process"&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/flow&gt;&lt;name&gt;Created or Updated&lt;/name&gt;&lt;remote_sys_id/&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;83c6041c93a6c61094e3f15a7bba10ce&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:51&lt;/sys_updated_on&gt;&lt;trigger_definition display_value="Created or Updated"&gt;a45d9180c32222002841b63b12d3aea7&lt;/trigger_definition&gt;&lt;trigger_inputs/&gt;&lt;trigger_outputs/&gt;&lt;trigger_type&gt;record_create_or_update&lt;/trigger_type&gt;&lt;/sys_hub_trigger_instance&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=83c6041c93a6c61094e3f15a7bba10ce"/&gt;&lt;sys_variable_value action="INSERT_OR_UPDATE"&gt;&lt;document&gt;sys_hub_trigger_instance&lt;/document&gt;&lt;document_key&gt;83c6041c93a6c61094e3f15a7bba10ce&lt;/document_key&gt;&lt;order&gt;200&lt;/order&gt;&lt;sys_class_name&gt;sys_variable_value&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;0bc6041c93a6c61094e3f15a7bba10cf&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;value&gt;every&lt;/value&gt;&lt;variable display_value="Run Trigger"&gt;2b9def50c31132002841b63b12d3ae5b&lt;/variable&gt;&lt;/sys_variable_value&gt;&lt;sys_variable_value action="INSERT_OR_UPDATE"&gt;&lt;document&gt;sys_hub_trigger_instance&lt;/document&gt;&lt;document_key&gt;83c6041c93a6c61094e3f15a7bba10ce&lt;/document_key&gt;&lt;order&gt;1&lt;/order&gt;&lt;sys_class_name&gt;sys_variable_value&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;8fc6041c93a6c61094e3f15a7bba10cf&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;value&gt;x_1383184_charityb_bid&lt;/value&gt;&lt;variable display_value="Table"&gt;cf1e1980c32222002841b63b12d3aea0&lt;/variable&gt;&lt;/sys_variable_value&gt;&lt;sys_variable_value action="INSERT_OR_UPDATE"&gt;&lt;document&gt;sys_hub_trigger_instance&lt;/document&gt;&lt;document_key&gt;83c6041c93a6c61094e3f15a7bba10ce&lt;/document_key&gt;&lt;order&gt;100&lt;/order&gt;&lt;sys_class_name&gt;sys_variable_value&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;cbc6041c93a6c61094e3f15a7bba10cf&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;value&gt;^EQ&lt;/value&gt;&lt;variable display_value="Condition"&gt;707dd180c32222002841b63b12d3aecb&lt;/variable&gt;&lt;/sys_variable_value&gt;&lt;sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_trigger_output_a45d9180c32222002841b63b12d3aea7^id=83c6041c93a6c61094e3f15a7bba10ce"/&gt;&lt;sys_hub_flow_stage action="delete_multiple" query="flow=7ac6041c93a6c61094e3f15a7bba1066"/&gt;&lt;sys_flow_cat_variable_model action="delete_multiple" query="id=7ac6041c93a6c61094e3f15a7bba1066^sys_idNOT INb6c6041c93a6c61094e3f15a7bba1067"/&gt;&lt;sys_flow_cat_variable_model action="INSERT_OR_UPDATE"&gt;&lt;id&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/id&gt;&lt;name&gt;Bid process&lt;/name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:49&lt;/sys_created_on&gt;&lt;sys_id&gt;b6c6041c93a6c61094e3f15a7bba1067&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:49&lt;/sys_updated_on&gt;&lt;/sys_flow_cat_variable_model&gt;&lt;sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=b6c6041c93a6c61094e3f15a7bba1067"/&gt;&lt;sys_hub_flow_input action="delete_multiple" query="model=7ac6041c93a6c61094e3f15a7bba1066^sys_idNOT IN7ac6041c93a6c61094e3f15a7bba1068,7ec6041c93a6c61094e3f15a7bba1077,f2c6041c93a6c61094e3f15a7bba10a5"/&gt;&lt;sys_hub_flow_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id,uiTypeLabel=Document ID&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent&gt;table_name&lt;/dependent&gt;&lt;dependent_on_field&gt;table_name&lt;/dependent_on_field&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;current&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value=""&gt;document_id&lt;/internal_type&gt;&lt;label&gt;Record&lt;/label&gt;&lt;mandatory&gt;true&lt;/mandatory&gt;&lt;max_length&gt;200&lt;/max_length&gt;&lt;model display_value="Bid process"&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/model&gt;&lt;model_id&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/model_id&gt;&lt;model_table&gt;sys_hub_flow_snapshot&lt;/model_table&gt;&lt;name&gt;var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;100&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_hub_flow_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:49&lt;/sys_created_on&gt;&lt;sys_id&gt;7ac6041c93a6c61094e3f15a7bba1068&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:49&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;true&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_hub_flow_input&gt;&lt;sys_hub_action_input_action_instance action="delete_multiple" query="action_input=7ac6041c93a6c61094e3f15a7bba1068"/&gt;&lt;sys_hub_flow_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;changed_fields&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value="String"&gt;string&lt;/internal_type&gt;&lt;label&gt;Changed Fields&lt;/label&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;4000&lt;/max_length&gt;&lt;model display_value="Bid process"&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/model&gt;&lt;model_id&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/model_id&gt;&lt;model_table&gt;sys_hub_flow_snapshot&lt;/model_table&gt;&lt;name&gt;var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;100&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_hub_flow_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;7ec6041c93a6c61094e3f15a7bba1077&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_hub_flow_input&gt;&lt;sys_hub_action_input_action_instance action="delete_multiple" query="action_input=7ec6041c93a6c61094e3f15a7bba1077"/&gt;&lt;sys_hub_flow_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name,uiTypeLabel=Table Name&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;table_name&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value=""&gt;table_name&lt;/internal_type&gt;&lt;label&gt;Table Name&lt;/label&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;200&lt;/max_length&gt;&lt;model display_value="Bid process"&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/model&gt;&lt;model_id&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/model_id&gt;&lt;model_table&gt;sys_hub_flow_snapshot&lt;/model_table&gt;&lt;name&gt;var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;101&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_hub_flow_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;f2c6041c93a6c61094e3f15a7bba10a5&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_hub_flow_input&gt;&lt;sys_hub_action_input_action_instance action="delete_multiple" query="action_input=f2c6041c93a6c61094e3f15a7bba10a5"/&gt;&lt;sys_hub_flow_output action="delete_multiple" query="model=7ac6041c93a6c61094e3f15a7bba1066"/&gt;&lt;sys_hub_alias_mapping action="delete_multiple" query="source_id=7ac6041c93a6c61094e3f15a7bba1066"/&gt;&lt;sys_hub_action_instance action="delete_multiple" query="flow=7ac6041c93a6c61094e3f15a7bba1066^sys_idNOT IN43c6041c93a6c61094e3f15a7bba10c4,47c6041c93a6c61094e3f15a7bba10cc"/&gt;&lt;sys_hub_action_instance action="INSERT_OR_UPDATE"&gt;&lt;action_inputs/&gt;&lt;action_type display_value="Look Up Record"&gt;9d09f99587003300663ca1bb36cb0ba3&lt;/action_type&gt;&lt;action_type_parent display_value="Look Up Record"&gt;b93f42810b30030085c083eb37673a63&lt;/action_type_parent&gt;&lt;attributes/&gt;&lt;comment/&gt;&lt;display_text/&gt;&lt;flow display_value="Bid process"&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/flow&gt;&lt;order&gt;1&lt;/order&gt;&lt;parent_ui_id/&gt;&lt;sys_class_name&gt;sys_hub_action_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;43c6041c93a6c61094e3f15a7bba10c4&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;ui_id&gt;17a8c595-bb22-4db5-a5af-f404d351cb52&lt;/ui_id&gt;&lt;/sys_hub_action_instance&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=43c6041c93a6c61094e3f15a7bba10c4"/&gt;&lt;sys_variable_value action="INSERT_OR_UPDATE"&gt;&lt;document&gt;sys_hub_action_instance&lt;/document&gt;&lt;document_key&gt;43c6041c93a6c61094e3f15a7bba10c4&lt;/document_key&gt;&lt;order&gt;0&lt;/order&gt;&lt;sys_class_name&gt;sys_variable_value&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;03c6041c93a6c61094e3f15a7bba10c6&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;value&gt;x_1383184_charityb_item&lt;/value&gt;&lt;variable display_value="Table"&gt;d909f99587003300663ca1bb36cb0ba4&lt;/variable&gt;&lt;/sys_variable_value&gt;&lt;sys_variable_value action="INSERT_OR_UPDATE"&gt;&lt;document&gt;sys_hub_action_instance&lt;/document&gt;&lt;document_key&gt;43c6041c93a6c61094e3f15a7bba10c4&lt;/document_key&gt;&lt;order&gt;1&lt;/order&gt;&lt;sys_class_name&gt;sys_variable_value&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;4fc6041c93a6c61094e3f15a7bba10c5&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;value&gt;auction_status=auction_in_progress&lt;/value&gt;&lt;variable display_value="Conditions"&gt;d509f99587003300663ca1bb36cb0ba9&lt;/variable&gt;&lt;/sys_variable_value&gt;&lt;sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3^id=43c6041c93a6c61094e3f15a7bba10c4"/&gt;&lt;sys_hub_input_scripts action="delete_multiple" query="instance=43c6041c93a6c61094e3f15a7bba10c4"/&gt;&lt;sys_hub_alias_mapping action="delete_multiple" query="source_id=43c6041c93a6c61094e3f15a7bba10c4"/&gt;&lt;sys_hub_action_instance action="INSERT_OR_UPDATE"&gt;&lt;action_inputs/&gt;&lt;action_inputs/&gt;&lt;action_type display_value="Update Record"&gt;f9d01dd2c31332002841b63b12d3aea1&lt;/action_type&gt;&lt;action_type_parent display_value="Update Record"&gt;baf174c8c3c232002841b63b12d3aee4&lt;/action_type_parent&gt;&lt;attributes/&gt;&lt;comment/&gt;&lt;display_text/&gt;&lt;flow display_value="Bid process"&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/flow&gt;&lt;order&gt;5&lt;/order&gt;&lt;parent_ui_id&gt;6145fa92-b9c8-40e4-aaec-1f5392661536&lt;/parent_ui_id&gt;&lt;sys_class_name&gt;sys_hub_action_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;47c6041c93a6c61094e3f15a7bba10cc&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;ui_id&gt;b8ec85f3-f83c-4c4f-8854-900d7f133076&lt;/ui_id&gt;&lt;/sys_hub_action_instance&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=47c6041c93a6c61094e3f15a7bba10cc"/&gt;&lt;sys_variable_value action="INSERT_OR_UPDATE"&gt;&lt;document&gt;sys_hub_action_instance&lt;/document&gt;&lt;document_key&gt;47c6041c93a6c61094e3f15a7bba10cc&lt;/document_key&gt;&lt;order&gt;50&lt;/order&gt;&lt;sys_class_name&gt;sys_variable_value&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;8fc6041c93a6c61094e3f15a7bba10cd&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;value&gt;x_1383184_charityb_item&lt;/value&gt;&lt;variable display_value="Table"&gt;b5d01916c31332002841b63b12d3aec9&lt;/variable&gt;&lt;/sys_variable_value&gt;&lt;sys_element_mapping action="delete_multiple" query="id=47c6041c93a6c61094e3f15a7bba10cc"/&gt;&lt;sys_element_mapping action="INSERT_OR_UPDATE"&gt;&lt;field&gt;record&lt;/field&gt;&lt;id&gt;47c6041c93a6c61094e3f15a7bba10cc&lt;/id&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;0fc6041c93a6c61094e3f15a7bba10cd&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;table&gt;var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1&lt;/table&gt;&lt;value&gt;{{17a8c595-bb22-4db5-a5af-f404d351cb52.Record}}&lt;/value&gt;&lt;/sys_element_mapping&gt;&lt;sys_element_mapping action="INSERT_OR_UPDATE"&gt;&lt;field&gt;table_name&lt;/field&gt;&lt;id&gt;47c6041c93a6c61094e3f15a7bba10cc&lt;/id&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;87c6041c93a6c61094e3f15a7bba10cd&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;table&gt;var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1&lt;/table&gt;&lt;value/&gt;&lt;/sys_element_mapping&gt;&lt;sys_element_mapping action="INSERT_OR_UPDATE"&gt;&lt;field&gt;values&lt;/field&gt;&lt;id&gt;47c6041c93a6c61094e3f15a7bba10cc&lt;/id&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;4bc6041c93a6c61094e3f15a7bba10cd&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;table&gt;var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1&lt;/table&gt;&lt;value&gt;highest_bid_amount={{Created or Updated_1.current.your_bid_amount}}&lt;/value&gt;&lt;/sys_element_mapping&gt;&lt;sys_hub_input_scripts action="delete_multiple" query="instance=47c6041c93a6c61094e3f15a7bba10cc"/&gt;&lt;sys_hub_alias_mapping action="delete_multiple" query="source_id=47c6041c93a6c61094e3f15a7bba10cc"/&gt;&lt;sys_hub_sub_flow_instance action="delete_multiple" query="flow=7ac6041c93a6c61094e3f15a7bba1066"/&gt;&lt;sys_hub_flow_logic action="delete_multiple" query="flow=7ac6041c93a6c61094e3f15a7bba1066^sys_idNOT IN03c6041c93a6c61094e3f15a7bba10b5,0fc6041c93a6c61094e3f15a7bba10b0,8fc6041c93a6c61094e3f15a7bba10b7"/&gt;&lt;sys_hub_flow_logic action="INSERT_OR_UPDATE"&gt;&lt;attributes/&gt;&lt;block display_value=""&gt;b8a6ccd893a6c61094e3f15a7bba10b3&lt;/block&gt;&lt;comment/&gt;&lt;connected_to/&gt;&lt;decision_table/&gt;&lt;decision_table_inputs/&gt;&lt;display_text/&gt;&lt;extended_inputs/&gt;&lt;flow display_value="Bid process"&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/flow&gt;&lt;flow_variable/&gt;&lt;flow_variables_assigned/&gt;&lt;inputs/&gt;&lt;logic_definition display_value="End"&gt;d176605ea76103004f27b0d2187901c7&lt;/logic_definition&gt;&lt;order&gt;3&lt;/order&gt;&lt;outputs_assigned/&gt;&lt;outputs_to_assign/&gt;&lt;parent_ui_id&gt;feb4ac37-c53f-4b32-ada8-e27f20c0845d&lt;/parent_ui_id&gt;&lt;sys_class_name&gt;sys_hub_flow_logic&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;03c6041c93a6c61094e3f15a7bba10b5&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;ui_id&gt;b501a722-cc79-4423-8e88-771b2752c741&lt;/ui_id&gt;&lt;workflow_inputs/&gt;&lt;workflow_reference/&gt;&lt;/sys_hub_flow_logic&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=03c6041c93a6c61094e3f15a7bba10b5"/&gt;&lt;sys_hub_flow_logic_ext_input action="delete_multiple" query="model=03c6041c93a6c61094e3f15a7bba10b5"/&gt;&lt;sys_hub_input_scripts action="delete_multiple" query="instance=03c6041c93a6c61094e3f15a7bba10b5"/&gt;&lt;sys_hub_flow_logic action="INSERT_OR_UPDATE"&gt;&lt;attributes/&gt;&lt;block display_value=""&gt;38a6ccd893a6c61094e3f15a7bba10af&lt;/block&gt;&lt;comment/&gt;&lt;connected_to/&gt;&lt;decision_table/&gt;&lt;decision_table_inputs/&gt;&lt;display_text/&gt;&lt;extended_inputs/&gt;&lt;flow display_value="Bid process"&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/flow&gt;&lt;flow_variable/&gt;&lt;flow_variables_assigned/&gt;&lt;inputs/&gt;&lt;inputs/&gt;&lt;logic_definition display_value="If"&gt;af4e1945c3e232002841b63b12d3ae3e&lt;/logic_definition&gt;&lt;order&gt;2&lt;/order&gt;&lt;outputs_assigned/&gt;&lt;outputs_to_assign/&gt;&lt;parent_ui_id/&gt;&lt;sys_class_name&gt;sys_hub_flow_logic&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;0fc6041c93a6c61094e3f15a7bba10b0&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;ui_id&gt;feb4ac37-c53f-4b32-ada8-e27f20c0845d&lt;/ui_id&gt;&lt;workflow_inputs/&gt;&lt;workflow_reference/&gt;&lt;/sys_hub_flow_logic&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=0fc6041c93a6c61094e3f15a7bba10b0"/&gt;&lt;sys_variable_value action="INSERT_OR_UPDATE"&gt;&lt;document&gt;sys_hub_flow_logic&lt;/document&gt;&lt;document_key&gt;0fc6041c93a6c61094e3f15a7bba10b0&lt;/document_key&gt;&lt;order&gt;10&lt;/order&gt;&lt;sys_class_name&gt;sys_variable_value&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;07c6041c93a6c61094e3f15a7bba10b4&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;value&gt;yourBid is lesser than or equal highestBid&lt;/value&gt;&lt;variable display_value="Condition Label"&gt;f0af19c1c32632002841b63b12d3aea3&lt;/variable&gt;&lt;/sys_variable_value&gt;&lt;sys_element_mapping action="delete_multiple" query="id=0fc6041c93a6c61094e3f15a7bba10b0"/&gt;&lt;sys_element_mapping action="INSERT_OR_UPDATE"&gt;&lt;field&gt;condition&lt;/field&gt;&lt;id&gt;0fc6041c93a6c61094e3f15a7bba10b0&lt;/id&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;83c6041c93a6c61094e3f15a7bba10b4&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;table&gt;var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e&lt;/table&gt;&lt;value&gt;{{Created or Updated_1.current.your_bid_amount}}&amp;lt;={{Created or Updated_1.current.item_name.highest_bid_amount}}&lt;/value&gt;&lt;/sys_element_mapping&gt;&lt;sys_element_mapping action="INSERT_OR_UPDATE"&gt;&lt;field&gt;condition_name&lt;/field&gt;&lt;id&gt;0fc6041c93a6c61094e3f15a7bba10b0&lt;/id&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;cfc6041c93a6c61094e3f15a7bba10b3&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;table&gt;var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e&lt;/table&gt;&lt;value/&gt;&lt;/sys_element_mapping&gt;&lt;sys_hub_flow_logic_ext_input action="delete_multiple" query="model=0fc6041c93a6c61094e3f15a7bba10b0"/&gt;&lt;sys_hub_input_scripts action="delete_multiple" query="instance=0fc6041c93a6c61094e3f15a7bba10b0"/&gt;&lt;sys_hub_flow_logic action="INSERT_OR_UPDATE"&gt;&lt;attributes/&gt;&lt;block display_value=""&gt;34a6ccd893a6c61094e3f15a7bba10b6&lt;/block&gt;&lt;comment/&gt;&lt;connected_to&gt;feb4ac37-c53f-4b32-ada8-e27f20c0845d&lt;/connected_to&gt;&lt;decision_table/&gt;&lt;decision_table_inputs/&gt;&lt;display_text/&gt;&lt;extended_inputs/&gt;&lt;flow display_value="Bid process"&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/flow&gt;&lt;flow_variable/&gt;&lt;flow_variables_assigned/&gt;&lt;inputs/&gt;&lt;logic_definition display_value="Else"&gt;1f781bf3c32232002841b63b12d3aee6&lt;/logic_definition&gt;&lt;order&gt;4&lt;/order&gt;&lt;outputs_assigned/&gt;&lt;outputs_to_assign/&gt;&lt;parent_ui_id/&gt;&lt;sys_class_name&gt;sys_hub_flow_logic&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;8fc6041c93a6c61094e3f15a7bba10b7&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;ui_id&gt;6145fa92-b9c8-40e4-aaec-1f5392661536&lt;/ui_id&gt;&lt;workflow_inputs/&gt;&lt;workflow_reference/&gt;&lt;/sys_hub_flow_logic&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=8fc6041c93a6c61094e3f15a7bba10b7"/&gt;&lt;sys_hub_flow_logic_ext_input action="delete_multiple" query="model=8fc6041c93a6c61094e3f15a7bba10b7"/&gt;&lt;sys_hub_input_scripts action="delete_multiple" query="instance=8fc6041c93a6c61094e3f15a7bba10b7"/&gt;&lt;sys_hub_pill_compound action="delete_multiple" query="attached_to=7ac6041c93a6c61094e3f15a7bba1066"/&gt;&lt;sys_hub_flow_variable action="delete_multiple" query="model=7ac6041c93a6c61094e3f15a7bba1066"/&gt;&lt;sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066^sys_idNOT IN0bc6041c93a6c61094e3f15a7bba10a9,36c6041c93a6c61094e3f15a7bba1074,76c6041c93a6c61094e3f15a7bba107c"/&gt;&lt;sys_documentation action="INSERT_OR_UPDATE"&gt;&lt;element&gt;table_name&lt;/element&gt;&lt;help/&gt;&lt;hint/&gt;&lt;label&gt;Table Name&lt;/label&gt;&lt;language&gt;en&lt;/language&gt;&lt;name&gt;var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066&lt;/name&gt;&lt;plural/&gt;&lt;sys_class_name&gt;sys_documentation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;0bc6041c93a6c61094e3f15a7bba10a9&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;url/&gt;&lt;url_target/&gt;&lt;/sys_documentation&gt;&lt;sys_documentation action="INSERT_OR_UPDATE"&gt;&lt;element&gt;current&lt;/element&gt;&lt;help/&gt;&lt;hint/&gt;&lt;label&gt;Record&lt;/label&gt;&lt;language&gt;en&lt;/language&gt;&lt;name&gt;var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066&lt;/name&gt;&lt;plural/&gt;&lt;sys_class_name&gt;sys_documentation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;36c6041c93a6c61094e3f15a7bba1074&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;url/&gt;&lt;url_target/&gt;&lt;/sys_documentation&gt;&lt;sys_documentation action="INSERT_OR_UPDATE"&gt;&lt;element&gt;changed_fields&lt;/element&gt;&lt;help/&gt;&lt;hint/&gt;&lt;label&gt;Changed Fields&lt;/label&gt;&lt;language&gt;en&lt;/language&gt;&lt;name&gt;var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066&lt;/name&gt;&lt;plural/&gt;&lt;sys_class_name&gt;sys_documentation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;76c6041c93a6c61094e3f15a7bba107c&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:50&lt;/sys_updated_on&gt;&lt;url/&gt;&lt;url_target/&gt;&lt;/sys_documentation&gt;&lt;sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_7ac6041c93a6c61094e3f15a7bba1066"/&gt;&lt;sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_7ac6041c93a6c61094e3f15a7bba1066"/&gt;&lt;sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_7ac6041c93a6c61094e3f15a7bba1066"/&gt;&lt;sys_hub_flow action="UPDATE"&gt;&lt;sys_id&gt;eb377fff93d2861094e3f15a7bba1030&lt;/sys_id&gt;&lt;latest_snapshot&gt;7ac6041c93a6c61094e3f15a7bba1066&lt;/latest_snapshot&gt;&lt;compiler_build&gt;glide-vancouver-07-06-2023__patch2-hotfix1-10-04-2023_10-06-2023_1235.zip&lt;/compiler_build&gt;&lt;/sys_hub_flow&gt;&lt;sys_flow_trigger_plan action="delete_multiple" query="plan_id=eb377fff93d2861094e3f15a7bba1030^sys_idNOT IN9bc6441c93a6c61094e3f15a7bba101c"/&gt;&lt;sys_flow_trigger_plan action="INSERT_OR_UPDATE"&gt;&lt;binding_strategy&gt;com.snc.process_flow.engine.binding.Every&lt;/binding_strategy&gt;&lt;plan&gt;{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"9bc6441c93a6c61094e3f15a7bba101c","name":"plan","plan_signature":null}}&lt;/plan&gt;&lt;plan_id&gt;eb377fff93d2861094e3f15a7bba1030&lt;/plan_id&gt;&lt;snapshot&gt;e9f6881c93a6c61094e3f15a7bba1080&lt;/snapshot&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 06:12:51&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;9bc6441c93a6c61094e3f15a7bba101c&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_overrides/&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 06:12:51&lt;/sys_updated_on&gt;&lt;trigger display_value=""&gt;5fc6441c93a6c61094e3f15a7bba101a&lt;/trigger&gt;&lt;/sys_flow_trigger_plan&gt;&lt;sys_flow_subflow_plan action="delete_multiple" query="plan_id=eb377fff93d2861094e3f15a7bba1030"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1397623577</payload_hash>
+        <record_name>Bid process</record_name>
+        <reverted_from/>
+        <source>c0eb6f489326c61094e3f15a7bba1011</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-29 06:13:59</sys_created_on>
+        <sys_id>ff074c1c93a6c61094e3f15a7bba106f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fc2fbe49a0000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-29 06:13:59</sys_updated_on>
+        <type>Flow</type>
+        <update_guid>b7074c1c5da6c61092b8a342670e986f</update_guid>
+        <update_guid_history>b7074c1c5da6c61092b8a342670e986f:-1397623577,2bc6441c47a6c6101b69617ff4baf09b:-1462576700,7ec6041cfea6c610da5dacc32a31b144:496813940,d5a6ccd828a6c6102dafb357828f71e5:1905421725,27377733e51686103a4e329d3c379a53:-1881965131</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-03 04:30:51</sys_created_on>
+        <sys_db_object display_value="" name="sys_hub_flow">sys_hub_flow</sys_db_object>
+        <sys_id>3e2e96723a5c49e0a94e1acf99de4079</sys_id>
+        <sys_metadata>eb377fff93d2861094e3f15a7bba1030</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Bid process</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_hub_flow_eb377fff93d2861094e3f15a7bba1030</sys_update_name>
+        <sys_update_version display_value="sys_hub_flow_eb377fff93d2861094e3f15a7bba1030">ff074c1c93a6c61094e3f15a7bba106f</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-03 04:30:51</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

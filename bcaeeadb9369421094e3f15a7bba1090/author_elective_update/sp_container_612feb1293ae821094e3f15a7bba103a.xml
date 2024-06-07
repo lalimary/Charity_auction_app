@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>Charity Bids Profile - Container 3</name>
+        <order>3</order>
+        <semantic_tag/>
+        <sp_page display_value="cb_profile">69e7a9b19362021094e3f15a7bba1080</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-06-05 04:15:50</sys_created_on>
+        <sys_id>612feb1293ae821094e3f15a7bba103a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Charity Bids Profile - Container 3</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_container_612feb1293ae821094e3f15a7bba103a</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-05 04:15:50</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sp_container_612feb1293ae821094e3f15a7bba103a</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container"><sp_container action="INSERT_OR_UPDATE"><background_color/><background_image/><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name/><container_class_name/><name>Charity Bids Profile - Container 3</name><order>3</order><semantic_tag/><sp_page display_value="cb_profile">69e7a9b19362021094e3f15a7bba1080</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>christy</sys_created_by><sys_created_on>2024-06-05 04:15:50</sys_created_on><sys_id>612feb1293ae821094e3f15a7bba103a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Charity Bids Profile - Container 3</sys_name><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sp_container_612feb1293ae821094e3f15a7bba103a</sys_update_name><sys_updated_by>christy</sys_updated_by><sys_updated_on>2024-06-05 04:15:50</sys_updated_on><title/><width>container</width></sp_container></record_update>]]></payload>
+        <payload_hash>1617233855</payload_hash>
+        <record_name>Charity Bids Profile - Container 3</record_name>
+        <reverted_from/>
+        <source>247253e493ae021094e3f15a7bba10eb</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-06-05 04:15:50</sys_created_on>
+        <sys_id>a12feb1293ae821094e3f15a7bba103c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fe69c3e150000001</sys_recorded_at>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-05 04:15:50</sys_updated_on>
+        <type>Container</type>
+        <update_guid>e52feb125aae82104796310de9931d3b</update_guid>
+        <update_guid_history>e52feb125aae82104796310de9931d3b:1617233855</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Charity Bids Profile - Container 3">833f235293ae821094e3f15a7bba1050</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-06-05 04:16:13</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>0729626505304bc8a939498511114d90</sys_id>
+        <sys_metadata>612feb1293ae821094e3f15a7bba103a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Charity Bids Profile - Container 3</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sp_container_612feb1293ae821094e3f15a7bba103a</sys_update_name>
+        <sys_update_version display_value="sp_container_612feb1293ae821094e3f15a7bba103a">a12feb1293ae821094e3f15a7bba103c</sys_update_version>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-05 04:16:13</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
