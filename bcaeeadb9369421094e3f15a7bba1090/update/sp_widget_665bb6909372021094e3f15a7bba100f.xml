@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function loadCharityItems() {
+    var ga = new GlideAjax('CharityItemLoader');
+    ga.addParam('sysparm_name', 'getCharityItems');
+    ga.getXMLAnswer(function(response) {
+        var items = JSON.parse(response);
+        var tableBody = document.getElementById('charityItemsTable').getElementsByTagName('tbody')[0];
+        tableBody.innerHTML = ''; // Clear existing rows
+        items.forEach(function(item) {
+            var row = '<tr>';
+            row += '<td><img src="' + item.image + '" alt="Item Image"></td>';
+            row += '<td>' + item.name + '</td>';
+            row += '<td>$' + item.startBidAmount + '</td>';
+            row += '</tr>';
+            tableBody.innerHTML += row;
+        });
+    });
+}
+
+// Call the function to load items when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadCharityItems();
+});
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>#charityItems {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#charityItemsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    th, td {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    td img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>list_test</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>list test</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[var CharityItemLoader = Class.create();
+CharityItemLoader.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+    getCharityItems: function() {
+        var items = [];
+        var itemGr = new GlideRecord('x_1383184_charityb_item');
+        itemGr.query();
+        while (itemGr.next()) {
+            var item = {
+                image: itemGr.getValue('image'),
+                name: itemGr.getValue('name'),
+                startBidAmount: itemGr.getValue('start_bid_amount')
+            };
+            items.push(item);
+        }
+        return JSON.stringify(items);
+    }
+});
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-06-11 05:37:23</sys_created_on>
+        <sys_id>665bb6909372021094e3f15a7bba100f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>list test</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_widget_665bb6909372021094e3f15a7bba100f</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-11 05:53:28</sys_updated_on>
+        <template><![CDATA[<div id="charityItems">
+    <table id="charityItemsTable">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Start Bid Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be dynamically added here -->
+        </tbody>
+    </table>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

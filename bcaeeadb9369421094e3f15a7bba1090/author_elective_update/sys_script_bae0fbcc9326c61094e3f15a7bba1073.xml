@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="DELETE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>true</action_query>
+        <action_update>false</action_update>
+        <active>false</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_1383184_charityb_item</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="x_1383184_charityb_item">null<item endquery="false" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Location preference items</name>
+        <order>700</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+   
+ 
+   var current_user = gs.getUserID();
+    var usr = new GlideRecord('x_1383184_charityb_user_profile');
+    usr.addQuery('sys_id',current_user);
+    usr.query();
+    if(usr.next()) {
+        current.addQuery('location=' + usr.location);
+		
+    }
+   
+    }
+ 
+)(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-05-29 04:47:08</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>bae0fbcc9326c61094e3f15a7bba1073</sys_id>
+        <sys_mod_count>48</sys_mod_count>
+        <sys_name>Location preference items</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_bae0fbcc9326c61094e3f15a7bba1073</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-12 10:11:10</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="DELETE" query="documentkey=bae0fbcc9326c61094e3f15a7bba1073"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_bae0fbcc9326c61094e3f15a7bba1073</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;true&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;false&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_1383184_charityb_item&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition table="x_1383184_charityb_item"&gt;null&lt;item endquery="false" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Location preference items&lt;/name&gt;&lt;order&gt;700&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+   
+ 
+   var current_user = gs.getUserID();
+    var usr = new GlideRecord('x_1383184_charityb_user_profile');
+    usr.addQuery('sys_id',current_user);
+    usr.query();
+    if(usr.next()) {
+        current.addQuery('location=' + usr.location);
+		
+    }
+   
+    }
+ 
+)(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;christy&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 04:47:08&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;bae0fbcc9326c61094e3f15a7bba1073&lt;/sys_id&gt;&lt;sys_mod_count&gt;48&lt;/sys_mod_count&gt;&lt;sys_name&gt;Location preference items&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_bae0fbcc9326c61094e3f15a7bba1073&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-12 10:11:10&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=bae0fbcc9326c61094e3f15a7bba1073"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-645793582</payload_hash>
+        <record_name>Location preference items</record_name>
+        <reverted_from/>
+        <source>c0eb6f489326c61094e3f15a7bba1011</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-12 10:11:10</sys_created_on>
+        <sys_id>ba9301b8933e421094e3f15a7bba1004</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1900bee14e90000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-12 10:11:10</sys_updated_on>
+        <type>Business Rule</type>
+        <update_guid>fe9301b8bb3e421066893f00b4459903</update_guid>
+        <update_guid_history>fe9301b8bb3e421066893f00b4459903:-645793582,b4f049782f3e42109edd977464609089:2072242243,420c6c7000fa4210e6aaa72278424b33:-836157681,3c41a0349aba42107622d07f6df36353:-923836256,4db024f050ba42108cf905b20e9922e2:-836157681,8ef7c0746c3a42104ed09dcd2c0509a1:-923836256,a6874474113a4210d3c1f10bf4dcc6dd:-836157681,74f6c4341e3a4210b55a1dd672b6f6e8:-1836766744,d1c6c434d03a4210f3b8380cf1e044b4:1139827327,e3e955a8e83e0210947f42eaacc73a05:-356402162,1da09ce4ddf60210bcd3f10b563cd0db:-211917170,ac7c84a0c6f602100b70c85d1bbf43a4:288801341,05e0442493b6021005e872945d2b8c8d:-356402162,89c0c82464b602102f4cb62aab32ed0b:-1485586599,d3708024cbb602105162af5afca03745:288801341,c8a47e985432021082f0d7bfb441c56d:-211917170,e377cdaace26c2107d8bf15100070ca4:288801341,5ee20de2f726c21068ba116d6adaabf0:821348546,88e3646e4c62c2103c2cc374e7c60165:-419948555,4fb360ae3f62c210659feb8e01bf704a:821348546,7a92682a5c62c21086c48adc4b69699f:1952085510,953f582a5962c210c836913b7e005ea7:1798245321,837dd026e262c21060b3641f89583509:334414702,18b9dc627e62c210e4dd18d313424af2:-717074487,ee9894627d62c2109d048441a096c2fe:1999652346,3fd49cea7322c210c2711edae93d498a:-1421191506,7f14d46aeb22c210d7d713c0b95c39ec:-485253510,97a5f306126e421004cf485673e95fc1:299080484,9d6d6f8a122e4210edabd5f5cbe3ac86:-849050925,bc396b42be2e4210c8288434a94e8560:-2065219306,f0804f467b6a42103483ad74bfae4874:-849050925,d1eb829c8a220a109576934e8d7d04eb:-1408307430,95253818b5aac6103bfa8f53b8710d47:-1155621399,df05b4183faac610db7298fe070c33a0:-1408307430,8ddc80d0d3e6c610e017ea45cb112ff7:-1156007804,4b77481cf4a6c6102255910148da8458:1424525715,9a834cd4c0a6c610f83e554a1c67bad1:2117750948,5f6380d4c8a6c610e7ffc010b6b5983a:1424525715,e0c288944ca6c610b8952834a9b44ef7:2117750948,27e18cd0e9a6c61040258b2e1dff930c:1424525715,e6614054b3a6c61070b6d1d3fb364cfb:-293202952,f72088d008a6c6103baebe9187187509:1424525715,04feff4077a6c61091e83b602172ef2c:2117750948,154eb340bfa6c610e50af987a9f9e7fa:-1950179582,28cd3b00f4a6c6105ac18350a7078bac:-1813434653,de7db30044a6c610e9a34fe790a157f0:757312500,008937881866c6105762ac3e388379ce:-1813434653,2a39b7888d66c610c9a60106354b1326:-1252893307,bf23f780fe66c610fa7284b2f9426890:1937644096</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-12 10:58:04</sys_created_on>
+        <sys_db_object display_value="" name="sys_script">sys_script</sys_db_object>
+        <sys_id>17a55b7571034044b0741da5280ee181</sys_id>
+        <sys_metadata>bae0fbcc9326c61094e3f15a7bba1073</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Location preference items</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Item">6d85325b93a9421094e3f15a7bba10ea</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_bae0fbcc9326c61094e3f15a7bba1073</sys_update_name>
+        <sys_update_version display_value="sys_script_bae0fbcc9326c61094e3f15a7bba1073">ba9301b8933e421094e3f15a7bba1004</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-12 10:58:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

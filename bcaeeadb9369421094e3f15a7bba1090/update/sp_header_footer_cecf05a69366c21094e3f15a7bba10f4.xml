@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
     <sp_header_footer action="INSERT_OR_UPDATE">
         <category>standard</category>
-        <client_script><![CDATA[function ($rootScope, $scope, snRecordWatcher, spUtil, $location, $uibModal, cabrillo, $timeout, $window, i18n) {
+        <client_script><![CDATA[api.controller = function ($rootScope, $scope, snRecordWatcher, spUtil, $location, $uibModal, cabrillo, $timeout, $window, i18n) {
 
 	$scope.logoText = i18n.format(i18n.getMessage('Go to {0} Homepage'), $scope.portal.title);
 	$scope.collapse = function() {
@@ -95,18 +95,28 @@
 		]]></client_script>
         <controller_as>c</controller_as>
         <css>.navbar {
-  transition: 250ms opacity ease-in-out;
-  -webkit-transition: 250ms opacity ease-in-out;
-  border: 0;
-  border-bottom: 4px solid $sp-navbar-divider-color;
+    transition: 250ms opacity ease-in-out;
+    -webkit-transition: 250ms opacity ease-in-out;
+    border: 0;
+    background: none;
+    /* border-bottom: .4rem solid #455464; */
 }
-
 .navbar-fade {
   opacity: 0.4;
 }
 
 .navbar-inverse .navbar-toggle {
   border-color: rgba(255, 255, 255, 0.25);
+}
+
+.vcecf05a69366c21094e3f15a7bba10f4 .nav &gt; li &gt; a {
+    max-height: 6rem;
+    color: #fff;
+    font-size: 16px;
+}
+
+li.dropdown.header-menu-item.gtd-dropdown-container.ng-scope {
+    display: none;
 }
 
 header[role="banner"],
@@ -234,7 +244,7 @@ margin: 0px;
         <has_preview>false</has_preview>
         <id/>
         <internal>false</internal>
-        <link><![CDATA[function(scope, element) {
+        <link><![CDATA[function link(scope, element) {
 	var prevFocusIndex = -1;// This is used for prev focus of nav-bar(avatar) drop down items when its visible.
 	var KEY = {
 		TAB : 9,
@@ -391,7 +401,7 @@ data.profileBtnMsg = gs.getMessage("User options");
 data.toggleMsg = gs.getMessage("Toggle navigation");
 var menu = $sp.getValue("sp_rectangle_menu");
 data.menu = $sp.getWidgetFromInstance(menu);
-data.langSelector = pm.isActive('com.glide.i18n')? $sp.getWidget('sp-lang-selector') : "";
+// data.langSelector = pm.isActive('com.glide.i18n')? $sp.getWidget('sp-lang-selector') : "";
 if (data.menu && data.menu.data) {
 	data.menu.data.replace = true;
 	// Hide login if menu already has link to login
@@ -413,14 +423,14 @@ data.loginWidget = $sp.getWidgetFromInstance('login-modal');]]></script>
         <sys_created_by>christy</sys_created_by>
         <sys_created_on>2024-06-05 11:18:02</sys_created_on>
         <sys_id>cecf05a69366c21094e3f15a7bba10f4</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Copy of Stock Header</sys_name>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sp_header_footer_cecf05a69366c21094e3f15a7bba10f4</sys_update_name>
-        <sys_updated_by>christy</sys_updated_by>
-        <sys_updated_on>2024-06-05 11:18:02</sys_updated_on>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-12 08:02:11</sys_updated_on>
         <template><![CDATA[<div>
   <nav class="navbar-inverse" ng-class="::{'navbar':!isViewNative, 'is-native': isViewNative}"
        role="navigation" aria-label="${Primary}">

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Set form to read only with status change</name>
+        <order/>
+        <script><![CDATA[function confirmAndSetAuctionStatus() {
+    if (confirm("Are you sure you want to confirm and schedule the auction?")) {
+        g_form.setReadOnly(true);
+        g_form.setValue('auction_status', 'auction_scheduled');
+        g_form.save();
+        alert("Auction confirmed and scheduled!");
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-08 17:17:23</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>cd559e6593cac21094e3f15a7bba101d</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Set form to read only with status change</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_client_cd559e6593cac21094e3f15a7bba101d</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-10 05:07:17</sys_updated_on>
+        <table>x_1383184_charityb_item</table>
+        <type/>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_client_cd559e6593cac21094e3f15a7bba101d</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Set form to read only with status change&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function confirmAndSetAuctionStatus() {
+    if (confirm("Are you sure you want to confirm and schedule the auction?")) {
+        g_form.setReadOnly(true);
+        g_form.setValue('auction_status', 'auction_scheduled');
+        g_form.save();
+        alert("Auction confirmed and scheduled!");
+    }
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-08 17:17:23&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;cd559e6593cac21094e3f15a7bba101d&lt;/sys_id&gt;&lt;sys_mod_count&gt;8&lt;/sys_mod_count&gt;&lt;sys_name&gt;Set form to read only with status change&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_cd559e6593cac21094e3f15a7bba101d&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-10 05:07:17&lt;/sys_updated_on&gt;&lt;table&gt;x_1383184_charityb_item&lt;/table&gt;&lt;type/&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-754196856</payload_hash>
+        <record_name>Set form to read only with status change</record_name>
+        <reverted_from/>
+        <source>c0eb6f489326c61094e3f15a7bba1011</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-10 05:07:17</sys_created_on>
+        <sys_id>c4ea2d0893fa021094e3f15a7bba10a9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>190008b25710000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-10 05:07:17</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>8cea2d0802fa02100e5627bdcacab5a8</update_guid>
+        <update_guid_history>8cea2d0802fa02100e5627bdcacab5a8:-754196856,eecdfa6ad9560210b1ae9072795fcd71:-1864019723,c7bd7e6a81560210f5607354e1a092a8:1142718555,6c3b2e21214ec210d1994894e1ee6c03:-227412782,46d8eea9060ec210ca7cdbe1b58cdced:226624210,a8b566a96a0ec210527817e845b383be:-45108662,a0f46669040ec210fe65cff45f88de92:-199186140,6ae32a25850ec210b1f4284fce394e4d:-2096254391,01851e6568cac2108fdbbda8f5050cf6:-1507045976</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-10 05:12:20</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>18ca3f9f821e41d282cad0427aee0b24</sys_id>
+        <sys_metadata>cd559e6593cac21094e3f15a7bba101d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Set form to read only with status change</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Item">6d85325b93a9421094e3f15a7bba10ea</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_client_cd559e6593cac21094e3f15a7bba101d</sys_update_name>
+        <sys_update_version display_value="sys_script_client_cd559e6593cac21094e3f15a7bba101d">c4ea2d0893fa021094e3f15a7bba10a9</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-10 05:12:20</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

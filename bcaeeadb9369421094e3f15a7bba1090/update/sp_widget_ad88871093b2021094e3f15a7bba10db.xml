@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.head1{
+font-family: "Exo 2", sans-serif;
+     font-size: 4.5rem;
+    color: black;
+  font-weight:bold
+  
+    
+}
+
+.container-2 img {
+    vertical-align: middle;
+    width: 100%;
+ 		border-radius: 20px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.p-header {
+    font-size: 18px;
+  color: black;
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-2 {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.container-1 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: end;
+    padding-left: 4.3rem;
+    justify-content: center;
+    align-items: flex-end;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>cb_home_widget_2</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>cb_home widget 2</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-11 06:34:56</sys_created_on>
+        <sys_id>ad88871093b2021094e3f15a7bba10db</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name>cb_home widget 2</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_widget_ad88871093b2021094e3f15a7bba10db</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-12 07:24:25</sys_updated_on>
+        <template><![CDATA[                    
+                    
+<div class="header">
+  <div class="container-2">
+    <img src="eventimage3.jpg">
+  </div>
+  
+  <div class="container-1">
+    <h2 class="head1">Raise more for cause</h2>
+    <p class="p-header">
+      Exceed your fundraising goals with zero platform fees, subscriptions, or add-ons. CharityBid's 100+ free tools are customizable, embeddable, and completely mobile-optimized—and they’ve powered more than $1B in donations so far.
+    </p> 
+  </div>
+  
+    
+  
+  
+  
+</div>
+
+
+
+
+
+  
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    ]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* General Styles */
+body {
+    font-family: 'Exo 2', sans-serif;
+    
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    margin: 18px 0px;
+}
+
+.head-h1 {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.main-head {
+    display: flex;
+}
+
+.container-1 {
+    width: 33%;
+    padding: 1.1rem;
+    display: flex;
+    border: 2px solid #fff;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    margin: 15px;
+}
+
+p.p-container-1 {
+    text-align: center;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>cb_home_widget_3</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>cb_home widget 3</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-12 06:15:36</sys_created_on>
+        <sys_id>c4bd443c933a421094e3f15a7bba106b</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>cb_home widget 3</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_widget_c4bd443c933a421094e3f15a7bba106b</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-12 08:15:13</sys_updated_on>
+        <template><![CDATA[<div class="head">
+  <h1 class="head-h1">
+      About Our Organization
+    </h1>
+  <hr>
+  <div class="main-head">
+    <div class="container-1">
+      <h2 class="head-container-1">
+        Our Mission
+      </h2>
+      <p class="p-container-1">
+
+        To transform lives through generosity and community support, connecting donors with those in need to create positive change.
+      </p>
+    </div>
+
+
+     <div class="container-1">
+      <h2 class="head-container-2">
+        Our History
+      </h2>
+      <p class="p-container-1">
+        Founded in 2022, we began with a vision to make a tangible difference in the lives of those facing hardship. We've grown into a trusted platform for charitable auctions, providing critical aid where it's needed most.
+      </p>
+    </div>
+
+       <div class="container-1">
+      <h2 class="head-container-3">
+        Our Impact
+      </h2>
+      <p class="p-container-1">
+  We've delivered essential support to families in crisis, empowered children's education, and improved health and wellness in underserved communities. Your support brings hope and creates lasting change. Join us in making a difference.
+      </p>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

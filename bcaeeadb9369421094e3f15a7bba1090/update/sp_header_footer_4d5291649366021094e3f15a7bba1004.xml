@@ -1,244 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
     <sp_header_footer action="INSERT_OR_UPDATE">
         <category>standard</category>
-        <client_script><![CDATA[api.controller = function ($rootScope, $scope, snRecordWatcher, spUtil, $location, $uibModal, cabrillo, $timeout, $window, i18n) {
+        <client_script><![CDATA[api.controller = function ($rootScope, $scope, snRecordWatcher, spUtil, $location, $uibModal, cabrillo, $timeout, $window, i18n, $injector) {
 
-	$scope.logoText = i18n.format(i18n.getMessage('Go to {0} Homepage'), $scope.portal.title);
-	$scope.collapse = function() {
-		$rootScope.$emit('sp-navbar-collapse');
-	}
+    $scope.logoText = i18n.format(i18n.getMessage('Go to {0} Homepage'), $scope.portal.title);
 
-	$scope.avatarProfile = {
-		userID: $scope.user.sys_id,
-		name: $scope.user.name,
-		initials: $window.NOW.user_initials
-	};
+    $scope.collapse = function() {
+        $rootScope.$emit('sp-navbar-collapse');
+    }
 
-	if ($window.NOW.user_avatar) {
-		$scope.avatarProfile.userImage = $window.NOW.user_avatar;
-	}
+    $scope.avatarProfile = {
+        userID: $scope.user.sys_id,
+        name: $scope.user.name,
+        initials: $window.NOW.user_initials
+    };
 
-	if (cabrillo.isNative()) {
-		if ($window.innerWidth < 767) {
-			$scope.isViewNative = true;
-		} else {
-			$scope.isViewNativeTablet = true;
-		}
-	}
+    if ($window.NOW.user_avatar) {
+        $scope.avatarProfile.userImage = $window.NOW.user_avatar;
+    }
 
+    if (cabrillo.isNative()) {
+        if ($window.innerWidth < 767) {
+            $scope.isViewNative = true;
+        } else {
+            $scope.isViewNativeTablet = true;
+        }
+    }
 
-	$scope.openPopUp = function() {
-		var url = "$chat_support.do?queueID=" + $scope.data.connect_support_queue_id;
-		var popup = window.open (url, "popup", "width=900, height=600");
-	};
+    $scope.openPopUp = function() {
+        var url = "$chat_support.do?queueID=" + $scope.data.connect_support_queue_id;
+        var popup = window.open (url, "popup", "width=900, height=600");
+    };
 
-	$scope.openLogin = function () {
-		$scope.modalInstance = $uibModal.open({
-			templateUrl: 'modalLogin',
-			scope: $scope
-		});
+    $scope.openLogin = function () {
+        $scope.modalInstance = $uibModal.open({
+            templateUrl: 'modalLogin',
+            scope: $scope
+        });
 
-		var pageRoot = angular.element('.sp-page-root');
-		$scope.modalInstance.rendered.then(function() {
-			var $uibModalStack = $injector.get('$uibModalStack');
-			var modalObj = $uibModalStack.getTop();
-			var modal = modalObj.value.modalDomEl;
+        var pageRoot = angular.element('.sp-page-root');
+        $scope.modalInstance.rendered.then(function() {
+            var $uibModalStack = $injector.get('$uibModalStack');
+            var modalObj = $uibModalStack.getTop();
+            var modal = modalObj.value.modalDomEl;
 
-			modal.attr('aria-label', modal.find('.panel-title').html());
-			modal.attr('aria-modal', 'true');
-			pageRoot.attr('aria-hidden', 'true');
-		});
+            modal.attr('aria-label', modal.find('.panel-title').html());
+            modal.attr('aria-modal', 'true');
+            pageRoot.attr('aria-hidden', 'true');
+        });
 
-		$scope.modalInstance.closed.then(function() {
-			pageRoot.attr('aria-hidden', 'false');
-		});
-	};
+        $scope.modalInstance.closed.then(function() {
+            pageRoot.attr('aria-hidden', 'false');
+        });
+    };
 
-	var mdScreenSize = isMDScreenSize();
-	$scope.showSMAvatar = isMDScreenSize();
-	$scope.showAvatar = !isMDScreenSize();
+    var mdScreenSize = isMDScreenSize();
+    $scope.showSMAvatar = isMDScreenSize();
+    $scope.showAvatar = !isMDScreenSize();
 
-	$scope.isAgentChatConfigured = g_has_agent_chat_config;
+    $scope.isAgentChatConfigured = g_has_agent_chat_config;
 
-	angular.element($window).on('resize', function () {
-		if(mdScreenSize !== isMDScreenSize() && (!$scope.showSMAvatar || !$scope.showAvatar)){
-			$scope.showSMAvatar = true;
-			$scope.showAvatar = true;
-		}
-	});
+    angular.element($window).on('resize', function () {
+        if(mdScreenSize !== isMDScreenSize() && (!$scope.showSMAvatar || !$scope.showAvatar)){
+            $scope.showSMAvatar = true;
+            $scope.showAvatar = true;
+        }
+    });
 
+    function isMDScreenSize() {
+        return $window.matchMedia('(max-width: 992px)').matches;
+    }
 
-	function isMDScreenSize() {
-		return $window.matchMedia('(max-width: 992px)').matches;
-	}
+    $rootScope.$on('sp.avatar_changed', function(evt, obj) {
+        $scope.userID = "";
+        $scope.newAvatarId = obj.newAvatarId;
+        $timeout(function(){
+            $scope.userID = $scope.user.sys_id;
+            $("#profile-dropdown .sub-avatar").css("background-image", 'url("' + $scope.newAvatarId + '.iix?t=small")');
+        });
+    });
 
-	$rootScope.$on('sp.avatar_changed', function(evt, obj) {
-		$scope.userID = "";
-		$scope.newAvatarId = obj.newAvatarId;
-		$timeout(function(){
-			$scope.userID = $scope.user.sys_id;
-			$("#profile-dropdown .sub-avatar").css("background-image", 'url("' + $scope.newAvatarId + '.iix?t=small")');
-		});
-	});
+    $scope.isHomepage = function() {
+        if (!$scope.page.id)
+            return true;
 
-	$scope.isHomepage = function() {
-		if (!$scope.page.id)
-			return true;
+        if ($scope.page.id == $scope.portal.homepage_dv)
+            return true;
 
-		if ($scope.page.id == $scope.portal.homepage_dv)
-			return true;
-
-		return false;
-	};
+        return false;
+    };
 
 }
-		]]></client_script>
+]]></client_script>
         <controller_as>c</controller_as>
-        <css>.navbar {&#13;
-  transition: 250ms opacity ease-in-out;&#13;
-  -webkit-transition: 250ms opacity ease-in-out;&#13;
-  border: 0;&#13;
-  border-bottom: 4px solid $sp-navbar-divider-color;&#13;
-}&#13;
-&#13;
-.navbar-fade {&#13;
-  opacity: 0.4;&#13;
-}&#13;
-&#13;
-.navbar-inverse .navbar-toggle {&#13;
-  border-color: rgba(255, 255, 255, 0.25);&#13;
-}&#13;
-&#13;
-header[role="banner"],&#13;
-.nav &gt; li &gt; a {&#13;
-  max-height: 60px;&#13;
-}&#13;
-&#13;
-.nav &gt; li &gt; a span.fa{&#13;
-  margin-left: 0.2rem;&#13;
-}&#13;
-&#13;
-@media screen and (max-width: 992px){&#13;
-  .nav &gt; li &gt; a {&#13;
-    padding-right: 0.5rem;&#13;
-    padding-left: 0.5rem;&#13;
-  }&#13;
-}&#13;
-&#13;
-.navbar-brand {&#13;
-  max-height: 60px;&#13;
-  padding: 0;&#13;
-  padding-bottom: 0.5rem;&#13;
-}&#13;
-&#13;
-.navbar-brand img, .navbar-brand span {&#13;
-  margin-left: $sp-logo-margin-x;&#13;
-  margin-right: $sp-logo-margin-x;&#13;
-  margin-top: $sp-logo-margin-y;&#13;
-  margin-bottom: $sp-logo-margin-y;&#13;
-  display: block;&#13;
-  max-height: $sp-logo-max-height;&#13;
-  max-width: $sp-logo-max-width;&#13;
-  position: relative;&#13;
-  top: 50%;&#13;
-  -webkit-transform: translateY(-50%);&#13;
-  -ms-transform: translateY(-50%);&#13;
-  transform: translateY(-50%);&#13;
-  overflow: hidden;&#13;
-}&#13;
-&#13;
-@media screen and (max-width: 992px){&#13;
-  .navbar-brand img, .navbar-brand span {&#13;
-    max-width: $sp-logo-mobile-max-width;&#13;
-  }&#13;
-}&#13;
-&#13;
-.breadcrumb-container {&#13;
-  background-color: $panel-bg;&#13;
-}&#13;
-&#13;
-/* for mobile app */&#13;
-.navbar-inverse.is-native {&#13;
-  background-color: #123c69;&#13;
-}&#13;
-&#13;
-nav {&#13;
-  margin-bottom: 0px;&#13;
-  border-radius: 0px;&#13;
-&#13;
- .toggle-dropdown {&#13;
-    height: 60px;&#13;
-  }&#13;
-&#13;
-}&#13;
-&#13;
-span.ng-binding {&#13;
-    display: none;&#13;
-}&#13;
-&#13;
-a#cart-dropdown {&#13;
-    display: none;&#13;
-}&#13;
-&#13;
-.navbar-right {&#13;
-  padding-right: 0px;&#13;
-  padding-left: 7px;&#13;
-}&#13;
-&#13;
-.navbar-nav {&#13;
-margin: 0px;&#13;
-}&#13;
-  .navbar-inverse {&#13;
-    background-color: #123c69;&#13;
-   &#13;
-}&#13;
-&#13;
-// PRB711244: Dropdown menu is scrollable when too many items&#13;
-.scrollable-dropdown {&#13;
-  max-height: 80vh;&#13;
-  overflow: auto;&#13;
-  height: auto;&#13;
-}&#13;
-&#13;
-.is-native {&#13;
- .scrollable-dropdown {&#13;
-  max-height: 100vh;&#13;
-  overflow: scroll;&#13;
-  height: auto;&#13;
-	}&#13;
-}&#13;
-&#13;
-&#13;
-/* PRB923910: Fix for Service Portal - Header Poorly Aligned in Safari */&#13;
-@media screen and (min-width: 993px) {&#13;
-  .navbar-right {&#13;
-    display: flex !important;&#13;
-    height: auto !important;&#13;
-  }&#13;
-}&#13;
-&#13;
-@media (max-width: 992px) {&#13;
-  .navbar-toggle {&#13;
-    display: block;&#13;
-  }&#13;
-  .navbar-header {&#13;
-    float: none;&#13;
-  }&#13;
-  .navbar-left,.navbar-right {&#13;
-    float: none !important;&#13;
-  }&#13;
-  .navbar-nav {&#13;
-    float: none !important;&#13;
-  }&#13;
-  .navbar-nav &gt; li {&#13;
-    float: none;&#13;
-  }&#13;
-  .navbar-nav &gt; li &gt; a {&#13;
-    padding-top: 1rem ;&#13;
-    padding-bottom: 1rem;&#13;
-  }&#13;
-&#13;
-}</css>
+        <css>
+/* First Header Section Styles */
+.first-header {
+    /* float: right; */
+    display: flex;
+    width: 100%;
+  font-family: "Exo 2", sans-serif;
+    justify-content: flex-end;
+}
+
+.first-header .header-links {
+    display: flex;
+  
+    align-items: center;
+}
+
+.first-header .header-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.first-header .search-form {
+    display: flex;
+    align-items: center;
+}
+
+.first-header .search-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+@media (min-width: 768px) {
+  .navbar-collapse.collapse {
+    display: flex !important;
+    height: auto !important;
+    width: 80%;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+}
+
+.first-header .search-button {
+    padding: 5px 10px;
+    background-color: #42aaa1; /* Adjust button background color */
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Second Header Section Styles */
+.second-header {
+    background-color: transparent;
+ font-family: "Exo 2", sans-serif;
+    color: #fff;
+  font-size: 2rem;
+    padding: 1rem;
+    padding-top: 2rem;
+}
+
+.second-header .navbar {
+    margin-bottom: 0;
+    border: 0;
+    text-align: center;
+    display: flex;
+}
+
+.second-header .navbar-header {
+    padding: 0;
+}
+
+.second-header .navbar-brand img {
+    max-height: 60px;
+    padding: 0;
+    margin: 0;
+}
+
+.second-header .navbar-nav {
+    margin: 0 auto; /* Center navigation options */
+    display: inline-block;
+}
+
+.second-header .navbar-nav &gt; li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.second-header .navbar-nav &gt; li &gt; a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.second-header .navbar-nav &gt; li &gt; a:hover {
+    color: #ccc; /* Change color on hover */
+}
+
+
+</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -404,56 +359,65 @@ data.profileBtnMsg = gs.getMessage("User options");
 data.toggleMsg = gs.getMessage("Toggle navigation");
 var menu = $sp.getValue("sp_rectangle_menu");
 data.menu = $sp.getWidgetFromInstance(menu);
-// data.langSelector = pm.isActive('com.glide.i18n')? $sp.getWidget('sp-lang-selector') : "";
+
+// If data.menu exists and contains data
 if (data.menu && data.menu.data) {
-	data.menu.data.replace = true;
-	// Hide login if menu already has link to login
-	data.hasLogin = false;
-	if (data.menu.data.menu.items) {
-		data.hasMenuItems = data.menu.data.menu.items.length > 0;
-		for(var i in data.menu.data.menu.items) {
-			var item = data.menu.data.menu.items[i];
-			if (item.type == 'page' && item.sp_page == data.login_page)
-				data.hasLogin = true;
-		}
-	}
+    // Replace data.menu.data
+    data.menu.data.replace = true;
+
+    // Initialize data.hasLogin as false
+    data.hasLogin = false;
+
+    // Initialize data.hasMenuItems and check if menu has items
+    data.hasMenuItems = data.menu.data.menu.items && data.menu.data.menu.items.length > 0;
+
+    // Loop through menu items to check for login link
+    for (var i = 0; i < data.menu.data.menu.items.length; i++) {
+        var item = data.menu.data.menu.items[i];
+        if (item.type == 'page' && item.sp_page == data.login_page) {
+            data.hasLogin = true;
+            break; // Exit loop if login link is found
+        }
+    }
 }
 
-data.loginWidget = $sp.getWidgetFromInstance('login-modal');]]></script>
+// Get login widget
+data.loginWidget = $sp.getWidgetFromInstance('login-modal');
+]]></script>
         <servicenow>false</servicenow>
         <static>false</static>
         <sys_class_name>sp_header_footer</sys_class_name>
         <sys_created_by>christy</sys_created_by>
         <sys_created_on>2024-05-30 06:21:19</sys_created_on>
         <sys_id>4d5291649366021094e3f15a7bba1004</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>44</sys_mod_count>
         <sys_name>Charity Bids Header</sys_name>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sp_header_footer_4d5291649366021094e3f15a7bba1004</sys_update_name>
-        <sys_updated_by>christy</sys_updated_by>
-        <sys_updated_on>2024-06-05 12:03:07</sys_updated_on>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-12 06:58:39</sys_updated_on>
         <template><![CDATA[<div>
   <nav class="navbar-inverse" ng-class="::{'navbar':!isViewNative, 'is-native': isViewNative}"
        role="navigation" aria-label="${Primary}">
     <div ng-show="::!isViewNative" class="navbar-header">
-<a class="navbar-brand" ng-if="::!portal.logo" href="?id={{::portal.homepage_dv}}"><span ng-bind="portal.title"></span></a>
+      <a class="navbar-brand" ng-if="::!portal.logo" href="?id={{::portal.homepage_dv}}"><span ng-bind="portal.title"></span></a>
       <a class="navbar-brand navbar-brand-logo" ng-if="::portal.logo" ng-href="?id={{::portal.homepage_dv}}" ng-click="collapse()" aria-label="{{::logoText}}">
         <img ng-src="{{::portal.logo}}" title="{{::portal.title}}" alt="{{::portal.title}} ${Logo}" />
       </a>
-      <!--<button ng-if="data.hasMenuItems || (!user.logged_in && page.id != portal.login_page_dv && !data.hasLogin) || user.logged_in" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-placement="bottom" data-toggle-second="tooltip" data-original-title="{{::data.toggleMsg}}" data-target="#sp-nav-bar" aria-haspopup="menu">
+      <button ng-if="data.hasMenuItems || (!user.logged_in && page.id != portal.login_page_dv && !data.hasLogin) || user.logged_in" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-placement="bottom" data-toggle-second="tooltip" data-original-title="{{::data.toggleMsg}}" data-target="#sp-nav-bar" aria-haspopup="menu">
         <span class="sr-only">${Toggle navigation}</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>-->
+      </button>
     </div>
 
     <div sp-navbar-toggle="" class="collapse navbar-right" id="sp-nav-bar">
       <!-- Include The Menu -->
       <sp-widget widget="::data.menu"></sp-widget>
-	  <!-- Language Selector Menu -->
+      <!-- Language Selector Menu -->
       <sp-widget widget="::data.langSelector"></sp-widget>
       <ul ng-if="(!user.logged_in && page.id != portal.login_page_dv && !data.hasLogin)" class="nav navbar-nav" role="presentation">
         <li role="presentation"><a href ng-click="::openLogin()">${Login}</a></li>
@@ -467,11 +431,11 @@ data.loginWidget = $sp.getWidgetFromInstance('login-modal');]]></script>
             <span class="visible-lg-inline">{{::user.name}}</span>
           </a>
           <ul class="dropdown-menu" role="menu" aria-label="{{::data.profileBtnMsg}}">
-            <li role="presentation"><a tabindex="-1" ng-href="?id=user_profile&sys_id={{::user.sys_id}}" role="menuitem">${Profile}</a></li>
+            <li role="presentation"><a tabindex="-1" ng-href="?id=profile&sys_id={{::user.sys_id}}" role="menuitem">${Profile}</a></li>
             <li ng-if="::!(isViewNative || isViewNativeTablet)" role="presentation"><a tabindex="-1" href="{{::portal.logoutUrl}}" role="menuitem">${Logout}</a></li>
           </ul>
         </li>
-        <li ng-if="showSMAvatar" class="visible-xs-block visible-sm-block" role="presentation"><a role="menuitem" ng-href="?id=user_profile&sys_id={{::user.sys_id}}" ng-click="collapse()">
+        <li ng-if="showSMAvatar" class="visible-xs-block visible-sm-block" role="presentation"><a role="menuitem" ng-href="?id=profile&sys_id={{::user.sys_id}}" ng-click="collapse()">
           <span class="navbar-avatar"><sn-avatar class="avatar-small-medium" primary="avatarProfile" /></span>{{::user.name}}</a>
         </li>
         <li ng-if="::!(isViewNative || isViewNativeTablet)" class="visible-xs-block visible-sm-block" role="presentation"><a role="menuitem" ng-href="{{::portal.logoutUrl}}" ng-click="collapse()">${Logout}</a></li>

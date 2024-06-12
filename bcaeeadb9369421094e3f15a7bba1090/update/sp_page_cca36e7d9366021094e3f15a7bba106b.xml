@@ -50,7 +50,7 @@
 &#13;
 .col-md-3 {&#13;
     width: 25%;&#13;
-    background: #373c53;&#13;
+    background: #327c9f&#13;
     display: flex;&#13;
     border-radius: 45px;&#13;
     min-height: 90vh;&#13;
@@ -69,6 +69,14 @@
     left: 152px;&#13;
     top: 35px;&#13;
 }&#13;
+&#13;
+&#13;
+.vcecf05a69366c21094e3f15a7bba10f4 .navbar {&#13;
+    transition: 250ms opacity ease-in-out;&#13;
+    -webkit-transition: 250ms opacity ease-in-out;&#13;
+    border: 0;&#13;
+    background: linear-gradient(90deg, #e7ecf1 0%, #30789e 0%, #42aaa1 100%);&#13;
+}&#13;
 </css>
         <draft>false</draft>
         <dynamic_title_structure/>
@@ -84,14 +92,14 @@
         <sys_created_by>lalitha</sys_created_by>
         <sys_created_on>2024-06-03 09:28:55</sys_created_on>
         <sys_id>cca36e7d9366021094e3f15a7bba106b</sys_id>
-        <sys_mod_count>34</sys_mod_count>
+        <sys_mod_count>41</sys_mod_count>
         <sys_name>upload_item</sys_name>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sp_page_cca36e7d9366021094e3f15a7bba106b</sys_update_name>
         <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-06-05 19:47:31</sys_updated_on>
+        <sys_updated_on>2024-06-12 08:07:50</sys_updated_on>
         <title>Upload Item</title>
         <use_seo_script>false</use_seo_script>
     </sp_page>

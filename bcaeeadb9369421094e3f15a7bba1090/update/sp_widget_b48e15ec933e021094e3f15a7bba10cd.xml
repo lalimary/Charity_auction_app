@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function ($scope, $element, $window, $location, $rootScope, $timeout, snAttachmentHandler, $http, spUtil, userPreferences, $filter, i18n, $uibModal, spAriaUtil) {
+    // Fields to exclude from the profile display
+    var fieldExcludes = {
+        sys_user: ['name', 'introduction', 'title', 'department', 'location', 'photo', 'manager', 'company'],
+        live_profile: ['short_description', 'photo']
+    };
+
+    // Open Connect conversation
+    $scope.openConnectConversation = function() {
+        $window.open('/$c.do#?user=' + $scope.data.liveProfileID, '_blank');
+    };
+
+    // Watch for date/time format changes
+    $scope.$watch('data.dateTimeFormat', function() {
+        if ($scope.data.dateTimeFormat != g_user_date_time_format) {
+            $scope.data.dateTimeFormatChanged = true;
+        }
+    });
+
+    // Upload new profile picture
+    $scope.uploadNewProfilePicture = function($event) {
+        $event.stopPropagation();
+        var $el = $element.find('input[type=file]');
+        $el.click();
+    };
+
+    // Attach files handler
+    $scope.attachFiles = function(files) {
+        if (!files.files.length) return;
+
+        var file = files.files[0];
+        var validImage = false;
+
+        switch(file.type) {
+            case 'image/jpeg':
+            case 'image/png':
+            case 'image/bmp':
+            case 'image/x-windows-bmp':
+            case 'image/gif':
+            case 'image/x-icon':
+            case 'image/svg+xml':
+                validImage = true;
+                break;
+            default:
+                break;
+        }
+
+        if (!validImage) {
+            alert(file.name + " " + i18n.getMessage("isn't a recognized image file format"));
+            return;
+        }
+
+        snAttachmentHandler.create("live_profile", $scope.data.liveProfileID).uploadAttachment(file, {
+            sysparm_fieldname: "photo"
+        }).then(function(response) {
+            var obj = {};
+            obj.newAvatarId = response.sys_id;
+            $scope.avatarPicture = {
+                'background-image': "url('" + response.sys_id + ".iix')",
+                'color': 'transparent'
+            };
+            $rootScope.$broadcast("sp.avatar_changed", obj);
+            // Timeout required for screen reader to pick up the message once file upload prompt is dismissed
+            $timeout(function() {
+                spAriaUtil.sendLiveMessage(i18n.getMessage('Profile picture updated successfully'));
+            }, 500);
+        });
+    };
+
+    // Initialize avatar picture
+    $scope.avatarPicture = "";
+
+    // Fetch profile data
+    $http.get('/api/now/live/profiles/sys_user.' + $scope.data.sysUserID).then(function (response) {
+        if (response.data.result && response.data.result.avatar) {
+            var avatarPicture = response.data.result.avatar.replace("?t=small", "");
+            $scope.avatarPicture = {
+                'background-image': "url('" + avatarPicture + "')",
+                'color': 'transparent'
+            };
+        }
+    });
+
+    // Record watchers
+    spUtil.recordWatch($scope, "sys_user", "sys_id=" + $scope.data.sysUserID);
+    spUtil.recordWatch($scope, "live_profile", "sys_id=" + $scope.data.liveProfileID);
+
+    // Connect enabled check
+    $scope.connectEnabled = function() {
+        return $scope.data.connectEnabled && !$scope.data.isLoggedInUsersProfile;
+    };
+
+    // Open user profile
+    $scope.openUserProfile = function($event, userID) {
+        $event.stopPropagation();
+        $event.preventDefault();
+        $location.search("id=user_profile&sys_id=" + userID);
+    };
+
+    // Get fields for sys_user model
+    $scope.getSysUserModelFields = function() {
+        if ($scope.data.userExists) {
+            return $scope.data.sysUserModelList.filter(function(field) {
+                return $scope.displayField("sys_user", field.name);
+            });
+        }
+        return [];
+    };
+
+    // Reload page
+    $scope.reloadPage = function() {
+        $window.location.reload(true);
+    };
+
+    // Check if team exists
+    $scope.teamExists = function() {
+        return $scope.data.teamData.direct_reports.length > 0 ||
+               $scope.data.teamData.members.length > 0 ||
+               $scope.data.teamData.manager;
+    };
+
+    // Model references
+    var models = {
+        sys_user: $scope.data.sysUserModel,
+        live_profile: $scope.data.liveProfileModel
+    };
+
+    // Display field check
+    $scope.displayField = function(tableName, field, isHeader) {
+        if (!isHeader && fieldExcludes[tableName].indexOf(field) > -1) return false;
+
+        if (models[tableName][field] && models[tableName][field].type === "boolean") return false;
+
+        if ($scope.data.isLoggedInUsersProfile) {
+            if (models[tableName][field] && models[tableName][field].readonly)
+                return models[tableName][field].displayValue;
+            else
+                return models[tableName][field];
+        } else {
+            return models[tableName][field] && models[tableName][field].displayValue;
+        }
+    };
+
+    // Broadcast profile data change
+    $timeout(function() {
+        $rootScope.$broadcast('finishedChanged', {profile: $scope.data.teamData});
+    });
+
+    // Initialize sysUserModelFields
+    $scope.sysUserModelFields = $scope.getSysUserModelFields();
+}
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>@import url('https://fonts.googleapis.com/css2?family=Exo+2&amp;display=swap');
+
+body {
+    background-color: #42aaa1;
+    font-family: "Exo 2", sans-serif;
+    font-size: 21px;
+    line-height: 1.25;
+    font-weight: 400;
+    height: 100%;
+    color: white;
+    margin: 0 auto !important;
+}
+
+/* General styles for profile */
+.user-profile-container {
+    width: 100%;
+    max-width: 755px;
+    margin: 0 auto;
+    padding: 0 8px;
+}
+
+.avatar-extra-large {
+    cursor: default;
+}
+
+.avatar {
+    font-size: 6rem;
+    color: #808080;
+}
+
+.panel-body .row {
+    margin-bottom: 15px;
+}
+
+.list-group-item {
+    border: none;
+    padding: 5px 15px;
+}
+
+.list-group-item .btn-link {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.user-details {
+    word-wrap: break-word; /* IE support */
+    overflow-wrap: break-word;
+}
+
+.popover {
+    z-index: 1049;
+}
+
+/* Input switch styles */
+.input-switch input[type=checkbox]:checked ~ .switch {
+    background-color: #007bff; /* Adjusted to a primary color as a placeholder */
+}
+
+/* Accessible accessibility toggle for high contrast mode */
+@media screen and (-ms-high-contrast: active) {
+    .input-switch input.ng-not-empty + label.switch[for="accessibility-enabled"] {
+        background-color: highlight;
+        border: none;
+    }
+
+    .input-switch input.ng-not-empty + label.switch[for="accessibility-enabled"]:before {
+        background-color: highlightText;
+    }
+
+    .input-switch input.ng-empty + label.switch[for="accessibility-enabled"] {
+        background-color: window;
+        border: 1px solid windowText;
+    }
+
+    .input-switch input.ng-empty + label.switch[for="accessibility-enabled"]:before {
+        background-color: windowText;
+    }
+}
+
+/* Form styles for editing profile */
+.user-profile-container form .form-group {
+    margin-bottom: 15px;
+}
+
+.user-profile-container form .form-control {
+    color: #333;
+}
+
+.user-profile-container form .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.user-profile-container form .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+/* Specific styles for location dropdown */
+.select2-container.select2-allowclear .select2-choice .select2-chosen {
+    margin-right: 60px;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>cb_my_profile</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>cb My Profile</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-11 17:30:15</sys_created_on>
+        <sys_id>b48e15ec933e021094e3f15a7bba10cd</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>cb My Profile</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_widget_b48e15ec933e021094e3f15a7bba10cd</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-11 17:37:14</sys_updated_on>
+        <template><![CDATA[<div class="default-focus-outline user-profile-container">
+  <div ng-if="!data.userExists" class="panel panel-default">
+    <div class="panel-body wrapper-lg text-center">
+      <p>${Requested user not found}</p>
+    </div>
+  </div>
+  <div ng-if="data.userExists">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 text-center">
+            <div class="row">
+              <div class="avatar-extra-large avatar-container" style="cursor:default;" aria-hidden="true">
+                <div class="avatar soloAvatar bottom">
+                  <div class="sub-avatar mia" ng-style="avatarPicture"><i class="fa fa-user"></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <button ng-if="::connectEnabled()" ng-click="openConnectConversation()" type="button"
+                      class="btn btn-primary send-message"><span class="glyphicon glyphicon-comment pad-right"></span>${Message}</button>
+              <!-- file upload -->
+              <span ng-if="::data.isLoggedInUsersProfile">
+                <input ng-show="false" type="file" accept="image/jpeg,image/png,image/bmp,image/x-windows-bmp,image/gif,image/x-icon,image/svg+xml" ng-file-select="attachFiles({files: $files})" />
+                <button ng-click="uploadNewProfilePicture($event)"
+                        type="button"
+                        class="btn btn-default send-message">${Upload Picture}</button>
+              </span>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-8 user-details">
+            <h2>{{data.name}}</h2>
+            <button type="button" class="btn btn-primary" ng-click="toggleEditMode()">${Edit Profile}</button>
+            <div ng-if="!isEditMode">
+              <p><strong>${Name}:</strong> {{data.sysUserModel.name}}</p>
+              <p><strong>${Location}:</strong> {{data.sysUserModel.location.display_value}}</p>
+            </div>
+            <div ng-if="isEditMode">
+              <form ng-submit="updateProfile()">
+                <div class="form-group">
+                  <label for="userName">${Name}:</label>
+                  <input type="text" id="userName" ng-model="data.sysUserModel.name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="userLocation">${Location}:</label>
+                  <select id="userLocation" ng-model="data.sysUserModel.location" class="form-control" required>
+                    <option ng-repeat="location in data.locations" value="{{location.sys_id}}">{{location.name}}</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary">${Update Profile}</button>
+                <button type="button" class="btn btn-secondary" ng-click="toggleEditMode()">${Cancel}</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div ng-class="{'col-md-6': teamExists(), 'col-md-12': !teamExists()}" class="col-sm-12 col-xs-12">
+        <div class="panel panel-default b" ng-if="getSysUserModelFields().length > 0">
+          <div class="panel-heading">
+            <h2 class="panel-title">
+              <i class="fa fa-info-circle m-r-sm"></i>${About}
+            </h2>
+          </div>
+          <div class="body padder-xs">
+            <div class="list-group">
+              <div ng-repeat="fieldModel in sysUserModelFields">
+                <div class="list-group-item">
+                  <div>
+                    <sp-editable-field block="true" table="{{data.table}}" editable-by-user="data.isLoggedInUsersProfile" table-id="data.sysUserID" field-model="fieldModel"></sp-editable-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer clearfix" ng-if="data.dateTimeFormatChanged">
+            <a id="refresh-to-complete-date-format-change" href="javascript:void(0)"
+               ng-click="reloadPage()" class="pull-right btn btn-primary"><i class="fa fa-refresh m-r-sm" aria-hidden="true"></i>${Refresh page to complete date/time format change}</a>
+          </div>
+        </div>
+      </div>
+      <div ng-if="teamExists()" class="col-md-6 col-sm-12 col-xs-12">
+        <sp-widget widget="data.teamWidget"></sp-widget>
+      </div>
+    </div>
+    <sp-widget widget="data.userPreferencesWidget"></sp-widget>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>
