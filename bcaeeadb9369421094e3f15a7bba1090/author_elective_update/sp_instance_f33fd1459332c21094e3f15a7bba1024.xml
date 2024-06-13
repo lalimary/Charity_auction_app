@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">54febe749376821094e3f15a7bba10d8</sp_column>
+        <sp_widget display_value="Topic Content">9c691d40c31030102ec1a589a840dd4c</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 06:50:24</sys_created_on>
+        <sys_id>f33fd1459332c21094e3f15a7bba1024</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_instance_f33fd1459332c21094e3f15a7bba1024</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 06:51:01</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"limit": {
+		"value": "12",
+		"displayValue": "12"
+	},
+	"sortby": {
+		"value": "popularity",
+		"displayValue": "popularity"
+	},
+	"search_application": {
+		"value": "54362cf6c32230100f24c87af040ddc3",
+		"displayValue": "Collab Chat Search Configuration"
+	},
+	"search_sources_filter": {
+		"value": "b3fed8e4c7731010d558c943c7c26088",
+		"displayValue": "Articles"
+	},
+	"show_global_redirect": {
+		"value": "true",
+		"displayValue": "true"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=f33fd1459332c21094e3f15a7bba1024"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sp_instance_f33fd1459332c21094e3f15a7bba1024</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;54febe749376821094e3f15a7bba10d8&lt;/sp_column&gt;&lt;sp_widget display_value="Topic Content"&gt;9c691d40c31030102ec1a589a840dd4c&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-13 06:50:24&lt;/sys_created_on&gt;&lt;sys_id&gt;f33fd1459332c21094e3f15a7bba1024&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_f33fd1459332c21094e3f15a7bba1024&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-13 06:51:01&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"limit": {
+		"value": "12",
+		"displayValue": "12"
+	},
+	"sortby": {
+		"value": "popularity",
+		"displayValue": "popularity"
+	},
+	"search_application": {
+		"value": "54362cf6c32230100f24c87af040ddc3",
+		"displayValue": "Collab Chat Search Configuration"
+	},
+	"search_sources_filter": {
+		"value": "b3fed8e4c7731010d558c943c7c26088",
+		"displayValue": "Articles"
+	},
+	"show_global_redirect": {
+		"value": "true",
+		"displayValue": "true"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=f33fd1459332c21094e3f15a7bba1024"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-477486319</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>c0eb6f489326c61094e3f15a7bba1011</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 06:51:01</sys_created_on>
+        <sys_id>b06fd1459332c21094e3f15a7bba10f4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>190105d33520000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 06:51:01</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>786fd1450532c2100cf60673729d9df3</update_guid>
+        <update_guid_history>786fd1450532c2100cf60673729d9df3:-477486319,3f3fd1455232c21063645b5421b61725:-1048390282</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">266f95459332c21094e3f15a7bba1030</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 06:51:08</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>646be1c4db92479c908c8d06e5765be1</sys_id>
+        <sys_metadata>f33fd1459332c21094e3f15a7bba1024</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sp_instance_f33fd1459332c21094e3f15a7bba1024</sys_update_name>
+        <sys_update_version display_value="sp_instance_f33fd1459332c21094e3f15a7bba1024">b06fd1459332c21094e3f15a7bba10f4</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 06:51:08</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

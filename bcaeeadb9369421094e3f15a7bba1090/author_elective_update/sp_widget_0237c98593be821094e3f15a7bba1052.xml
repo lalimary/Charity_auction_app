@@ -1,0 +1,2715 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function ($timeout, $rootScope, $scope, $window, snAnalytics) {
+    var c = this;
+    var CARD_VIEW = "card";
+    var LIST_VIEW = "list";
+    var FLEX_CARD_SELECTOR = '.flex-item-card';
+    var CONTENT_CARD_SELECTOR = c.data.isMobileApp ? '.content-card-mobile' : '.content-card';
+    var actions = {
+        showMore: "show-more",
+        filter: "filter",
+        sort: "sort",
+        modifyAISResults: "modify-ais-results"
+    };
+    $scope.loading = false;
+    $scope.contentItems = [];
+
+    // AIS search integration
+    $scope.isBackFromGlobalSearch = false;
+    $scope.searchAppConfigId = c.options.searchAppSysId;
+    $scope.isSearchModeEnabled = false;
+    $scope.searchedTerm = "";
+    $scope.spellCorrectedTerm = "";
+    $scope.noOfNewItems = 0;
+    $scope.aisContentItems = [];
+    $scope.aisFilterOptions = [];
+    $scope.aisSortOptions = [];
+    $scope.hasNext = false;
+    c.data.getNext = false;
+    c.data.aisFilterBy = '';
+    c.data.aisSortBy = '';
+    var AIS_EVENTS = c.data.EVENTS;
+
+    // Function to populate AIS filter and sort options
+    $scope.populateFilterAndSortOptions = function (allAISFilterOptions, allAISSortOptions) {
+        $scope.aisFilterOptions = [{
+            name: '${All}',
+            sysId: ''
+        }].concat(allAISFilterOptions.filter(function (f) {
+            return c.data.search_sources_filter.includes(f.sysId);
+        }).map(function (item) {
+            return {
+                name: item.label,
+                sysId: item.sysId
+            };
+        }));
+        $scope.aisSortOptions = [{
+            name: '${Most relevant}',
+            id: ''
+        }].concat(allAISSortOptions.map(function (item) {
+            return {
+                name: item.label,
+                id: item.sysId
+            };
+        }));
+    };
+
+    // Watch for changes in AIS mode
+    var aisModeChangeDestroy = $rootScope.$on(AIS_EVENTS.AIS_MODE_CHANGE_EVENT, function (event, data) {
+        $scope.isSearchModeEnabled = data.searchModeEnabled;
+        if (!$scope.isSearchModeEnabled) {
+            $scope.resetAISParams();
+        }
+    });
+
+    // Watch for AIS loading events
+    var aisLoadingDestroy = $rootScope.$on(AIS_EVENTS.AIS_LOADING_EVENT, function (event, data) {
+        if (data.isAISloading) {
+            $scope.loading = data.isAISloading;
+            if (!data.loadingNext) {
+                $scope.aisContentItems = [];
+            }
+        }
+    });
+
+    // Watch for AIS results updated events
+    var resultsUpdatedDestroy = $rootScope.$on(AIS_EVENTS.AIS_RESULTS_UPDATED_EVENT, function (event, data) {
+        $scope.searchedTerm = data.searchedTerm;
+        $scope.spellCorrectedTerm = data.spellCorrectedTerm;
+        $scope.hasNext = data.hasNext;
+        $scope.populateFilterAndSortOptions(data.filterOptions, data.sortOptions);
+        $scope.modifyAISResultsData(data.results, c.data.action === actions.showMore);
+        $scope.noOfNewItems = data.results.length;
+        if (data.results.length === 0) {
+            $scope.loading = false;
+        }
+    });
+
+    // Cleanup on controller destroy
+    $scope.$on('$destroy', function () {
+        aisModeChangeDestroy();
+        aisLoadingDestroy();
+        resultsUpdatedDestroy();
+    });
+
+    // Function to reset AIS parameters
+    $scope.resetAISParams = function () {
+        $scope.noOfNewItems = 0;
+        $scope.aisContentItems = [];
+        c.data.aisFilterBy = '';
+        c.data.aisSortBy = '';
+        c.data.searchedQuery = '';
+        $window.sessionStorage.removeItem("topicSearchPreferences");
+    };
+
+    // Function to clear search mode
+    $scope.clearSearch = function () {
+        $rootScope.$broadcast(AIS_EVENTS.AIS_MODE_CHANGE_EVENT, {
+            searchModeEnabled: false,
+        });
+    };
+
+    // Function to refresh AIS search results
+    $scope.refreshResults = function (searchParams) {
+        if (searchParams) {
+            c.data.searchQuery = searchParams.search_term;
+            c.data.filter = JSON.stringify(searchParams.filter === '' ? c.data.search_sources_filter : [searchParams.filter]).replaceAll('"', '\\\\\\"');
+            c.data.sort = JSON.stringify(searchParams.sort === '' ? [] : [searchParams.sort]).replaceAll('"', '\\\\\\"');
+            c.data.spellCheck = searchParams.disable_spell_check || false;
+        }
+        $rootScope.$broadcast(AIS_EVENTS.AIS_REFRESH_RESULTS_EVENT, c.data);
+    };
+
+    // Function to get content items based on search mode
+    $scope.getContentItems = function () {
+        if ($scope.isSearchModeEnabled) {
+            $scope.aisContentItems = $scope.aisContentItems.filter(function (results) {
+                return results.table !== "sys_attachment";
+            });
+            if (c.data.isMobileApp) {
+                var searchData = $scope.aisContentItems.slice(0, $scope.nextIndexMobileSearch + $scope.mobileSearchResCount);
+                $scope.showMoreFlagMobileSearch = $scope.aisContentItems.length > ($scope.nextIndexMobileSearch + $scope.mobileSearchResCount) || $scope.hasNext;
+                return searchData;
+            }
+            return $scope.aisContentItems;
+        }
+        return $scope.contentItems;
+    };
+
+    // Function to modify AIS search results data
+    $scope.modifyAISResultsData = function (aisSearchResults, isConcat) {
+        c.data.action = actions.modifyAISResults;
+        c.data.aisSearchResults = aisSearchResults;
+        c.data.searchedQuery = $scope.searchedTerm;
+
+        var aisPreferences = JSON.stringify({
+            aisFilterBy: c.data.aisFilterBy,
+            aisSortBy: c.data.aisSortBy,
+            aisSearchQ: c.data.searchedQuery,
+            profileLang: c.data.profileLang
+        });
+        $window.sessionStorage.setItem("topicSearchPreferences", aisPreferences);
+
+        c.server.update().then(function (response) {
+            var focusIndex = $scope.aisContentItems.length;
+            if (isConcat) {
+                $scope.aisContentItems = $scope.aisContentItems.concat(response.modifiedAISResponse);
+                $timeout(function () {
+                    $(CONTENT_CARD_SELECTOR).get(focusIndex).focus();
+                }, 100);
+            } else {
+                $scope.aisContentItems = response.modifiedAISResponse;
+            }
+        });
+    };
+
+    // Function to get expand search URL
+    $scope.getExpandSearchURL = function () {
+        var facetFilters = encodeURI(JSON.stringify(c.data.ui.aisFacetFilters));
+        return "?id=search&spa=1&q=" + $scope.searchedTerm + "&disableSpellCheck=false";
+    };
+
+    // Function to navigate to global search
+    $scope.toGlobalSearch = function () {
+        $scope.setSessionData();
+        $window.location.href = $scope.getExpandSearchURL();
+    };
+
+    // Function to set session data for AIS search parameters
+    $scope.setSessionData = function () {
+        var aisSearchParams = {
+            aisSearchQ: $scope.searchedTerm,
+            aisFilterBy: c.data.aisFilterBy,
+            aisSortBy: c.data.aisSortBy,
+        };
+        $window.sessionStorage.setItem("aisSearchParams", JSON.stringify(aisSearchParams));
+    };
+
+    // Function to create Appsee event
+    c.createAppseeEvent = function () {
+        var payload = {
+            name: 'Topic Page Visits',
+            data: {
+                'Topic Name': c.data.topicName,
+                'Topic Id': c.data.sys_id
+            }
+        };
+        snAnalytics.addEvent(payload);
+    };
+
+    // Initialize Appsee event creation if sys_id is valid
+    if (c.data.sys_id != -1) {
+        c.createAppseeEvent();
+    }
+
+    // Initialize content items if data exists
+    if (c.data) {
+        $scope.contentItems = c.data.featuredContent.concat(c.data.content);
+    }
+
+    // Event listener to detect widget presence and refresh on load
+    var destroyWidgetWatcher = $scope.$watch(
+        function () {
+            return $("[widget='widget'][sn-atf-area='AIS Topic Search']").length;
+        },
+        function (newValue, oldValue) {
+            function refreshOnLoad(searchParams) {
+                c.data.aisFilterBy = searchParams.filter;
+                c.data.aisSortBy = searchParams.sort;
+                $scope.refreshResults(searchParams);
+                destroyWidgetWatcher();
+            }
+
+            if (newValue !== oldValue) {
+                if ($window.sessionStorage.getItem('topicSearchPreferences')) {
+                    var inContextSearchParams = JSON.parse($window.sessionStorage.getItem('topicSearchPreferences'));
+                    if (inContextSearchParams) {
+                        var searchParams = {
+                            search_term: inContextSearchParams.aisSearchQ,
+                            filter: inContextSearchParams.aisFilterBy,
+                            sort: inContextSearchParams.aisSortBy,
+                            profileLang: inContextSearchParams.profileLang
+                        };
+                        if (!c.data.in_context || searchParams.profileLang !== c.data.profileLang) {
+                            $window.sessionStorage.removeItem("topicSearchPreferences");
+                        } else {
+                            refreshOnLoad(searchParams);
+                        }
+                    }
+                }
+                if ($window.sessionStorage.getItem('isBackFromGS') === "true" && $window.sessionStorage.getItem('aisSearchParams')) {
+                                            var aisSearchParams = JSON.parse($window.sessionStorage.getItem('aisSearchParams'));
+                    searchParams = {
+                        search_term: aisSearchParams.aisSearchQ,
+                        filter: aisSearchParams.aisFilterBy,
+                        sort: aisSearchParams.aisSortBy,
+                    };
+                    refreshOnLoad(searchParams);
+                }
+                $window.sessionStorage.removeItem('aisSearchParams');
+                $window.sessionStorage.removeItem('isBackFromGS');
+            }
+        }
+    );
+
+    // Event listener to set 'isBackFromGS' session storage on popstate
+    $window.addEventListener('popstate', function () {
+        $window.sessionStorage.setItem('isBackFromGS', "true");
+    });
+
+    // Function to load more content
+    $scope.loadMore = function () {
+        c.data.action = actions.showMore;
+        var focusIndex = c.data.content.length;
+        if ($scope.isSearchModeEnabled) {
+            c.data.getNext = true;
+            $scope.refreshResults();
+            return;
+        }
+        return $scope.updateContent().then(function () {
+            $timeout(function () {
+                $(CONTENT_CARD_SELECTOR).get(focusIndex).focus();
+            }, 100);
+        });
+    };
+
+    // Function to handle keydown events for load more
+    $scope.loadMoreKeydown = function (event) {
+        if (event.which === 32 || event.which === 13) {
+            event.preventDefault();
+            var focusIndex = c.data.content.length;
+            if ($scope.isSearchModeEnabled) {
+                c.data.getNext = true;
+                $scope.refreshResults();
+                return;
+            }
+            $scope.loadMore().then(function () {
+                $timeout(function () {
+                    $(CONTENT_CARD_SELECTOR).get(focusIndex).focus();
+                }, 100);
+            });
+        }
+    };
+
+    // Function to get updated content
+    $scope.getUpdatedContent = function () {
+        c.data.action = actions.filter;
+        c.data.getNext = false;
+        if ($scope.isSearchModeEnabled) {
+            var searchParams = {
+                filter: c.data.aisFilterBy,
+                sort: c.data.aisSortBy,
+            };
+            $scope.refreshResults(searchParams);
+            return;
+        }
+        return $scope.updateContent();
+    };
+
+    // Function to update content
+    $scope.updateContent = function () {
+        $scope.loading = true;
+        return c.server.update().then(function () {
+            $scope.contentItems = c.data.featuredContent.concat(c.data.content);
+            $scope.loading = false;
+        }).catch(function (error) {
+            console.error('Error updating content:', error);
+            $scope.loading = false;
+        });
+    };
+
+    // Function to change view
+    $scope.changeView = function (view) {
+        c.data.view = view;
+        c.data.action = "storeView";
+        c.server.update().catch(function (error) {
+            console.error('Error storing view:', error);
+        });
+    };
+
+    // Function to switch tab
+    $scope.switchTab = function ($event) {
+        if ($event.which == 37 || $event.which == 39) {
+            $event.stopPropagation();
+            var layout = c.data.view === CARD_VIEW ? LIST_VIEW : CARD_VIEW;
+            $scope.changeView(layout);
+            $('#tab-' + layout).focus();
+        }
+    };
+
+    // Function to check if device is touch device
+    $scope.isTouchDevice = function () {
+        return ('ontouchstart' in $window);
+    };
+
+    // Function to handle corrected search
+    $scope.handleCorrectedSearch = function (term, type) {
+        var searchParams = {
+            search_term: term,
+            filter: c.data.aisFilterBy,
+            sort: c.data.aisSortBy,
+            disable_spell_check: type === 'search-term'
+        };
+        $scope.refreshResults(searchParams);
+    };
+};
+
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>$text-primary : #181A1F !default;
+
+$background-primary : #ffffff !default;
+$background-secondary : #f6f6f8 !default;
+$background-tertiary : #F0F1F5 !default;
+
+$sp-panel-box-shadow : 0 4px 8px 0 rgba(23, 40, 52, 0.08) !default;
+
+$sp-space--lg: 16px !default;
+$sp-space--xl : 24px !default;
+$padding-base-vertical: 6px !default;
+
+$border-primary : #8790A1 !default;
+$border-secondary : #ACB2BE !default;
+$border-tertiary : #DADDE2 !default;
+
+$select-primary: #007b58 !default;
+
+$headings-font-weight: 600 !default;
+$divider: #F6F7F7 !default;
+
+/* Double focus ring on cards */
+#tabpanel-card-06d3df67c3053010069aec4b7d40dd70 div:focus {
+  box-shadow: none !important;
+  border: none;
+}
+
+mark {
+  background-color: $brand-primary-lightest;
+  color: $text-primary;
+  padding: 0;
+}
+
+.m-r-auto {
+  margin-right: auto;
+}
+
+.p-v-2 {
+  padding: $sp-space--lg 0;
+}
+
+.browse-content-container {
+  .toggle {
+    color: $gray-darker;
+
+    i:not(.active):hover {
+      color: $list-group-link-heading-color;
+    }
+  }
+
+  .fa {
+    border: 4px solid transparent;
+  }
+
+  .fa.active {
+    color: $select-primary;
+  }
+
+  .view-controls {
+    margin-bottom: 5px;
+  }
+
+  .filter-padding {
+    padding: 0 $sp-space--lg;
+  }
+
+  .item-fitlers-disable {
+    opacity: 50%;
+    pointer-events: none;
+  }
+
+  .grid-margin {
+    margin-top: $sp-space--xl;
+  }
+
+  .title-item-filters {
+    width: 100%;
+    flex: 1 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    select {
+      width: 140px;
+    }
+
+    .filter-search {
+      width: max-content;
+      display: flex;
+      align-items: flex-end;
+      margin-left: $sp-space--lg;
+
+      div[widget="widget"][sn-atf-area="AIS Topic Search"] {
+        padding: 0 $sp-space--lg;
+
+        .input-group {
+          width: 248px;
+        }
+
+        div.dropdown-menu {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media (min-width:62em) and (max-width: 75em) {
+    .title-item-filters {
+      select {
+        width: 120px;
+      }
+    }
+  }
+
+  @media (min-width:38em) and (max-width: 48em) {
+    .title-item-filters {
+      align-items: initial;
+
+      select {
+        width: 10rem;
+      }
+
+      .filter-padding {
+        padding-right: 0;
+      }
+
+      .filter-search {
+        gap: $sp-space--lg;
+
+        div[widget="widget"][sn-atf-area="AIS Topic Search"] {
+          padding: 0;
+
+          .input-group {
+            width: 20rem;
+          }
+        }
+
+        .view-controls {
+          .toggle {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 38em), (min-width:48em) and (max-width: 62em) {
+    .box-header-title {
+      flex-wrap: wrap;
+
+      &amp;.spellcheck-container {
+        flex-direction: column;
+      }
+    }
+
+    .title-item {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .title-item-filters {
+      justify-content: flex-start !important;
+      width: 100%;
+      flex-direction: column;
+      align-items: initial !important;
+
+      select {
+        width: 100%;
+        margin-bottom: $sp-space--lg;
+      }
+
+      .filter-search {
+        display: block;
+        padding: 0;
+        margin-left: 0;
+        width: auto;
+
+        div[widget="widget"][sn-atf-area="AIS Topic Search"] {
+          padding: 0;
+
+          .input-group {
+            width: 100%;
+          }
+
+          div.dropdown-menu {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .view-controls {
+      display: none;
+    }
+
+    .flex-mobile {
+      width: 100%;
+    }
+
+    .filter-padding {
+      padding: 0;
+    }
+  }
+
+  .box-header-title {
+    display: flex;
+    margin: 0 10px;
+    flex-wrap: wrap;
+
+    .search-results-container {
+      button.btn-link {
+        padding: 0;
+      }
+    }
+
+    .clear-search-container {
+      margin-left: auto;
+
+      button.btn.btn-link {
+        padding: 0;
+      }
+    }
+  }
+
+  .label-padding {
+    padding-right: 5px;
+  }
+
+  .title-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    word-break: break-word;
+  }
+
+  .browse-elevation {
+    background: $background-primary;
+    padding: 0.4rem 1.4rem 1rem 1.4rem;
+    border-radius: $border-radius-large;
+    -webkit-box-shadow: $sp-panel-box-shadow;
+    box-shadow: $sp-panel-box-shadow;
+
+    .flex-item-card {
+      border: 1px solid $border-tertiary;
+      border-radius: $border-radius-base;
+      margin: 10px;
+      max-width: 500px;
+      position: relative;
+      display: flex;
+    }
+
+    .flex-item-card:hover {
+      box-shadow: 0rem 0.2rem 1rem #E5E5E5;
+    }
+
+    .flex-display {
+      display: flex;
+      height: 100%;
+      flex-grow: 1;
+
+      &gt;div {
+        flex-grow: 1;
+      }
+    }
+
+    .list-view-block {
+      display: block;
+    }
+
+    .list-view {
+      flex-direction: column;
+      flex-grow: 1;
+      max-width: none;
+
+      .flex-display {
+        flex-direction: column;
+      }
+    }
+
+    .btn-loadmore {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      display: block;
+      color: $text-primary;
+      background: $background-primary;
+      border-color: $border-tertiary;
+    }
+
+    .btn-loadmore:hover {
+      background: $background-secondary;
+    }
+
+    .btn-loadmore:active {
+      background: $background-tertiary;
+    }
+
+    /* IE 10-11 specific Class to override */
+    @media screen and (-ms-high-contrast: active),
+    (-ms-high-contrast: none) {
+      .flex-item-card {
+        width: 350px;
+        max-width: 350px;
+        flex: 1 0 100%;
+      }
+
+      .grid-test-auto-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .list-view {
+        max-width: none;
+        width: auto;
+
+        .text-ellipsis {
+          width: 700px;
+        }
+      }
+
+      .fa.active {
+        outline-color: $select-primary;
+      }
+    }
+  }
+
+  .browse-elevation-mobile {
+    background: $background-primary;
+    padding: 0 1rem 1rem 1rem;
+    border-bottom: 12px solid $divider;
+    font-size: 14px;
+
+    h3 {
+      font-size: 1.25rem !important;
+      font-weight: bold;
+    }
+
+    .flex-item-card {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      border-bottom: 1px solid #EAEAEA;
+      position: relative;
+    }
+
+    .flex-display {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .box-header-title {
+      margin: 0;
+    }
+
+    .title-item-filters {
+      .form-inline:first-of-type {
+        margin-bottom: $sp-space--lg;
+      }
+    }
+
+    .btn-loadmore {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      display: block;
+    }
+
+    .filter-padding {
+      padding-left: 0;
+    }
+
+    .label-padding {
+      font-weight: $headings-font-weight;
+    }
+
+    .full-width-drop-down {
+      width: 100%;
+      border: 1px solid $border-tertiary;
+      border-radius: 5px !important;
+      font-weight: $headings-font-weight;
+    }
+
+    .select2-container {
+
+      /* need to over ride the important style of mesp which already has important for a11y reasons*/
+      #s2id_autogen1,
+      #s2id_autogen2 {
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .select2-choice {
+        /* Tappable areas on mobile should be atleast 48px in height*/
+        min-height: 48px;
+
+        span[role="text"].select2-chosen {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+
+    .select2-reference .select2-arrow,
+    .select2-choice .select2-arrow {
+      /* need to over ride the important style of mesp which already has important */
+      right: 0.5rem !important;
+      padding-top: 8px;
+    }
+
+    .select2-container .select2-choice .select2-arrow b:before {
+      content: "\f107";
+      font-family: FontAwesome;
+    }
+
+    .select2-container .select2-choice {
+      padding-bottom: 0;
+      /* need to over ride the important style of mesp which already has important */
+      box-shadow: none !important;
+    }
+
+    .select2-container .select2-choice .select2-chosen {
+      font-size: 14px;
+    }
+
+    .grid-test-auto-wrap {
+      grid-template-columns: repeat(auto-fit, minmax(16.25rem, 1fr));
+    }
+
+    .content-align-center {
+      min-height: 200px;
+    }
+
+    .item-fitlers-disable {
+      display: none;
+    }
+  }
+
+  .content-align-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    text-align: center;
+
+    &amp;.expand-search-container {
+      min-height: 134px;
+      background-color: $background-tertiary;
+      margin: $sp-space--xl 10px $sp-space--sm 10px;
+      padding: $padding-base-horizontal;
+      border-radius: $border-radius-large;
+
+      .expand-search-message {
+        color: $text-secondary;
+        margin-bottom: $sp-space--sm;
+      }
+
+      a {
+        color: $link-color;
+      }
+    }
+  }
+
+  .grid-test-auto-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+  }
+
+  .search-no-results-container {
+    margin: $sp-space--xl;
+    padding: $sp-space--lg;
+
+    i.fa.fa-search {
+      font-size: 2 * $font-size-xl;
+      color: $text-tertiary;
+      margin-bottom: $sp-space--md;
+    }
+
+    p {
+      color: $text-secondary;
+      font-size: $font-size-base;
+      margin-bottom: $sp-space--md;
+    }
+  }
+}
+
+.skeleton-loading {
+  padding: 10px;
+  $loader-line-height: 15px;
+
+  .text-items {
+    width: 100%;
+  }
+
+  .title-loader {
+    height: $loader-line-height;
+    width: 95%
+  }
+
+  .description-loader {
+    height: $loader-line-height;
+    width: 70%
+  }
+
+  .additional-info-loader {
+    height: $loader-line-height;
+    width: 40%
+  }
+
+  .badge-loader {
+    height: 25px;
+    width: 50%
+  }
+
+  .empty {
+    height: 30px;
+  }
+
+  .skeleton-loader {
+    box-sizing: border-box;
+    animation: progress 2s ease-in-out infinite;
+    background: rgb(239, 241, 246) no-repeat;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+    background-size: 200px 100%;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 6px;
+
+    &amp;:after,
+    &amp;:before {
+      box-sizing: border-box;
+    }
+  }
+}
+@media (max-width : 350px) {
+  .browse-content-container {
+    .grid-test-auto-wrap {
+      grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    }
+  }
+}
+
+@keyframes progress {
+  0% {
+    background-position: -200px 0;
+  }
+
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>cb_topic_content</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+    // Watch for changes in the number of select2-choice elements with select2-chosen span
+    if (controller.data.isMobileApp) {
+        var destroyWatcher = scope.$watch(
+            function () { 
+                return element.find('.select2-choice span.select2-chosen').length; 
+            },
+            function (newValue, oldValue) {
+                if (newValue !== oldValue) {
+                    var mespSelectInputs = element.find('.select2-choice span.select2-chosen');
+                    if (mespSelectInputs.length === 2) {
+                        // Set role attribute to 'text' for the first and second elements
+                        angular.element(mespSelectInputs[0]).attr('role', 'text');
+                        angular.element(mespSelectInputs[1]).attr('role', 'text');
+                        // Stop watching once the condition is met
+                        destroyWatcher();
+                    }
+                }
+            }
+        );
+    }
+}
+]]></link>
+        <name>Cb topic content</name>
+        <option_schema>[{"hint":"Pagination for browse content.","name":"limit","section":"Presentation","default_value":"12","label":"Number of items per page","type":"choice","choices":[{"label":"12","value":"12"},{"label":"24","value":"24"}]},{"hint":"Default sort order of content","name":"sortby","section":"Behavior","default_value":"popularity","label":"Default sort order","type":"choice","choices":[{"label":"popularity","value":"popularity"},{"label":"alphabetical","value":"alphabetical"}]},{"displayValue":"Search Application Configuration","hint":"Default search application sys id","name":"search_application","section":"Data","default_value":"7296910f53171010069addeeff7b12e7","label":"Search Application","type":"reference","value":"sys_search_context_config","ed":{"reference":"sys_search_context_config"}},{"displayValue":"Navigation Tab","hint":"Comma separated list of SYS IDs for searched sources filter from sys_search_filter table","name":"search_sources_filter","display_value_list":[],"section":"Data","default_value":"aed3c51253671010069addeeff7b121b,a6d3c51253671010069addeeff7b1217,62d1574053c13010cbb0ddeeff7b122c","label":"Search Sources Filter","type":"glide_list","value":"sys_search_filter","ed":{"reference":"sys_search_filter"}},{"displayValue":"Give employees the option to globally expand their search","hint":"Give employees the option to globally expand their search","name":"show_global_redirect","section":"Behavior","default_value":"true","label":"Give employees the option to globally expand their search","type":"boolean"},{"name":"events","section":"Presentation","label":"Events","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+    var portalRecord = $sp.getPortalRecord();
+    data.widgetInstance = $sp.getValue('sys_id');
+    data.EVENTS = getInstanceEvents(data.widgetInstance);
+    data.aisEnabledUtah = gs.getProperty('taxonomy.aisearch.enabled.utah') && $sp.isAISearchEnabled();
+    data.profileLang = gs.getSession().getLanguage();
+    data.sys_id = $sp.getParameter('topic_id');
+    data.in_context = $sp.getParameter('in_context');
+    data.sys_id = gs.nil(data.sys_id) ? '-1' : data.sys_id;
+    data.limit = parseInt(options.limit) || 12;
+    data.isMobile = gs.isMobile();
+    data.isMobileApp = $sp.getParameter('view') === 'mobile';
+    if (data.isMobileApp) {
+        data.limit = 5;
+    }
+    data.isLearningUpdated = GlidePluginManager.isActive('sn_lc');
+    data.contentTableToWidget = {
+        'sc_cat_item': 'catalog-content',
+        'kb_knowledge': 'kb-content'
+    };
+    if (data.isLearningUpdated) {
+        data.contentTableToWidget.sn_lc_course_item = 'learning-content';
+    }
+    var sortOptions = [{
+        id: "popularity",
+        name: gs.getMessage("Popular", "Popular")
+    }, {
+        id: "alphabetical",
+        name: gs.getMessage("A-Z", "A-Z")
+    }];
+    var actions = {
+        showMore: "show-more",
+        filter: "filter",
+        sort: "sort",
+        storeView: "storeView",
+        modifyAISResults: "modify-ais-results"
+    };
+    var REQUESTS = gs.getMessage("Requests");
+    var ARTICLES = gs.getMessage("Articles");
+    var COURSES = gs.getMessage("Courses");
+    data.showRedirectToGlobal = options.show_global_redirect === 'true';
+
+    data.clearSearchBtn = gs.getMessage("Reset search");
+    data.btnTitle = gs.getMessage("Search button");
+    data.placeholder = gs.getMessage("Search resources");
+    data.expandSearchMsg = gs.getMessage("Didn't find what you're looking for?");
+    data.expandSearchLink = gs.getMessage("Expand your search");
+    data.searchAppConfigId = portalRecord.getValue('search_application');
+
+    try {
+        var search_app_sys_id = options.search_application || data.searchAppConfigId;
+        data.ui = {
+            aisFacetFilters: [],
+            aisSearchFilters: [],
+            aisSortOptions: []
+        };
+
+        getSearchConfigParams(search_app_sys_id);
+
+        var defaultSearchFilters = options.search_sources_filter || '';
+        data.search_sources_filter = defaultSearchFilters.split(',');
+        var filters = defaultSearchFilters ? defaultSearchFilters.split(',') : data.ui.aisSearchFilters.map(function (f) {
+            return f.sysId;
+        });
+
+        data.searchWidgetInitOptions = {
+            'facet': JSON.stringify(data.ui.aisFacetFilters).replaceAll('\\"', '\\\\\\\\"').replaceAll('"', '\\\\\\"'),
+            'filter': JSON.stringify(filters).replaceAll('"', '\\\\\\"'),
+            'sort': JSON.stringify([]).replaceAll('"', '\\\\\\"'),
+            'searchConfigId': options.search_application,
+            'btnTitle': data.btnTitle,
+            'placeholder': data.placeholder,
+            'parentWidgetInstance': data.widgetInstance
+        };
+
+        if (input && input.action === actions.modifyAISResults) {
+            data.modifiedAISResponse = input.aisSearchResults.map(function (item) {
+                item = postProcessAISResponse(item);
+                return item;
+            });
+            addContentWidget(data.modifiedAISResponse);
+            var preferences = JSON.stringify({
+                filter: input.filterBy || '',
+                sort: input.sortBy || data.sortBy,
+                view: input.view || data.view,
+                topic: data.sys_id
+            });
+            var preferencesObj = gs.getSession().getClientData("preferences");
+            if (!preferencesObj) {
+                gs.getSession().putClientData('preferences', preferences);
+            }
+            return;
+        }
+    } catch (err) {
+        gs.error(gs.getMessage("Something went wrong!"));
+    }
+
+    data.sortOptions = input ? input.sortOptions : sortOptions;
+    data.sortBy = options && options.sortby ? options.sortby : data.sortOptions[0].id;
+    data.noContentMessage = '';
+    data.excludeList = [];
+    data.filterOptions = input ? input.filterOptions : getContentConfiguration();
+    data.filterBy = '';
+    data.view = "card";
+    data.featuredContent = [];
+    data.content = [];
+
+    if (!data.in_context) {
+        var preferencesObj = gs.getSession().getClientData("preferences");
+        if (preferencesObj) {
+            var topic = JSON.parse(preferencesObj).topic;
+            data.in_context = (topic === data.sys_id);
+        }
+        if (!data.in_context)
+            gs.getSession().putClientData('preferences', null);
+    }
+    if (data.in_context) {
+        var usersPreference = gs.getSession().getClientData("preferences");
+        if (usersPreference) {
+            data.sortBy = JSON.parse(usersPreference).sort;
+            data.filterBy = JSON.parse(usersPreference).filter;
+            data.view = JSON.parse(usersPreference).view;
+        }
+    }
+    try {
+        var topicJs = new sn_taxonomy.Topic(data.sys_id);
+        data.title = gs.getMessage("Browse {0}", topicJs.getName());
+        data.topicName = topicJs.getName();
+        data.mobileNoContentMessage = gs.getMessage("<p>Choose a {0} topic to get more specific support.</p>", topicJs.getName());
+        if (input) {
+            data.sortBy = input.sortBy || data.sortBy;
+            data.filterBy = input.filterBy || '';
+            data.view = input.view || data.view;
+            var preferences = JSON.stringify({
+                filter: data.filterBy,
+                sort: data.sortBy,
+                view: data.view,
+                topic: data.sys_id
+            });
+            gs.getSession().putClientData('preferences', preferences);
+            if (input.action === actions.storeView) {
+                data.content = input.content;
+                return;
+            }
+            if (input.action === actions.showMore) {
+                if (input.content.length > 0) {
+                    data.excludeList = getContentIdList(input.content);
+                    data.content = input.content;
+                }
+                if (input.featuredContent.length > 0) {
+                    var exclude = getContentIdList(input.featuredContent);
+                    data.featuredContent = input.featuredContent;
+                    data.excludeList = data.excludeList.concat(exclude);
+                }
+            }
+        }
+        if (!input || input.action !== actions.showMore) {
+            var taxonomyUtil = new global.TaxonomyPortalUtil();
+            var featuredContentCount = parseInt(gs.getProperty("taxonomy.content.featured_content_limit", "5"));
+            data.featuredContent = new TopicServiceUtil().getFeaturedContent(data.sys_id, featuredContentCount, data.isMobileApp, data.filterBy);
+            var featuredExcludeContent = getContentIdList(data.featuredContent);
+            data.featuredContent = data.featuredContent.map(function (a) {
+                a.isFeatured = true;
+                return a;
+            });
+            addContentWidget(data.featuredContent);
+            data.excludeList = data.excludeList.concat(featuredExcludeContent);
+            data.limit = data.limit - featuredExcludeContent.length;
+        }
+
+        var filterOptions = data.filterOptions.map(function (filter) {
+            return filter.sysId;
+        });
+
+        if (data.filterBy) {
+            filterOptions = [data.filterBy];
+        }
+
+        var content = getContentForTopic(data.limit, data.isMobileApp, data.excludeList, filterOptions);
+
+        if (data.limit + 1 === content.length) {
+            data.showMore = true;
+            data.showMoreMsg = gs.getMessage("Show more");
+            content.splice(content.length - 1, 1);
+        } else {
+            data.showMore = false;
+        }
+
+        addContentWidget(content);
+
+        data.content = data.content.concat(content);
+
+        if (!gs.nil(data.filterBy) && data.content.length === 0) {
+            var selectedFilterName = getSelectedFilterName(data.filterBy);
+            data.noContentMessage = gs.getMessage("<p>No results for <b>{0}</b></p>", selectedFilterName);
+        }
+    } catch (ex) {
+        gs.error(gs.getMessage("Invalid Topic Id."));
+    }
+
+    function getContentForTopic(limit, isMobile, excludeItems, contentConfigIds) {
+        limit = limit + 1;
+        if (data.sortBy === "popularity")
+            return new TopicServiceUtil().getContentByPopularity(data.sys_id, !isMobile, limit, isMobile, excludeItems, contentConfigIds);
+        else
+            return new TopicServiceUtil().getContent(data.sys_id, !isMobile, limit, isMobile, excludeItems, contentConfigIds);
+    }
+
+    function getContentConfiguration() {
+        var configurations = [{
+            sysId: "",
+            name: gs.getMessage("All", "All")
+        }];
+        var contentConfigurationGr = new GlideRecord("x_1383184_charityb_events");
+        contentConfigurationGr.addActiveQuery();
+        contentConfigurationGr.query();
+        while (contentConfigurationGr.next()) {
+            var configuration = {};
+            configuration.sysId = contentConfigurationGr.getUniqueValue();
+            configuration.name = contentConfigurationGr.getValue("name");
+            configurations.push(configuration);
+        }
+        return configurations;
+    }
+
+    function getContentIdList(content) {
+        return content.map(function (a) {
+            return a.content;
+        });
+    }
+
+    function getSelectedFilterName(sysId) {
+        var selectedFilter = data.filterOptions.filter(function (option) {
+            return option.sysId === sysId;
+        });
+        return selectedFilter[0].name;
+    }
+
+    function getInstanceEvents(instanceSysId) {
+        var gr = new GlideRecord('x_1383184_charityb_events');
+        gr.addQuery('active', true);
+        gr.addQuery('topic', instanceSysId);
+        gr.query();
+        var events = [];
+        while (gr.next()) {
+            events.push({
+                sys_id: gr.getValue('sys_id'),
+                name: gr.getValue('name'),
+                description: gr.getValue('description'),
+                start_date: gr.getValue('start_date'),
+                end_date: gr.getValue('end_date')
+            });
+        }
+        return events;
+    }
+
+    function addContentWidget(content) {
+        return content.map(function (item) {
+            var itemId = item.content.sys_id || item.content;
+            var contentType = item.content.sys_class_name;
+            item.contentWidget = data.contentTableToWidget[contentType];
+            if (data.isLearningUpdated && item.content.sys_class_name === 'sn_lc_course_item') {
+                item.contentWidget = data.contentTableToWidget.sn_lc_course_item;
+            }
+            return item;
+        });
+    }
+
+    function getSearchConfigParams(sys_id) {
+        var searchApplicationGr = new GlideRecord("search_application");
+        searchApplicationGr.get(sys_id);
+
+        var searchAppUtils = new SearchAppUtils(searchApplicationGr);
+        data.ui.aisFacetFilters = searchAppUtils.getFacetConfigurations();
+        data.ui.aisSearchFilters = searchAppUtils.getSearchFilterConfigurations();
+        data.ui.aisSortOptions = searchAppUtils.getSortConfigurations();
+    }
+
+    function postProcessAISResponse(response) {
+        response.result.forEach(function (result) {
+            result.facet.forEach(function (facet) {
+                facet.selected = facet.value.every(function (value) {
+                    return data.search_sources_filter.includes(value);
+                });
+            });
+        });
+        return response;
+    }
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 05:05:26</sys_created_on>
+        <sys_id>0237c98593be821094e3f15a7bba1052</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Cb topic content</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_widget_0237c98593be821094e3f15a7bba1052</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 06:49:54</sys_updated_on>
+        <template><![CDATA[<div class="browse-content-container">
+  <div ng-class="data.isMobileApp ? 'browse-elevation-mobile': 'browse-elevation'">
+
+    <div class="box-header-title">
+      <h3 class="title-item">${Support resources}</h3>
+    </div>
+
+    <div class="box-header-title p-v-2">
+      <div ng-if="!data.isMobileApp" class="title-item-filters"
+        ng-class="{'item-fitlers-disable': (data.events.length === 0 && data.filterBy ==='')}">
+        <div class="flex-mobile m-r-auto">
+          <label class="label-padding" for="filter_picker_select">${Filter by}</label>
+          <select id="filter_picker_select" ng-disabled="data.events.length === 0 && data.filterBy ===''"
+            class="form-control" name="filter_picker_select" ng-model="data.filterBy" title="${Filter by}"
+            ng-change="getUpdatedContent()" aria-label="${Filter by}">
+            <option value="">${All}</option>
+            <!-- Add options based on your filter criteria -->
+          </select>
+        </div>
+
+        <div class="flex-mobile">
+          <label class="label-padding" for="sort_picker_select">${Sort by}</label>
+          <select id="sort_picker_select" class="form-control"
+            ng-disabled="data.events.length === 0 && data.filterBy ===''" name="sort_picker_select"
+            ng-model="data.sortBy" ng-change="getUpdatedContent()" aria-label="${Sort by}">
+            <option value="start_date">${Start Date}</option>
+            <option value="event_name">${Event Name}</option>
+            <!-- Add other sorting options -->
+          </select>
+        </div>
+      </div>
+
+      <div ng-if="data.isMobileApp" class="title-item-filters"
+        ng-class="{'item-fitlers-disable': (data.events.length === 0 && data.filterBy ==='')}">
+        <div class="flex-mobile form-inline">
+          <label class="label-padding" for="filter_picker_select">${Filter by}</label>
+          <select id="filter_picker_select" ng-disabled="data.events.length === 0 && data.filterBy ===''"
+            class="sn-select-basic full-width-drop-down" name="filter_picker_select" ng-model="data.filterBy"
+            title="${Filter by}" ng-change="getUpdatedContent()" aria-hidden="true">
+            <option value="">${All}</option>
+            <!-- Add options based on your filter criteria -->
+          </select>
+        </div>
+        <div class="form-inline filter-padding flex-mobile">
+          <label class="label-padding" for="sort_picker_select">${Sort by}</label>
+          <select id="sort_picker_select" ng-disabled="data.events.length === 0 && data.filterBy ===''"
+            class="sn-select-basic full-width-drop-down" name="sort_picker_select" ng-model="data.sortBy"
+            title="${Sort by}" ng-change="getUpdatedContent()" aria-hidden="true">
+            <option value="start_date">${Start Date}</option>
+            <option value="event_name">${Event Name}</option>
+            <!-- Add other sorting options -->
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div id="tabpanel-events" class="grid-margin">
+      <div class="flex-item-card" ng-repeat="event in data.events" ng-if="!loading">
+        <div class="flex-display">
+          <div class="event-details">
+            <h4>{{ event.event_name }}</h4>
+            <p>${Start Date}: {{ event.start_date }}</p>
+            <p>${End Date}: {{ event.end_date }}</p>
+            <!-- Add other event details as needed -->
+          </div>
+        </div>
+      </div>
+
+      <div ng-if="loading" class="flex-item-card skeleton-loading" ng-repeat="item in [1,2,3,4,5,6,7,8,9,10,11,12]">
+        <span class="skeleton-loader badge-loader"></span>
+        <div class="flex-column text-items">
+          <div class="skeleton-loader title-loader"></div>
+          <div class="skeleton-loader description-loader"></div>
+          <div class="skeleton-loader additional-info-loader"></div>
+          <div class="empty"></div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="!data.isMobileApp && data.events.length === 0 && data.filterBy ===''">
+      <div class="content-align-center">
+        <img src="5c50c822c3e930102ec1a589a840dd7b.iix" />
+        <p>${No events available}</p>
+        <!-- Add additional messaging or actions -->
+      </div>
+    </div>
+
+    <div ng-if="data.isMobileApp && data.events.length === 0 && data.filterBy ===''">
+      <div class="content-align-center">
+        <img src="5c50c822c3e930102ec1a589a840dd7b.iix" />
+        <p>${No events available}</p>
+        <!-- Add additional messaging or actions -->
+      </div>
+    </div>
+
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sp_widget_0237c98593be821094e3f15a7bba1052</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller = function ($timeout, $rootScope, $scope, $window, snAnalytics) {
+    var c = this;
+    var CARD_VIEW = "card";
+    var LIST_VIEW = "list";
+    var FLEX_CARD_SELECTOR = '.flex-item-card';
+    var CONTENT_CARD_SELECTOR = c.data.isMobileApp ? '.content-card-mobile' : '.content-card';
+    var actions = {
+        showMore: "show-more",
+        filter: "filter",
+        sort: "sort",
+        modifyAISResults: "modify-ais-results"
+    };
+    $scope.loading = false;
+    $scope.contentItems = [];
+
+    // AIS search integration
+    $scope.isBackFromGlobalSearch = false;
+    $scope.searchAppConfigId = c.options.searchAppSysId;
+    $scope.isSearchModeEnabled = false;
+    $scope.searchedTerm = "";
+    $scope.spellCorrectedTerm = "";
+    $scope.noOfNewItems = 0;
+    $scope.aisContentItems = [];
+    $scope.aisFilterOptions = [];
+    $scope.aisSortOptions = [];
+    $scope.hasNext = false;
+    c.data.getNext = false;
+    c.data.aisFilterBy = '';
+    c.data.aisSortBy = '';
+    var AIS_EVENTS = c.data.EVENTS;
+
+    // Function to populate AIS filter and sort options
+    $scope.populateFilterAndSortOptions = function (allAISFilterOptions, allAISSortOptions) {
+        $scope.aisFilterOptions = [{
+            name: '${All}',
+            sysId: ''
+        }].concat(allAISFilterOptions.filter(function (f) {
+            return c.data.search_sources_filter.includes(f.sysId);
+        }).map(function (item) {
+            return {
+                name: item.label,
+                sysId: item.sysId
+            };
+        }));
+        $scope.aisSortOptions = [{
+            name: '${Most relevant}',
+            id: ''
+        }].concat(allAISSortOptions.map(function (item) {
+            return {
+                name: item.label,
+                id: item.sysId
+            };
+        }));
+    };
+
+    // Watch for changes in AIS mode
+    var aisModeChangeDestroy = $rootScope.$on(AIS_EVENTS.AIS_MODE_CHANGE_EVENT, function (event, data) {
+        $scope.isSearchModeEnabled = data.searchModeEnabled;
+        if (!$scope.isSearchModeEnabled) {
+            $scope.resetAISParams();
+        }
+    });
+
+    // Watch for AIS loading events
+    var aisLoadingDestroy = $rootScope.$on(AIS_EVENTS.AIS_LOADING_EVENT, function (event, data) {
+        if (data.isAISloading) {
+            $scope.loading = data.isAISloading;
+            if (!data.loadingNext) {
+                $scope.aisContentItems = [];
+            }
+        }
+    });
+
+    // Watch for AIS results updated events
+    var resultsUpdatedDestroy = $rootScope.$on(AIS_EVENTS.AIS_RESULTS_UPDATED_EVENT, function (event, data) {
+        $scope.searchedTerm = data.searchedTerm;
+        $scope.spellCorrectedTerm = data.spellCorrectedTerm;
+        $scope.hasNext = data.hasNext;
+        $scope.populateFilterAndSortOptions(data.filterOptions, data.sortOptions);
+        $scope.modifyAISResultsData(data.results, c.data.action === actions.showMore);
+        $scope.noOfNewItems = data.results.length;
+        if (data.results.length === 0) {
+            $scope.loading = false;
+        }
+    });
+
+    // Cleanup on controller destroy
+    $scope.$on('$destroy', function () {
+        aisModeChangeDestroy();
+        aisLoadingDestroy();
+        resultsUpdatedDestroy();
+    });
+
+    // Function to reset AIS parameters
+    $scope.resetAISParams = function () {
+        $scope.noOfNewItems = 0;
+        $scope.aisContentItems = [];
+        c.data.aisFilterBy = '';
+        c.data.aisSortBy = '';
+        c.data.searchedQuery = '';
+        $window.sessionStorage.removeItem("topicSearchPreferences");
+    };
+
+    // Function to clear search mode
+    $scope.clearSearch = function () {
+        $rootScope.$broadcast(AIS_EVENTS.AIS_MODE_CHANGE_EVENT, {
+            searchModeEnabled: false,
+        });
+    };
+
+    // Function to refresh AIS search results
+    $scope.refreshResults = function (searchParams) {
+        if (searchParams) {
+            c.data.searchQuery = searchParams.search_term;
+            c.data.filter = JSON.stringify(searchParams.filter === '' ? c.data.search_sources_filter : [searchParams.filter]).replaceAll('"', '\\\\\\"');
+            c.data.sort = JSON.stringify(searchParams.sort === '' ? [] : [searchParams.sort]).replaceAll('"', '\\\\\\"');
+            c.data.spellCheck = searchParams.disable_spell_check || false;
+        }
+        $rootScope.$broadcast(AIS_EVENTS.AIS_REFRESH_RESULTS_EVENT, c.data);
+    };
+
+    // Function to get content items based on search mode
+    $scope.getContentItems = function () {
+        if ($scope.isSearchModeEnabled) {
+            $scope.aisContentItems = $scope.aisContentItems.filter(function (results) {
+                return results.table !== "sys_attachment";
+            });
+            if (c.data.isMobileApp) {
+                var searchData = $scope.aisContentItems.slice(0, $scope.nextIndexMobileSearch + $scope.mobileSearchResCount);
+                $scope.showMoreFlagMobileSearch = $scope.aisContentItems.length &gt; ($scope.nextIndexMobileSearch + $scope.mobileSearchResCount) || $scope.hasNext;
+                return searchData;
+            }
+            return $scope.aisContentItems;
+        }
+        return $scope.contentItems;
+    };
+
+    // Function to modify AIS search results data
+    $scope.modifyAISResultsData = function (aisSearchResults, isConcat) {
+        c.data.action = actions.modifyAISResults;
+        c.data.aisSearchResults = aisSearchResults;
+        c.data.searchedQuery = $scope.searchedTerm;
+
+        var aisPreferences = JSON.stringify({
+            aisFilterBy: c.data.aisFilterBy,
+            aisSortBy: c.data.aisSortBy,
+            aisSearchQ: c.data.searchedQuery,
+            profileLang: c.data.profileLang
+        });
+        $window.sessionStorage.setItem("topicSearchPreferences", aisPreferences);
+
+        c.server.update().then(function (response) {
+            var focusIndex = $scope.aisContentItems.length;
+            if (isConcat) {
+                $scope.aisContentItems = $scope.aisContentItems.concat(response.modifiedAISResponse);
+                $timeout(function () {
+                    $(CONTENT_CARD_SELECTOR).get(focusIndex).focus();
+                }, 100);
+            } else {
+                $scope.aisContentItems = response.modifiedAISResponse;
+            }
+        });
+    };
+
+    // Function to get expand search URL
+    $scope.getExpandSearchURL = function () {
+        var facetFilters = encodeURI(JSON.stringify(c.data.ui.aisFacetFilters));
+        return "?id=search&amp;spa=1&amp;q=" + $scope.searchedTerm + "&amp;disableSpellCheck=false";
+    };
+
+    // Function to navigate to global search
+    $scope.toGlobalSearch = function () {
+        $scope.setSessionData();
+        $window.location.href = $scope.getExpandSearchURL();
+    };
+
+    // Function to set session data for AIS search parameters
+    $scope.setSessionData = function () {
+        var aisSearchParams = {
+            aisSearchQ: $scope.searchedTerm,
+            aisFilterBy: c.data.aisFilterBy,
+            aisSortBy: c.data.aisSortBy,
+        };
+        $window.sessionStorage.setItem("aisSearchParams", JSON.stringify(aisSearchParams));
+    };
+
+    // Function to create Appsee event
+    c.createAppseeEvent = function () {
+        var payload = {
+            name: 'Topic Page Visits',
+            data: {
+                'Topic Name': c.data.topicName,
+                'Topic Id': c.data.sys_id
+            }
+        };
+        snAnalytics.addEvent(payload);
+    };
+
+    // Initialize Appsee event creation if sys_id is valid
+    if (c.data.sys_id != -1) {
+        c.createAppseeEvent();
+    }
+
+    // Initialize content items if data exists
+    if (c.data) {
+        $scope.contentItems = c.data.featuredContent.concat(c.data.content);
+    }
+
+    // Event listener to detect widget presence and refresh on load
+    var destroyWidgetWatcher = $scope.$watch(
+        function () {
+            return $("[widget='widget'][sn-atf-area='AIS Topic Search']").length;
+        },
+        function (newValue, oldValue) {
+            function refreshOnLoad(searchParams) {
+                c.data.aisFilterBy = searchParams.filter;
+                c.data.aisSortBy = searchParams.sort;
+                $scope.refreshResults(searchParams);
+                destroyWidgetWatcher();
+            }
+
+            if (newValue !== oldValue) {
+                if ($window.sessionStorage.getItem('topicSearchPreferences')) {
+                    var inContextSearchParams = JSON.parse($window.sessionStorage.getItem('topicSearchPreferences'));
+                    if (inContextSearchParams) {
+                        var searchParams = {
+                            search_term: inContextSearchParams.aisSearchQ,
+                            filter: inContextSearchParams.aisFilterBy,
+                            sort: inContextSearchParams.aisSortBy,
+                            profileLang: inContextSearchParams.profileLang
+                        };
+                        if (!c.data.in_context || searchParams.profileLang !== c.data.profileLang) {
+                            $window.sessionStorage.removeItem("topicSearchPreferences");
+                        } else {
+                            refreshOnLoad(searchParams);
+                        }
+                    }
+                }
+                if ($window.sessionStorage.getItem('isBackFromGS') === "true" &amp;&amp; $window.sessionStorage.getItem('aisSearchParams')) {
+                                            var aisSearchParams = JSON.parse($window.sessionStorage.getItem('aisSearchParams'));
+                    searchParams = {
+                        search_term: aisSearchParams.aisSearchQ,
+                        filter: aisSearchParams.aisFilterBy,
+                        sort: aisSearchParams.aisSortBy,
+                    };
+                    refreshOnLoad(searchParams);
+                }
+                $window.sessionStorage.removeItem('aisSearchParams');
+                $window.sessionStorage.removeItem('isBackFromGS');
+            }
+        }
+    );
+
+    // Event listener to set 'isBackFromGS' session storage on popstate
+    $window.addEventListener('popstate', function () {
+        $window.sessionStorage.setItem('isBackFromGS', "true");
+    });
+
+    // Function to load more content
+    $scope.loadMore = function () {
+        c.data.action = actions.showMore;
+        var focusIndex = c.data.content.length;
+        if ($scope.isSearchModeEnabled) {
+            c.data.getNext = true;
+            $scope.refreshResults();
+            return;
+        }
+        return $scope.updateContent().then(function () {
+            $timeout(function () {
+                $(CONTENT_CARD_SELECTOR).get(focusIndex).focus();
+            }, 100);
+        });
+    };
+
+    // Function to handle keydown events for load more
+    $scope.loadMoreKeydown = function (event) {
+        if (event.which === 32 || event.which === 13) {
+            event.preventDefault();
+            var focusIndex = c.data.content.length;
+            if ($scope.isSearchModeEnabled) {
+                c.data.getNext = true;
+                $scope.refreshResults();
+                return;
+            }
+            $scope.loadMore().then(function () {
+                $timeout(function () {
+                    $(CONTENT_CARD_SELECTOR).get(focusIndex).focus();
+                }, 100);
+            });
+        }
+    };
+
+    // Function to get updated content
+    $scope.getUpdatedContent = function () {
+        c.data.action = actions.filter;
+        c.data.getNext = false;
+        if ($scope.isSearchModeEnabled) {
+            var searchParams = {
+                filter: c.data.aisFilterBy,
+                sort: c.data.aisSortBy,
+            };
+            $scope.refreshResults(searchParams);
+            return;
+        }
+        return $scope.updateContent();
+    };
+
+    // Function to update content
+    $scope.updateContent = function () {
+        $scope.loading = true;
+        return c.server.update().then(function () {
+            $scope.contentItems = c.data.featuredContent.concat(c.data.content);
+            $scope.loading = false;
+        }).catch(function (error) {
+            console.error('Error updating content:', error);
+            $scope.loading = false;
+        });
+    };
+
+    // Function to change view
+    $scope.changeView = function (view) {
+        c.data.view = view;
+        c.data.action = "storeView";
+        c.server.update().catch(function (error) {
+            console.error('Error storing view:', error);
+        });
+    };
+
+    // Function to switch tab
+    $scope.switchTab = function ($event) {
+        if ($event.which == 37 || $event.which == 39) {
+            $event.stopPropagation();
+            var layout = c.data.view === CARD_VIEW ? LIST_VIEW : CARD_VIEW;
+            $scope.changeView(layout);
+            $('#tab-' + layout).focus();
+        }
+    };
+
+    // Function to check if device is touch device
+    $scope.isTouchDevice = function () {
+        return ('ontouchstart' in $window);
+    };
+
+    // Function to handle corrected search
+    $scope.handleCorrectedSearch = function (term, type) {
+        var searchParams = {
+            search_term: term,
+            filter: c.data.aisFilterBy,
+            sort: c.data.aisSortBy,
+            disable_spell_check: type === 'search-term'
+        };
+        $scope.refreshResults(searchParams);
+    };
+};
+
+]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;$text-primary : #181A1F !default;
+
+$background-primary : #ffffff !default;
+$background-secondary : #f6f6f8 !default;
+$background-tertiary : #F0F1F5 !default;
+
+$sp-panel-box-shadow : 0 4px 8px 0 rgba(23, 40, 52, 0.08) !default;
+
+$sp-space--lg: 16px !default;
+$sp-space--xl : 24px !default;
+$padding-base-vertical: 6px !default;
+
+$border-primary : #8790A1 !default;
+$border-secondary : #ACB2BE !default;
+$border-tertiary : #DADDE2 !default;
+
+$select-primary: #007b58 !default;
+
+$headings-font-weight: 600 !default;
+$divider: #F6F7F7 !default;
+
+/* Double focus ring on cards */
+#tabpanel-card-06d3df67c3053010069aec4b7d40dd70 div:focus {
+  box-shadow: none !important;
+  border: none;
+}
+
+mark {
+  background-color: $brand-primary-lightest;
+  color: $text-primary;
+  padding: 0;
+}
+
+.m-r-auto {
+  margin-right: auto;
+}
+
+.p-v-2 {
+  padding: $sp-space--lg 0;
+}
+
+.browse-content-container {
+  .toggle {
+    color: $gray-darker;
+
+    i:not(.active):hover {
+      color: $list-group-link-heading-color;
+    }
+  }
+
+  .fa {
+    border: 4px solid transparent;
+  }
+
+  .fa.active {
+    color: $select-primary;
+  }
+
+  .view-controls {
+    margin-bottom: 5px;
+  }
+
+  .filter-padding {
+    padding: 0 $sp-space--lg;
+  }
+
+  .item-fitlers-disable {
+    opacity: 50%;
+    pointer-events: none;
+  }
+
+  .grid-margin {
+    margin-top: $sp-space--xl;
+  }
+
+  .title-item-filters {
+    width: 100%;
+    flex: 1 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    select {
+      width: 140px;
+    }
+
+    .filter-search {
+      width: max-content;
+      display: flex;
+      align-items: flex-end;
+      margin-left: $sp-space--lg;
+
+      div[widget="widget"][sn-atf-area="AIS Topic Search"] {
+        padding: 0 $sp-space--lg;
+
+        .input-group {
+          width: 248px;
+        }
+
+        div.dropdown-menu {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media (min-width:62em) and (max-width: 75em) {
+    .title-item-filters {
+      select {
+        width: 120px;
+      }
+    }
+  }
+
+  @media (min-width:38em) and (max-width: 48em) {
+    .title-item-filters {
+      align-items: initial;
+
+      select {
+        width: 10rem;
+      }
+
+      .filter-padding {
+        padding-right: 0;
+      }
+
+      .filter-search {
+        gap: $sp-space--lg;
+
+        div[widget="widget"][sn-atf-area="AIS Topic Search"] {
+          padding: 0;
+
+          .input-group {
+            width: 20rem;
+          }
+        }
+
+        .view-controls {
+          .toggle {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 38em), (min-width:48em) and (max-width: 62em) {
+    .box-header-title {
+      flex-wrap: wrap;
+
+      &amp;amp;.spellcheck-container {
+        flex-direction: column;
+      }
+    }
+
+    .title-item {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .title-item-filters {
+      justify-content: flex-start !important;
+      width: 100%;
+      flex-direction: column;
+      align-items: initial !important;
+
+      select {
+        width: 100%;
+        margin-bottom: $sp-space--lg;
+      }
+
+      .filter-search {
+        display: block;
+        padding: 0;
+        margin-left: 0;
+        width: auto;
+
+        div[widget="widget"][sn-atf-area="AIS Topic Search"] {
+          padding: 0;
+
+          .input-group {
+            width: 100%;
+          }
+
+          div.dropdown-menu {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .view-controls {
+      display: none;
+    }
+
+    .flex-mobile {
+      width: 100%;
+    }
+
+    .filter-padding {
+      padding: 0;
+    }
+  }
+
+  .box-header-title {
+    display: flex;
+    margin: 0 10px;
+    flex-wrap: wrap;
+
+    .search-results-container {
+      button.btn-link {
+        padding: 0;
+      }
+    }
+
+    .clear-search-container {
+      margin-left: auto;
+
+      button.btn.btn-link {
+        padding: 0;
+      }
+    }
+  }
+
+  .label-padding {
+    padding-right: 5px;
+  }
+
+  .title-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    word-break: break-word;
+  }
+
+  .browse-elevation {
+    background: $background-primary;
+    padding: 0.4rem 1.4rem 1rem 1.4rem;
+    border-radius: $border-radius-large;
+    -webkit-box-shadow: $sp-panel-box-shadow;
+    box-shadow: $sp-panel-box-shadow;
+
+    .flex-item-card {
+      border: 1px solid $border-tertiary;
+      border-radius: $border-radius-base;
+      margin: 10px;
+      max-width: 500px;
+      position: relative;
+      display: flex;
+    }
+
+    .flex-item-card:hover {
+      box-shadow: 0rem 0.2rem 1rem #E5E5E5;
+    }
+
+    .flex-display {
+      display: flex;
+      height: 100%;
+      flex-grow: 1;
+
+      &amp;gt;div {
+        flex-grow: 1;
+      }
+    }
+
+    .list-view-block {
+      display: block;
+    }
+
+    .list-view {
+      flex-direction: column;
+      flex-grow: 1;
+      max-width: none;
+
+      .flex-display {
+        flex-direction: column;
+      }
+    }
+
+    .btn-loadmore {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      display: block;
+      color: $text-primary;
+      background: $background-primary;
+      border-color: $border-tertiary;
+    }
+
+    .btn-loadmore:hover {
+      background: $background-secondary;
+    }
+
+    .btn-loadmore:active {
+      background: $background-tertiary;
+    }
+
+    /* IE 10-11 specific Class to override */
+    @media screen and (-ms-high-contrast: active),
+    (-ms-high-contrast: none) {
+      .flex-item-card {
+        width: 350px;
+        max-width: 350px;
+        flex: 1 0 100%;
+      }
+
+      .grid-test-auto-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .list-view {
+        max-width: none;
+        width: auto;
+
+        .text-ellipsis {
+          width: 700px;
+        }
+      }
+
+      .fa.active {
+        outline-color: $select-primary;
+      }
+    }
+  }
+
+  .browse-elevation-mobile {
+    background: $background-primary;
+    padding: 0 1rem 1rem 1rem;
+    border-bottom: 12px solid $divider;
+    font-size: 14px;
+
+    h3 {
+      font-size: 1.25rem !important;
+      font-weight: bold;
+    }
+
+    .flex-item-card {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      border-bottom: 1px solid #EAEAEA;
+      position: relative;
+    }
+
+    .flex-display {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .box-header-title {
+      margin: 0;
+    }
+
+    .title-item-filters {
+      .form-inline:first-of-type {
+        margin-bottom: $sp-space--lg;
+      }
+    }
+
+    .btn-loadmore {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      display: block;
+    }
+
+    .filter-padding {
+      padding-left: 0;
+    }
+
+    .label-padding {
+      font-weight: $headings-font-weight;
+    }
+
+    .full-width-drop-down {
+      width: 100%;
+      border: 1px solid $border-tertiary;
+      border-radius: 5px !important;
+      font-weight: $headings-font-weight;
+    }
+
+    .select2-container {
+
+      /* need to over ride the important style of mesp which already has important for a11y reasons*/
+      #s2id_autogen1,
+      #s2id_autogen2 {
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .select2-choice {
+        /* Tappable areas on mobile should be atleast 48px in height*/
+        min-height: 48px;
+
+        span[role="text"].select2-chosen {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+
+    .select2-reference .select2-arrow,
+    .select2-choice .select2-arrow {
+      /* need to over ride the important style of mesp which already has important */
+      right: 0.5rem !important;
+      padding-top: 8px;
+    }
+
+    .select2-container .select2-choice .select2-arrow b:before {
+      content: "\f107";
+      font-family: FontAwesome;
+    }
+
+    .select2-container .select2-choice {
+      padding-bottom: 0;
+      /* need to over ride the important style of mesp which already has important */
+      box-shadow: none !important;
+    }
+
+    .select2-container .select2-choice .select2-chosen {
+      font-size: 14px;
+    }
+
+    .grid-test-auto-wrap {
+      grid-template-columns: repeat(auto-fit, minmax(16.25rem, 1fr));
+    }
+
+    .content-align-center {
+      min-height: 200px;
+    }
+
+    .item-fitlers-disable {
+      display: none;
+    }
+  }
+
+  .content-align-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    text-align: center;
+
+    &amp;amp;.expand-search-container {
+      min-height: 134px;
+      background-color: $background-tertiary;
+      margin: $sp-space--xl 10px $sp-space--sm 10px;
+      padding: $padding-base-horizontal;
+      border-radius: $border-radius-large;
+
+      .expand-search-message {
+        color: $text-secondary;
+        margin-bottom: $sp-space--sm;
+      }
+
+      a {
+        color: $link-color;
+      }
+    }
+  }
+
+  .grid-test-auto-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+  }
+
+  .search-no-results-container {
+    margin: $sp-space--xl;
+    padding: $sp-space--lg;
+
+    i.fa.fa-search {
+      font-size: 2 * $font-size-xl;
+      color: $text-tertiary;
+      margin-bottom: $sp-space--md;
+    }
+
+    p {
+      color: $text-secondary;
+      font-size: $font-size-base;
+      margin-bottom: $sp-space--md;
+    }
+  }
+}
+
+.skeleton-loading {
+  padding: 10px;
+  $loader-line-height: 15px;
+
+  .text-items {
+    width: 100%;
+  }
+
+  .title-loader {
+    height: $loader-line-height;
+    width: 95%
+  }
+
+  .description-loader {
+    height: $loader-line-height;
+    width: 70%
+  }
+
+  .additional-info-loader {
+    height: $loader-line-height;
+    width: 40%
+  }
+
+  .badge-loader {
+    height: 25px;
+    width: 50%
+  }
+
+  .empty {
+    height: 30px;
+  }
+
+  .skeleton-loader {
+    box-sizing: border-box;
+    animation: progress 2s ease-in-out infinite;
+    background: rgb(239, 241, 246) no-repeat;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+    background-size: 200px 100%;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 6px;
+
+    &amp;amp;:after,
+    &amp;amp;:before {
+      box-sizing: border-box;
+    }
+  }
+}
+@media (max-width : 350px) {
+  .browse-content-container {
+    .grid-test-auto-wrap {
+      grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    }
+  }
+}
+
+@keyframes progress {
+  0% {
+    background-position: -200px 0;
+  }
+
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id&gt;cb_topic_content&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+    // Watch for changes in the number of select2-choice elements with select2-chosen span
+    if (controller.data.isMobileApp) {
+        var destroyWatcher = scope.$watch(
+            function () { 
+                return element.find('.select2-choice span.select2-chosen').length; 
+            },
+            function (newValue, oldValue) {
+                if (newValue !== oldValue) {
+                    var mespSelectInputs = element.find('.select2-choice span.select2-chosen');
+                    if (mespSelectInputs.length === 2) {
+                        // Set role attribute to 'text' for the first and second elements
+                        angular.element(mespSelectInputs[0]).attr('role', 'text');
+                        angular.element(mespSelectInputs[1]).attr('role', 'text');
+                        // Stop watching once the condition is met
+                        destroyWatcher();
+                    }
+                }
+            }
+        );
+    }
+}
+]]&gt;&lt;/link&gt;&lt;name&gt;Cb topic content&lt;/name&gt;&lt;option_schema&gt;[{"hint":"Pagination for browse content.","name":"limit","section":"Presentation","default_value":"12","label":"Number of items per page","type":"choice","choices":[{"label":"12","value":"12"},{"label":"24","value":"24"}]},{"hint":"Default sort order of content","name":"sortby","section":"Behavior","default_value":"popularity","label":"Default sort order","type":"choice","choices":[{"label":"popularity","value":"popularity"},{"label":"alphabetical","value":"alphabetical"}]},{"displayValue":"Search Application Configuration","hint":"Default search application sys id","name":"search_application","section":"Data","default_value":"7296910f53171010069addeeff7b12e7","label":"Search Application","type":"reference","value":"sys_search_context_config","ed":{"reference":"sys_search_context_config"}},{"displayValue":"Navigation Tab","hint":"Comma separated list of SYS IDs for searched sources filter from sys_search_filter table","name":"search_sources_filter","display_value_list":[],"section":"Data","default_value":"aed3c51253671010069addeeff7b121b,a6d3c51253671010069addeeff7b1217,62d1574053c13010cbb0ddeeff7b122c","label":"Search Sources Filter","type":"glide_list","value":"sys_search_filter","ed":{"reference":"sys_search_filter"}},{"displayValue":"Give employees the option to globally expand their search","hint":"Give employees the option to globally expand their search","name":"show_global_redirect","section":"Behavior","default_value":"true","label":"Give employees the option to globally expand their search","type":"boolean"},{"name":"events","section":"Presentation","label":"Events","type":"string"}]&lt;/option_schema&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function () {
+    var portalRecord = $sp.getPortalRecord();
+    data.widgetInstance = $sp.getValue('sys_id');
+    data.EVENTS = getInstanceEvents(data.widgetInstance);
+    data.aisEnabledUtah = gs.getProperty('taxonomy.aisearch.enabled.utah') &amp;&amp; $sp.isAISearchEnabled();
+    data.profileLang = gs.getSession().getLanguage();
+    data.sys_id = $sp.getParameter('topic_id');
+    data.in_context = $sp.getParameter('in_context');
+    data.sys_id = gs.nil(data.sys_id) ? '-1' : data.sys_id;
+    data.limit = parseInt(options.limit) || 12;
+    data.isMobile = gs.isMobile();
+    data.isMobileApp = $sp.getParameter('view') === 'mobile';
+    if (data.isMobileApp) {
+        data.limit = 5;
+    }
+    data.isLearningUpdated = GlidePluginManager.isActive('sn_lc');
+    data.contentTableToWidget = {
+        'sc_cat_item': 'catalog-content',
+        'kb_knowledge': 'kb-content'
+    };
+    if (data.isLearningUpdated) {
+        data.contentTableToWidget.sn_lc_course_item = 'learning-content';
+    }
+    var sortOptions = [{
+        id: "popularity",
+        name: gs.getMessage("Popular", "Popular")
+    }, {
+        id: "alphabetical",
+        name: gs.getMessage("A-Z", "A-Z")
+    }];
+    var actions = {
+        showMore: "show-more",
+        filter: "filter",
+        sort: "sort",
+        storeView: "storeView",
+        modifyAISResults: "modify-ais-results"
+    };
+    var REQUESTS = gs.getMessage("Requests");
+    var ARTICLES = gs.getMessage("Articles");
+    var COURSES = gs.getMessage("Courses");
+    data.showRedirectToGlobal = options.show_global_redirect === 'true';
+
+    data.clearSearchBtn = gs.getMessage("Reset search");
+    data.btnTitle = gs.getMessage("Search button");
+    data.placeholder = gs.getMessage("Search resources");
+    data.expandSearchMsg = gs.getMessage("Didn't find what you're looking for?");
+    data.expandSearchLink = gs.getMessage("Expand your search");
+    data.searchAppConfigId = portalRecord.getValue('search_application');
+
+    try {
+        var search_app_sys_id = options.search_application || data.searchAppConfigId;
+        data.ui = {
+            aisFacetFilters: [],
+            aisSearchFilters: [],
+            aisSortOptions: []
+        };
+
+        getSearchConfigParams(search_app_sys_id);
+
+        var defaultSearchFilters = options.search_sources_filter || '';
+        data.search_sources_filter = defaultSearchFilters.split(',');
+        var filters = defaultSearchFilters ? defaultSearchFilters.split(',') : data.ui.aisSearchFilters.map(function (f) {
+            return f.sysId;
+        });
+
+        data.searchWidgetInitOptions = {
+            'facet': JSON.stringify(data.ui.aisFacetFilters).replaceAll('\\"', '\\\\\\\\"').replaceAll('"', '\\\\\\"'),
+            'filter': JSON.stringify(filters).replaceAll('"', '\\\\\\"'),
+            'sort': JSON.stringify([]).replaceAll('"', '\\\\\\"'),
+            'searchConfigId': options.search_application,
+            'btnTitle': data.btnTitle,
+            'placeholder': data.placeholder,
+            'parentWidgetInstance': data.widgetInstance
+        };
+
+        if (input &amp;&amp; input.action === actions.modifyAISResults) {
+            data.modifiedAISResponse = input.aisSearchResults.map(function (item) {
+                item = postProcessAISResponse(item);
+                return item;
+            });
+            addContentWidget(data.modifiedAISResponse);
+            var preferences = JSON.stringify({
+                filter: input.filterBy || '',
+                sort: input.sortBy || data.sortBy,
+                view: input.view || data.view,
+                topic: data.sys_id
+            });
+            var preferencesObj = gs.getSession().getClientData("preferences");
+            if (!preferencesObj) {
+                gs.getSession().putClientData('preferences', preferences);
+            }
+            return;
+        }
+    } catch (err) {
+        gs.error(gs.getMessage("Something went wrong!"));
+    }
+
+    data.sortOptions = input ? input.sortOptions : sortOptions;
+    data.sortBy = options &amp;&amp; options.sortby ? options.sortby : data.sortOptions[0].id;
+    data.noContentMessage = '';
+    data.excludeList = [];
+    data.filterOptions = input ? input.filterOptions : getContentConfiguration();
+    data.filterBy = '';
+    data.view = "card";
+    data.featuredContent = [];
+    data.content = [];
+
+    if (!data.in_context) {
+        var preferencesObj = gs.getSession().getClientData("preferences");
+        if (preferencesObj) {
+            var topic = JSON.parse(preferencesObj).topic;
+            data.in_context = (topic === data.sys_id);
+        }
+        if (!data.in_context)
+            gs.getSession().putClientData('preferences', null);
+    }
+    if (data.in_context) {
+        var usersPreference = gs.getSession().getClientData("preferences");
+        if (usersPreference) {
+            data.sortBy = JSON.parse(usersPreference).sort;
+            data.filterBy = JSON.parse(usersPreference).filter;
+            data.view = JSON.parse(usersPreference).view;
+        }
+    }
+    try {
+        var topicJs = new sn_taxonomy.Topic(data.sys_id);
+        data.title = gs.getMessage("Browse {0}", topicJs.getName());
+        data.topicName = topicJs.getName();
+        data.mobileNoContentMessage = gs.getMessage("&lt;p&gt;Choose a {0} topic to get more specific support.&lt;/p&gt;", topicJs.getName());
+        if (input) {
+            data.sortBy = input.sortBy || data.sortBy;
+            data.filterBy = input.filterBy || '';
+            data.view = input.view || data.view;
+            var preferences = JSON.stringify({
+                filter: data.filterBy,
+                sort: data.sortBy,
+                view: data.view,
+                topic: data.sys_id
+            });
+            gs.getSession().putClientData('preferences', preferences);
+            if (input.action === actions.storeView) {
+                data.content = input.content;
+                return;
+            }
+            if (input.action === actions.showMore) {
+                if (input.content.length &gt; 0) {
+                    data.excludeList = getContentIdList(input.content);
+                    data.content = input.content;
+                }
+                if (input.featuredContent.length &gt; 0) {
+                    var exclude = getContentIdList(input.featuredContent);
+                    data.featuredContent = input.featuredContent;
+                    data.excludeList = data.excludeList.concat(exclude);
+                }
+            }
+        }
+        if (!input || input.action !== actions.showMore) {
+            var taxonomyUtil = new global.TaxonomyPortalUtil();
+            var featuredContentCount = parseInt(gs.getProperty("taxonomy.content.featured_content_limit", "5"));
+            data.featuredContent = new TopicServiceUtil().getFeaturedContent(data.sys_id, featuredContentCount, data.isMobileApp, data.filterBy);
+            var featuredExcludeContent = getContentIdList(data.featuredContent);
+            data.featuredContent = data.featuredContent.map(function (a) {
+                a.isFeatured = true;
+                return a;
+            });
+            addContentWidget(data.featuredContent);
+            data.excludeList = data.excludeList.concat(featuredExcludeContent);
+            data.limit = data.limit - featuredExcludeContent.length;
+        }
+
+        var filterOptions = data.filterOptions.map(function (filter) {
+            return filter.sysId;
+        });
+
+        if (data.filterBy) {
+            filterOptions = [data.filterBy];
+        }
+
+        var content = getContentForTopic(data.limit, data.isMobileApp, data.excludeList, filterOptions);
+
+        if (data.limit + 1 === content.length) {
+            data.showMore = true;
+            data.showMoreMsg = gs.getMessage("Show more");
+            content.splice(content.length - 1, 1);
+        } else {
+            data.showMore = false;
+        }
+
+        addContentWidget(content);
+
+        data.content = data.content.concat(content);
+
+        if (!gs.nil(data.filterBy) &amp;&amp; data.content.length === 0) {
+            var selectedFilterName = getSelectedFilterName(data.filterBy);
+            data.noContentMessage = gs.getMessage("&lt;p&gt;No results for &lt;b&gt;{0}&lt;/b&gt;&lt;/p&gt;", selectedFilterName);
+        }
+    } catch (ex) {
+        gs.error(gs.getMessage("Invalid Topic Id."));
+    }
+
+    function getContentForTopic(limit, isMobile, excludeItems, contentConfigIds) {
+        limit = limit + 1;
+        if (data.sortBy === "popularity")
+            return new TopicServiceUtil().getContentByPopularity(data.sys_id, !isMobile, limit, isMobile, excludeItems, contentConfigIds);
+        else
+            return new TopicServiceUtil().getContent(data.sys_id, !isMobile, limit, isMobile, excludeItems, contentConfigIds);
+    }
+
+    function getContentConfiguration() {
+        var configurations = [{
+            sysId: "",
+            name: gs.getMessage("All", "All")
+        }];
+        var contentConfigurationGr = new GlideRecord("x_1383184_charityb_events");
+        contentConfigurationGr.addActiveQuery();
+        contentConfigurationGr.query();
+        while (contentConfigurationGr.next()) {
+            var configuration = {};
+            configuration.sysId = contentConfigurationGr.getUniqueValue();
+            configuration.name = contentConfigurationGr.getValue("name");
+            configurations.push(configuration);
+        }
+        return configurations;
+    }
+
+    function getContentIdList(content) {
+        return content.map(function (a) {
+            return a.content;
+        });
+    }
+
+    function getSelectedFilterName(sysId) {
+        var selectedFilter = data.filterOptions.filter(function (option) {
+            return option.sysId === sysId;
+        });
+        return selectedFilter[0].name;
+    }
+
+    function getInstanceEvents(instanceSysId) {
+        var gr = new GlideRecord('x_1383184_charityb_events');
+        gr.addQuery('active', true);
+        gr.addQuery('topic', instanceSysId);
+        gr.query();
+        var events = [];
+        while (gr.next()) {
+            events.push({
+                sys_id: gr.getValue('sys_id'),
+                name: gr.getValue('name'),
+                description: gr.getValue('description'),
+                start_date: gr.getValue('start_date'),
+                end_date: gr.getValue('end_date')
+            });
+        }
+        return events;
+    }
+
+    function addContentWidget(content) {
+        return content.map(function (item) {
+            var itemId = item.content.sys_id || item.content;
+            var contentType = item.content.sys_class_name;
+            item.contentWidget = data.contentTableToWidget[contentType];
+            if (data.isLearningUpdated &amp;&amp; item.content.sys_class_name === 'sn_lc_course_item') {
+                item.contentWidget = data.contentTableToWidget.sn_lc_course_item;
+            }
+            return item;
+        });
+    }
+
+    function getSearchConfigParams(sys_id) {
+        var searchApplicationGr = new GlideRecord("search_application");
+        searchApplicationGr.get(sys_id);
+
+        var searchAppUtils = new SearchAppUtils(searchApplicationGr);
+        data.ui.aisFacetFilters = searchAppUtils.getFacetConfigurations();
+        data.ui.aisSearchFilters = searchAppUtils.getSearchFilterConfigurations();
+        data.ui.aisSortOptions = searchAppUtils.getSortConfigurations();
+    }
+
+    function postProcessAISResponse(response) {
+        response.result.forEach(function (result) {
+            result.facet.forEach(function (facet) {
+                facet.selected = facet.value.every(function (value) {
+                    return data.search_sources_filter.includes(value);
+                });
+            });
+        });
+        return response;
+    }
+})();
+]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lalitha&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-13 05:05:26&lt;/sys_created_on&gt;&lt;sys_id&gt;0237c98593be821094e3f15a7bba1052&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;Cb topic content&lt;/sys_name&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_0237c98593be821094e3f15a7bba1052&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;lalitha&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-13 06:49:54&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="browse-content-container"&gt;
+  &lt;div ng-class="data.isMobileApp ? 'browse-elevation-mobile': 'browse-elevation'"&gt;
+
+    &lt;div class="box-header-title"&gt;
+      &lt;h3 class="title-item"&gt;${Support resources}&lt;/h3&gt;
+    &lt;/div&gt;
+
+    &lt;div class="box-header-title p-v-2"&gt;
+      &lt;div ng-if="!data.isMobileApp" class="title-item-filters"
+        ng-class="{'item-fitlers-disable': (data.events.length === 0 &amp;&amp; data.filterBy ==='')}"&gt;
+        &lt;div class="flex-mobile m-r-auto"&gt;
+          &lt;label class="label-padding" for="filter_picker_select"&gt;${Filter by}&lt;/label&gt;
+          &lt;select id="filter_picker_select" ng-disabled="data.events.length === 0 &amp;&amp; data.filterBy ===''"
+            class="form-control" name="filter_picker_select" ng-model="data.filterBy" title="${Filter by}"
+            ng-change="getUpdatedContent()" aria-label="${Filter by}"&gt;
+            &lt;option value=""&gt;${All}&lt;/option&gt;
+            &lt;!-- Add options based on your filter criteria --&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+
+        &lt;div class="flex-mobile"&gt;
+          &lt;label class="label-padding" for="sort_picker_select"&gt;${Sort by}&lt;/label&gt;
+          &lt;select id="sort_picker_select" class="form-control"
+            ng-disabled="data.events.length === 0 &amp;&amp; data.filterBy ===''" name="sort_picker_select"
+            ng-model="data.sortBy" ng-change="getUpdatedContent()" aria-label="${Sort by}"&gt;
+            &lt;option value="start_date"&gt;${Start Date}&lt;/option&gt;
+            &lt;option value="event_name"&gt;${Event Name}&lt;/option&gt;
+            &lt;!-- Add other sorting options --&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div ng-if="data.isMobileApp" class="title-item-filters"
+        ng-class="{'item-fitlers-disable': (data.events.length === 0 &amp;&amp; data.filterBy ==='')}"&gt;
+        &lt;div class="flex-mobile form-inline"&gt;
+          &lt;label class="label-padding" for="filter_picker_select"&gt;${Filter by}&lt;/label&gt;
+          &lt;select id="filter_picker_select" ng-disabled="data.events.length === 0 &amp;&amp; data.filterBy ===''"
+            class="sn-select-basic full-width-drop-down" name="filter_picker_select" ng-model="data.filterBy"
+            title="${Filter by}" ng-change="getUpdatedContent()" aria-hidden="true"&gt;
+            &lt;option value=""&gt;${All}&lt;/option&gt;
+            &lt;!-- Add options based on your filter criteria --&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+        &lt;div class="form-inline filter-padding flex-mobile"&gt;
+          &lt;label class="label-padding" for="sort_picker_select"&gt;${Sort by}&lt;/label&gt;
+          &lt;select id="sort_picker_select" ng-disabled="data.events.length === 0 &amp;&amp; data.filterBy ===''"
+            class="sn-select-basic full-width-drop-down" name="sort_picker_select" ng-model="data.sortBy"
+            title="${Sort by}" ng-change="getUpdatedContent()" aria-hidden="true"&gt;
+            &lt;option value="start_date"&gt;${Start Date}&lt;/option&gt;
+            &lt;option value="event_name"&gt;${Event Name}&lt;/option&gt;
+            &lt;!-- Add other sorting options --&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div id="tabpanel-events" class="grid-margin"&gt;
+      &lt;div class="flex-item-card" ng-repeat="event in data.events" ng-if="!loading"&gt;
+        &lt;div class="flex-display"&gt;
+          &lt;div class="event-details"&gt;
+            &lt;h4&gt;{{ event.event_name }}&lt;/h4&gt;
+            &lt;p&gt;${Start Date}: {{ event.start_date }}&lt;/p&gt;
+            &lt;p&gt;${End Date}: {{ event.end_date }}&lt;/p&gt;
+            &lt;!-- Add other event details as needed --&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div ng-if="loading" class="flex-item-card skeleton-loading" ng-repeat="item in [1,2,3,4,5,6,7,8,9,10,11,12]"&gt;
+        &lt;span class="skeleton-loader badge-loader"&gt;&lt;/span&gt;
+        &lt;div class="flex-column text-items"&gt;
+          &lt;div class="skeleton-loader title-loader"&gt;&lt;/div&gt;
+          &lt;div class="skeleton-loader description-loader"&gt;&lt;/div&gt;
+          &lt;div class="skeleton-loader additional-info-loader"&gt;&lt;/div&gt;
+          &lt;div class="empty"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div ng-if="!data.isMobileApp &amp;&amp; data.events.length === 0 &amp;&amp; data.filterBy ===''"&gt;
+      &lt;div class="content-align-center"&gt;
+        &lt;img src="5c50c822c3e930102ec1a589a840dd7b.iix" /&gt;
+        &lt;p&gt;${No events available}&lt;/p&gt;
+        &lt;!-- Add additional messaging or actions --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div ng-if="data.isMobileApp &amp;&amp; data.events.length === 0 &amp;&amp; data.filterBy ===''"&gt;
+      &lt;div class="content-align-center"&gt;
+        &lt;img src="5c50c822c3e930102ec1a589a840dd7b.iix" /&gt;
+        &lt;p&gt;${No events available}&lt;/p&gt;
+        &lt;!-- Add additional messaging or actions --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1965684304</payload_hash>
+        <record_name>Cb topic content</record_name>
+        <reverted_from/>
+        <source>c0eb6f489326c61094e3f15a7bba1011</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 06:49:54</sys_created_on>
+        <sys_id>902f51459332c21094e3f15a7bba104b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>190105c2de80000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 06:49:54</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>582f51457a32c21013094595e4541c4a</update_guid>
+        <update_guid_history>582f51457a32c21013094595e4541c4a:1965684304,8dea95015132c210e6776417addf1bac:2007398999,7229558d4dfe821051d1636a5544fd73:1783196283,a891150507fe82102cb79c13c3897e82:-1758830896,f09059055afe8210ebe3e3339174cfb9:-96761329,118d0d8d25be82104547acfdf86ea954:-449500663,c637c98519be8210a69cbb335415c953:-190928913</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Cb topic content">440061859332c21094e3f15a7bba10da</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 06:53:42</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>34e4add655864290a3887bb5bd748844</sys_id>
+        <sys_metadata>0237c98593be821094e3f15a7bba1052</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Cb topic content</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sp_widget_0237c98593be821094e3f15a7bba1052</sys_update_name>
+        <sys_update_version display_value="sp_widget_0237c98593be821094e3f15a7bba1052">902f51459332c21094e3f15a7bba104b</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 06:53:42</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

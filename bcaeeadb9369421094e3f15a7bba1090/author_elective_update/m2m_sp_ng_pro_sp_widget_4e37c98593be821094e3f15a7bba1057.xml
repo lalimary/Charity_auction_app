@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget">
+    <m2m_sp_ng_pro_sp_widget action="DELETE">
+        <sp_angular_provider display_value="ecMultilineEllipsisTooltip">4de01d4677d530109033bfeacf5a9992</sp_angular_provider>
+        <sp_widget display_value="Cb topic content">0237c98593be821094e3f15a7bba1052</sp_widget>
+        <sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 05:05:26</sys_created_on>
+        <sys_id>4e37c98593be821094e3f15a7bba1057</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ecMultilineEllipsisTooltip.Cb topic content</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_4e37c98593be821094e3f15a7bba1057</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 05:05:26</sys_updated_on>
+    </m2m_sp_ng_pro_sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>m2m_sp_ng_pro_sp_widget_4e37c98593be821094e3f15a7bba1057</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget"><m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE"><sp_angular_provider display_value="ecMultilineEllipsisTooltip">4de01d4677d530109033bfeacf5a9992</sp_angular_provider><sp_widget display_value="Cb topic content">0237c98593be821094e3f15a7bba1052</sp_widget><sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-06-13 05:05:26</sys_created_on><sys_id>4e37c98593be821094e3f15a7bba1057</sys_id><sys_mod_count>0</sys_mod_count><sys_name>ecMultilineEllipsisTooltip.Cb topic content</sys_name><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>m2m_sp_ng_pro_sp_widget_4e37c98593be821094e3f15a7bba1057</sys_update_name><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-06-13 05:05:26</sys_updated_on></m2m_sp_ng_pro_sp_widget></record_update>]]></payload>
+        <payload_hash>14646059</payload_hash>
+        <record_name>ecMultilineEllipsisTooltip.Cb topic content</record_name>
+        <reverted_from/>
+        <source>c0eb6f489326c61094e3f15a7bba1011</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 05:05:26</sys_created_on>
+        <sys_id>4a37c98593be821094e3f15a7bba1059</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1900ffc89af0000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 05:05:26</sys_updated_on>
+        <type>Angular Providers</type>
+        <update_guid>8e37c985e4be821051f86af49a3f7758</update_guid>
+        <update_guid_history>8e37c985e4be821051f86af49a3f7758:14646059</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="ecMultilineEllipsisTooltip.Cb topic content">bfff51859332c21094e3f15a7bba10bb</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 06:53:41</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_ng_pro_sp_widget">m2m_sp_ng_pro_sp_widget</sys_db_object>
+        <sys_id>2f50830fa2ba4aa0b5ad7d385006aa90</sys_id>
+        <sys_metadata>4e37c98593be821094e3f15a7bba1057</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ecMultilineEllipsisTooltip.Cb topic content</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_4e37c98593be821094e3f15a7bba1057</sys_update_name>
+        <sys_update_version display_value="m2m_sp_ng_pro_sp_widget_4e37c98593be821094e3f15a7bba1057">4a37c98593be821094e3f15a7bba1059</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 06:53:41</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,2930 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="DELETE">
+        <child display_value="Cb topic content">0237c98593be821094e3f15a7bba1052</child>
+        <cloned>2024-06-13 05:05:26</cloned>
+        <last_validated>2024-06-13 05:05:26</last_validated>
+        <parent display_value="Topic Content">9c691d40c31030102ec1a589a840dd4c</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller = function ($timeout, $rootScope, $scope, $window, snAnalytics) {
+    var c = this;
+    var CARD_VIEW = "card";
+    var LIST_VIEW = "list";
+    var FLEX_CARD_SELECTOR = '.flex-item-card';
+    var CONTENT_CARD_SELECTOR = c.data.isMobileApp ? '.content-card-mobile' : '.content-card';
+    var actions = {
+        showMore: "show-more",
+        filter: "filter",
+        sort: "sort",
+        modifyAISResults: "modify-ais-results"
+    };
+    $scope.loading = false;
+    $scope.contentItems = [];
+
+    // AIS search integration
+    $scope.isBackFromGlobalSearch = false;
+    $scope.searchAppConfigId = c.options.searchAppSysId;
+    $scope.isSearchModeEnabled = false;
+    $scope.searchedTerm = "";
+    $scope.spellCorrectedTerm = "";
+    $scope.noOfNewItems = 0;
+    $scope.aisContentItems = [];
+    $scope.aisFilterOptions = [];
+    $scope.aisSortOptions = [];
+    $scope.hasNext = false;
+    c.data.getNext = false;
+    c.data.aisFilterBy = '';
+    c.data.aisSortBy = '';
+    var AIS_EVENTS = c.data.EVENTS;
+
+    $timeout(function(){
+        $scope.populateFilterAndSortOptions(c.data.ui.aisSearchFilters, c.data.ui.aisSortOptions);
+    },0,false);
+
+    var aisModeChangeDestroy = $rootScope.$on(AIS_EVENTS.AIS_MODE_CHANGE_EVENT, function (event, data) {
+        $scope.isSearchModeEnabled = data.searchModeEnabled;
+        if (!$scope.isSearchModeEnabled) {
+            $scope.resetAISParams();
+        }
+    });
+
+    var aisLoadingDestroy = $rootScope.$on(AIS_EVENTS.AIS_LOADING_EVENT, function (event, data) {
+        if (data.isAISloading) {
+            $scope.loading = data.isAISloading;
+            if (!data.loadingNext)
+                $scope.aisContentItems = [];
+        }
+
+    });
+
+    var resultsUpdatedDestroy = $rootScope.$on(AIS_EVENTS.AIS_RESULTS_UPDATED_EVENT, function (event, data) {
+        $scope.searchedTerm = data.searchedTerm;
+        $scope.spellCorrectedTerm = data.spellCorrectedTerm;
+        $scope.hasNext = data.hasNext;
+        $scope.populateFilterAndSortOptions(data.filterOptions, data.sortOptions);
+        $scope.modifyAISResultsData(data.results, c.data.action === actions.showMore);
+        $scope.noOfNewItems = data.results.length;
+        if (data.results.length === 0) {
+            $scope.loading = false;
+        }
+    });
+
+    $scope.populateFilterAndSortOptions = function(allAISFilterOptions, allAISSortOptions){
+        $scope.aisFilterOptions = [{
+            name: '${All}',
+            sysId: ''
+        }].concat(allAISFilterOptions.filter(function (f) {
+            return c.data.search_sources_filter.includes(f.sysId);
+        }).map(function (item) {
+            return {
+                name: item.label,
+                sysId: item.sysId
+            };
+        }));
+        $scope.aisSortOptions = [{
+            name: '${Most relevant}',
+            id: ''
+        }].concat(allAISSortOptions.map(function (item) {
+            return {
+                name: item.label,
+                id: item.sysId
+            };
+        }));
+    };
+
+    $scope.$on('ngRepeatFinishedContentCards', function (ngRepeatFinishedEvent) {
+        $scope.loading = false;
+    });
+
+    $scope.$on('$destroy', function () {
+        aisModeChangeDestroy();
+        aisLoadingDestroy();
+        resultsUpdatedDestroy();
+    });
+
+    $scope.resetAISParams = function () {
+        $scope.noOfNewItems = 0;
+        $scope.aisContentItems = [];
+        c.data.aisFilterBy = '';
+        c.data.aisSortBy = '';
+        c.data.searchedQuery = '';
+        $window.sessionStorage.removeItem("topicSearchPreferences");
+    };
+
+    $scope.clearSearch = function () {
+        $rootScope.$broadcast(AIS_EVENTS.AIS_MODE_CHANGE_EVENT, {
+            searchModeEnabled: false,
+        });
+    };
+
+    $scope.refreshResults = function (searchParams) {
+        if (searchParams) {
+            c.data.searchQuery = searchParams.search_term;
+            c.data.filter = JSON.stringify(searchParams.filter === '' ? c.data.search_sources_filter : [searchParams.filter]).replaceAll('"', '\\\\\\"');
+            c.data.sort = JSON.stringify(searchParams.sort === '' ? [] : [searchParams.sort]).replaceAll('"', '\\\\\\"');
+            c.data.spellCheck = searchParams.disable_spell_check || false;
+        }
+        $rootScope.$broadcast(AIS_EVENTS.AIS_REFRESH_RESULTS_EVENT, c.data);
+    };
+
+    $scope.getContentItems = function () {
+        if ($scope.isSearchModeEnabled) {
+            $scope.aisContentItems = $scope.aisContentItems.filter(function(results) {
+              return results.table !== "sys_attachment";
+            });
+            if(c.data.isMobileApp){
+                var searchData = $scope.aisContentItems.slice(0,$scope.nextIndexMobileSearch+$scope.mobileSearchResCount);
+                $scope.showMoreFlagMobileSearch = $scope.aisContentItems.length &gt; ($scope.nextIndexMobileSearch+$scope.mobileSearchResCount) || $scope.hasNext;
+                return searchData;
+            }
+            return $scope.aisContentItems;
+        }
+        return $scope.contentItems;
+    };
+
+    $scope.modifyAISResultsData = function (aisSearchResults, isConcat) {
+        c.data.action = actions.modifyAISResults;
+        c.data.aisSearchResults = aisSearchResults;
+        c.data.searchedQuery = $scope.searchedTerm;
+
+        var aisPreferences = JSON.stringify({
+            aisFilterBy: c.data.aisFilterBy,
+            aisSortBy: c.data.aisSortBy,
+            aisSearchQ: c.data.searchedQuery,
+            profileLang: c.data.profileLang
+        });
+        $window.sessionStorage.setItem("topicSearchPreferences", aisPreferences);
+
+        c.server.update().then(function (response) {
+            var focusIndex = $scope.aisContentItems.length;
+            if (isConcat) {
+                $scope.aisContentItems = $scope.aisContentItems.concat(response.modifiedAISResponse);
+                $timeout(function () {
+                    $(CONTENT_CARD_SELECTOR).get(focusIndex).focus();
+                }, 100);
+            }
+            else
+                $scope.aisContentItems = response.modifiedAISResponse;
+        });
+    };
+
+    $scope.getExpandSearchURL = function () {
+        var facetFilters = encodeURI(JSON.stringify(c.data.ui.aisFacetFilters));
+        return "?id=search&amp;spa=1&amp;q=" + $scope.searchedTerm + "&amp;disableSpellCheck=false";
+    };
+
+    $scope.toGlobalSearch = function () {
+        $scope.setSessionData();
+        $window.location.href = $scope.getExpandSearchURL();
+    };
+
+    $scope.setSessionData = function () {
+        var aisSearchParams = {
+            aisSearchQ: $scope.searchedTerm,
+            aisFilterBy: c.data.aisFilterBy,
+            aisSortBy: c.data.aisSortBy,
+        };
+        $window.sessionStorage.setItem("aisSearchParams", JSON.stringify(aisSearchParams));
+    };
+
+    c.createAppseeEvent = function () {
+        var payload = {};
+        payload.name = 'Topic Page Visits';
+        payload.data = {};
+        payload.data['Topic Name'] = c.data.topicName;
+        payload.data['Topic Id'] = c.data.sys_id;
+        snAnalytics.addEvent(payload);
+    };
+
+    if (c.data.sys_id != -1)
+        c.createAppseeEvent();
+
+    if (c.data) {
+        $scope.contentItems = c.data.featuredContent.concat(c.data.content);
+    }
+
+    $scope.loadMore = function () {
+        c.data.action = actions.showMore;
+        var focusIndex = c.data.content.length;
+        if ($scope.isSearchModeEnabled) {
+            c.data.getNext = true;
+            $scope.refreshResults();
+            return;
+        }
+        return $scope.updateContent().then(function () {
+            $timeout(function () {
+                $(CONTENT_CARD_SELECTOR).get(focusIndex).focus();
+            }, 100);
+        });
+    };
+
+    $scope.loadMoreKeydown = function (event) {
+        if (event.which === 32 || event.which === 13) {
+            event.preventDefault();
+            var focusIndex = c.data.content.length;
+            if ($scope.isSearchModeEnabled) {
+                c.data.getNext = true;
+                $scope.refreshResults();
+                return;
+            }
+            $scope.loadMore().then(function () {
+                $timeout(function () {
+                    $(CONTENT_CARD_SELECTOR).get(focusIndex).focus();
+                }, 100);
+            });
+        }
+    };
+
+    $scope.getUpdatedContent = function () {
+        c.data.action = actions.filter;
+        c.data.getNext = false;
+        if ($scope.isSearchModeEnabled) {
+            var searchParams = {
+                filter: c.data.aisFilterBy,
+                sort: c.data.aisSortBy,
+            };
+           $scope.refreshResults(searchParams);
+            return;
+        }
+        return $scope.updateContent();
+    };
+
+    $scope.updateContent = function () {
+        $scope.loading = true;
+        return $scope.server.update().then(function () {
+            $scope.contentItems = c.data.featuredContent.concat(c.data.content);
+            $scope.loading = false;
+        });
+    };
+
+    $scope.changeView = function (view) {
+        //data.view changes to input.view when server.update is called. 
+        c.data.view = view;
+        c.data.action = "storeView";
+        c.server.update();
+    };
+
+    $scope.switchTab = function ($event) {
+        if ($event.which == 37 || $event.which == 39) {
+            $event.stopPropagation();
+            var layout = c.data.view === CARD_VIEW ? LIST_VIEW : CARD_VIEW;
+            $scope.changeView(layout);
+            $('#tab-' + layout).focus();
+        }
+    };
+
+    $scope.isTouchDevice = function () {
+        return ('ontouchstart' in $window);
+    };
+
+    $scope.handleCorrectedSearch = function(term, type){
+        var searchParams = {
+            search_term : term,
+            filter: c.data.aisFilterBy,
+            sort: c.data.aisSortBy,
+            disable_spell_check: type === 'search-term'
+        };
+        $scope.refreshResults(searchParams);
+    };
+
+    var destroyWidgetWatcher = $scope.$watch(
+        function () { return $("[widget = 'widget'][sn-atf-area='AIS Topic Search']").length; },
+        function (newValue, oldValue) {
+            var searchParams = {};
+            function refreshOnLoad(searchParams) {
+                c.data.aisFilterBy = searchParams.filter;
+                c.data.aisSortBy = searchParams.sort;
+                $scope.refreshResults(searchParams);
+                destroyWidgetWatcher();
+            }
+            if (newValue !== oldValue) {
+                if($window.sessionStorage.getItem('topicSearchPreferences')) {
+                    var inContextSearchParams = $window.sessionStorage.getItem('topicSearchPreferences');
+                    if (inContextSearchParams) {
+                        inContextSearchParams = JSON.parse(inContextSearchParams);
+                        searchParams = {
+                            search_term: inContextSearchParams.aisSearchQ,
+                            filter: inContextSearchParams.aisFilterBy,
+                            sort: inContextSearchParams.aisSortBy,
+                            profileLang: inContextSearchParams.profileLang
+                        };
+                        if (!c.data.in_context || searchParams.profileLang !== c.data.profileLang) {
+                            $window.sessionStorage.removeItem("topicSearchPreferences");
+                        }
+                        else
+                            refreshOnLoad(searchParams);
+                    }
+                }
+                if ($window.sessionStorage.getItem('isBackFromGS') === "true" &amp;&amp; $window.sessionStorage.getItem('aisSearchParams')) {
+                    var aisSearchParams = JSON.parse($window.sessionStorage.getItem('aisSearchParams'));
+                    searchParams = {
+                        search_term: aisSearchParams.aisSearchQ,
+                        filter: aisSearchParams.aisFilterBy,
+                        sort: aisSearchParams.aisSortBy,
+                    };
+                    refreshOnLoad(searchParams);
+                }
+                $window.sessionStorage.removeItem('aisSearchParams');
+                $window.sessionStorage.removeItem('isBackFromGS');
+            }
+        }
+    );
+
+    $window.addEventListener('popstate', function(){
+        $window.sessionStorage.setItem('isBackFromGS', "true");
+    });
+
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;$text-primary : #181A1F !default;
+
+$background-primary : #ffffff !default;
+$background-secondary : #f6f6f8 !default;
+$background-tertiary : #F0F1F5 !default;
+
+$sp-panel-box-shadow : 0 4px 8px 0 rgba(23, 40, 52, 0.08) !default;
+
+$sp-space--lg: 16px !default;
+$sp-space--xl : 24px !default;
+$padding-base-vertical: 6px !default;
+
+$border-primary : #8790A1 !default;
+$border-secondary : #ACB2BE !default;
+$border-tertiary : #DADDE2 !default;
+
+$select-primary: #007b58 !default;
+
+$headings-font-weight: 600 !default;
+$divider: #F6F7F7 !default;
+
+/* Double focus ring on cards */
+#tabpanel-card-06d3df67c3053010069aec4b7d40dd70 div:focus {
+  box-shadow: none !important;
+  border: none;
+}
+
+mark {
+  background-color: $brand-primary-lightest;
+  color: $text-primary;
+  padding: 0;
+}
+
+.m-r-auto {
+  margin-right: auto;
+}
+
+.p-v-2 {
+  padding: $sp-space--lg 0;
+}
+
+.browse-content-container {
+  .toggle {
+    color: $gray-darker;
+
+    i:not(.active):hover {
+      color: $list-group-link-heading-color;
+    }
+  }
+
+  .fa {
+    border: 4px solid transparent;
+  }
+
+  .fa.active {
+    color: $select-primary;
+  }
+
+  .view-controls {
+    margin-bottom: 5px;
+  }
+
+  .filter-padding {
+    padding: 0 $sp-space--lg;
+  }
+
+  .item-fitlers-disable {
+    opacity: 50%;
+    pointer-events: none;
+  }
+
+  .grid-margin {
+    margin-top: $sp-space--xl;
+  }
+
+  .title-item-filters {
+    width: 100%;
+    flex: 1 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    select {
+      width: 140px;
+    }
+
+    .filter-search {
+      width: max-content;
+      display: flex;
+      align-items: flex-end;
+      margin-left: $sp-space--lg;
+
+      div[widget="widget"][sn-atf-area="AIS Topic Search"] {
+        padding: 0 $sp-space--lg;
+
+        .input-group {
+          width: 248px;
+        }
+
+        div.dropdown-menu {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media (min-width:62em) and (max-width: 75em) {
+    .title-item-filters {
+      select {
+        width: 120px;
+      }
+    }
+  }
+
+  @media (min-width:38em) and (max-width: 48em) {
+    .title-item-filters {
+      align-items: initial;
+
+      select {
+        width: 10rem;
+      }
+
+      .filter-padding {
+        padding-right: 0;
+      }
+
+      .filter-search {
+        gap: $sp-space--lg;
+
+        div[widget="widget"][sn-atf-area="AIS Topic Search"] {
+          padding: 0;
+
+          .input-group {
+            width: 20rem;
+          }
+        }
+
+        .view-controls {
+          .toggle {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 38em), (min-width:48em) and (max-width: 62em) {
+    .box-header-title {
+      flex-wrap: wrap;
+
+      &amp;amp;.spellcheck-container {
+        flex-direction: column;
+      }
+    }
+
+    .title-item {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .title-item-filters {
+      justify-content: flex-start !important;
+      width: 100%;
+      flex-direction: column;
+      align-items: initial !important;
+
+      select {
+        width: 100%;
+        margin-bottom: $sp-space--lg;
+      }
+
+      .filter-search {
+        display: block;
+        padding: 0;
+        margin-left: 0;
+        width: auto;
+
+        div[widget="widget"][sn-atf-area="AIS Topic Search"] {
+          padding: 0;
+
+          .input-group {
+            width: 100%;
+          }
+
+          div.dropdown-menu {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .view-controls {
+      display: none;
+    }
+
+    .flex-mobile {
+      width: 100%;
+    }
+
+    .filter-padding {
+      padding: 0;
+    }
+  }
+
+  .box-header-title {
+    display: flex;
+    margin: 0 10px;
+    flex-wrap: wrap;
+
+    .search-results-container {
+      button.btn-link {
+        padding: 0;
+      }
+    }
+
+    .clear-search-container {
+      margin-left: auto;
+
+      button.btn.btn-link {
+        padding: 0;
+      }
+    }
+  }
+
+  .label-padding {
+    padding-right: 5px;
+  }
+
+  .title-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    word-break: break-word;
+  }
+
+  .browse-elevation {
+    background: $background-primary;
+    padding: 0.4rem 1.4rem 1rem 1.4rem;
+    border-radius: $border-radius-large;
+    -webkit-box-shadow: $sp-panel-box-shadow;
+    box-shadow: $sp-panel-box-shadow;
+
+    .flex-item-card {
+      border: 1px solid $border-tertiary;
+      border-radius: $border-radius-base;
+      margin: 10px;
+      max-width: 500px;
+      position: relative;
+      display: flex;
+    }
+
+    .flex-item-card:hover {
+      box-shadow: 0rem 0.2rem 1rem #E5E5E5;
+    }
+
+    .flex-display {
+      display: flex;
+      height: 100%;
+      flex-grow: 1;
+
+      &amp;gt;div {
+        flex-grow: 1;
+      }
+    }
+
+    .list-view-block {
+      display: block;
+    }
+
+    .list-view {
+      flex-direction: column;
+      flex-grow: 1;
+      max-width: none;
+
+      .flex-display {
+        flex-direction: column;
+      }
+    }
+
+    .btn-loadmore {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      display: block;
+      color: $text-primary;
+      background: $background-primary;
+      border-color: $border-tertiary;
+    }
+
+    .btn-loadmore:hover {
+      background: $background-secondary;
+    }
+
+    .btn-loadmore:active {
+      background: $background-tertiary;
+    }
+
+    /* IE 10-11 specific Class to override */
+    @media screen and (-ms-high-contrast: active),
+    (-ms-high-contrast: none) {
+      .flex-item-card {
+        width: 350px;
+        max-width: 350px;
+        flex: 1 0 100%;
+      }
+
+      .grid-test-auto-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .list-view {
+        max-width: none;
+        width: auto;
+
+        .text-ellipsis {
+          width: 700px;
+        }
+      }
+
+      .fa.active {
+        outline-color: $select-primary;
+      }
+    }
+  }
+
+  .browse-elevation-mobile {
+    background: $background-primary;
+    padding: 0 1rem 1rem 1rem;
+    border-bottom: 12px solid $divider;
+    font-size: 14px;
+
+    h3 {
+      font-size: 1.25rem !important;
+      font-weight: bold;
+    }
+
+    .flex-item-card {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      border-bottom: 1px solid #EAEAEA;
+      position: relative;
+    }
+
+    .flex-display {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .box-header-title {
+      margin: 0;
+    }
+
+    .title-item-filters {
+      .form-inline:first-of-type {
+        margin-bottom: $sp-space--lg;
+      }
+    }
+
+    .btn-loadmore {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      display: block;
+    }
+
+    .filter-padding {
+      padding-left: 0;
+    }
+
+    .label-padding {
+      font-weight: $headings-font-weight;
+    }
+
+    .full-width-drop-down {
+      width: 100%;
+      border: 1px solid $border-tertiary;
+      border-radius: 5px !important;
+      font-weight: $headings-font-weight;
+    }
+
+    .select2-container {
+
+      /* need to over ride the important style of mesp which already has important for a11y reasons*/
+      #s2id_autogen1,
+      #s2id_autogen2 {
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .select2-choice {
+        /* Tappable areas on mobile should be atleast 48px in height*/
+        min-height: 48px;
+
+        span[role="text"].select2-chosen {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+
+    .select2-reference .select2-arrow,
+    .select2-choice .select2-arrow {
+      /* need to over ride the important style of mesp which already has important */
+      right: 0.5rem !important;
+      padding-top: 8px;
+    }
+
+    .select2-container .select2-choice .select2-arrow b:before {
+      content: "\f107";
+      font-family: FontAwesome;
+    }
+
+    .select2-container .select2-choice {
+      padding-bottom: 0;
+      /* need to over ride the important style of mesp which already has important */
+      box-shadow: none !important;
+    }
+
+    .select2-container .select2-choice .select2-chosen {
+      font-size: 14px;
+    }
+
+    .grid-test-auto-wrap {
+      grid-template-columns: repeat(auto-fit, minmax(16.25rem, 1fr));
+    }
+
+    .content-align-center {
+      min-height: 200px;
+    }
+
+    .item-fitlers-disable {
+      display: none;
+    }
+  }
+
+  .content-align-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    text-align: center;
+
+    &amp;amp;.expand-search-container {
+      min-height: 134px;
+      background-color: $background-tertiary;
+      margin: $sp-space--xl 10px $sp-space--sm 10px;
+      padding: $padding-base-horizontal;
+      border-radius: $border-radius-large;
+
+      .expand-search-message {
+        color: $text-secondary;
+        margin-bottom: $sp-space--sm;
+      }
+
+      a {
+        color: $link-color;
+      }
+    }
+  }
+
+  .grid-test-auto-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+  }
+
+  .search-no-results-container {
+    margin: $sp-space--xl;
+    padding: $sp-space--lg;
+
+    i.fa.fa-search {
+      font-size: 2 * $font-size-xl;
+      color: $text-tertiary;
+      margin-bottom: $sp-space--md;
+    }
+
+    p {
+      color: $text-secondary;
+      font-size: $font-size-base;
+      margin-bottom: $sp-space--md;
+    }
+  }
+}
+
+.skeleton-loading {
+  padding: 10px;
+  $loader-line-height: 15px;
+
+  .text-items {
+    width: 100%;
+  }
+
+  .title-loader {
+    height: $loader-line-height;
+    width: 95%
+  }
+
+  .description-loader {
+    height: $loader-line-height;
+    width: 70%
+  }
+
+  .additional-info-loader {
+    height: $loader-line-height;
+    width: 40%
+  }
+
+  .badge-loader {
+    height: 25px;
+    width: 50%
+  }
+
+  .empty {
+    height: 30px;
+  }
+
+  .skeleton-loader {
+    box-sizing: border-box;
+    animation: progress 2s ease-in-out infinite;
+    background: rgb(239, 241, 246) no-repeat;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+    background-size: 200px 100%;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 6px;
+
+    &amp;amp;:after,
+    &amp;amp;:before {
+      box-sizing: border-box;
+    }
+  }
+}
+@media (max-width : 350px) {
+  .browse-content-container {
+    .grid-test-auto-wrap {
+      grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    }
+  }
+}
+
+@keyframes progress {
+  0% {
+    background-position: -200px 0;
+  }
+
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;topic_content&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+      if(controller.data.isMobileApp){
+      var destroyWatcher = scope.$watch(
+      function () { return element.find('.select2-choice span.select2-chosen').length; },
+      function (newValue, oldValue) {
+        if (newValue !== oldValue) {
+          var mespSelectInputs = element.find('.select2-choice span.select2-chosen');
+          if(mespSelectInputs.length == 2){
+            mespSelectInputs[0].setAttribute('role', 'text');
+            mespSelectInputs[1].setAttribute('role', 'text');
+            destroyWatcher();
+          }
+        }
+      }
+    );
+  }
+}]]&gt;&lt;/link&gt;&lt;name&gt;Topic Content&lt;/name&gt;&lt;option_schema&gt;[{"hint":"Pagination for browse content.","name":"limit","section":"Presentation","default_value":"12","label":"Number of items per page","type":"choice","choices":[{"label":"12","value":"12"},{"label":"24","value":"24"}]},{"hint":"Default sort order of content","name":"sortby","section":"Behavior","default_value":"popularity","label":"Default sort order","type":"choice","choices":[{"label":"popularity","value":"popularity"},{"label":"alphabetical","value":"alphabetical"}]},{"displayValue":"Search Application Configuration","hint":"Default search application sys id","name":"search_application","section":"Data","default_value":"7296910f53171010069addeeff7b12e7","label":"Search Application","type":"reference","value":"sys_search_context_config","ed":{"reference":"sys_search_context_config"}},{"displayValue":"Navigation Tab","hint":"Comma separated list of SYS IDs for searched sources filter from sys_search_filter table","name":"search_sources_filter","display_value_list":[],"section":"Data","default_value":"aed3c51253671010069addeeff7b121b,a6d3c51253671010069addeeff7b1217,62d1574053c13010cbb0ddeeff7b122c","label":"Search Sources Filter","type":"glide_list","value":"sys_search_filter","ed":{"reference":"sys_search_filter"}},{"displayValue":"Give employees the option to globally expand their search","hint":"Give employees the option to globally expand their search","name":"show_global_redirect","section":"Behavior","default_value":"true","label":"Give employees the option to globally expand their search","type":"boolean"}]&lt;/option_schema&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function () {
+    var portalRecord = $sp.getPortalRecord();
+    data.widgetInstance = $sp.getValue('sys_id');
+    data.EVENTS = new sn_ex_sp.ContentSearchUtils().getInstanceEvents(data.widgetInstance);
+    data.aisEnabledUtah = gs.getProperty('taxonomy.aisearch.enabled.utah') &amp;&amp; $sp.isAISearchEnabled();
+    data.profileLang = gs.getSession().getLanguage();
+    data.sys_id = $sp.getParameter('topic_id');
+    data.in_context = $sp.getParameter('in_context');
+    data.sys_id = gs.nil(data.sys_id) ? '-1' : data.sys_id;
+    data.limit = parseInt(options.limit) || 12;
+    // change this to use native mobile script to identify is mobile.
+    data.isMobile = gs.isMobile();
+    data.isMobileApp = $sp.getParameter('view') === 'mobile';
+    if (data.isMobileApp) {
+        data.limit = 5;
+    }
+    data.isLearningUpdated = GlidePluginManager.isActive('sn_lc');
+    data.contentTableToWidget = {
+        'sc_cat_item': 'catalog-content',
+        'kb_knowledge': 'kb-content'
+    };
+    if(data.isLearningUpdated){
+      data.contentTableToWidget.sn_lc_course_item = 'learning-content';
+    }
+    var sortOptions = [{
+        id: "popularity",
+        name: gs.getMessage("Popular", "Popular")
+    }, {
+        id: "alphabetical",
+        name: gs.getMessage("A-Z", "A-Z")
+    }];
+    var actions = {
+        showMore: "show-more",
+        filter: "filter",
+        sort: "sort",
+        storeView: "storeView",
+        modifyAISResults: "modify-ais-results"
+    };
+    var REQUESTS = gs.getMessage("Requests");
+    var ARTICLES = gs.getMessage("Articles");
+    var COURSES = gs.getMessage("Courses");
+    data.showRedirectToGlobal = options.show_global_redirect === 'true';
+
+    // AIS content search integration
+    data.clearSearchBtn = gs.getMessage("Reset search");
+    data.btnTitle = gs.getMessage("Search button");
+    data.placeholder = gs.getMessage("Search resources");
+    data.expandSearchMsg = gs.getMessage("Didn't find what you're looking for?");
+    data.expandSearchLink = gs.getMessage("Expand your search");
+    data.searchAppConfigId = portalRecord.getValue('search_application');
+
+    try {
+        var search_app_sys_id = options.search_application || data.searchAppConfigId;
+        data.ui = {
+            aisFacetFilters: [],
+            aisSearchFilters: [],
+            aisSortOptions: []
+        };
+
+        getSearchConfigParams(search_app_sys_id);
+
+        var defaultSearchFilters = options.search_sources_filter || '';
+        data.search_sources_filter = defaultSearchFilters.split(',');
+        var filters = defaultSearchFilters ? defaultSearchFilters.split(',') : data.ui.aisSearchFilters.map(function(f){
+            return f.sysId;
+        });
+
+        data.searchWidgetInitOptions = {
+            'facet': JSON.stringify(data.ui.aisFacetFilters).replaceAll('\\"', '\\\\\\\\"').replaceAll('"', '\\\\\\"'),
+            'filter': JSON.stringify(filters).replaceAll('"', '\\\\\\"'),
+            'sort': JSON.stringify([]).replaceAll('"', '\\\\\\"'),
+            'searchConfigId': options.search_application,
+            'btnTitle': data.btnTitle,
+            'placeholder': data.placeholder,
+            'parentWidgetInstance': data.widgetInstance
+        };
+
+        //if user does a search
+        if (input &amp;&amp; input.action === actions.modifyAISResults) {
+            data.modifiedAISResponse = input.aisSearchResults.map(function (item) {
+                item = postProcessAISResponse(item);
+                return item;
+            });
+            addContentWidget(data.modifiedAISResponse);
+            // initializing preferences object
+            var preferences = JSON.stringify({
+                filter: input.filterBy || '',
+                sort: input.sortBy || data.sortBy,
+                view: input.view || data.view,
+                topic: data.sys_id
+            });
+            var preferencesObj = gs.getSession().getClientData("preferences");
+            if (!preferencesObj) {
+                gs.getSession().putClientData('preferences', preferences);
+            }
+            return;
+        }
+    }
+    catch (err) {
+        gs.error(gs.getMessage("Something went wrong!"));
+    }
+
+    // Browse specific data, not required for search
+    data.sortOptions = input ? input.sortOptions : sortOptions;
+    data.sortBy = options &amp;&amp; options.sortby ? options.sortby : data.sortOptions[0].id;
+    data.noContentMessage = '';
+    data.excludeList = [];
+    data.filterOptions = input ? input.filterOptions : getContentConfiguration();
+    data.filterBy = '';
+    data.view = "card";
+    data.featuredContent = [];
+    data.content = [];
+
+    if (!data.in_context) {
+        var preferencesObj = gs.getSession().getClientData("preferences");
+        if (preferencesObj) {
+            var topic = JSON.parse(preferencesObj).topic;
+            data.in_context = (topic === data.sys_id);
+        }
+        if(!data.in_context)
+            gs.getSession().putClientData('preferences', null);
+    }
+    if (data.in_context) {
+        var usersPreference = gs.getSession().getClientData("preferences");
+        if (usersPreference) {
+            data.sortBy = JSON.parse(usersPreference).sort;
+            data.filterBy = JSON.parse(usersPreference).filter;
+            data.view = JSON.parse(usersPreference).view;
+        }
+    }
+    try {
+        var topicJs = new sn_taxonomy.Topic(data.sys_id);
+        data.title = gs.getMessage("Browse {0}", topicJs.getName());
+        data.topicName = topicJs.getName();
+        data.mobileNoContentMessage = gs.getMessage("&lt;p&gt;Choose a {0} topic to get more specific support.&lt;/p&gt;", topicJs.getName());
+        //override with input values. 
+        if (input) {
+            data.sortBy = input.sortBy || data.sortBy;
+            data.filterBy = input.filterBy || '';
+            data.view = input.view || data.view;
+            //Session cannot store objects, only Strings
+            var preferences = JSON.stringify({
+                filter: data.filterBy,
+                sort: data.sortBy,
+                view: data.view,
+                topic: data.sys_id
+            });
+            gs.getSession().putClientData('preferences', preferences);  // Preferences should be retained in-context only.
+            if (input.action === actions.storeView) {
+                data.content = input.content;
+                return;
+            }
+            //if user clicks show more exlude the existing featured content normal content.
+            if (input.action === actions.showMore) {
+                if (input.content.length &gt; 0) {
+                    data.excludeList = getContentIdList(input.content);
+                    data.content = input.content;
+                }
+                if (input.featuredContent.length &gt; 0) {
+                    var exclude = getContentIdList(input.featuredContent);
+                    data.featuredContent = input.featuredContent;
+                    data.excludeList = data.excludeList.concat(exclude);
+                }
+
+            }
+        }
+        // do not fetch featured content on show more action
+        if (!input || input.action !== actions.showMore) {
+            var taxonomyUtil = new global.TaxonomyPortalUtil();
+            var featuredContentCount = parseInt(gs.getProperty("taxonomy.content.featured_content_limit", "5"));
+            data.featuredContent = new TopicServiceUtil().getFeaturedContent(data.sys_id, featuredContentCount, data.isMobileApp, data.filterBy);
+            var featuredExcludeContent = getContentIdList(data.featuredContent);
+            data.featuredContent = data.featuredContent.map(function (a) {
+                a.isFeatured = true;
+                return a;
+            });
+            addContentWidget(data.featuredContent);
+            data.excludeList = data.excludeList.concat(featuredExcludeContent);
+            // remove the featured content fetched length from limit so that it gets required limit set by customer.
+            data.limit = data.limit - featuredExcludeContent.length;
+        }
+
+        var filterOptions = data.filterOptions.map(function (filter) {
+            return filter.sysId;
+        });
+
+        if (data.filterBy) {
+            filterOptions = [data.filterBy];
+        }
+
+        var content = getContentForTopic(data.limit, data.isMobileApp, data.excludeList, filterOptions);
+
+        //Check if the length of content is same as limit then show "show more button"
+        if (data.limit + 1 === content.length) {
+            data.showMore = true;
+            data.showMoreMsg = gs.getMessage("Show more");
+            content.splice(content.length - 1, 1);
+        }
+        else{
+            data.showMore = false;
+        }
+
+        //Created Content widgets and addes them to content object
+        addContentWidget(content);
+
+        data.content = data.content.concat(content);
+
+        if (!gs.nil(data.filterBy) &amp;&amp; data.content.length === 0) {
+            var selectedFilterName = getSelectedFilterName(data.filterBy);
+            data.noContentMessage = gs.getMessage("&lt;p&gt;No results for &lt;b&gt;{0}&lt;/b&gt;&lt;/p&gt;", selectedFilterName);
+        }
+
+    } catch (ex) {
+        gs.error(gs.getMessage("Invalid Topic Id."));
+    }
+
+    function getContentForTopic(limit, isMobile, excludeItems, contentConfigIds) {
+        limit = limit + 1;
+        if (data.sortBy === "popularity")
+            return new TopicServiceUtil().getContentByPopularity(data.sys_id, !isMobile, limit, isMobile, excludeItems, contentConfigIds);
+        else
+            return new TopicServiceUtil().getContent(data.sys_id, !isMobile, limit, isMobile, excludeItems, contentConfigIds);
+    }
+
+    function getContentConfiguration() {
+        var configurations = [{
+            sysId: "",
+            name: gs.getMessage("All", "All")
+        }];
+        var contentConfigurationGr = new GlideRecord("taxonomy_content_configuration");
+        contentConfigurationGr.addActiveQuery();
+        contentConfigurationGr.query();
+        while (contentConfigurationGr.next()) {
+            if(!isContentConfigValid(contentConfigurationGr))
+                continue;
+            var configuration = {};
+            configuration.sysId = contentConfigurationGr.getUniqueValue();
+            configuration.name = getFilterName(contentConfigurationGr.content_table);
+            if (configuration.name)
+                configurations.push(configuration);
+        }
+        return configurations;
+    }
+
+    function getFilterName(table) {
+        var content_table_filter_map = {
+            'sc_cat_item' : REQUESTS,
+            'kb_knowledge' : ARTICLES,
+            'sn_lc_course_item' : COURSES
+        };
+        return content_table_filter_map[table];
+    }
+
+    function getContentIdList(content) {
+        return content.map(function (a) {
+            return a.content;
+        });
+    }
+
+    function getSelectedFilterName(sysId) {
+        var selectedFilter = data.filterOptions.filter(function (filter) {
+            return filter.sysId === sysId;
+        });
+        return selectedFilter.length &gt; 0 ? selectedFilter[0].name : '';
+    }
+
+    function addContentWidget(content) {
+        content.map(function (a) {
+            a.widgetTitle = data.title;
+            a.topicForBreadcrumb = data.sys_id;
+            a.widgetData = $sp.getWidget(data.contentTableToWidget[a.content_table], a);
+        });
+    }
+
+    function postProcessAISResponse(item) {
+      item.content_table = item.table;
+      item.content = item.sysId;
+      item.sys_id = item.sysId;
+      item.searchModeEnabled = true;
+      item.topicForBreadcrumb = data.sys_id;
+      item.columns.forEach(function (col) {
+        var key = col.fieldName;
+        var displayVal = col.displayValue;
+        item[key] = displayVal;
+      });
+      
+      switch(item.table){
+        case 'sc_cat_item': {
+          item.short_description = item.text;
+          item.show_price = item.price ? true : false;
+          item.name = item.title ? item.title : item.name;
+          break;
+        }
+        default: 
+          break;
+      }
+
+      return item;
+    }
+
+    function getSearchConfigParams(search_app_sys_id) {
+        var relatedListsTables = [
+            {
+                table_name: 'sys_search_filter',
+                data_key: 'filter',
+                data_column_label: 'label'
+            },
+            {
+                table_name: 'sys_search_sort_option',
+                data_key: 'sort',
+                data_column_label: 'gui_label'
+            },
+        ];
+
+        relatedListsTables.forEach(function (table) {
+            var listGR = new GlideRecord(table.table_name);
+            listGR.addQuery('search_context_config', search_app_sys_id);
+            listGR.query();
+            while (listGR.next()) {
+                var uniqueID = listGR.getUniqueValue();
+                createAISFilterSortOptions(table.table_name, uniqueID, listGR.getValue(table.data_column_label));
+            }
+        });
+
+        data.ui.aisFacetFilters = getFacetFilters(data.sys_id);
+    }
+
+    function createAISFilterSortOptions(table_name, uniqueID, label){
+        if(table_name === "sys_search_filter"){
+            data.ui.aisSearchFilters.push({
+                sysId: uniqueID,
+                label: label
+            });
+        }
+        else if(table_name === "sys_search_sort_option"){
+            data.ui.aisSortOptions.push({
+                sysId: uniqueID,
+                label: label
+            });
+        }
+    }
+
+    function getFacetFilters(topicId) {
+        var topicGR = new GlideRecord('topic');
+        var topicPath = '', currentTopicName = '';
+        if (topicGR.get(topicId)) {
+            topicPath = topicGR.getDisplayValue('topic_path');
+            currentTopicName = topicGR.getDisplayValue('name');
+            data.title = gs.getMessage("Browse {0}", currentTopicName);
+        }
+        var topic_level = topicPath ? topicPath.split('/').length - 1 : 0;
+
+        var facetFields = ['_kb_knowledge.topic_level_', '_sc_cat_item.topic_level_', '_sn_lc_course_item.topic_level_'];
+
+        return [('"UNION(' + facetFields.map(function (f) {
+            return f + topic_level + '_s';
+        }).join(',') + ')"' + ':FACET("' + currentTopicName + '")')];
+    }
+    function isContentConfigValid(contentConfigGr) {
+        var connectedContentGr = new GlideRecord('m2m_connected_content');
+        if (connectedContentGr.isValidField(contentConfigGr.getValue('content_reference_field')))
+            return true;
+
+        return false;
+    }
+    return data;
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-05-18 16:18:07&lt;/sys_created_on&gt;&lt;sys_id&gt;9c691d40c31030102ec1a589a840dd4c&lt;/sys_id&gt;&lt;sys_mod_count&gt;964&lt;/sys_mod_count&gt;&lt;sys_name&gt;Topic Content&lt;/sys_name&gt;&lt;sys_package display_value="Employee Center" source="sn_ex_sp"&gt;4249e63a28d54d61bb6fbf61fd86cccb&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="Employee Center"&gt;4249e63a28d54d61bb6fbf61fd86cccb&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_9c691d40c31030102ec1a589a840dd4c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-04-20 12:31:57&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="browse-content-container"&gt;
+  &lt;div ng-class="data.isMobileApp ? 'browse-elevation-mobile': 'browse-elevation'"&gt;
+
+    &lt;div class="box-header-title"&gt;
+      &lt;h3 class="title-item"&gt;${Support resources}&lt;/h3&gt;
+    &lt;/div&gt;
+
+    &lt;div class="box-header-title p-v-2"&gt;
+      &lt;div ng-if="!data.isMobileApp" class="title-item-filters"
+        ng-class="{'item-fitlers-disable': (contentItems.length === 0 &amp;&amp; data.filterBy ==='')}"&gt;
+        &lt;div class="flex-mobile m-r-auto" ng-if="isSearchModeEnabled"&gt;
+          &lt;label class="label-padding" for="filter_picker_select"&gt;${Filter by}&lt;/label&gt;
+          &lt;select id="filter_picker_select" ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''"
+            class="form-control" name="filter_picker_select" ng-model="data.aisFilterBy" title="${Filter by}"
+            ng-change="getUpdatedContent()" aria-label="${Filter by}"
+            ng-options="item.sysId as item.name for item in aisFilterOptions" /&gt;
+        &lt;/div&gt;
+
+        &lt;div class="flex-mobile m-r-auto" ng-if="!isSearchModeEnabled"&gt;
+          &lt;label class="label-padding" for="filter_picker_select"&gt;${Filter by}&lt;/label&gt;
+          &lt;select id="filter_picker_select" ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''"
+            class="form-control" name="filter_picker_select" ng-model="data.filterBy" title="${Filter by}"
+            ng-change="getUpdatedContent()" aria-label="${Filter by}"
+            ng-options="item.sysId as item.name for item in data.filterOptions" /&gt;
+        &lt;/div&gt;
+
+        &lt;div class="flex-mobile filter-search"&gt;
+          &lt;div class="flex-mobile" ng-if="isSearchModeEnabled" ng-class="{'filter-padding' : !data.aisEnabledUtah}"&gt;
+            &lt;label class="label-padding" for="sort_picker_select"&gt;${Sort by}&lt;/label&gt;
+            &lt;select id="sort_picker_select" class="form-control"
+              ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''" name="sort_picker_select"
+              ng-model="data.aisSortBy" ng-change="getUpdatedContent()"
+              ng-options="item.id as item.name for item in aisSortOptions" /&gt;
+          &lt;/div&gt;
+          &lt;div class="flex-mobile" ng-if="!isSearchModeEnabled" ng-class="{'filter-padding' : !data.aisEnabledUtah}"&gt;
+            &lt;label class="label-padding" for="sort_picker_select"&gt;${Sort by}&lt;/label&gt;
+            &lt;select id="sort_picker_select" class="form-control"
+              ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''" name="sort_picker_select"
+              ng-model="data.sortBy" ng-change="getUpdatedContent()"
+              ng-options="item.id as item.name for item in data.sortOptions" /&gt;
+          &lt;/div&gt;
+          &lt;div ng-if="data.aisEnabledUtah"&gt;
+            &lt;widget id="ais_topic_search" options='data.searchWidgetInitOptions'&gt;
+            &lt;/widget&gt;
+          &lt;/div&gt;
+          &lt;div class="view-controls" ng-if="!data.isMobile"&gt;
+            &lt;div class="pull-right padder-t-sm text-lg toggle" role="radiogroup" aria-label="${Select a view}"&gt;
+              &lt;i id="tab-card" ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''" class="fa fa-th"
+                ng-click="changeView('card')" ng-keydown="switchTab($event)" ng-class="{'active' : data.view == 'card'}"
+                title="${Card View}" data-toggle="{{!isTouchDevice() ? 'tooltip' : undefined}}" data-placement="top"
+                data-container="body" aria-label="${Card View}"
+                ng-attr-aria-controls="{{data.view == 'card' ? 'tabpanel-card-' + (data.sys_id ? data.sys_id : '') : undefined}}"
+                tabindex="{{data.view == 'card' &amp;&amp; contentItems.length != 0  ? '0' : '-1'}}" role="radio" aria-checked="{{data.view == 'card'}}"&gt;&lt;/i&gt;
+              &lt;i id="tab-list" ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''" class="fa fa-list-ul"
+                ng-click="changeView('list')" ng-keydown="switchTab($event)" ng-class="{'active' : data.view == 'list'}"
+                title="${List View}" data-toggle="{{!isTouchDevice() ? 'tooltip' : undefined}}" data-placement="top"
+                data-container="body" aria-label="${List View}"
+                ng-attr-aria-controls="{{ data.view == 'list' || data.isMobileApp ? 'tabpanel-list-' + (data.sys_id ? data.sys_id : '') : undefined}}"
+                tabindex="{{data.view == 'list' &amp;&amp; contentItems.length != 0 ? '0' : '-1'}}" role="radio" aria-checked="{{data.view == 'list'}}"&gt;&lt;/i&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div ng-if="data.isMobileApp" class="title-item-filters"
+        ng-class="{'item-fitlers-disable': (contentItems.length === 0 &amp;&amp; data.filterBy ==='')}"&gt;
+        &lt;div class="flex-mobile form-inline"&gt;
+          &lt;label class="label-padding" for="filter_picker_select"&gt;${Filter by}&lt;/label&gt;
+          &lt;select id="filter_picker_select" ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''"
+            class="sn-select-basic full-width-drop-down" name="filter_picker_select" ng-model="data.filterBy"
+            title="${Filter by}" ng-change="getUpdatedContent()" aria-hidden="true"&gt;
+            &lt;option ng-repeat="item in data.filterOptions" value={{::item.sysId}}&gt;{{::item.name}}&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+        &lt;div class="form-inline filter-padding  flex-mobile"&gt;
+          &lt;label class="label-padding" for="sort_picker_select"&gt;${Sort by}&lt;/label&gt;
+          &lt;select id="sort_picker_select" ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''"
+            class="sn-select-basic full-width-drop-down" name="sort_picker_select" ng-model="data.sortBy"
+            title="${Sort by}" ng-change="getUpdatedContent()" aria-hidden="true"&gt;
+            &lt;option ng-repeat="item in data.sortOptions" value={{::item.id}}&gt;{{::item.name}}&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="box-header-title spellcheck-container" ng-if="isSearchModeEnabled" aria-live="polite"&gt;
+      &lt;div class="search-results-container" ng-if="searchedTerm &amp;&amp; spellCorrectedTerm &amp;&amp; !loading"&gt;
+        &lt;div ng-if="spellCorrectedTerm"&gt;${Showing results for}&lt;button class="btn-link" ng-click="handleCorrectedSearch(spellCorrectedTerm, 'spell-corrected-term')"&gt;{{spellCorrectedTerm}}&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div ng-if="searchedTerm"&gt;${Search instead for}&lt;button class="btn-link" ng-click="handleCorrectedSearch(searchedTerm, 'search-term')"&gt;{{searchedTerm}}&lt;/button&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="clear-search-container"&gt;
+        &lt;button class="btn btn-link" ng-click="clearSearch()"&gt;{{::data.clearSearchBtn}}&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;span ng-if="!loading &amp;&amp; isSearchModeEnabled" class="sr-only" aria-live="polite"&gt;{{noOfNewItems}} ${new items available}&lt;/span&gt;
+    &lt;span ng-if="loading &amp;&amp; isSearchModeEnabled" class="sr-only" aria-live="polite"&gt;${Loading new items}&lt;/span&gt;
+    &lt;div
+      id="{{ data.view == 'list' || data.isMobileApp ? 'tabpanel-list-' + data.sys_id  : 'tabpanel-card-' + data.sys_id }}"
+      class="grid-margin" ng-class="data.view == 'list' || data.isMobileApp ? 'list-view-block': 'grid-test-auto-wrap'"&gt;
+      &lt;div ng-if="!loading || data.action ==='show-more' || data.action === 'modify-ais-results'" class="flex-item-card"
+        ng-class="data.view == 'list' ? 'list-view': ''" ng-repeat="item in getContentItems(); track by item.sys_id"
+        on-finish-repeat="ngRepeatFinishedContentCards"&gt;
+        &lt;span ng-if="isSearchModeEnabled" class="sr-only"&gt;${Item {{$index + 1}} of {{aisContentItems.length}}, }&lt;/span&gt;
+        &lt;span ng-if="!isSearchModeEnabled" class="sr-only"&gt;${Item {{$index + 1}} of {{data.content.length}}, }&lt;/span&gt;
+        &lt;div class="flex-display"&gt;
+          &lt;sp-widget widget="item.widgetData"&gt;&lt;/sp-widget&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div ng-if="loading" class="flex-item-card skeleton-loading" ng-class="data.view == 'list' ? 'list-view': ''"
+        ng-repeat="item in [1,2,3,4,5,6,7,8,9,10,11,12]"&gt;
+        &lt;span class="skeleton-loader badge-loader"&gt;&lt;/span&gt;
+        &lt;div class="flex-column text-items"&gt;
+          &lt;div class="skeleton-loader title-loader"&gt;&lt;/div&gt;
+          &lt;div class="skeleton-loader description-loader"&gt;&lt;/div&gt;
+          &lt;div class="skeleton-loader additional-info-loader"&gt;&lt;/div&gt;
+          &lt;div class="empty"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div ng-if="!isSearchModeEnabled"&gt;
+      &lt;div class="content-align-center" ng-if="data.filterBy !=='' &amp;&amp; contentItems.length === 0"&gt;
+        &lt;img src="5c50c822c3e930102ec1a589a840dd7b.iix" /&gt;
+        &lt;p ng-bind-html="data.noContentMessage"&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+          ${Try another search or remove some filters.}
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="content-align-center" ng-if="(!data.isMobileApp &amp;&amp; contentItems.length === 0 &amp;&amp; data.filterBy ==='')"&gt;
+        &lt;img src="5c50c822c3e930102ec1a589a840dd7b.iix" /&gt;
+        &lt;p&gt;
+          ${No content available}
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="content-align-center" ng-if="(data.isMobileApp &amp;&amp; contentItems.length === 0 &amp;&amp; data.filterBy ==='')"
+        ng-bind-html="data.mobileNoContentMessage" /&gt;
+      &lt;div ng-if="data.showMore"&gt;
+        &lt;button class="btn btn-default btn-loadmore" ng-click="loadMore()" ng-keydown="loadMoreKeydown($event)"&gt;
+          {{data.showMoreMsg}}
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div ng-if="isSearchModeEnabled"&gt;
+      &lt;div ng-if="hasNext"&gt;
+        &lt;button class="btn btn-default btn-loadmore" ng-click="loadMore()" ng-keydown="loadMoreKeydown($event)"&gt;
+          ${Show more}
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div ng-if="data.showRedirectToGlobal &amp;&amp; aisContentItems.length !== 0"&gt;
+        &lt;div ng-include="'sn-ec-global-search-redirect'" class="content-align-center expand-search-container"&gt;&lt;/div&gt;
+
+      &lt;/div&gt;
+      &lt;div ng-if="aisContentItems.length === 0 &amp;&amp; !loading" class="content-align-center search-no-results-container"&gt;
+        &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+        &lt;h4&gt;${No results match your criteria.}&lt;/h4&gt;
+        &lt;p&gt;${You might find more results with a global search.}&lt;/p&gt;
+        &lt;a ng-if="data.showRedirectToGlobal" class="btn btn-primary" role="button" ng-href="{{getExpandSearchURL()}}"
+          aria-labelledby="{{data.expandSearchLink}}" title="{{data.expandSearchLink}}" ng-click="setSessionData()"&gt;
+          ${Expand your search}
+          &lt;span class="sr-only" id="{{data.expandSearchLink}}-ext-link}" ng-if="(item.target == '_blank')"&gt;${, opens
+            in a new window}
+          &lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 05:05:26</sys_created_on>
+        <sys_id>8637c90993be821094e3f15a7bba10a9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>0237c98593be821094e3f15a7bba1052</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_8637c90993be821094e3f15a7bba10a9</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 05:05:26</sys_updated_on>
+    </sp_rel_widget_clone>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sp_rel_widget_clone_8637c90993be821094e3f15a7bba10a9</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone"><sp_rel_widget_clone action="INSERT_OR_UPDATE"><child display_value="Cb topic content">0237c98593be821094e3f15a7bba1052</child><cloned>2024-06-13 05:05:26</cloned><last_validated>2024-06-13 05:05:26</last_validated><parent display_value="Topic Content">9c691d40c31030102ec1a589a840dd4c</parent><payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller = function ($timeout, $rootScope, $scope, $window, snAnalytics) {
+    var c = this;
+    var CARD_VIEW = "card";
+    var LIST_VIEW = "list";
+    var FLEX_CARD_SELECTOR = '.flex-item-card';
+    var CONTENT_CARD_SELECTOR = c.data.isMobileApp ? '.content-card-mobile' : '.content-card';
+    var actions = {
+        showMore: "show-more",
+        filter: "filter",
+        sort: "sort",
+        modifyAISResults: "modify-ais-results"
+    };
+    $scope.loading = false;
+    $scope.contentItems = [];
+
+    // AIS search integration
+    $scope.isBackFromGlobalSearch = false;
+    $scope.searchAppConfigId = c.options.searchAppSysId;
+    $scope.isSearchModeEnabled = false;
+    $scope.searchedTerm = "";
+    $scope.spellCorrectedTerm = "";
+    $scope.noOfNewItems = 0;
+    $scope.aisContentItems = [];
+    $scope.aisFilterOptions = [];
+    $scope.aisSortOptions = [];
+    $scope.hasNext = false;
+    c.data.getNext = false;
+    c.data.aisFilterBy = '';
+    c.data.aisSortBy = '';
+    var AIS_EVENTS = c.data.EVENTS;
+
+    $timeout(function(){
+        $scope.populateFilterAndSortOptions(c.data.ui.aisSearchFilters, c.data.ui.aisSortOptions);
+    },0,false);
+
+    var aisModeChangeDestroy = $rootScope.$on(AIS_EVENTS.AIS_MODE_CHANGE_EVENT, function (event, data) {
+        $scope.isSearchModeEnabled = data.searchModeEnabled;
+        if (!$scope.isSearchModeEnabled) {
+            $scope.resetAISParams();
+        }
+    });
+
+    var aisLoadingDestroy = $rootScope.$on(AIS_EVENTS.AIS_LOADING_EVENT, function (event, data) {
+        if (data.isAISloading) {
+            $scope.loading = data.isAISloading;
+            if (!data.loadingNext)
+                $scope.aisContentItems = [];
+        }
+
+    });
+
+    var resultsUpdatedDestroy = $rootScope.$on(AIS_EVENTS.AIS_RESULTS_UPDATED_EVENT, function (event, data) {
+        $scope.searchedTerm = data.searchedTerm;
+        $scope.spellCorrectedTerm = data.spellCorrectedTerm;
+        $scope.hasNext = data.hasNext;
+        $scope.populateFilterAndSortOptions(data.filterOptions, data.sortOptions);
+        $scope.modifyAISResultsData(data.results, c.data.action === actions.showMore);
+        $scope.noOfNewItems = data.results.length;
+        if (data.results.length === 0) {
+            $scope.loading = false;
+        }
+    });
+
+    $scope.populateFilterAndSortOptions = function(allAISFilterOptions, allAISSortOptions){
+        $scope.aisFilterOptions = [{
+            name: '${All}',
+            sysId: ''
+        }].concat(allAISFilterOptions.filter(function (f) {
+            return c.data.search_sources_filter.includes(f.sysId);
+        }).map(function (item) {
+            return {
+                name: item.label,
+                sysId: item.sysId
+            };
+        }));
+        $scope.aisSortOptions = [{
+            name: '${Most relevant}',
+            id: ''
+        }].concat(allAISSortOptions.map(function (item) {
+            return {
+                name: item.label,
+                id: item.sysId
+            };
+        }));
+    };
+
+    $scope.$on('ngRepeatFinishedContentCards', function (ngRepeatFinishedEvent) {
+        $scope.loading = false;
+    });
+
+    $scope.$on('$destroy', function () {
+        aisModeChangeDestroy();
+        aisLoadingDestroy();
+        resultsUpdatedDestroy();
+    });
+
+    $scope.resetAISParams = function () {
+        $scope.noOfNewItems = 0;
+        $scope.aisContentItems = [];
+        c.data.aisFilterBy = '';
+        c.data.aisSortBy = '';
+        c.data.searchedQuery = '';
+        $window.sessionStorage.removeItem("topicSearchPreferences");
+    };
+
+    $scope.clearSearch = function () {
+        $rootScope.$broadcast(AIS_EVENTS.AIS_MODE_CHANGE_EVENT, {
+            searchModeEnabled: false,
+        });
+    };
+
+    $scope.refreshResults = function (searchParams) {
+        if (searchParams) {
+            c.data.searchQuery = searchParams.search_term;
+            c.data.filter = JSON.stringify(searchParams.filter === '' ? c.data.search_sources_filter : [searchParams.filter]).replaceAll('"', '\\\\\\"');
+            c.data.sort = JSON.stringify(searchParams.sort === '' ? [] : [searchParams.sort]).replaceAll('"', '\\\\\\"');
+            c.data.spellCheck = searchParams.disable_spell_check || false;
+        }
+        $rootScope.$broadcast(AIS_EVENTS.AIS_REFRESH_RESULTS_EVENT, c.data);
+    };
+
+    $scope.getContentItems = function () {
+        if ($scope.isSearchModeEnabled) {
+            $scope.aisContentItems = $scope.aisContentItems.filter(function(results) {
+              return results.table !== "sys_attachment";
+            });
+            if(c.data.isMobileApp){
+                var searchData = $scope.aisContentItems.slice(0,$scope.nextIndexMobileSearch+$scope.mobileSearchResCount);
+                $scope.showMoreFlagMobileSearch = $scope.aisContentItems.length &gt; ($scope.nextIndexMobileSearch+$scope.mobileSearchResCount) || $scope.hasNext;
+                return searchData;
+            }
+            return $scope.aisContentItems;
+        }
+        return $scope.contentItems;
+    };
+
+    $scope.modifyAISResultsData = function (aisSearchResults, isConcat) {
+        c.data.action = actions.modifyAISResults;
+        c.data.aisSearchResults = aisSearchResults;
+        c.data.searchedQuery = $scope.searchedTerm;
+
+        var aisPreferences = JSON.stringify({
+            aisFilterBy: c.data.aisFilterBy,
+            aisSortBy: c.data.aisSortBy,
+            aisSearchQ: c.data.searchedQuery,
+            profileLang: c.data.profileLang
+        });
+        $window.sessionStorage.setItem("topicSearchPreferences", aisPreferences);
+
+        c.server.update().then(function (response) {
+            var focusIndex = $scope.aisContentItems.length;
+            if (isConcat) {
+                $scope.aisContentItems = $scope.aisContentItems.concat(response.modifiedAISResponse);
+                $timeout(function () {
+                    $(CONTENT_CARD_SELECTOR).get(focusIndex).focus();
+                }, 100);
+            }
+            else
+                $scope.aisContentItems = response.modifiedAISResponse;
+        });
+    };
+
+    $scope.getExpandSearchURL = function () {
+        var facetFilters = encodeURI(JSON.stringify(c.data.ui.aisFacetFilters));
+        return "?id=search&amp;spa=1&amp;q=" + $scope.searchedTerm + "&amp;disableSpellCheck=false";
+    };
+
+    $scope.toGlobalSearch = function () {
+        $scope.setSessionData();
+        $window.location.href = $scope.getExpandSearchURL();
+    };
+
+    $scope.setSessionData = function () {
+        var aisSearchParams = {
+            aisSearchQ: $scope.searchedTerm,
+            aisFilterBy: c.data.aisFilterBy,
+            aisSortBy: c.data.aisSortBy,
+        };
+        $window.sessionStorage.setItem("aisSearchParams", JSON.stringify(aisSearchParams));
+    };
+
+    c.createAppseeEvent = function () {
+        var payload = {};
+        payload.name = 'Topic Page Visits';
+        payload.data = {};
+        payload.data['Topic Name'] = c.data.topicName;
+        payload.data['Topic Id'] = c.data.sys_id;
+        snAnalytics.addEvent(payload);
+    };
+
+    if (c.data.sys_id != -1)
+        c.createAppseeEvent();
+
+    if (c.data) {
+        $scope.contentItems = c.data.featuredContent.concat(c.data.content);
+    }
+
+    $scope.loadMore = function () {
+        c.data.action = actions.showMore;
+        var focusIndex = c.data.content.length;
+        if ($scope.isSearchModeEnabled) {
+            c.data.getNext = true;
+            $scope.refreshResults();
+            return;
+        }
+        return $scope.updateContent().then(function () {
+            $timeout(function () {
+                $(CONTENT_CARD_SELECTOR).get(focusIndex).focus();
+            }, 100);
+        });
+    };
+
+    $scope.loadMoreKeydown = function (event) {
+        if (event.which === 32 || event.which === 13) {
+            event.preventDefault();
+            var focusIndex = c.data.content.length;
+            if ($scope.isSearchModeEnabled) {
+                c.data.getNext = true;
+                $scope.refreshResults();
+                return;
+            }
+            $scope.loadMore().then(function () {
+                $timeout(function () {
+                    $(CONTENT_CARD_SELECTOR).get(focusIndex).focus();
+                }, 100);
+            });
+        }
+    };
+
+    $scope.getUpdatedContent = function () {
+        c.data.action = actions.filter;
+        c.data.getNext = false;
+        if ($scope.isSearchModeEnabled) {
+            var searchParams = {
+                filter: c.data.aisFilterBy,
+                sort: c.data.aisSortBy,
+            };
+           $scope.refreshResults(searchParams);
+            return;
+        }
+        return $scope.updateContent();
+    };
+
+    $scope.updateContent = function () {
+        $scope.loading = true;
+        return $scope.server.update().then(function () {
+            $scope.contentItems = c.data.featuredContent.concat(c.data.content);
+            $scope.loading = false;
+        });
+    };
+
+    $scope.changeView = function (view) {
+        //data.view changes to input.view when server.update is called. 
+        c.data.view = view;
+        c.data.action = "storeView";
+        c.server.update();
+    };
+
+    $scope.switchTab = function ($event) {
+        if ($event.which == 37 || $event.which == 39) {
+            $event.stopPropagation();
+            var layout = c.data.view === CARD_VIEW ? LIST_VIEW : CARD_VIEW;
+            $scope.changeView(layout);
+            $('#tab-' + layout).focus();
+        }
+    };
+
+    $scope.isTouchDevice = function () {
+        return ('ontouchstart' in $window);
+    };
+
+    $scope.handleCorrectedSearch = function(term, type){
+        var searchParams = {
+            search_term : term,
+            filter: c.data.aisFilterBy,
+            sort: c.data.aisSortBy,
+            disable_spell_check: type === 'search-term'
+        };
+        $scope.refreshResults(searchParams);
+    };
+
+    var destroyWidgetWatcher = $scope.$watch(
+        function () { return $("[widget = 'widget'][sn-atf-area='AIS Topic Search']").length; },
+        function (newValue, oldValue) {
+            var searchParams = {};
+            function refreshOnLoad(searchParams) {
+                c.data.aisFilterBy = searchParams.filter;
+                c.data.aisSortBy = searchParams.sort;
+                $scope.refreshResults(searchParams);
+                destroyWidgetWatcher();
+            }
+            if (newValue !== oldValue) {
+                if($window.sessionStorage.getItem('topicSearchPreferences')) {
+                    var inContextSearchParams = $window.sessionStorage.getItem('topicSearchPreferences');
+                    if (inContextSearchParams) {
+                        inContextSearchParams = JSON.parse(inContextSearchParams);
+                        searchParams = {
+                            search_term: inContextSearchParams.aisSearchQ,
+                            filter: inContextSearchParams.aisFilterBy,
+                            sort: inContextSearchParams.aisSortBy,
+                            profileLang: inContextSearchParams.profileLang
+                        };
+                        if (!c.data.in_context || searchParams.profileLang !== c.data.profileLang) {
+                            $window.sessionStorage.removeItem("topicSearchPreferences");
+                        }
+                        else
+                            refreshOnLoad(searchParams);
+                    }
+                }
+                if ($window.sessionStorage.getItem('isBackFromGS') === "true" &amp;&amp; $window.sessionStorage.getItem('aisSearchParams')) {
+                    var aisSearchParams = JSON.parse($window.sessionStorage.getItem('aisSearchParams'));
+                    searchParams = {
+                        search_term: aisSearchParams.aisSearchQ,
+                        filter: aisSearchParams.aisFilterBy,
+                        sort: aisSearchParams.aisSortBy,
+                    };
+                    refreshOnLoad(searchParams);
+                }
+                $window.sessionStorage.removeItem('aisSearchParams');
+                $window.sessionStorage.removeItem('isBackFromGS');
+            }
+        }
+    );
+
+    $window.addEventListener('popstate', function(){
+        $window.sessionStorage.setItem('isBackFromGS', "true");
+    });
+
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;$text-primary : #181A1F !default;
+
+$background-primary : #ffffff !default;
+$background-secondary : #f6f6f8 !default;
+$background-tertiary : #F0F1F5 !default;
+
+$sp-panel-box-shadow : 0 4px 8px 0 rgba(23, 40, 52, 0.08) !default;
+
+$sp-space--lg: 16px !default;
+$sp-space--xl : 24px !default;
+$padding-base-vertical: 6px !default;
+
+$border-primary : #8790A1 !default;
+$border-secondary : #ACB2BE !default;
+$border-tertiary : #DADDE2 !default;
+
+$select-primary: #007b58 !default;
+
+$headings-font-weight: 600 !default;
+$divider: #F6F7F7 !default;
+
+/* Double focus ring on cards */
+#tabpanel-card-06d3df67c3053010069aec4b7d40dd70 div:focus {
+  box-shadow: none !important;
+  border: none;
+}
+
+mark {
+  background-color: $brand-primary-lightest;
+  color: $text-primary;
+  padding: 0;
+}
+
+.m-r-auto {
+  margin-right: auto;
+}
+
+.p-v-2 {
+  padding: $sp-space--lg 0;
+}
+
+.browse-content-container {
+  .toggle {
+    color: $gray-darker;
+
+    i:not(.active):hover {
+      color: $list-group-link-heading-color;
+    }
+  }
+
+  .fa {
+    border: 4px solid transparent;
+  }
+
+  .fa.active {
+    color: $select-primary;
+  }
+
+  .view-controls {
+    margin-bottom: 5px;
+  }
+
+  .filter-padding {
+    padding: 0 $sp-space--lg;
+  }
+
+  .item-fitlers-disable {
+    opacity: 50%;
+    pointer-events: none;
+  }
+
+  .grid-margin {
+    margin-top: $sp-space--xl;
+  }
+
+  .title-item-filters {
+    width: 100%;
+    flex: 1 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    select {
+      width: 140px;
+    }
+
+    .filter-search {
+      width: max-content;
+      display: flex;
+      align-items: flex-end;
+      margin-left: $sp-space--lg;
+
+      div[widget="widget"][sn-atf-area="AIS Topic Search"] {
+        padding: 0 $sp-space--lg;
+
+        .input-group {
+          width: 248px;
+        }
+
+        div.dropdown-menu {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media (min-width:62em) and (max-width: 75em) {
+    .title-item-filters {
+      select {
+        width: 120px;
+      }
+    }
+  }
+
+  @media (min-width:38em) and (max-width: 48em) {
+    .title-item-filters {
+      align-items: initial;
+
+      select {
+        width: 10rem;
+      }
+
+      .filter-padding {
+        padding-right: 0;
+      }
+
+      .filter-search {
+        gap: $sp-space--lg;
+
+        div[widget="widget"][sn-atf-area="AIS Topic Search"] {
+          padding: 0;
+
+          .input-group {
+            width: 20rem;
+          }
+        }
+
+        .view-controls {
+          .toggle {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 38em), (min-width:48em) and (max-width: 62em) {
+    .box-header-title {
+      flex-wrap: wrap;
+
+      &amp;amp;.spellcheck-container {
+        flex-direction: column;
+      }
+    }
+
+    .title-item {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .title-item-filters {
+      justify-content: flex-start !important;
+      width: 100%;
+      flex-direction: column;
+      align-items: initial !important;
+
+      select {
+        width: 100%;
+        margin-bottom: $sp-space--lg;
+      }
+
+      .filter-search {
+        display: block;
+        padding: 0;
+        margin-left: 0;
+        width: auto;
+
+        div[widget="widget"][sn-atf-area="AIS Topic Search"] {
+          padding: 0;
+
+          .input-group {
+            width: 100%;
+          }
+
+          div.dropdown-menu {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .view-controls {
+      display: none;
+    }
+
+    .flex-mobile {
+      width: 100%;
+    }
+
+    .filter-padding {
+      padding: 0;
+    }
+  }
+
+  .box-header-title {
+    display: flex;
+    margin: 0 10px;
+    flex-wrap: wrap;
+
+    .search-results-container {
+      button.btn-link {
+        padding: 0;
+      }
+    }
+
+    .clear-search-container {
+      margin-left: auto;
+
+      button.btn.btn-link {
+        padding: 0;
+      }
+    }
+  }
+
+  .label-padding {
+    padding-right: 5px;
+  }
+
+  .title-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    word-break: break-word;
+  }
+
+  .browse-elevation {
+    background: $background-primary;
+    padding: 0.4rem 1.4rem 1rem 1.4rem;
+    border-radius: $border-radius-large;
+    -webkit-box-shadow: $sp-panel-box-shadow;
+    box-shadow: $sp-panel-box-shadow;
+
+    .flex-item-card {
+      border: 1px solid $border-tertiary;
+      border-radius: $border-radius-base;
+      margin: 10px;
+      max-width: 500px;
+      position: relative;
+      display: flex;
+    }
+
+    .flex-item-card:hover {
+      box-shadow: 0rem 0.2rem 1rem #E5E5E5;
+    }
+
+    .flex-display {
+      display: flex;
+      height: 100%;
+      flex-grow: 1;
+
+      &amp;gt;div {
+        flex-grow: 1;
+      }
+    }
+
+    .list-view-block {
+      display: block;
+    }
+
+    .list-view {
+      flex-direction: column;
+      flex-grow: 1;
+      max-width: none;
+
+      .flex-display {
+        flex-direction: column;
+      }
+    }
+
+    .btn-loadmore {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      display: block;
+      color: $text-primary;
+      background: $background-primary;
+      border-color: $border-tertiary;
+    }
+
+    .btn-loadmore:hover {
+      background: $background-secondary;
+    }
+
+    .btn-loadmore:active {
+      background: $background-tertiary;
+    }
+
+    /* IE 10-11 specific Class to override */
+    @media screen and (-ms-high-contrast: active),
+    (-ms-high-contrast: none) {
+      .flex-item-card {
+        width: 350px;
+        max-width: 350px;
+        flex: 1 0 100%;
+      }
+
+      .grid-test-auto-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .list-view {
+        max-width: none;
+        width: auto;
+
+        .text-ellipsis {
+          width: 700px;
+        }
+      }
+
+      .fa.active {
+        outline-color: $select-primary;
+      }
+    }
+  }
+
+  .browse-elevation-mobile {
+    background: $background-primary;
+    padding: 0 1rem 1rem 1rem;
+    border-bottom: 12px solid $divider;
+    font-size: 14px;
+
+    h3 {
+      font-size: 1.25rem !important;
+      font-weight: bold;
+    }
+
+    .flex-item-card {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      border-bottom: 1px solid #EAEAEA;
+      position: relative;
+    }
+
+    .flex-display {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .box-header-title {
+      margin: 0;
+    }
+
+    .title-item-filters {
+      .form-inline:first-of-type {
+        margin-bottom: $sp-space--lg;
+      }
+    }
+
+    .btn-loadmore {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      display: block;
+    }
+
+    .filter-padding {
+      padding-left: 0;
+    }
+
+    .label-padding {
+      font-weight: $headings-font-weight;
+    }
+
+    .full-width-drop-down {
+      width: 100%;
+      border: 1px solid $border-tertiary;
+      border-radius: 5px !important;
+      font-weight: $headings-font-weight;
+    }
+
+    .select2-container {
+
+      /* need to over ride the important style of mesp which already has important for a11y reasons*/
+      #s2id_autogen1,
+      #s2id_autogen2 {
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .select2-choice {
+        /* Tappable areas on mobile should be atleast 48px in height*/
+        min-height: 48px;
+
+        span[role="text"].select2-chosen {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+
+    .select2-reference .select2-arrow,
+    .select2-choice .select2-arrow {
+      /* need to over ride the important style of mesp which already has important */
+      right: 0.5rem !important;
+      padding-top: 8px;
+    }
+
+    .select2-container .select2-choice .select2-arrow b:before {
+      content: "\f107";
+      font-family: FontAwesome;
+    }
+
+    .select2-container .select2-choice {
+      padding-bottom: 0;
+      /* need to over ride the important style of mesp which already has important */
+      box-shadow: none !important;
+    }
+
+    .select2-container .select2-choice .select2-chosen {
+      font-size: 14px;
+    }
+
+    .grid-test-auto-wrap {
+      grid-template-columns: repeat(auto-fit, minmax(16.25rem, 1fr));
+    }
+
+    .content-align-center {
+      min-height: 200px;
+    }
+
+    .item-fitlers-disable {
+      display: none;
+    }
+  }
+
+  .content-align-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    text-align: center;
+
+    &amp;amp;.expand-search-container {
+      min-height: 134px;
+      background-color: $background-tertiary;
+      margin: $sp-space--xl 10px $sp-space--sm 10px;
+      padding: $padding-base-horizontal;
+      border-radius: $border-radius-large;
+
+      .expand-search-message {
+        color: $text-secondary;
+        margin-bottom: $sp-space--sm;
+      }
+
+      a {
+        color: $link-color;
+      }
+    }
+  }
+
+  .grid-test-auto-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+  }
+
+  .search-no-results-container {
+    margin: $sp-space--xl;
+    padding: $sp-space--lg;
+
+    i.fa.fa-search {
+      font-size: 2 * $font-size-xl;
+      color: $text-tertiary;
+      margin-bottom: $sp-space--md;
+    }
+
+    p {
+      color: $text-secondary;
+      font-size: $font-size-base;
+      margin-bottom: $sp-space--md;
+    }
+  }
+}
+
+.skeleton-loading {
+  padding: 10px;
+  $loader-line-height: 15px;
+
+  .text-items {
+    width: 100%;
+  }
+
+  .title-loader {
+    height: $loader-line-height;
+    width: 95%
+  }
+
+  .description-loader {
+    height: $loader-line-height;
+    width: 70%
+  }
+
+  .additional-info-loader {
+    height: $loader-line-height;
+    width: 40%
+  }
+
+  .badge-loader {
+    height: 25px;
+    width: 50%
+  }
+
+  .empty {
+    height: 30px;
+  }
+
+  .skeleton-loader {
+    box-sizing: border-box;
+    animation: progress 2s ease-in-out infinite;
+    background: rgb(239, 241, 246) no-repeat;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+    background-size: 200px 100%;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 6px;
+
+    &amp;amp;:after,
+    &amp;amp;:before {
+      box-sizing: border-box;
+    }
+  }
+}
+@media (max-width : 350px) {
+  .browse-content-container {
+    .grid-test-auto-wrap {
+      grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    }
+  }
+}
+
+@keyframes progress {
+  0% {
+    background-position: -200px 0;
+  }
+
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;topic_content&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+      if(controller.data.isMobileApp){
+      var destroyWatcher = scope.$watch(
+      function () { return element.find('.select2-choice span.select2-chosen').length; },
+      function (newValue, oldValue) {
+        if (newValue !== oldValue) {
+          var mespSelectInputs = element.find('.select2-choice span.select2-chosen');
+          if(mespSelectInputs.length == 2){
+            mespSelectInputs[0].setAttribute('role', 'text');
+            mespSelectInputs[1].setAttribute('role', 'text');
+            destroyWatcher();
+          }
+        }
+      }
+    );
+  }
+}]]&gt;&lt;/link&gt;&lt;name&gt;Topic Content&lt;/name&gt;&lt;option_schema&gt;[{"hint":"Pagination for browse content.","name":"limit","section":"Presentation","default_value":"12","label":"Number of items per page","type":"choice","choices":[{"label":"12","value":"12"},{"label":"24","value":"24"}]},{"hint":"Default sort order of content","name":"sortby","section":"Behavior","default_value":"popularity","label":"Default sort order","type":"choice","choices":[{"label":"popularity","value":"popularity"},{"label":"alphabetical","value":"alphabetical"}]},{"displayValue":"Search Application Configuration","hint":"Default search application sys id","name":"search_application","section":"Data","default_value":"7296910f53171010069addeeff7b12e7","label":"Search Application","type":"reference","value":"sys_search_context_config","ed":{"reference":"sys_search_context_config"}},{"displayValue":"Navigation Tab","hint":"Comma separated list of SYS IDs for searched sources filter from sys_search_filter table","name":"search_sources_filter","display_value_list":[],"section":"Data","default_value":"aed3c51253671010069addeeff7b121b,a6d3c51253671010069addeeff7b1217,62d1574053c13010cbb0ddeeff7b122c","label":"Search Sources Filter","type":"glide_list","value":"sys_search_filter","ed":{"reference":"sys_search_filter"}},{"displayValue":"Give employees the option to globally expand their search","hint":"Give employees the option to globally expand their search","name":"show_global_redirect","section":"Behavior","default_value":"true","label":"Give employees the option to globally expand their search","type":"boolean"}]&lt;/option_schema&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function () {
+    var portalRecord = $sp.getPortalRecord();
+    data.widgetInstance = $sp.getValue('sys_id');
+    data.EVENTS = new sn_ex_sp.ContentSearchUtils().getInstanceEvents(data.widgetInstance);
+    data.aisEnabledUtah = gs.getProperty('taxonomy.aisearch.enabled.utah') &amp;&amp; $sp.isAISearchEnabled();
+    data.profileLang = gs.getSession().getLanguage();
+    data.sys_id = $sp.getParameter('topic_id');
+    data.in_context = $sp.getParameter('in_context');
+    data.sys_id = gs.nil(data.sys_id) ? '-1' : data.sys_id;
+    data.limit = parseInt(options.limit) || 12;
+    // change this to use native mobile script to identify is mobile.
+    data.isMobile = gs.isMobile();
+    data.isMobileApp = $sp.getParameter('view') === 'mobile';
+    if (data.isMobileApp) {
+        data.limit = 5;
+    }
+    data.isLearningUpdated = GlidePluginManager.isActive('sn_lc');
+    data.contentTableToWidget = {
+        'sc_cat_item': 'catalog-content',
+        'kb_knowledge': 'kb-content'
+    };
+    if(data.isLearningUpdated){
+      data.contentTableToWidget.sn_lc_course_item = 'learning-content';
+    }
+    var sortOptions = [{
+        id: "popularity",
+        name: gs.getMessage("Popular", "Popular")
+    }, {
+        id: "alphabetical",
+        name: gs.getMessage("A-Z", "A-Z")
+    }];
+    var actions = {
+        showMore: "show-more",
+        filter: "filter",
+        sort: "sort",
+        storeView: "storeView",
+        modifyAISResults: "modify-ais-results"
+    };
+    var REQUESTS = gs.getMessage("Requests");
+    var ARTICLES = gs.getMessage("Articles");
+    var COURSES = gs.getMessage("Courses");
+    data.showRedirectToGlobal = options.show_global_redirect === 'true';
+
+    // AIS content search integration
+    data.clearSearchBtn = gs.getMessage("Reset search");
+    data.btnTitle = gs.getMessage("Search button");
+    data.placeholder = gs.getMessage("Search resources");
+    data.expandSearchMsg = gs.getMessage("Didn't find what you're looking for?");
+    data.expandSearchLink = gs.getMessage("Expand your search");
+    data.searchAppConfigId = portalRecord.getValue('search_application');
+
+    try {
+        var search_app_sys_id = options.search_application || data.searchAppConfigId;
+        data.ui = {
+            aisFacetFilters: [],
+            aisSearchFilters: [],
+            aisSortOptions: []
+        };
+
+        getSearchConfigParams(search_app_sys_id);
+
+        var defaultSearchFilters = options.search_sources_filter || '';
+        data.search_sources_filter = defaultSearchFilters.split(',');
+        var filters = defaultSearchFilters ? defaultSearchFilters.split(',') : data.ui.aisSearchFilters.map(function(f){
+            return f.sysId;
+        });
+
+        data.searchWidgetInitOptions = {
+            'facet': JSON.stringify(data.ui.aisFacetFilters).replaceAll('\\"', '\\\\\\\\"').replaceAll('"', '\\\\\\"'),
+            'filter': JSON.stringify(filters).replaceAll('"', '\\\\\\"'),
+            'sort': JSON.stringify([]).replaceAll('"', '\\\\\\"'),
+            'searchConfigId': options.search_application,
+            'btnTitle': data.btnTitle,
+            'placeholder': data.placeholder,
+            'parentWidgetInstance': data.widgetInstance
+        };
+
+        //if user does a search
+        if (input &amp;&amp; input.action === actions.modifyAISResults) {
+            data.modifiedAISResponse = input.aisSearchResults.map(function (item) {
+                item = postProcessAISResponse(item);
+                return item;
+            });
+            addContentWidget(data.modifiedAISResponse);
+            // initializing preferences object
+            var preferences = JSON.stringify({
+                filter: input.filterBy || '',
+                sort: input.sortBy || data.sortBy,
+                view: input.view || data.view,
+                topic: data.sys_id
+            });
+            var preferencesObj = gs.getSession().getClientData("preferences");
+            if (!preferencesObj) {
+                gs.getSession().putClientData('preferences', preferences);
+            }
+            return;
+        }
+    }
+    catch (err) {
+        gs.error(gs.getMessage("Something went wrong!"));
+    }
+
+    // Browse specific data, not required for search
+    data.sortOptions = input ? input.sortOptions : sortOptions;
+    data.sortBy = options &amp;&amp; options.sortby ? options.sortby : data.sortOptions[0].id;
+    data.noContentMessage = '';
+    data.excludeList = [];
+    data.filterOptions = input ? input.filterOptions : getContentConfiguration();
+    data.filterBy = '';
+    data.view = "card";
+    data.featuredContent = [];
+    data.content = [];
+
+    if (!data.in_context) {
+        var preferencesObj = gs.getSession().getClientData("preferences");
+        if (preferencesObj) {
+            var topic = JSON.parse(preferencesObj).topic;
+            data.in_context = (topic === data.sys_id);
+        }
+        if(!data.in_context)
+            gs.getSession().putClientData('preferences', null);
+    }
+    if (data.in_context) {
+        var usersPreference = gs.getSession().getClientData("preferences");
+        if (usersPreference) {
+            data.sortBy = JSON.parse(usersPreference).sort;
+            data.filterBy = JSON.parse(usersPreference).filter;
+            data.view = JSON.parse(usersPreference).view;
+        }
+    }
+    try {
+        var topicJs = new sn_taxonomy.Topic(data.sys_id);
+        data.title = gs.getMessage("Browse {0}", topicJs.getName());
+        data.topicName = topicJs.getName();
+        data.mobileNoContentMessage = gs.getMessage("&lt;p&gt;Choose a {0} topic to get more specific support.&lt;/p&gt;", topicJs.getName());
+        //override with input values. 
+        if (input) {
+            data.sortBy = input.sortBy || data.sortBy;
+            data.filterBy = input.filterBy || '';
+            data.view = input.view || data.view;
+            //Session cannot store objects, only Strings
+            var preferences = JSON.stringify({
+                filter: data.filterBy,
+                sort: data.sortBy,
+                view: data.view,
+                topic: data.sys_id
+            });
+            gs.getSession().putClientData('preferences', preferences);  // Preferences should be retained in-context only.
+            if (input.action === actions.storeView) {
+                data.content = input.content;
+                return;
+            }
+            //if user clicks show more exlude the existing featured content normal content.
+            if (input.action === actions.showMore) {
+                if (input.content.length &gt; 0) {
+                    data.excludeList = getContentIdList(input.content);
+                    data.content = input.content;
+                }
+                if (input.featuredContent.length &gt; 0) {
+                    var exclude = getContentIdList(input.featuredContent);
+                    data.featuredContent = input.featuredContent;
+                    data.excludeList = data.excludeList.concat(exclude);
+                }
+
+            }
+        }
+        // do not fetch featured content on show more action
+        if (!input || input.action !== actions.showMore) {
+            var taxonomyUtil = new global.TaxonomyPortalUtil();
+            var featuredContentCount = parseInt(gs.getProperty("taxonomy.content.featured_content_limit", "5"));
+            data.featuredContent = new TopicServiceUtil().getFeaturedContent(data.sys_id, featuredContentCount, data.isMobileApp, data.filterBy);
+            var featuredExcludeContent = getContentIdList(data.featuredContent);
+            data.featuredContent = data.featuredContent.map(function (a) {
+                a.isFeatured = true;
+                return a;
+            });
+            addContentWidget(data.featuredContent);
+            data.excludeList = data.excludeList.concat(featuredExcludeContent);
+            // remove the featured content fetched length from limit so that it gets required limit set by customer.
+            data.limit = data.limit - featuredExcludeContent.length;
+        }
+
+        var filterOptions = data.filterOptions.map(function (filter) {
+            return filter.sysId;
+        });
+
+        if (data.filterBy) {
+            filterOptions = [data.filterBy];
+        }
+
+        var content = getContentForTopic(data.limit, data.isMobileApp, data.excludeList, filterOptions);
+
+        //Check if the length of content is same as limit then show "show more button"
+        if (data.limit + 1 === content.length) {
+            data.showMore = true;
+            data.showMoreMsg = gs.getMessage("Show more");
+            content.splice(content.length - 1, 1);
+        }
+        else{
+            data.showMore = false;
+        }
+
+        //Created Content widgets and addes them to content object
+        addContentWidget(content);
+
+        data.content = data.content.concat(content);
+
+        if (!gs.nil(data.filterBy) &amp;&amp; data.content.length === 0) {
+            var selectedFilterName = getSelectedFilterName(data.filterBy);
+            data.noContentMessage = gs.getMessage("&lt;p&gt;No results for &lt;b&gt;{0}&lt;/b&gt;&lt;/p&gt;", selectedFilterName);
+        }
+
+    } catch (ex) {
+        gs.error(gs.getMessage("Invalid Topic Id."));
+    }
+
+    function getContentForTopic(limit, isMobile, excludeItems, contentConfigIds) {
+        limit = limit + 1;
+        if (data.sortBy === "popularity")
+            return new TopicServiceUtil().getContentByPopularity(data.sys_id, !isMobile, limit, isMobile, excludeItems, contentConfigIds);
+        else
+            return new TopicServiceUtil().getContent(data.sys_id, !isMobile, limit, isMobile, excludeItems, contentConfigIds);
+    }
+
+    function getContentConfiguration() {
+        var configurations = [{
+            sysId: "",
+            name: gs.getMessage("All", "All")
+        }];
+        var contentConfigurationGr = new GlideRecord("taxonomy_content_configuration");
+        contentConfigurationGr.addActiveQuery();
+        contentConfigurationGr.query();
+        while (contentConfigurationGr.next()) {
+            if(!isContentConfigValid(contentConfigurationGr))
+                continue;
+            var configuration = {};
+            configuration.sysId = contentConfigurationGr.getUniqueValue();
+            configuration.name = getFilterName(contentConfigurationGr.content_table);
+            if (configuration.name)
+                configurations.push(configuration);
+        }
+        return configurations;
+    }
+
+    function getFilterName(table) {
+        var content_table_filter_map = {
+            'sc_cat_item' : REQUESTS,
+            'kb_knowledge' : ARTICLES,
+            'sn_lc_course_item' : COURSES
+        };
+        return content_table_filter_map[table];
+    }
+
+    function getContentIdList(content) {
+        return content.map(function (a) {
+            return a.content;
+        });
+    }
+
+    function getSelectedFilterName(sysId) {
+        var selectedFilter = data.filterOptions.filter(function (filter) {
+            return filter.sysId === sysId;
+        });
+        return selectedFilter.length &gt; 0 ? selectedFilter[0].name : '';
+    }
+
+    function addContentWidget(content) {
+        content.map(function (a) {
+            a.widgetTitle = data.title;
+            a.topicForBreadcrumb = data.sys_id;
+            a.widgetData = $sp.getWidget(data.contentTableToWidget[a.content_table], a);
+        });
+    }
+
+    function postProcessAISResponse(item) {
+      item.content_table = item.table;
+      item.content = item.sysId;
+      item.sys_id = item.sysId;
+      item.searchModeEnabled = true;
+      item.topicForBreadcrumb = data.sys_id;
+      item.columns.forEach(function (col) {
+        var key = col.fieldName;
+        var displayVal = col.displayValue;
+        item[key] = displayVal;
+      });
+      
+      switch(item.table){
+        case 'sc_cat_item': {
+          item.short_description = item.text;
+          item.show_price = item.price ? true : false;
+          item.name = item.title ? item.title : item.name;
+          break;
+        }
+        default: 
+          break;
+      }
+
+      return item;
+    }
+
+    function getSearchConfigParams(search_app_sys_id) {
+        var relatedListsTables = [
+            {
+                table_name: 'sys_search_filter',
+                data_key: 'filter',
+                data_column_label: 'label'
+            },
+            {
+                table_name: 'sys_search_sort_option',
+                data_key: 'sort',
+                data_column_label: 'gui_label'
+            },
+        ];
+
+        relatedListsTables.forEach(function (table) {
+            var listGR = new GlideRecord(table.table_name);
+            listGR.addQuery('search_context_config', search_app_sys_id);
+            listGR.query();
+            while (listGR.next()) {
+                var uniqueID = listGR.getUniqueValue();
+                createAISFilterSortOptions(table.table_name, uniqueID, listGR.getValue(table.data_column_label));
+            }
+        });
+
+        data.ui.aisFacetFilters = getFacetFilters(data.sys_id);
+    }
+
+    function createAISFilterSortOptions(table_name, uniqueID, label){
+        if(table_name === "sys_search_filter"){
+            data.ui.aisSearchFilters.push({
+                sysId: uniqueID,
+                label: label
+            });
+        }
+        else if(table_name === "sys_search_sort_option"){
+            data.ui.aisSortOptions.push({
+                sysId: uniqueID,
+                label: label
+            });
+        }
+    }
+
+    function getFacetFilters(topicId) {
+        var topicGR = new GlideRecord('topic');
+        var topicPath = '', currentTopicName = '';
+        if (topicGR.get(topicId)) {
+            topicPath = topicGR.getDisplayValue('topic_path');
+            currentTopicName = topicGR.getDisplayValue('name');
+            data.title = gs.getMessage("Browse {0}", currentTopicName);
+        }
+        var topic_level = topicPath ? topicPath.split('/').length - 1 : 0;
+
+        var facetFields = ['_kb_knowledge.topic_level_', '_sc_cat_item.topic_level_', '_sn_lc_course_item.topic_level_'];
+
+        return [('"UNION(' + facetFields.map(function (f) {
+            return f + topic_level + '_s';
+        }).join(',') + ')"' + ':FACET("' + currentTopicName + '")')];
+    }
+    function isContentConfigValid(contentConfigGr) {
+        var connectedContentGr = new GlideRecord('m2m_connected_content');
+        if (connectedContentGr.isValidField(contentConfigGr.getValue('content_reference_field')))
+            return true;
+
+        return false;
+    }
+    return data;
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-05-18 16:18:07&lt;/sys_created_on&gt;&lt;sys_id&gt;9c691d40c31030102ec1a589a840dd4c&lt;/sys_id&gt;&lt;sys_mod_count&gt;964&lt;/sys_mod_count&gt;&lt;sys_name&gt;Topic Content&lt;/sys_name&gt;&lt;sys_package display_value="Employee Center" source="sn_ex_sp"&gt;4249e63a28d54d61bb6fbf61fd86cccb&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="Employee Center"&gt;4249e63a28d54d61bb6fbf61fd86cccb&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_9c691d40c31030102ec1a589a840dd4c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-04-20 12:31:57&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="browse-content-container"&gt;
+  &lt;div ng-class="data.isMobileApp ? 'browse-elevation-mobile': 'browse-elevation'"&gt;
+
+    &lt;div class="box-header-title"&gt;
+      &lt;h3 class="title-item"&gt;${Support resources}&lt;/h3&gt;
+    &lt;/div&gt;
+
+    &lt;div class="box-header-title p-v-2"&gt;
+      &lt;div ng-if="!data.isMobileApp" class="title-item-filters"
+        ng-class="{'item-fitlers-disable': (contentItems.length === 0 &amp;&amp; data.filterBy ==='')}"&gt;
+        &lt;div class="flex-mobile m-r-auto" ng-if="isSearchModeEnabled"&gt;
+          &lt;label class="label-padding" for="filter_picker_select"&gt;${Filter by}&lt;/label&gt;
+          &lt;select id="filter_picker_select" ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''"
+            class="form-control" name="filter_picker_select" ng-model="data.aisFilterBy" title="${Filter by}"
+            ng-change="getUpdatedContent()" aria-label="${Filter by}"
+            ng-options="item.sysId as item.name for item in aisFilterOptions" /&gt;
+        &lt;/div&gt;
+
+        &lt;div class="flex-mobile m-r-auto" ng-if="!isSearchModeEnabled"&gt;
+          &lt;label class="label-padding" for="filter_picker_select"&gt;${Filter by}&lt;/label&gt;
+          &lt;select id="filter_picker_select" ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''"
+            class="form-control" name="filter_picker_select" ng-model="data.filterBy" title="${Filter by}"
+            ng-change="getUpdatedContent()" aria-label="${Filter by}"
+            ng-options="item.sysId as item.name for item in data.filterOptions" /&gt;
+        &lt;/div&gt;
+
+        &lt;div class="flex-mobile filter-search"&gt;
+          &lt;div class="flex-mobile" ng-if="isSearchModeEnabled" ng-class="{'filter-padding' : !data.aisEnabledUtah}"&gt;
+            &lt;label class="label-padding" for="sort_picker_select"&gt;${Sort by}&lt;/label&gt;
+            &lt;select id="sort_picker_select" class="form-control"
+              ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''" name="sort_picker_select"
+              ng-model="data.aisSortBy" ng-change="getUpdatedContent()"
+              ng-options="item.id as item.name for item in aisSortOptions" /&gt;
+          &lt;/div&gt;
+          &lt;div class="flex-mobile" ng-if="!isSearchModeEnabled" ng-class="{'filter-padding' : !data.aisEnabledUtah}"&gt;
+            &lt;label class="label-padding" for="sort_picker_select"&gt;${Sort by}&lt;/label&gt;
+            &lt;select id="sort_picker_select" class="form-control"
+              ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''" name="sort_picker_select"
+              ng-model="data.sortBy" ng-change="getUpdatedContent()"
+              ng-options="item.id as item.name for item in data.sortOptions" /&gt;
+          &lt;/div&gt;
+          &lt;div ng-if="data.aisEnabledUtah"&gt;
+            &lt;widget id="ais_topic_search" options='data.searchWidgetInitOptions'&gt;
+            &lt;/widget&gt;
+          &lt;/div&gt;
+          &lt;div class="view-controls" ng-if="!data.isMobile"&gt;
+            &lt;div class="pull-right padder-t-sm text-lg toggle" role="radiogroup" aria-label="${Select a view}"&gt;
+              &lt;i id="tab-card" ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''" class="fa fa-th"
+                ng-click="changeView('card')" ng-keydown="switchTab($event)" ng-class="{'active' : data.view == 'card'}"
+                title="${Card View}" data-toggle="{{!isTouchDevice() ? 'tooltip' : undefined}}" data-placement="top"
+                data-container="body" aria-label="${Card View}"
+                ng-attr-aria-controls="{{data.view == 'card' ? 'tabpanel-card-' + (data.sys_id ? data.sys_id : '') : undefined}}"
+                tabindex="{{data.view == 'card' &amp;&amp; contentItems.length != 0  ? '0' : '-1'}}" role="radio" aria-checked="{{data.view == 'card'}}"&gt;&lt;/i&gt;
+              &lt;i id="tab-list" ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''" class="fa fa-list-ul"
+                ng-click="changeView('list')" ng-keydown="switchTab($event)" ng-class="{'active' : data.view == 'list'}"
+                title="${List View}" data-toggle="{{!isTouchDevice() ? 'tooltip' : undefined}}" data-placement="top"
+                data-container="body" aria-label="${List View}"
+                ng-attr-aria-controls="{{ data.view == 'list' || data.isMobileApp ? 'tabpanel-list-' + (data.sys_id ? data.sys_id : '') : undefined}}"
+                tabindex="{{data.view == 'list' &amp;&amp; contentItems.length != 0 ? '0' : '-1'}}" role="radio" aria-checked="{{data.view == 'list'}}"&gt;&lt;/i&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div ng-if="data.isMobileApp" class="title-item-filters"
+        ng-class="{'item-fitlers-disable': (contentItems.length === 0 &amp;&amp; data.filterBy ==='')}"&gt;
+        &lt;div class="flex-mobile form-inline"&gt;
+          &lt;label class="label-padding" for="filter_picker_select"&gt;${Filter by}&lt;/label&gt;
+          &lt;select id="filter_picker_select" ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''"
+            class="sn-select-basic full-width-drop-down" name="filter_picker_select" ng-model="data.filterBy"
+            title="${Filter by}" ng-change="getUpdatedContent()" aria-hidden="true"&gt;
+            &lt;option ng-repeat="item in data.filterOptions" value={{::item.sysId}}&gt;{{::item.name}}&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+        &lt;div class="form-inline filter-padding  flex-mobile"&gt;
+          &lt;label class="label-padding" for="sort_picker_select"&gt;${Sort by}&lt;/label&gt;
+          &lt;select id="sort_picker_select" ng-disabled="contentItems.length === 0 &amp;&amp; data.filterBy ===''"
+            class="sn-select-basic full-width-drop-down" name="sort_picker_select" ng-model="data.sortBy"
+            title="${Sort by}" ng-change="getUpdatedContent()" aria-hidden="true"&gt;
+            &lt;option ng-repeat="item in data.sortOptions" value={{::item.id}}&gt;{{::item.name}}&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="box-header-title spellcheck-container" ng-if="isSearchModeEnabled" aria-live="polite"&gt;
+      &lt;div class="search-results-container" ng-if="searchedTerm &amp;&amp; spellCorrectedTerm &amp;&amp; !loading"&gt;
+        &lt;div ng-if="spellCorrectedTerm"&gt;${Showing results for}&lt;button class="btn-link" ng-click="handleCorrectedSearch(spellCorrectedTerm, 'spell-corrected-term')"&gt;{{spellCorrectedTerm}}&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div ng-if="searchedTerm"&gt;${Search instead for}&lt;button class="btn-link" ng-click="handleCorrectedSearch(searchedTerm, 'search-term')"&gt;{{searchedTerm}}&lt;/button&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="clear-search-container"&gt;
+        &lt;button class="btn btn-link" ng-click="clearSearch()"&gt;{{::data.clearSearchBtn}}&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;span ng-if="!loading &amp;&amp; isSearchModeEnabled" class="sr-only" aria-live="polite"&gt;{{noOfNewItems}} ${new items available}&lt;/span&gt;
+    &lt;span ng-if="loading &amp;&amp; isSearchModeEnabled" class="sr-only" aria-live="polite"&gt;${Loading new items}&lt;/span&gt;
+    &lt;div
+      id="{{ data.view == 'list' || data.isMobileApp ? 'tabpanel-list-' + data.sys_id  : 'tabpanel-card-' + data.sys_id }}"
+      class="grid-margin" ng-class="data.view == 'list' || data.isMobileApp ? 'list-view-block': 'grid-test-auto-wrap'"&gt;
+      &lt;div ng-if="!loading || data.action ==='show-more' || data.action === 'modify-ais-results'" class="flex-item-card"
+        ng-class="data.view == 'list' ? 'list-view': ''" ng-repeat="item in getContentItems(); track by item.sys_id"
+        on-finish-repeat="ngRepeatFinishedContentCards"&gt;
+        &lt;span ng-if="isSearchModeEnabled" class="sr-only"&gt;${Item {{$index + 1}} of {{aisContentItems.length}}, }&lt;/span&gt;
+        &lt;span ng-if="!isSearchModeEnabled" class="sr-only"&gt;${Item {{$index + 1}} of {{data.content.length}}, }&lt;/span&gt;
+        &lt;div class="flex-display"&gt;
+          &lt;sp-widget widget="item.widgetData"&gt;&lt;/sp-widget&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div ng-if="loading" class="flex-item-card skeleton-loading" ng-class="data.view == 'list' ? 'list-view': ''"
+        ng-repeat="item in [1,2,3,4,5,6,7,8,9,10,11,12]"&gt;
+        &lt;span class="skeleton-loader badge-loader"&gt;&lt;/span&gt;
+        &lt;div class="flex-column text-items"&gt;
+          &lt;div class="skeleton-loader title-loader"&gt;&lt;/div&gt;
+          &lt;div class="skeleton-loader description-loader"&gt;&lt;/div&gt;
+          &lt;div class="skeleton-loader additional-info-loader"&gt;&lt;/div&gt;
+          &lt;div class="empty"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div ng-if="!isSearchModeEnabled"&gt;
+      &lt;div class="content-align-center" ng-if="data.filterBy !=='' &amp;&amp; contentItems.length === 0"&gt;
+        &lt;img src="5c50c822c3e930102ec1a589a840dd7b.iix" /&gt;
+        &lt;p ng-bind-html="data.noContentMessage"&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+          ${Try another search or remove some filters.}
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="content-align-center" ng-if="(!data.isMobileApp &amp;&amp; contentItems.length === 0 &amp;&amp; data.filterBy ==='')"&gt;
+        &lt;img src="5c50c822c3e930102ec1a589a840dd7b.iix" /&gt;
+        &lt;p&gt;
+          ${No content available}
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="content-align-center" ng-if="(data.isMobileApp &amp;&amp; contentItems.length === 0 &amp;&amp; data.filterBy ==='')"
+        ng-bind-html="data.mobileNoContentMessage" /&gt;
+      &lt;div ng-if="data.showMore"&gt;
+        &lt;button class="btn btn-default btn-loadmore" ng-click="loadMore()" ng-keydown="loadMoreKeydown($event)"&gt;
+          {{data.showMoreMsg}}
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div ng-if="isSearchModeEnabled"&gt;
+      &lt;div ng-if="hasNext"&gt;
+        &lt;button class="btn btn-default btn-loadmore" ng-click="loadMore()" ng-keydown="loadMoreKeydown($event)"&gt;
+          ${Show more}
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div ng-if="data.showRedirectToGlobal &amp;&amp; aisContentItems.length !== 0"&gt;
+        &lt;div ng-include="'sn-ec-global-search-redirect'" class="content-align-center expand-search-container"&gt;&lt;/div&gt;
+
+      &lt;/div&gt;
+      &lt;div ng-if="aisContentItems.length === 0 &amp;&amp; !loading" class="content-align-center search-no-results-container"&gt;
+        &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+        &lt;h4&gt;${No results match your criteria.}&lt;/h4&gt;
+        &lt;p&gt;${You might find more results with a global search.}&lt;/p&gt;
+        &lt;a ng-if="data.showRedirectToGlobal" class="btn btn-primary" role="button" ng-href="{{getExpandSearchURL()}}"
+          aria-labelledby="{{data.expandSearchLink}}" title="{{data.expandSearchLink}}" ng-click="setSessionData()"&gt;
+          ${Expand your search}
+          &lt;span class="sr-only" id="{{data.expandSearchLink}}-ext-link}" ng-if="(item.target == '_blank')"&gt;${, opens
+            in a new window}
+          &lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload><sys_class_name>sp_rel_widget_clone</sys_class_name><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-06-13 05:05:26</sys_created_on><sys_id>8637c90993be821094e3f15a7bba10a9</sys_id><sys_mod_count>0</sys_mod_count><sys_name>0237c98593be821094e3f15a7bba1052</sys_name><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sp_rel_widget_clone_8637c90993be821094e3f15a7bba10a9</sys_update_name><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-06-13 05:05:26</sys_updated_on></sp_rel_widget_clone></record_update>]]></payload>
+        <payload_hash>-1557742434</payload_hash>
+        <record_name>0237c98593be821094e3f15a7bba1052</record_name>
+        <reverted_from/>
+        <source>c0eb6f489326c61094e3f15a7bba1011</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 05:05:27</sys_created_on>
+        <sys_id>8a37c90993be821094e3f15a7bba10ab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1900ffc8a1f0000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 05:05:27</sys_updated_on>
+        <type>Widget Clone</type>
+        <update_guid>ce37c90923be8210555f279f5a9661aa</update_guid>
+        <update_guid_history>ce37c90923be8210555f279f5a9661aa:-1557742434</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">b7ff51859332c21094e3f15a7bba10d4</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 06:53:42</sys_created_on>
+        <sys_db_object display_value="" name="sp_rel_widget_clone">sp_rel_widget_clone</sys_db_object>
+        <sys_id>9416feb9dbef4d708e50da7fba487b49</sys_id>
+        <sys_metadata>8637c90993be821094e3f15a7bba10a9</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>0237c98593be821094e3f15a7bba1052</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sp_rel_widget_clone_8637c90993be821094e3f15a7bba10a9</sys_update_name>
+        <sys_update_version display_value="sp_rel_widget_clone_8637c90993be821094e3f15a7bba10a9">8a37c90993be821094e3f15a7bba10ab</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 06:53:42</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

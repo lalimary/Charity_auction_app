@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1383184_charityb.UserProfileUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>UserProfileUtils</name>
+        <script><![CDATA[var UserProfileUtils = Class.create();
+UserProfileUtils.prototype = {
+    initialize: function() {},
+    
+    getCurrentUserLocation: function() {
+        var user = new GlideRecord('sys_user');
+        if (user.get(gs.getUserID())) {
+            return user.location;
+        }
+        return '';
+    },
+    
+    type: 'UserProfileUtils'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 18:44:06</sys_created_on>
+        <sys_id>9b628891933ec21094e3f15a7bba1019</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>UserProfileUtils</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_include_9b628891933ec21094e3f15a7bba1019</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 18:44:06</sys_updated_on>
+    </sys_script_include>
+</record_update>

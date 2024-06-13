@@ -10,12 +10,11 @@
         </element>
         <element label=" Category" mandatory="true" max_length="32" name="category" reference="x_1383184_charityb_category" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Description" mandatory="true" max_length="500" name="description" type="string"/>
-        <element attributes="encode_utf8=false" default="javascript:gs.getUserID();" dynamic_default_value="2fd8e97bef3221002841f7f775c0fbc1" label="Donator" max_length="32" name="donator" read_only="true" reference="sys_user" type="reference" use_dynamic_default="true"/>
+        <element attributes="encode_utf8=false" default="javascript:gs.getUserID();" dynamic_default_value="2fd8e97bef3221002841f7f775c0fbc1" label="Donator" max_length="32" name="donator" reference="x_1383184_charityb_user_profile" type="reference" use_dynamic_default="true"/>
         <element label="End date" mandatory="true" max_length="40" name="end_date" type="glide_date"/>
         <element label="Highest bid amount" max_length="20" name="highest_bid_amount" type="currency"/>
         <element label="Image" max_length="40" name="image" type="user_image"/>
         <element attributes="edge_encryption_enabled=true" display="true" label="Item name" mandatory="true" max_length="40" name="item_name" type="string"/>
-        <element label="Location" max_length="32" name="location" reference="x_1383184_charityb_user_profile" type="reference"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
         <element attributes="omit_sys_original=true" label="Start bid amount" max_length="20" name="start_bid_amount" type="currency"/>
         <element label="Start date" mandatory="true" max_length="40" name="start_date" type="glide_date"/>
@@ -25,9 +24,6 @@
         </index>
         <index name="index2">
             <element name="donator"/>
-        </index>
-        <index name="index3">
-            <element name="location"/>
         </index>
     </element>
 </database>

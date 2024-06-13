@@ -3,10 +3,10 @@
         <abort_action>false</abort_action>
         <access>package_private</access>
         <action_delete>false</action_delete>
-        <action_insert>false</action_insert>
+        <action_insert>true</action_insert>
         <action_query>false</action_query>
-        <action_update>false</action_update>
-        <active>true</active>
+        <action_update>true</action_update>
+        <active>false</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
         <change_fields>false</change_fields>
@@ -19,7 +19,7 @@
         <is_rest>false</is_rest>
         <message/>
         <name>location autofetch in create profile</name>
-        <order>100</order>
+        <order>200</order>
         <priority>100</priority>
         <rest_method/>
         <rest_method_text/>
@@ -27,18 +27,34 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
-
-	// Add your code here
-
-})(current, previous);]]></script>
+        <script><![CDATA[(function executeRule(current, previous /* previous is not used in this example */) {
+    // Get the current logged-in user
+    var user = gs.getUser();
+    
+    // Get the user's location (assuming location data is stored in a field on the user record)
+    var location = user.getLocation();
+    
+    // Update the user profile table with the location data
+    var profileGR = new GlideRecord('x_1383184_charityb_user_profile');
+    if (profileGR.get('name', user.getID())) {
+        profileGR.setValue('location', location);
+        profileGR.update();
+    } else {
+        // If the user profile record doesn't exist, create a new one
+        profileGR.initialize();
+        profileGR.setValue('user_field_name', user.getID());
+        profileGR.setValue('location_field_name', location);
+        profileGR.insert();
+    }
+})(current, previous);
+]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>christy</sys_created_by>
         <sys_created_on>2024-06-04 05:11:35</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>99b176c2932a421094e3f15a7bba10ba</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>location autofetch in create profile</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
@@ -46,9 +62,9 @@
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_script_99b176c2932a421094e3f15a7bba10ba</sys_update_name>
         <sys_updated_by>christy</sys_updated_by>
-        <sys_updated_on>2024-06-04 05:21:48</sys_updated_on>
-        <template>locationSAMEASname.location^EQ</template>
-        <when>before_display</when>
+        <sys_updated_on>2024-06-11 10:12:05</sys_updated_on>
+        <template/>
+        <when>before</when>
     </sys_script>
     <sys_translated_text action="delete_multiple" query="documentkey=99b176c2932a421094e3f15a7bba10ba"/>
 </record_update>

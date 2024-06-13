@@ -29,7 +29,7 @@
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous) {
     // Check if the current user has the 'admin' role
-    if (!gs.hasRole('admin')) {
+    if (!gs.hasRole('x_1383184_charityb.admin')) {
         var userId = gs.getUserID();
         
         var userProfileGr = new GlideRecord('x_1383184_charityb_user_profile'); 
@@ -59,7 +59,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>1a51a03493ba421094e3f15a7bba105b</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_name>Filter item based on user location</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
@@ -67,7 +67,7 @@
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_script_1a51a03493ba421094e3f15a7bba105b</sys_update_name>
         <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-06-12 11:08:17</sys_updated_on>
+        <sys_updated_on>2024-06-13 09:17:32</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>

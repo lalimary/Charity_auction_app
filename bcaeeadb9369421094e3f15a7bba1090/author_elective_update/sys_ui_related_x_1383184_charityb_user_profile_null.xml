@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_related action="DELETE" sys_domain="global" table="x_1383184_charityb_user_profile" version="2" view="">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="User profile - Default view" name="x_1383184_charityb_user_profile" related_list="NULL" sys_domain="global" view="Default view">a46cad5e939ac61094e3f15a7bba103f</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-23 08:28:49</sys_created_on>
+            <sys_id>e46cad5e939ac61094e3f15a7bba1040</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-23 08:28:49</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>User profile - Default view</calculated_name>
+            <filter/>
+            <name>x_1383184_charityb_user_profile</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-05-23 08:28:49</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a46cad5e939ac61094e3f15a7bba103f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>User profile - Default view</sys_name>
+            <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+            <sys_update_name>sys_ui_related_x_1383184_charityb_user_profile_null</sys_update_name>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-05-23 08:28:49</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_ui_related_x_1383184_charityb_user_profile_null</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_related sys_domain="global" table="x_1383184_charityb_user_profile" version="2" view=""><sys_ui_related_list_entry action="INSERT_OR_UPDATE"><filter/><list_id display_value="User profile - Default view" name="x_1383184_charityb_user_profile" related_list="NULL" sys_domain="global" view="Default view">a46cad5e939ac61094e3f15a7bba103f</list_id><order_by/><position>0</position><related_list/><sys_class_name>sys_ui_related_list_entry</sys_class_name><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-23 08:28:49</sys_created_on><sys_id>e46cad5e939ac61094e3f15a7bba1040</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-23 08:28:49</sys_updated_on></sys_ui_related_list_entry><sys_ui_related_list action="INSERT_OR_UPDATE"><calculated_name>User profile - Default view</calculated_name><filter/><name>x_1383184_charityb_user_profile</name><order_by/><position/><related_list/><sys_class_name>sys_ui_related_list</sys_class_name><sys_created_by>lalitha</sys_created_by><sys_created_on>2024-05-23 08:28:49</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>a46cad5e939ac61094e3f15a7bba103f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>User profile - Default view</sys_name><sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package><sys_policy/><sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope><sys_update_name>sys_ui_related_x_1383184_charityb_user_profile_null</sys_update_name><sys_updated_by>lalitha</sys_updated_by><sys_updated_on>2024-05-23 08:28:49</sys_updated_on><sys_user/><view display_value="Default view" name="NULL">Default view</view><view_name/></sys_ui_related_list></sys_ui_related></record_update>]]></payload>
+        <payload_hash>-547489881</payload_hash>
+        <record_name>User profile</record_name>
+        <reverted_from/>
+        <source>f587788a9316861094e3f15a7bba10f4</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-05-23 08:28:49</sys_created_on>
+        <sys_id>286cad5e939ac61094e3f15a7bba1042</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fa4912e560000001</sys_recorded_at>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-05-23 08:28:49</sys_updated_on>
+        <type>Related Lists</type>
+        <update_guid>ec6cad5e8d9ac610514d0d7fba0d3c41</update_guid>
+        <update_guid_history>ec6cad5e8d9ac610514d0d7fba0d3c41:-547489881,7a07bf35dfde4610a94f5cdc6b3187d7:-152619090,db79b66dad1a061054821a731bf90397:1612541642,fa09fa2d9a1a0610bbb3c49e4ac27433:-10213893,c22536e5c41a06102125964032d3d5dc:-1454696988,27c4faa5081a0610e46e70c8a9003265:-321564336,e6c72aa565d60610fbea1d91e1fa159d:1623432334,0234266181d6061001d0ba1455fb2587:-357886737,7256fedde996c210640e17c6859101e4:-1119507458,0c56feddf096c2100310c7a70c47380f:-459482003,0bf3f61d4296c21075ab36587632da61:-346482647</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-10 04:43:30</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_related_list">sys_ui_related_list</sys_db_object>
+        <sys_id>180f1665c3694c7b834598769af423a1</sys_id>
+        <sys_metadata>a46cad5e939ac61094e3f15a7bba103f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>User profile - Default view</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="User profile">0f7bed5d9312c21094e3f15a7bba1044</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_ui_related_x_1383184_charityb_user_profile_null</sys_update_name>
+        <sys_update_version display_value="sys_ui_related_x_1383184_charityb_user_profile_null">286cad5e939ac61094e3f15a7bba1042</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-10 04:43:30</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget">
+    <m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE">
+        <sp_angular_provider display_value="spKBCategoryService">10eb7596c7033200b0b0409b9b97631c</sp_angular_provider>
+        <sp_widget display_value="Event list 2">2db06d859332c21094e3f15a7bba10e4</sp_widget>
+        <sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 06:56:49</sys_created_on>
+        <sys_id>a1b0ed859332c21094e3f15a7bba1012</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>spKBCategoryService.Event list 2</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_a1b0ed859332c21094e3f15a7bba1012</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 06:56:49</sys_updated_on>
+    </m2m_sp_ng_pro_sp_widget>
+</record_update>

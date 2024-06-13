@@ -21,155 +21,255 @@
 ]]></client_script>
         <controller_as>c</controller_as>
         <css>body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f7f9fc;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f9fc;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 36px;
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 36px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 .items-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
 }
 
 .item-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  height: 500px;
 }
 
 .item-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .item-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .item-details {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .item-title {
-    font-size: 22px;
-    margin-bottom: 15px;
-    color: #333;
-    font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: bold;
 }
 
 .item-donator, .item-dates div, .item-value, .item-start-bid {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 10px;
-    word-wrap: break-word;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+  word-wrap: break-word;
 }
 
 .item-dates div {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .item-status {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
 .item-status.item-submitted {
-    color: #3498db;
+  color: #3498db;
 }
 
 .item-status.auction-scheduled {
-    color: #f39c12;
+  color: #f39c12;
 }
 
 .item-status.auction-in-progress {
-    color: #27ae60;
+  color: #27ae60;
 }
 
 .item-status.auction-completed {
-    color: #e74c3c;
+  color: #e74c3c;
 }
 
 .place-bid-btn {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 8px;
-    align-self: flex-end;
-    margin-top: auto;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  //align-self: flex-end;
+  align-items: center;
+  margin-top: auto;
+}
+
+
+.add-to-options {
+  display: flex;
+  justify-content: center;
 }
 
 .place-bid-btn:hover {
-    background-color: #218838;
+  background-color: #218838;
 }
 
 /* Item details section styles */
 .item-details-section {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .item-details-section h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-    font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: bold;
 }
 
 .item-details-section img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    margin-bottom: 20px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin-bottom: 20px;
 }
 
 .details {
-    font-size: 16px;
-    color: #555;
+  font-size: 16px;
+  color: #555;
 }
 
 .details p {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .details .place-bid-btn {
-    margin-top: 20px;
+  margin-top: 20px;
+}
+
+/* Modal styles */
+.modal-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  background-color: #fefefe;
+}
+
+.modal-header {
+  border-bottom: none;
+  text-align: center;
+  position: relative; /* For positioning the close button */
+}
+
+.modal-header h4 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #FF8C42;
+}
+
+.modal-header .close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 1.5em;
+  color: #aaa;
+  opacity: 1;
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.modal-header .close:hover {
+  color: #333; /* Darker color on hover */
+}
+
+.modal-body {
+  text-align: left;
+}
+
+.modal-body p {
+  margin: 10px 0;
+  font-size: 1em;
+  color: #555;
+}
+
+.modal-body strong {
+  display: inline-block;
+  width: 120px; /* Fixed width for alignment */
+  color: #333;
+}
+
+/* Button styles inside modal */
+.add-to-options .btn-secondary {
+
+  margin-right: 1rem;
+  /*background: linear-gradient(45deg, #C8DF52, #C8DF52);*/
+      color: #fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+ 
+  padding: 1rem 2rem;
+  /* border-radius: 2.5rem; */
+  box-shadow: 0 .4rem .6rem rgba(0, 0, 0, .1);
+  font-size: 21px;
+  cursor: pointer;
+  align-items: center;
+  /* align-items: center; */
+  transition: background .3s, box-shadow .3s;
+}
+
+
+.imgFix {
+  width: 84%;
+}
+
+.imgC {
+  display: flex;
+  justify-content: center;
+}
+.add-to-options .btn-secondary:hover {
+  background: linear-gradient(45deg, #394372, #4E598C); /* Lighten the gradient on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
+}
+
+.add-to-options .btn-secondary .icon-image {
+  width: 16px; /* Adjust size as needed */
+  height: 16px; /* Adjust size as needed */
+  margin-right: 5px;
 }
 </css>
         <data_table>sp_instance</data_table>
@@ -232,13 +332,16 @@ h1 {
                 end_date: gr.getValue('end_date'),
                 value: gr.getValue('value'),
                 start_bid_amount: gr.getValue('start_bid_amount'),
+							  highest_bid_amount: gr.getValue('highest_bid_amount'),
                 auction_status: displayStatus,
-                image: gr.getDisplayValue('image')
+                image: gr.getDisplayValue('image'),
+							description: gr.getValue('description')
             });
         }
     } else {
         gs.error('Invalid table name: ' + tableName);
     }
+	
 })();
 ]]></script>
         <servicenow>false</servicenow>
@@ -246,54 +349,71 @@ h1 {
         <sys_created_by>lalitha</sys_created_by>
         <sys_created_on>2024-06-04 17:29:41</sys_created_on>
         <sys_id>244b5d529326821094e3f15a7bba104c</sys_id>
-        <sys_mod_count>26</sys_mod_count>
+        <sys_mod_count>87</sys_mod_count>
         <sys_name>Item list</sys_name>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sp_widget_244b5d529326821094e3f15a7bba104c</sys_update_name>
-        <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-06-05 16:34:38</sys_updated_on>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-12 08:15:15</sys_updated_on>
         <template><![CDATA[<div class="container">
-    <h1>Items List</h1>
-    <div id="items-grid" class="items-grid">
-        <div ng-repeat="item in c.data.items" class="item-card" ng-click="c.showDetails(item)">
-            <img ng-src="{{item.image}}" alt="{{item.item_name}}">
-            <div class="item-details">
-                <div class="item-title">{{item.item_name}}</div>
-                <div class="item-donator">Donator: {{item.donator}}</div>
+  <h1>Items List</h1>
+  <div id="items-grid" class="items-grid">
+    <div ng-repeat="item in c.data.items" class="item-card" ng-click="c.showDetails(item)">
+      <img ng-src="{{item.image || 'https://dev203498.service-now.com/logo%20image.jpg'}}" alt="{{item.item_name}}">
+      <div class="item-details">
+        <div class="item-title">{{item.item_name}}</div>
+        <!--<div class="item-donator">Donator: {{item.donator}}</div>
                 <div class="item-dates">
                     <div>Start Date: {{item.start_date}}</div>
                     <div>End Date: {{item.end_date}}</div>
-                </div>
-                <div class="item-value">Value: {{item.value}}</div>
-                <div class="item-start-bid">Start Bid: {{item.start_bid_amount}}</div>
-                <div class="item-status" ng-class="{'item-submitted': item.auction_status === 'Item Submitted', 'auction-scheduled': item.auction_status === 'Auction Scheduled', 'auction-in-progress': item.auction_status === 'Auction In Progress', 'auction-completed': item.auction_status === 'Auction Completed'}">
-                    Status: {{item.auction_status}}
-                </div>
-                <button ng-if="item.auction_status === 'Auction In Progress'" class="place-bid-btn" ng-click="c.placeBid(item); $event.stopPropagation();">Place Bid</button>
-            </div>
+                </div>-->
+        <div class="item-value">Value: {{item.value}}</div>
+        <div ng-if="item.auction_status === 'Auction Scheduled'" class="item-start-bid">Start Bid: {{item.start_bid_amount}}</div>
+        <div ng-if="item.auction_status === 'Auction In Progress' || item.auction_status === 'Auction Completed'" class="item-highest-bid">Highest Bid: {{item.highest_bid_amount}}</div>
+        <div class="item-status" ng-class="{'item-submitted': item.auction_status === 'Item Submitted', 'auction-scheduled': item.auction_status === 'Auction Scheduled', 'auction-in-progress': item.auction_status === 'Auction In Progress', 'auction-completed': item.auction_status === 'Auction Completed'}">
+          Status: {{item.auction_status}}
         </div>
+        <button class="btn btn-primary" ng-click="c.showDetails(item)" data-toggle="modal" data-target="#itemDetailsModal">Details</button>
+      </div>
     </div>
-    
-    <!-- Modal for item details -->
-    <div class="modal" ng-show="c.showModal">
-        <div class="modal-content">
-            <span class="close" ng-click="c.closeModal()">&times;</span>
-            <h2>{{c.selectedItem.item_name}}</h2>
-            <img ng-src="{{c.selectedItem.image}}" alt="{{c.selectedItem.item_name}}">
-            <div class="modal-details">
-                <p><strong>Donator:</strong> {{c.selectedItem.donator}}</p>
-                <p><strong>Start Date:</strong> {{c.selectedItem.start_date}}</p>
-                <p><strong>End Date:</strong> {{c.selectedItem.end_date}}</p>
-                <p><strong>Value:</strong> {{c.selectedItem.value}}</p>
-                <p><strong>Start Bid:</strong> {{c.selectedItem.start_bid_amount}}</p>
-                <p><strong>Status:</strong> {{c.selectedItem.auction_status}}</p>
-                <button ng-if="c.selectedItem.auction_status === 'Auction In Progress'" class="place-bid-btn" ng-click="c.placeBid(c.selectedItem)">Place Bid</button>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
+
+
+
+<!-- The Modal -->
+  <div id="itemDetailsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-name">{{c.selectedItem.item_name}}</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="imgC">
+				 <img ng-src="{{c.selectedItem.image}}" alt="{{c.selectedItem.item_name}}" class="imgFix">
+        </div>
+        <div class="modal-body">
+
+          <!--<p><strong>Donator:</strong> {{c.selectedItem.donator}}</p>-->
+           <p><strong>Description:</strong> {{c.selectedItem.description}}</p>
+          <p><strong>Start Date:</strong> {{c.selectedItem.start_date}}</p>
+          <p><strong>End Date:</strong> {{c.selectedItem.end_date}}</p>
+          <p><strong>Value:</strong> {{c.selectedItem.value}}</p>
+          <p><strong>Start Bid:</strong> {{c.selectedItem.start_bid_amount}}</p>
+          <p><strong>Highest Bid:</strong> {{c.selectedItem.highest_bid_amount}}</p>
+          <p><strong>Status:</strong> {{c.selectedItem.auction_status}}</p>
+          <div class="add-to-options">
+            <button class="btn btn-secondary" ng-click="c.addTo('Bid For Item')">Bid</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 ]]></template>
     </sp_widget>
 </record_update>

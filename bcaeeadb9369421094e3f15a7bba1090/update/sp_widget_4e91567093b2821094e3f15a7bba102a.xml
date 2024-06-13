@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>@media (min-width: 992px) {
+    .solutions-overview--intro {
+        padding-bottom: 140px;
+    }
+}
+
+.solutions-overview--intro :last-child {
+    margin-bottom: 0;
+}
+
+h2.head-3 {
+    padding-top: 3.6rem;
+    color: #337daf;
+    font-size: 5.8rem;
+}
+
+
+img.bannerImage {
+    width: 132.5%;
+    height: 26rem;
+    object-fit: cover;
+    position: relative;
+    left: -20rem;
+}
+
+img.bannerImage2 {
+    width: 132.5%;
+    height: 14rem;
+    object-fit: cover;
+    filter: brightness(0.7);
+    position: relative;
+    left: -20rem;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-12{
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.tagline {
+    color: var(--body-color-lt);
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 19px;
+}
+
+@media (min-width: 992px) {
+    h2, .h2 {
+        font-size: 60px;
+    }
+}
+
+a.solutions-learn-more-1{
+    color: var(--blue);
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.header-2 {
+    margin-bottom: 9rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5rem;
+}
+
+.image-container-2 {
+    vertical-align: middle;
+    width: 90%;
+    height: 147%;
+    border-radius: 30px;
+}
+
+.image-container-3 {
+    vertical-align: middle;
+    width: 60%;
+    height: 147%;
+    border-radius: 3rem;
+}
+
+.image-container-4 {
+    vertical-align: middle;
+    width: 33%;
+    height: 147%;
+    border-radius: 3rem;
+}
+
+.text-container-2 {
+    padding-left: 70px;
+    /* font-size: medium; */
+    font-family: exo2;
+}
+
+p.p-class-3 {
+    color: black;
+    font-family: exo2;
+    font-size: 19px;
+}
+
+
+
+.header-3 {
+    margin-bottom: 7rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7rem;
+}
+
+
+
+.text-container-3 {
+    padding-right: 18rem;
+    font-family: exo2;
+}
+
+h2.head-4 {
+    padding-top: 3.6rem;
+    color: #337daf;
+    font-size: 5.8rem;
+}
+
+p.tagline {
+    margin-top: 18px;
+}
+
+p.p-class-4 {
+    color: black;
+    font-family: exo2;
+    font-size: 1.9rem;
+}
+
+.header-4 {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.text-container-4 {
+    padding-bottom: 6.6rem;
+    padding-left: 2rem;
+    font-family: exo2;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2.head-4 {
+    padding-top: 36px;
+    color: #337daf;
+}
+
+h2.head-5 {
+    color: #337daf;
+    font-size: 5.8rem;
+}
+
+p.p-class-5 {
+    color: black;
+    font-family: exo2;
+    font-size: 1.9rem;
+    width: 33rem;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>home_widget_4</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>home widget 4</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-12 15:51:54</sys_created_on>
+        <sys_id>4e91567093b2821094e3f15a7bba102a</sys_id>
+        <sys_mod_count>61</sys_mod_count>
+        <sys_name>home widget 4</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_widget_4e91567093b2821094e3f15a7bba102a</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 08:21:37</sys_updated_on>
+        <template><![CDATA[<div class="solutions-overview-intro">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <img src="auctionBanner.jpg" class="bannerImage">
+        <p class="tagline" style="text-align:center;">
+          Solutions
+        </p>
+        <h2 style="text-align:center;">
+          Take Giving to Next Level
+        </h2>
+      </div>
+    </div>
+    
+    <div class="header-2">      
+      <img src="homeImage6.jpg" alt="logo image.jpg" width="500" height="600" class="image-container-2">
+      <div class="text-container-2">
+        <h2 class="head-3">
+          Auctions and Events
+        </h2>
+        <p class="p-class-3">
+          Hit your fundraising goals with software that streamlines the guest experience start to finish. From before the fundraising begins to the final bid, we’ll help you delight donors and raise more.
+        </p>  
+        
+      </div>
+      
+    </div>
+    
+    
+     
+     
+    <div class="header-3">
+    
+        
+      
+      <div class="text-container-3">
+        <h2 class="head-4">
+          Online Fundraising
+        </h2>
+        <p class="p-class-4">
+          Engage donors online and fuel your mission year-round. Quickly launch giving campaigns that drive impact and convert online donations.
+        </p>  
+        <a class="solutions-learn-more-1" href="https://dev203498.service-now.com/cb?id=list_of_events/" target="_self">Learn More</a>
+      </div>
+      
+      <img src="homeimage7.jpg" alt="logo image.jpg" width="500" height="600" class="image-container-3">
+    
+    </div>
+    <img src="donationBanner.jpg" class="bannerImage">
+    <div class="header-4">
+      
+        <img src="eventimage2.jpg" alt="logo image.jpg" width="500" height="600" class="image-container-4">
+      
+      
+      <div class="text-container-4">
+        <h2 class="head-5">
+          Donation Management
+        </h2>
+        <p class="p-class-5">
+          Streamline the donation process with our efficient management system, allowing donors to contribute money or items effortlessly, and track their impact in real-time.
+        </p>  
+      </div>   
+    </div>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

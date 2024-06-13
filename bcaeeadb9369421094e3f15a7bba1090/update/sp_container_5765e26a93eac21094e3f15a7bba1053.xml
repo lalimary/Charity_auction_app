@@ -6,8 +6,8 @@
         <bootstrap_alt>false</bootstrap_alt>
         <class_name/>
         <container_class_name/>
-        <name>Charity Bids Events - Container 1</name>
-        <order>1</order>
+        <name>Charity Bids Events - Container 2</name>
+        <order>2</order>
         <semantic_tag/>
         <sp_page display_value="charity_bids_events">699f2bde936e821094e3f15a7bba1000</sp_page>
         <subheader>false</subheader>
@@ -15,14 +15,14 @@
         <sys_created_by>lalitha</sys_created_by>
         <sys_created_on>2024-06-05 17:32:13</sys_created_on>
         <sys_id>5765e26a93eac21094e3f15a7bba1053</sys_id>
-        <sys_mod_count>5</sys_mod_count>
-        <sys_name>Charity Bids Events - Container 1</sys_name>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Charity Bids Events - Container 2</sys_name>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sp_container_5765e26a93eac21094e3f15a7bba1053</sys_update_name>
         <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-06-05 18:24:58</sys_updated_on>
+        <sys_updated_on>2024-06-13 19:10:08</sys_updated_on>
         <title/>
         <width>container</width>
     </sp_container>

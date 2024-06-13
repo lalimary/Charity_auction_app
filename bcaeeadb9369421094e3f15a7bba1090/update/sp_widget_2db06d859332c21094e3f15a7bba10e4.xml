@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function ($scope, $window) {
+    var c = this;
+
+    // Initialize c.data.events 
+    c.data.events = c.data.events || [];
+
+    // Function to show event details in modal
+    c.showDetails = function (event) {
+        c.selectedEvent = event;
+        $('#eventDetailsModal').modal('show');
+    };
+
+    // Function to donate money (redirect to Just Giving URL)
+    c.donateMoney = function (justGivingUrl) {
+        if (justGivingUrl) {
+            $window.open(justGivingUrl, '_blank');
+        }
+    };
+
+    // Function to donate item (placeholder for redirection logic)
+    c.donateItem = function (event) {
+     
+        console.log('Redirect to donate item form for event:', event);
+    };
+
+  
+    if (c.data) {
+        $scope.contentItems = c.data.events;
+    }
+
+   
+    var destroyWidgetWatcher = $scope.$watch(
+        function () {
+            return $("[widget='widget'][sn-atf-area='Events List']").length;
+        },
+        function (newValue, oldValue) {
+            if (newValue !== oldValue) {
+              
+                console.log('Widget presence changed');
+                destroyWidgetWatcher();
+            }
+        }
+    );
+
+    // Function to update events 
+    // $scope.updateEvents = function () {
+    //    
+    // };
+
+    // Modal functionality using Bootstrap modal
+    $('#eventDetailsModal').on('hidden.bs.modal', function () {
+        // Clear selected event when modal is closed
+        c.selectedEvent = null;
+    });
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f9fc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+
+.head{
+    color: #3382a3;
+    font-size: 60px;
+  text-align: center;
+    margin: 50px;
+
+}
+
+
+.head2{
+    text-align: center;
+    font-size: 33px;
+  color:black;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  height: 500px;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.event-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.event-details {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.event-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: bold;
+}
+
+.event-manager,
+.event-dates div,
+.event-status {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.event-dates div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.event-status {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.event-new {
+  color: #3498db; /* Blue for new events */
+}
+
+.event-upcoming {
+  color: #f39c12; /* Orange for upcoming events */
+}
+
+.event-in-progress {
+  color: #27ae60; /* Green for in-progress events */
+}
+
+.event-completed {
+  color: #e74c3c; /* Red for completed events */
+}
+
+.event-canceled {
+  color: #7f8c8d; /* Gray for canceled events */
+}
+
+.add-to-options {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-secondary {
+  background-color: #428bca;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 20px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #fc9f50
+}
+
+.imgFix {
+  width: 100%;
+}
+
+.imgC {
+  display: flex;
+  justify-content: center;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>color</field_list>
+        <has_preview>true</has_preview>
+        <id>event_list_2</id>
+        <internal>false</internal>
+        <link><![CDATA[function link($scope, $element, $attrs) {
+    // Example additional setup in link function if needed
+    // $element and $attrs can be used for DOM manipulation or attribute access
+    
+    // Example: Watch for changes on data.events
+    $scope.$watchCollection('c.data.events', function(newEvents, oldEvents) {
+        if (newEvents !== oldEvents) {
+            console.log('Events updated:', newEvents);
+            // Additional logic if needed when events change
+        }
+    });
+}
+]]></link>
+        <name>Event list 2</name>
+        <option_schema>[{"name":"show_star_rating","default_value":"Use system properties","section":"Presentation","label":"Show star rating","type":"choice","choices":[{"label":"Yes","value":"Yes"},{"label":"No","value":"No"},{"label":"Use system properties","value":"Use system properties"}]},{"hint":"Number of articles to display per page","name":"limit_article","section":"other","default_value":"10","label":"Number of articles to display per page","type":"integer"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function () {
+    // Initialize an array to hold the events
+    data.events = [];
+
+    // Define the table name for events (assuming events table name)
+    var tableName = 'x_1383184_charityb_events'; 
+
+    // Create a new GlideRecord object
+    var gr = new GlideRecord(tableName);
+    if (gr.isValid()) {
+        gr.query();
+
+        // Loop through each record and add it to the events array
+        while (gr.next()) {
+            var eventManagerName = '';
+            if (gr.event_manager) {
+                var managerGr = new GlideRecord('sys_user');
+                if (managerGr.get(gr.event_manager)) {
+                    eventManagerName = managerGr.getValue('name');
+                }
+            }
+
+            var startDate = gr.getValue('start_date');
+            var endDate = gr.getValue('end_date');
+            var status = gr.getValue('event_status');
+            var image = gr.getDisplayValue('image');
+            var charityCompany = gr.getValue('charity_company');
+            var description = gr.getValue('description');
+            var testimonials = gr.getValue('testimonial');
+            var justGivingUrl = gr.getValue('just_giving_url');
+
+            data.events.push({
+                event_name: gr.getValue('event_name'),
+                event_manager: eventManagerName,
+                start_date: startDate,
+                end_date: endDate,
+                status: status,
+                image: image,
+                charity_company: charityCompany,
+                description: description,
+                testimonials: testimonials,
+                just_giving_url: justGivingUrl
+            });
+        }
+    } else {
+        gs.error('Invalid table name: ' + tableName);
+    }
+
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-13 06:56:49</sys_created_on>
+        <sys_id>2db06d859332c21094e3f15a7bba10e4</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>Event list 2</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sp_widget_2db06d859332c21094e3f15a7bba10e4</sys_update_name>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-13 08:23:06</sys_updated_on>
+        <template><![CDATA[<div class="container">
+  <h1 class="head">Campaigns we love</h1>
+  <h2 class="head2">
+    Building Bridges, One Event at a Time
+  </h2>
+  <div id="events-grid" class="events-grid">
+    <div ng-repeat="event in c.data.events" class="event-card" ng-click="c.showDetails(event)">
+      <img ng-src="{{event.image || 'https://dev203498.service-now.com/logo%20image.jpg'}}" alt="{{event.event_name}}">
+      <div class="event-details">
+        <div class="event-title">{{event.event_name}}</div>
+        <div class="event-manager">Event Manager: {{event.event_manager}}</div>
+        <div class="event-dates">
+          <div>Start Date: {{event.start_date}}</div>
+          <div>End Date: {{event.end_date}}</div>
+        </div>
+        <div class="event-status"
+             ng-class="{
+               'event-new': event.status === 'new',
+               'event-upcoming': event.status === 'upcoming',
+               'event-in-progress': event.status === 'in progress',
+               'event-completed': event.status === 'completed',
+               'event-canceled': event.status === 'canceled'
+             }">
+          Status: {{event.status}}
+        </div>
+        <button class="btn btn-primary" ng-click="c.showDetails(event)" data-toggle="modal" data-target="#eventDetailsModal">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div id="eventDetailsModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-name">{{c.selectedEvent.event_name}}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="imgC">
+        <img ng-src="{{c.selectedEvent.image}}" alt="{{c.selectedEvent.event_name}}" class="imgFix">
+      </div>
+      <div class="modal-body">
+        <p><strong>Description:</strong> {{c.selectedEvent.description}}</p>
+        <p><strong>Start Date:</strong> {{c.selectedEvent.start_date}}</p>
+        <p><strong>End Date:</strong> {{c.selectedEvent.end_date}}</p>
+        <p><strong>Event Manager:</strong> {{c.selectedEvent.event_manager}}</p>
+        <p><strong>Charity Company:</strong> {{c.selectedEvent.charity_company}}</p>
+        <p><strong>Status:</strong> {{c.selectedEvent.status}}</p>
+        <p ng-if="c.selectedEvent.testimonials && c.selectedEvent.status === 'completed'"><strong>Testimonials:</strong> {{c.selectedEvent.testimonials}}</p>
+        <div class="add-to-options">
+          <button class="btn btn-secondary" ng-click="c.donateMoney(c.selectedEvent.just_giving_url)" ng-if="c.selectedEvent.status === 'completed'">Donate Money</button>
+          <button class="btn btn-secondary" ng-click="c.donateItem(c.selectedEvent)" ng-if="c.selectedEvent.status === 'completed'">Donate Item</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>
