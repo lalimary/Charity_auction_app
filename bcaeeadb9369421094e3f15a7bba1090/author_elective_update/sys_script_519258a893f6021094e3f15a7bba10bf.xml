@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="DELETE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>true</action_query>
+        <action_update>false</action_update>
+        <active>false</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_1383184_charityb_item</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>test 1 bs</name>
+        <order>500</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeBeforeQuery(current, previous /*null when async*/) {
+
+    // 1. Get the country location of the current user
+    var currentUserLocation = '';
+    var userGR = new GlideRecord('x_1383184_charityb_user_profile');
+    userGR.get(gs.getUserID());
+    if (userGR.isValid()) {
+        currentUserLocation = userGR.getValue('location'); // Assuming 'location' is the field containing country location in user profile
+    }
+
+    // 2. Add a query condition to filter items by the user's country location
+    current.addQuery('donator.location', currentUserLocation); // Assuming 'donator' is the reference field to user profile table
+
+})(current, previous);
+]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-06-11 11:59:59</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>519258a893f6021094e3f15a7bba10bf</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>test 1 bs</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_519258a893f6021094e3f15a7bba10bf</sys_update_name>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-12 05:48:27</sys_updated_on>
+        <template>donator.locationSAMEASdonator.location.parent^EQ</template>
+        <when>before_display</when>
+    </sys_script>
+    <sys_translated_text action="DELETE" query="documentkey=519258a893f6021094e3f15a7bba10bf"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>f0f392a5dbd2fd9cebdd2a59139619bb</instance_id>
+        <instance_name>dev203498</instance_name>
+        <name>sys_script_519258a893f6021094e3f15a7bba10bf</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;true&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;false&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_1383184_charityb_item&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;test 1 bs&lt;/name&gt;&lt;order&gt;500&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeBeforeQuery(current, previous /*null when async*/) {
+
+    // 1. Get the country location of the current user
+    var currentUserLocation = '';
+    var userGR = new GlideRecord('x_1383184_charityb_user_profile');
+    userGR.get(gs.getUserID());
+    if (userGR.isValid()) {
+        currentUserLocation = userGR.getValue('location'); // Assuming 'location' is the field containing country location in user profile
+    }
+
+    // 2. Add a query condition to filter items by the user's country location
+    current.addQuery('donator.location', currentUserLocation); // Assuming 'donator' is the reference field to user profile table
+
+})(current, previous);
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;christy&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-11 11:59:59&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;519258a893f6021094e3f15a7bba10bf&lt;/sys_id&gt;&lt;sys_mod_count&gt;7&lt;/sys_mod_count&gt;&lt;sys_name&gt;test 1 bs&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_519258a893f6021094e3f15a7bba10bf&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;christy&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-12 05:48:27&lt;/sys_updated_on&gt;&lt;template&gt;donator.locationSAMEASdonator.location.parent^EQ&lt;/template&gt;&lt;when&gt;before_display&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=519258a893f6021094e3f15a7bba10bf"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>247524302</payload_hash>
+        <record_name>test 1 bs</record_name>
+        <reverted_from/>
+        <source>247253e493ae021094e3f15a7bba10eb</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>christy</sys_created_by>
+        <sys_created_on>2024-06-12 05:48:27</sys_created_on>
+        <sys_id>d6774474933a421094e3f15a7bba10d4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1900afd8df30000001</sys_recorded_at>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-12 05:48:27</sys_updated_on>
+        <type>Business Rule</type>
+        <update_guid>1e774474a93a4210096a46250cb2efd3</update_guid>
+        <update_guid_history>1e774474a93a4210096a46250cb2efd3:247524302,5c759c2ca3f60210a1d8487e9f695b94:535962047,9784dc2ca3f60210f15014792c811aec:1854227892,1d741ce862f6021047c2a3655fa5b26b:-77247046,4864902cd9f602109d73abe0aa5deea0:1854227892,b0d318e87af6021010d01f00a34bc371:1549149880,6c531c6841f60210db7685976289d011:-1467084970,83e2dca885f60210a6f1c04741dc018e:-1548318357</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-14 05:10:21</sys_created_on>
+        <sys_db_object display_value="" name="sys_script">sys_script</sys_db_object>
+        <sys_id>189e1429be5b4180a048ff477c6c1cf9</sys_id>
+        <sys_metadata>519258a893f6021094e3f15a7bba10bf</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>test 1 bs</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent display_value="Item">6d85325b93a9421094e3f15a7bba10ea</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_519258a893f6021094e3f15a7bba10bf</sys_update_name>
+        <sys_update_version display_value="sys_script_519258a893f6021094e3f15a7bba10bf">d6774474933a421094e3f15a7bba10d4</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-14 05:10:21</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

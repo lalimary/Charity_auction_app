@@ -3,266 +3,350 @@
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>number</element>
             <position>0</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e0ef7bd093b6021094e3f15a7bba10f2</sys_id>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b8da221d93f6061094e3f15a7bba100f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
             <position>1</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e4ef7bd093b6021094e3f15a7bba10f2</sys_id>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>bcda221d93f6061094e3f15a7bba100f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>location</element>
-            <position>2</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e8ef7bd093b6021094e3f15a7bba10f2</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.end_split</element>
-            <position>3</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>ecef7bd093b6021094e3f15a7bba10f2</sys_id>
+            <position>2</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b0da221d93f6061094e3f15a7bba1010</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.begin_split</element>
-            <position>4</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e0ef7bd093b6021094e3f15a7bba10f3</sys_id>
+            <position>3</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b4da221d93f6061094e3f15a7bba1010</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
             <sys_user/>
             <type>.begin_split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>donator</element>
-            <position>5</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e4ef7bd093b6021094e3f15a7bba10f3</sys_id>
+            <position>4</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b8da221d93f6061094e3f15a7bba1010</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>donator.location</element>
-            <position>6</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e8ef7bd093b6021094e3f15a7bba10f3</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>item_name</element>
-            <position>7</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>ecef7bd093b6021094e3f15a7bba10f3</sys_id>
+            <position>5</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>bcda221d93f6061094e3f15a7bba1010</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>start_date</element>
-            <position>8</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e0ef7bd093b6021094e3f15a7bba10f4</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>end_date</element>
-            <position>9</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e4ef7bd093b6021094e3f15a7bba10f4</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>auction_status</element>
-            <position>10</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e8ef7bd093b6021094e3f15a7bba10f4</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
-            <position>11</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>ecef7bd093b6021094e3f15a7bba10f4</sys_id>
+            <position>6</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b0da221d93f6061094e3f15a7bba1011</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>value</element>
-            <position>12</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e0ef7bd093b6021094e3f15a7bba10f5</sys_id>
+            <element>donator.location</element>
+            <position>7</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b4da221d93f6061094e3f15a7bba1011</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>start_bid_amount</element>
-            <position>13</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e4ef7bd093b6021094e3f15a7bba10f5</sys_id>
+            <element>category</element>
+            <position>8</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b8da221d93f6061094e3f15a7bba1011</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>9</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>bcda221d93f6061094e3f15a7bba1011</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>10</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b0da221d93f6061094e3f15a7bba1012</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>value</element>
+            <position>11</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b4da221d93f6061094e3f15a7bba1012</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>12</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b8da221d93f6061094e3f15a7bba1012</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>start_bid_amount</element>
+            <position>13</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>bcda221d93f6061094e3f15a7bba1012</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>highest_bid_amount</element>
             <position>14</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e8ef7bd093b6021094e3f15a7bba10f5</sys_id>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b0da221d93f6061094e3f15a7bba1013</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>category</element>
-            <position>15</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>ecef7bd093b6021094e3f15a7bba10f5</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.end_split</element>
-            <position>16</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e0ef7bd093b6021094e3f15a7bba10f6</sys_id>
+            <position>15</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b4da221d93f6061094e3f15a7bba1013</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>16</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b8da221d93f6061094e3f15a7bba1013</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>start_date</element>
+            <position>17</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>bcda221d93f6061094e3f15a7bba1013</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>auction_status</element>
+            <position>18</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b0da221d93f6061094e3f15a7bba1014</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>19</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b4da221d93f6061094e3f15a7bba1014</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>end_date</element>
+            <position>20</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b8da221d93f6061094e3f15a7bba1014</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>21</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>bcda221d93f6061094e3f15a7bba1014</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>description</element>
-            <position>17</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e4ef7bd093b6021094e3f15a7bba10f6</sys_id>
+            <position>22</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b0da221d93f6061094e3f15a7bba1015</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>image</element>
-            <position>18</position>
-            <sys_created_by>christy</sys_created_by>
-            <sys_created_on>2024-06-11 10:36:48</sys_created_on>
-            <sys_id>e8ef7bd093b6021094e3f15a7bba10f6</sys_id>
+            <position>23</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 06:59:06</sys_created_on>
+            <sys_id>b4da221d93f6061094e3f15a7bba1015</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
-            <sys_updated_by>christy</sys_updated_by>
-            <sys_updated_on>2024-06-11 10:36:48</sys_updated_on>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 06:59:06</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>donator_2</element>
+            <position>24</position>
+            <sys_created_by>lalitha</sys_created_by>
+            <sys_created_on>2024-06-14 11:06:07</sys_created_on>
+            <sys_id>d35327dd93fa061094e3f15a7bba1087</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383184_charityb_item" sys_domain="global" view="Default view">82d57a5b93a9421094e3f15a7bba10bd</sys_ui_section>
+            <sys_updated_by>lalitha</sys_updated_by>
+            <sys_updated_on>2024-06-14 11:06:07</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
