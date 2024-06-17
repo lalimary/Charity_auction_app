@@ -8,9 +8,9 @@
                 <element inactive_on_update="false" label="Auction completed" sequence="400" value="auction_completed"/>
             </choice>
         </element>
-        <element label=" Category" mandatory="true" max_length="32" name="category" reference="x_1383184_charityb_category" type="reference"/>
+        <element label="Category" mandatory="true" max_length="32" name="category" reference="x_1383184_charityb_category" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Description" mandatory="true" max_length="500" name="description" type="string"/>
-        <element attributes="encode_utf8=false" default="javascript:gs.getUserID().name;" label="Donator" max_length="32" name="donator" reference="x_1383184_charityb_user_profile" type="reference"/>
+        <element attributes="encode_utf8=false" label="Donator" max_length="32" name="donator" reference="x_1383184_charityb_user_profile" type="reference"/>
         <element label="End date" mandatory="true" max_length="40" name="end_date" type="glide_date"/>
         <element label="Highest bid amount" max_length="20" name="highest_bid_amount" type="currency"/>
         <element label="Image" max_length="40" name="image" type="user_image"/>

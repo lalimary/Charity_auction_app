@@ -30,41 +30,40 @@
         <script><![CDATA[(function executeRule(current, previous) {
     if (!gs.hasRole('x_1383184_charityb.admin')) {
         var userId = gs.getUserID();
-        
-        var userProfileGr = new GlideRecord('x_1383184_charityb_user_profile'); 
-        userProfileGr.addQuery('name', userId); // 'name' is the reference field 
+
+        var userProfileGr = new GlideRecord('x_1383184_charityb_user_profile');
+        userProfileGr.addQuery('name', userId);
         userProfileGr.query();
-        
+
         if (userProfileGr.next()) {
-            
-            var userCountry = userProfileGr.getDisplayValue('location.country'); 
-            
+
+            var userCountry = userProfileGr.getDisplayValue('location.country');
+
             if (userCountry) {
-                
+
                 current.addQuery('donator.location.country', userCountry);
                 return;
             }
         }
-        
+
         return null;
     }
-})(current, previous);
-]]></script>
+})(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>christy</sys_created_by>
         <sys_created_on>2024-06-12 07:42:41</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>1a51a03493ba421094e3f15a7bba105b</sys_id>
-        <sys_mod_count>24</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_name>Filter item based on user location</sys_name>
         <sys_overrides/>
         <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
         <sys_policy/>
         <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
         <sys_update_name>sys_script_1a51a03493ba421094e3f15a7bba105b</sys_update_name>
-        <sys_updated_by>lalitha</sys_updated_by>
-        <sys_updated_on>2024-06-14 09:44:30</sys_updated_on>
+        <sys_updated_by>christy</sys_updated_by>
+        <sys_updated_on>2024-06-17 09:52:34</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>

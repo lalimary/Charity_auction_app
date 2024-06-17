@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1383184_charityb.GetLoggedInUserName</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>GetLoggedInUserName</name>
+        <script><![CDATA[var GetLoggedInUserName = Class.create();
+GetLoggedInUserName.prototype = {
+    initialize: function() {
+    },
+
+    
+    getUserName: function() {
+        var user = new GlideRecord('sys_user');
+        if (user.get(gs.getUserID())) {
+            return user.user_name;
+        }
+        return '';
+    },
+
+    type: 'GetLoggedInUserName'
+};
+
+
+
+
+
+
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-06-17 06:47:11</sys_created_on>
+        <sys_id>fe04029e8336c2108dc4c829feaad3f2</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>GetLoggedInUserName</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_update_name>sys_script_include_fe04029e8336c2108dc4c829feaad3f2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-06-17 09:32:08</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</application>
+        <file_path/>
+        <instance_id>d3e74a441bcd4ed877c7cb7b234bcb61</instance_id>
+        <instance_name>dev243365</instance_name>
+        <name>sys_script_include_fe04029e8336c2108dc4c829feaad3f2</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_1383184_charityb.GetLoggedInUserName&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;GetLoggedInUserName&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var GetLoggedInUserName = Class.create();
+GetLoggedInUserName.prototype = {
+    initialize: function() {
+    },
+
+    
+    getUserName: function() {
+        var user = new GlideRecord('sys_user');
+        if (user.get(gs.getUserID())) {
+            return user.user_name;
+        }
+        return '';
+    },
+
+    type: 'GetLoggedInUserName'
+};
+
+
+
+
+
+
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-17 06:47:11&lt;/sys_created_on&gt;&lt;sys_id&gt;fe04029e8336c2108dc4c829feaad3f2&lt;/sys_id&gt;&lt;sys_mod_count&gt;11&lt;/sys_mod_count&gt;&lt;sys_name&gt;GetLoggedInUserName&lt;/sys_name&gt;&lt;sys_package display_value="CharityBids" source="x_1383184_charityb"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="CharityBids"&gt;bcaeeadb9369421094e3f15a7bba1090&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_fe04029e8336c2108dc4c829feaad3f2&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-17 09:32:08&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>727590738</payload_hash>
+        <record_name>GetLoggedInUserName</record_name>
+        <reverted_from/>
+        <source>ba25b99a83f2c2108dc4c829feaad35f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-06-17 09:32:08</sys_created_on>
+        <sys_id>ef9a62da833ac2108dc4c829feaad3ca</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>190258a220f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-06-17 09:32:08</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>679a62da7f3ac2104b58185d320421ca</update_guid>
+        <update_guid_history>679a62da7f3ac2104b58185d320421ca:727590738,0bb266de67f6c2109860d5a7fca37e2d:-2134146587,47b122de78f6c2108787bd22819e5ea8:146735193,81306e5ef7f6c210f51805a4aeb715e3:-1420288155,43bf921a92f6c2109acd4ed5bea00e3a:118536904,f39f061e7b76c210bad494c53a404e8c:1463351628,82de06da8676c210f5c52d9f306e1cf9:-5511573,2ace4e9a5176c210ec865aa7fa94e737:1230479898,455e4a9a4c76c210edbb0d656f3a7754:-58822715,efdb4ad64076c210156c0115713055d0:-365379628,c69b02d63a76c210260363af76e4843f:1710926807,f7d402de4036c2105c5d71a9e5124f6f:-237256342</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>lalitha</sys_created_by>
+        <sys_created_on>2024-06-17 09:55:17</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>04be843fd1cd4998804bae95c3218651</sys_id>
+        <sys_metadata>fe04029e8336c2108dc4c829feaad3f2</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GetLoggedInUserName</sys_name>
+        <sys_package display_value="CharityBids" source="x_1383184_charityb">bcaeeadb9369421094e3f15a7bba1090</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="CharityBids">bcaeeadb9369421094e3f15a7bba1090</sys_scope>
+        <sys_scope_delete display_value="">29dae2f224af48ab9e59cb6ffa07ce11</sys_scope_delete>
+        <sys_update_name>sys_script_include_fe04029e8336c2108dc4c829feaad3f2</sys_update_name>
+        <sys_update_version display_value="sys_script_include_fe04029e8336c2108dc4c829feaad3f2">ef9a62da833ac2108dc4c829feaad3ca</sys_update_version>
+        <sys_updated_by>lalitha</sys_updated_by>
+        <sys_updated_on>2024-06-17 09:55:17</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
